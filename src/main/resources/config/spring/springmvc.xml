@@ -1,0 +1,75 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
+
+    <!-- 扫描controller，指定controller的包 -->
+    <context:component-scan base-package="com.demo.ssm.controller"/>
+    <!--<context:component-scan base-package="com.demo.ssm.service"/>-->
+    <!--<context:component-scan base-package="com.demo.ssm.mapper"/>-->
+
+
+    <!--<mvc:resources location="WEB-INF/view/theme/" mapping="/theme/**"/>-->
+
+     <!--静态资源处理器 jsp.html-->
+    <mvc:default-servlet-handler/>
+
+    <!-- 注解映射器和适配器 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+
+    <!--&lt;!&ndash;200*1024*1024即200M resolveLazily属性启用是为了推迟文件解析，以便捕获文件大小异常 &ndash;&gt;-->
+    <!--<bean id="multipartResolver"-->
+          <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="maxUploadSize" value="209715200" />-->
+        <!--<property name="defaultEncoding" value="UTF-8" />-->
+        <!--<property name="resolveLazily" value="true" />-->
+    <!--</bean>-->
+
+    <!-- 避免IE在ajax请求时，返回json出现下载 -->
+    <!--<bean id="jacksonMessageConverter"-->
+          <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+                <!--<value>application/pdf;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- 全局异常处理.-->
+    <!--<bean id="exceptionHandler" class="cn.demo.ssm.intercepter.ExceptionHandler"/>-->
+
+    <!--拦截器 -->
+    <!--<mvc:interceptors>-->
+    <!--&lt;!&ndash;多个拦截器,顺序执行 &ndash;&gt;-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/**"/>-->
+    <!--<bean class="cn.demo.ssm.intercepter.LoginIntercepter"/>-->
+    <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+
+    <!-- 视图解析器解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <!-- 配置jsp路径的前缀 -->
+        <property name="prefix" value="/view/"/>
+        <!-- 配置jsp路径的后缀 -->
+        <property name="suffix" value=".html"/>
+    </bean>
+
+</beans>
