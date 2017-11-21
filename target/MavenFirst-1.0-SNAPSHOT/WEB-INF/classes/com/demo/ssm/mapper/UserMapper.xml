@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace用于与DAO层的接口类进行绑定,这样我们无需实现DAO层的接口
+类,其接口类就能够自动的找到相关的SQL语句进行绑定实 现-->
+<mapper namespace="com.demo.ssm.mapper.UserMapper">
+    <!--查询用户-->
+    <select id="findUser" parameterType="String" resultType="com.demo.ssm.po.User">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+    <!--添加用户-->
+    <insert id="insertUser" parameterType="com.demo.ssm.po.User">
+        INSERT INTO user
+        (username,password)
+        VALUES (#{username},#{password})
+    </insert>
+
+</mapper>
+
+
+
+
+

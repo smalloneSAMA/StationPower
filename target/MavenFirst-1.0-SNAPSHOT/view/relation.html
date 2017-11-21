@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <title>业务可靠性影响因素分析</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+<body>
+<!--<h5>业务可靠性相关因素关系图</h5>-->
+<div id='div1' style='width: 1000px;height: 600px;margin: 10px;padding: 20px;'></div>
+<script type='text/javascript'>
+    var myChart = echarts.init(document.getElementById('div1'));
+    option = {
+//        title: {
+//            text: '承载某业务的通道的拓扑结构',
+//            left: 'center'
+//        },
+        series: [
+            {
+                type: "graph",
+                layout: "force",
+                symbol: "circle",
+                symbolSize: 50,
+                roam: true,
+                force: {
+                    repulsion: 800
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: "inside",
+                        textStyle: {
+                            fontSize: 12
+                        }
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: "gray",
+                        width: 2,
+                        opacity: 0.8
+                    }
+                },
+                edgeSymbolSize: [10, 50],
+                categories: [{
+                    name: "一级",
+                    label: {
+                        normal:{
+                            fontSize: 20
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            symbolSize: 130,
+                            color: "#FF6A6A",
+                            borderColor: "",
+                            shadowBlur: "",
+                            shadowColor: "",
+//                            opacity: 0.8
+                        }
+                    }
+                },{
+                    name: "二级",
+                    symbolSize: 95,
+                    label: {
+                        normal:{
+                            fontSize: 18
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#4169E1",
+                            borderColor: "",
+                            shadowBlur: "",
+                            shadowColor: "",
+                            opacity: 0.8
+                        }
+                    }
+                },{
+                    name: "三级",
+                    symbolSize: 75,
+                    label: {
+                        normal:{
+                            fontSize: 16
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#1E90FF",
+                            borderColor: "",
+                            shadowBlur: "",
+                            shadowColor: "",
+                            opacity: 0.8
+                        }
+                    }
+                },{
+                    name: "四级",
+                    symbolSize: 55,
+                    label: {
+                        normal:{
+                            fontSize: 12,
+                            color: "#4F4F4F",
+                            fontWeight: "bolder"
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#87CEFA",
+                            borderColor: "",
+                            shadowBlur: "",
+                            shadowColor: "",
+                            opacity: 0.8
+                        }
+                    }
+                }],
+                data: [{
+                    name: "业务可靠性",
+                    category: 0,
+                    symbolSize : 130,
+                    draggable: true
+                },{
+                    name: "设备可靠性",
+                    symbolSize : 95,
+                    category: 1,
+                    draggable: true
+                },{
+                    name: "传输介质可靠性",
+                    symbolSize : 95,
+                    category: 1,
+                    draggable: true
+                },{
+                    name: "拓扑结构可靠性",
+                    symbolSize : 95,
+                    category: 1,
+                    draggable: true
+                },{
+                    name: "生产厂家",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "设备型号",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "使用年限",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "机房环境",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "站点环境",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "设备负载",
+                    symbolSize : 75,
+                    category: 2,
+                    draggable: true
+                },{
+                    name: "湿度",
+                    symbolSize : 55,
+                    category: 3,
+                    draggable: true
+                },{
+                    name: "温度",
+                    category: 3,
+                    symbolSize : 55,
+                    draggable: true
+                },{
+                    name: "地质",
+                    symbolSize : 55,
+                    category: 3,
+                    draggable: true
+                },{
+                    name: "气象",
+                    symbolSize : 55,
+                    category: 3,
+                    draggable: true
+                },{
+                    name: "市政数据",
+                    symbolSize : 55,
+                    category: 3,
+                    draggable: true
+                },{
+                    name: "光缆类型",
+                    symbolSize : 55,
+                    category: 3,
+                    draggable: true
+                }],
+                links: [{
+                    source: "业务可靠性",
+                    target: "设备可靠性"
+                },{
+                    source: "业务可靠性",
+                    target: "传输介质可靠性"
+                },{
+                    source: "业务可靠性",
+                    target: "拓扑结构可靠性"
+                },{
+                    source: "设备可靠性",
+                    target: "生产厂家"
+                },{
+                    source: "设备可靠性",
+                    target: "设备型号"
+                },{
+                    source: "设备可靠性",
+                    target: "使用年限"
+                },{
+                    source: "设备可靠性",
+                    target: "机房环境"
+                },{
+                    source: "设备可靠性",
+                    target: "设备负载"
+                },{
+                    source: "设备可靠性",
+                    target: "站点环境"
+                },{
+                    source: "机房环境",
+                    target: "温度"
+                },{
+                    source: "机房环境",
+                    target: "湿度"
+                },{
+                    source: "站点环境",
+                    target: "气象"
+                },{
+                    source: "站点环境",
+                    target: "地质"
+                },{
+                    source: "传输介质可靠性",
+                    target: "光缆类型"
+                },{
+                    source: "传输介质可靠性",
+                    target: "市政数据"
+                }]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

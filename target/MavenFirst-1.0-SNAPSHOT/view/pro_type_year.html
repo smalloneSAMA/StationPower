@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂家、设备型号、使用年限与故障率关系挖掘</title>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+<body>
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <p>1.总体而言，设备的故障率在前7年持续上升，7年之后，故障率稳定在较高位置。</p>
+        <p>2.ECI与阿尔卡特的设备故障率比较高，和记奥普泰与中兴的设备故障率较低。</p>
+        <p>3.中兴、NEC以及和记奥普泰的设备故障率与使用年限关系很大.</p>
+        </div>
+
+</div>
+<div  class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>各厂家设备前8年平均故障率</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id='ey_failure' style='width: 90%;height: 600px;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>各厂家设备故障率与使用年限关系</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id='ey_failure2' style='height: 700px;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript'>
+    $(document).ready(function(){
+
+        equip();
+        Relation();
+
+
+    });
+
+    function equip() {
+        //获取平均故障率数据
+        $.ajax({
+            url: "../../AverageFailureRate/select",
+            type: "post",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+
+                Average(data);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+
+    function Average(obj) {
+        var AverageData = new Array();
+        var CompanyName = new Array();
+
+        //取出各公司平均故障率数据
+        $.each(obj, function (i, item) {
+            CompanyName[i] = item.Company;
+            AverageData[i] = item.FailureRate;
+
+        });
+
+    var myChart = echarts.init(document.getElementById('ey_failure'));
+    option = {
+        title: {
+            text: "各厂家设备前八年平均故障率",
+            left: "center"
+        },
+        color: ['#3398DB'],
+        tooltip : {
+            trigger: 'axis',
+            formatter: '{b0} <br />{a}：{c0} 次每年',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : CompanyName,
+                axisTick: {
+                    alignWithLabel: true
+                },
+                axisLabel: {
+                    // rotate: 60,
+                    margin: 15,
+                    fontSize: 14,
+                    fontWeight: 'bolder'
+                }
+            }
+        ],
+
+        yAxis : [
+            {
+                name :'故障率（次/年）',
+                nameLocation: "middle",
+                nameGap: 36,
+                nameTextStyle : {
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                    padding : [10, 0, 0, 30]
+                },
+                axisLabel: {
+                    fontSize: 14,
+                    fontWeight: 'bolder'
+                },
+                nameRotate:90,
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'平均故障率',
+                type:'bar',
+                barWidth: '60%',
+                data: AverageData
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+    }
+</script>
+<script type='text/javascript'>
+
+    function Relation() {
+        //获取故障率与使用时间的关系的数据
+        $.ajax({
+            url: "../../Relationship_Failure_Year/select",
+            type: "post",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+
+                relationData(data);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+
+    function relationData(obj) {
+
+        var companyName = new Array();
+        var datasub = new Array();
+        var failureRate= new Array();
+
+        var data_eci = new Array();
+        var data_nec = new Array();
+        var data_zx = new Array();
+        var data_hw = new Array();
+        var data_hjapt = new Array();
+        var data_aekt = new Array();
+        var data_mkn = new Array();
+        var data_all = new Array();
+
+        var eci_x = new Array();
+        var nec_x = new Array();
+        var zx_x = new Array();
+        var hw_x = new Array();
+        var hjapt_x = new Array();
+        var aekt_x = new Array();
+        var mkn_x = new Array();
+        var all_x = new Array();
+
+        var eci_y = new Array();
+        var nec_y = new Array();
+        var zx_y = new Array();
+        var hw_y = new Array();
+        var hjapt_y = new Array();
+        var aekt_y = new Array();
+        var mkn_y = new Array();
+        var all_y = new Array();
+
+        var eci = new Array();
+        var nec = new Array();
+        var zx = new Array();
+        var hw = new Array();
+        var hjapt = new Array();
+        var aekt = new Array();
+        var mkn = new Array();
+        var all = new Array();
+
+
+
+        var length1=0,length2=0,length3=0,length4=0,length5=0,length6=0,length7=0,length8=0;
+
+        //取出数据
+        $.each(obj, function (i, item) {
+            companyName[i] = item.Company;
+            datasub[i] = item.UseTime;
+            failureRate[i]= item.FailureRate;
+            if ('ECI'==item.Company) {
+                eci[length1]=item;
+                length1++;
+
+            }
+            else if ('NEC'==item.Company) {
+                nec[length2]=item;
+                length2++;
+
+            }
+            else if ('中兴'==item.Company){
+                zx[length3]=item;
+                length3++;
+
+            }
+            else if ('华为'==item.Company) {
+                hw[length4]=item;
+                length4++;
+
+            }
+            else if ('和记奥普泰'==item.Company) {
+                hjapt[length5]=item;
+                length5++;
+
+            }
+            else if ('阿尔卡特'==item.Company) {
+                aekt[length6]=item;
+                length6++;
+
+            }
+            else if ('马可尼'==item.Company) {
+                mkn[length7]=item;
+                length7++;
+
+            }
+            else {
+                all[length8]=item;
+                length8++;
+
+            }
+        });
+
+        //按照使用时间排序
+                function sortbyTemp(a,b) {
+                    return a.UseTime-b.UseTime;
+                }
+                eci.sort(sortbyTemp);
+                nec.sort(sortbyTemp);
+                zx.sort(sortbyTemp);
+                hw.sort(sortbyTemp);
+                hjapt.sort(sortbyTemp);
+                aekt.sort(sortbyTemp);
+                mkn.sort(sortbyTemp);
+                all.sort(sortbyTemp);
+
+       //分离数据
+        for(var i=0;i<eci.length;i++){
+            eci_x[i] = eci[i].UseTime;
+            eci_y[i] = eci[i].FailureRate;
+            data_eci[i]=[eci_x[i], eci_y[i]];
+        }
+        for(var i=0;i<nec.length;i++){
+            nec_x[i] = nec[i].UseTime;
+            nec_y[i] = nec[i].FailureRate;
+            data_nec[i]=[nec_x[i], nec_y[i]];
+        }
+        for(var i=0;i<zx.length;i++){
+            zx_x[i] = zx[i].UseTime;
+            zx_y[i] = zx[i].FailureRate;
+            data_zx.push([zx_x[i], zx_y[i]]);
+        }
+        for(var i=0;i<hw.length;i++){
+            hw_x[i] = hw[i].UseTime;
+            hw_y[i] = hw[i].FailureRate;
+            data_hw.push([hw_x[i], hw_y[i]]);
+        }
+        for(var i=0;i<hjapt.length;i++){
+            hjapt_x[i] = hjapt[i].UseTime;
+            hjapt_y[i] = hjapt[i].FailureRate;
+            data_hjapt.push([hjapt_x[i], hjapt_y[i]]);
+        }
+        for(var i=0;i<aekt.length;i++){
+            aekt_x[i] = aekt[i].UseTime;
+            aekt_y[i] = aekt[i].FailureRate;
+            data_aekt.push([aekt_x[i], aekt_y[i]]);
+        }
+        for(var i=0;i<mkn.length;i++){
+            mkn_x[i] = mkn[i].UseTime;
+            mkn_y[i] = mkn[i].FailureRate;
+            data_mkn.push([mkn_x[i], mkn_y[i]]);
+        }
+        for(var i=0;i<all.length;i++){
+            all_x[i] = all[i].UseTime;
+            all_y[i] = all[i].FailureRate;
+            data_all.push([all_x[i], all_y[i]]);
+        }
+
+
+    var myChart2 = echarts.init(document.getElementById('ey_failure2'));
+
+    option2 = {
+        backgroundColor: '#394056',
+        title: {
+            text: '各厂家设备故障率与使用年限的关系',
+            left: 'center',
+            textStyle: {
+                fontWeight: 'bolder',
+                fontSize: 24,
+                color: '#F1F1F3'
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            }
+        },
+        legend: {
+            icon: 'rect',
+            itemWidth: 30,
+            itemHeight: 3,
+            itemGap: 13,
+            right: '5%',
+            top: 40,
+            orient: 'vartical',
+            data: companyName,
+            right: '4%',
+            textStyle: {
+                fontSize: 14,
+                color: '#F1F1F3'
+            }
+        },
+        grid: {
+            left: '4%',
+            right: '4%',
+            bottom: '5%',
+            containLabel: true
+        },
+        xAxis: [{
+            name: '使用年限',
+            nameLocation: 'middle',
+            nameGap:30,
+            nameTextStyle: {
+                color: '#F1F1F3',
+                fontSize: 16
+            },
+            splitNumber: 9,
+            splitLine: {
+                lineStyle: {
+                    color: '#57617B',
+                    type: 'dashed'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            },
+            axisLabel: {
+                margin: 10,
+                textStyle: {
+                    fontSize: 16
+                }
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '故障率（次/年）',
+            nameTextStyle: {
+                color: '#F1F1F3',
+                fontSize: 16
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            },
+            axisLabel: {
+                margin: 10,
+                textStyle: {
+                    fontSize: 16
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed',
+                    color: '#57617B'
+                }
+            }
+        }],
+        series: [{
+            // pink
+            name: 'ECI',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(238, 130, 238)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(238, 130, 238, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(238, 130, 238, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(238, 130, 238)',
+                    borderColor: 'rgba(238, 130, 238,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_eci
+        },{
+            // yellow
+            name: 'NEC',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(255, 185, 15)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 185, 15, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(255, 185, 15, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(255, 185, 15)',
+                    borderColor: 'rgba(255, 185, 15,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_nec
+        },{
+            // white
+            name: '中兴',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(245, 245, 245)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(245, 245, 245, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(245, 245, 245, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(245, 245, 245)',
+                    borderColor: 'rgba(245, 245, 245,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_zx
+        },{
+            // salmon
+            name: '华为',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(250, 128, 114)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(250, 128, 114, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(250, 128, 114, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(250, 128, 114)',
+                    borderColor: 'rgba(250, 128, 114, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_hw
+        },{
+            // purple
+            name: '和记奥普泰',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(147, 112, 219)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(147, 112, 219, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(147, 112, 219, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(147, 112, 219)',
+                    borderColor: 'rgba(147, 112, 219, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_hjapt
+        },{
+            // green
+            name: '阿尔卡特',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(46, 139, 87)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(46, 139, 87, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(46, 139, 87, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(46, 139, 87)',
+                    borderColor: 'rgba(46, 139, 87, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_aekt
+        },{
+            // skyblue
+            name: '马可尼',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(0, 191, 255)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 191, 255, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(0, 191, 255, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(0, 191, 255)',
+                    borderColor: 'rgba(0, 191, 255, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_mkn
+        },{
+            // red
+            name: '所有厂家',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'rect',
+            symbolSize: 6,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    type: 'dashed',
+                    color: 'rgb(255, 0, 0)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 0, 0, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(255, 0, 0, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 12
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(255, 0, 0)',
+                    borderColor: 'rgba(255, 0, 0, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_all
+
+        }
+        ]
+    };
+
+    myChart2.setOption(option2);
+    }
+</script>
+</body>
+</html>

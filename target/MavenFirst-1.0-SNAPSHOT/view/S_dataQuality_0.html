@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>数据质量</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="./css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-12">
+            <p>（1）对不同类型的数据使用不同的预处理方案。对文本类型数据使用自然语言处理（NLP）提取其关键字；对属性类型数据使用One-Hot编码将其转化为数字类型；对数字类型数据，根据其分布不同考虑是否需要归一化或标准化。
+            </p>
+            <p>（2）通过相关性分析，信息增益计算等方法从全量的字段中选取特征。
+            </p>
+			<p>（3）初步训练模型，在后期再通过专家推荐特征对模型进行优化。
+            </p>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>数据分析流程图</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="height:680px" id="dataFlow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+                    <div class="ibox-content text-center">
+                        <h2 class="m-b-xxs"><b>站点业务数分析</b></h2>
+                    </div>
+					<div class="white-bg dashboard-header">
+						<h2>1.特征工程</h2>
+						<p>通过专家推荐和相关性分析的方法，找到了与站点业务数量相关的一些特征，包括站点类型、电压等级、调度等级、站点建成年限、站点在拓扑图中的中心度、站点中光传输设备数量、站点所属系统以及一些组合特征。分析发现，站点类型与业务数量相关性最强，不同类型站点业务数量相差显著。</p>
+					</div>
+                </div>
+			</div>
+		</div>
+		
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>站点类型与业务数关系</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="buzNum" style="width:100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>站点中心度和业务数关系</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="buzNum1" style="width:100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+					<div class="white-bg dashboard-header">
+						<h3>2.模型选择</h3>
+						<p>对特征进行离散化、标准化等预处理后，训练模型。实验中模型以随机挑选的70%站点进行训练，剩余30%站点进行测试。训练时以站点的特征为输入，站点的业务数量为输出。模型的好坏通过模型在测试集上的预测业务值与实际业务值的拟合优度R2决定。实验中，使用了线性回归、Ridge回归、SVR等不同的回归模型进行了训练。最终发现SVR模型对该问题的拟合程度最高。</p>
+					</div>
+                </div>
+			</div>
+		</div>
+		
+		<div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>模型选择相关因素</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="modelSel" style="width:100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Ridge回归 VS SVR模型</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+						 <div style="height:400px;">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>模型</th>
+										<th>优点</th>
+										<th>缺点</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Ridge回归</td>
+										<td>可以得出每个特征对最终结果的权重大小，训练时收敛速度快</td>
+										<td>只能拟合线性关系，对异常点敏感</td>
+									</tr>
+									<tr>
+										<td>SVR模型</td>
+										<td>通过引入核函数可以拟合任意关系，对异常点敏感度低，不易过拟合</td>
+										<td>涉及到二次规划问题，计算开销较大，无法得到特征权重</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>预测准确站点top10</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>站点名称</th>
+                                    <th>系统记录业务数</th>
+                                    <th>预测业务数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Accurate">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>异常站点top10</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>站点名称</th>
+                                    <th>系统记录业务数</th>
+                                    <th>预测业务数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Abnormal">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!--<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+                    <div class="ibox-content text-center">
+                        <h2 class="m-b-xxs"><b>二、业务类型分析</b></h2>
+                    </div>
+                </div>
+			</div>
+		</div>-->
+		
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
+	<script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <!--<script src="js/demo/echarts-demo.min.js"></script>-->
+    
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        loadType();
+        loadCentrality();
+        queryAbnormal();
+        queryAccurate();
+
+    });
+
+    //站点中心类型与业务数关系的数据
+    function loadType(){
+        //获取数据
+        $.ajax({
+            url: "../../StationType/select",
+            type: "post",
+            dataType : "json",
+            async:  false,
+            success:function(data){
+                //数据取出
+                buzNum(data);
+
+            },
+            error: function (data) {
+                if(data.result=="error"){
+                    alert("出现异常");
+                }
+            }
+        });
+    }
+
+    //中心度与业务数关系的数据
+    function loadCentrality() {
+        $.ajax({
+            url: "../../Relationship_Centrality_BusinessNum/select",
+            type: "post",
+            dataType : "json",
+            async:  false,
+            success:function(data){
+
+                buzNum1(data);
+
+            },
+            error: function (data) {
+                if(data.result=="error"){
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+
+    /*
+     * 站点业务类型和业务数关系
+     */
+    function buzNum(obj){
+        var myChart = echarts.init(document.getElementById('buzNum'));
+
+
+        //取出站点类型数据
+        var typearray = new Array();
+        $.each(obj,function(i,item){
+            typearray[i] = item.name;
+        });
+
+        //业务数
+        var businessNumarray = new Array();
+        //取出业务数
+        $.each(obj,function(i,item){
+            businessNumarray[i] = item.value;
+        });
+
+
+      //  标记点
+        var point = new Array();
+        point = obj;
+
+
+        //视图
+        option = {
+            title : {
+                text: '站点类型与业务数关系'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            // X轴
+            xAxis : [
+                {
+//				type : 'category',
+                data : typearray,
+                name : '站点类型',
+                    axisLabel: {
+                        interval: 0
+                    }
+                }
+            ],
+            // Y 轴
+            yAxis : [
+                {
+                    type : 'value',
+                    name : '平均业务数'
+                }
+            ],
+            // 标记点
+            series : [
+                {
+                    name:'平均业务数',
+                    type:'bar',
+                    data:businessNumarray,
+                    markPoint : {
+                        data : point
+                    }
+                    /*markLine : {
+                        data : [
+                            {type : 'average', name : '平均值'}
+                        ]
+                    }*/
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        $(window).resize(myChart.resize);
+
+    }
+
+
+
+	/*
+	 * 站点中心度和业务数关系
+	 */
+	function buzNum1(obj) {
+
+        var myChart1 = echarts.init(document.getElementById('buzNum1'));
+        //按照站点中心度排序
+        function sortbyTemp(a,b) {
+            return a.name-b.name;
+        }
+        obj.sort(sortbyTemp);
+
+
+        //坐标点
+//        var xy = new Object();
+        var xyArray =new Array;
+        $.each(obj,function(i,item){
+//            xy.point = [item.name,item.value];
+            xyArray[i]= [item.name,item.value];
+        });
+
+
+        //  标记点
+        var point = new Array();
+        point = obj;
+
+        option1 = {
+            title: {
+                text: '站点中心度和业务数关系'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            xAxis:  {
+                min: 0,
+                max: 1,
+                type: 'value',
+                name: '中心度'
+            },
+            yAxis: {
+                min: 0,
+                max: 120,
+                type: 'value',
+                name: '平均业务数'
+            },
+            series: [
+                {
+                    name:'平均业务数',
+                    type:'line',
+                    data: xyArray,
+                    markPoint : {
+                        data : point
+                    }
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+        $(window).resize(myChart1.resize);
+
+    }
+
+	
+	/*
+	 * 数据分析流程图
+	 */
+	var myChart2 = echarts.init(document.getElementById('dataFlow'));
+	option2 = {
+		title: {
+			text: '数据分析流程图'
+		},
+		tooltip: {},
+		animationDurationUpdate: 1500,
+		animationEasingUpdate: 'quinticInOut',
+		series : [
+			{
+				type: 'graph',
+				layout: 'none',
+				symbolSize: 70,
+				//roam: true,
+				label: {
+					normal: {
+						show: true
+					}
+				},
+				edgeSymbol: ['circle', 'arrow'],
+				edgeSymbolSize: [4, 10],
+				edgeLabel: {
+					normal: {
+						textStyle: {
+							fontSize: 20
+						}
+					}
+				},
+				data: [
+					{name: '数据',x: 0,y: 200}, 
+					{name: '文本',x: 200,y: 100}, 
+					{name: '属性',x: 200,y: 200}, 
+					{name: '数值',x: 200,y: 300},
+					{name: 'NLP',x: 300,y: 100}, 
+					{name: 'One Hot',x: 300,y: 200}, 
+					{name: '标准化',x: 300,y: 300}, 
+					{name: '字段相关性',x: 500,y: 200},
+					{name: '异常数据标记',x: 500,y: 400}, 
+					{name: '专家检验',x: 300,y: 400}
+				],
+				// links: [],
+				links: [
+					{source: '数据',target: '文本'}, 
+					{source: '数据',target: '属性'}, 
+					{source: '数据',target: '数值'}, 
+					{source: '文本',target: 'NLP'},
+					{source: '属性',target: 'One Hot'}, 
+					{source: '数值',target: '标准化'}, 
+					{source: 'NLP',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}}, 
+					{source: 'One Hot',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}},
+					{source: '标准化',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}}, 
+					{source: '字段相关性',target: '异常数据标记',label: {normal: {show: true,formatter: '模型训练'}}}, 
+					{source: '异常数据标记',target: '专家检验',label: {normal: {show: true,formatter: '模型验证'}},lineStyle: {normal: { curveness: 0.2 }}}, 
+					{source: '专家检验',target: '异常数据标记',label: {normal: {show: true,formatter: '反馈优化'}},lineStyle: {normal: { curveness: 0.2 }}},
+					{source: '专家检验',target: '字段相关性',label: {normal: {show: true,formatter: '专家推荐特征'}}}
+				],
+				lineStyle: {
+					normal: {
+						opacity: 0.9,
+						width: 2,
+						curveness: 0
+					}
+				}
+			}
+		]
+	};
+	myChart2.setOption(option2);
+	$(window).resize(myChart2.resize);
+	
+	/*
+	 * 模型选择关系图
+	 */
+	var myChart3 = echarts.init(document.getElementById("modelSel"));
+	var graph = {
+		nodes:[
+				{category:0,name:"模型选择",value:1},
+				{category:1,name:"评估方法",value:0.8},
+				{category:1,name:"性能度量",value:0.8},
+				{category:1,name:"比较检验",value:0.8},
+				{category:2,name:"简单交叉验证",value:0.7},
+				{category:2,name:"k折交叉验证",value:0.7},
+				{category:2,name:"留一交叉验证",value:0.7},
+				{category:2,name:"自助法",value:0.7},
+				{category:3,name:"错误率",value:0.7},
+				{category:3,name:"F1度量",value:0.7},
+				{category:3,name:"ROC曲线",value:0.7},
+				{category:3,name:"代价曲线",value:0.7},
+				{category:4,name:"假设检验",value:0.7},
+				{category:4,name:"交叉验证t检验",value:0.7},
+				{category:4,name:"McNemar检验",value:0.7}
+			],
+		links:[
+			{source:"模型选择",target:"评估方法",weight:1},
+			{source:"模型选择",target:"性能度量",weight:2},
+			{source:"模型选择",target:"比较检验",weight:1},
+			{source:"评估方法",target:"简单交叉验证",weight:2},
+			{source:"评估方法",target:"k折交叉验证",weight:3},
+			{source:"评估方法",target:"留一交叉验证",weight:1},
+			{source:"评估方法",target:"自助法",weight:6},
+			{source:"性能度量",target:"错误率",weight:1},
+			{source:"性能度量",target:"F1度量",weight:1},
+			{source:"性能度量",target:"ROC曲线",weight:1},
+			{source:"性能度量",target:"代价曲线",weight:1},
+			{source:"比较检验",target:"假设检验",weight:1},
+			{source:"比较检验",target:"交叉验证t检验",weight:1},
+			{source:"比较检验",target:"McNemar检验",weight:1}
+		]
+	};
+	
+	graph.nodes.forEach(function (node) {
+		node.itemStyle = null;
+		node.symbolSize = node.value * 90;
+		//node.category = node.attributes.modularity_class;
+		// Use random x, y
+		node.x = node.y = null;
+		node.draggable = true;
+	});
+	option3 = {
+		title: {
+			text: '模型选择相关因素'
+		},
+		tooltip: {},
+		/*legend: [{
+			x:"left",
+			data:["家人","朋友"]
+		}],*/
+		roam: false,
+		series : [
+			{
+				name: 'Les Miserables',
+				type: 'graph',
+				layout: 'force',
+				data: graph.nodes,
+				links: graph.links,
+				categories: [{name:"模型选择"},{name:"三个因素"},{name:"评估方法"},{name:"性能度量"},{name:"比较检验"}],
+				roam: false,
+				label: {
+					normal: {
+						show : true,
+						position: 'inside',
+						formatter: function(params){
+							return params.data.name;
+						}
+					}
+				},
+				force: {
+					repulsion: 1000,
+					gravity : 0.5,
+					//edgeLength:[100,200]
+				}
+			}
+		]
+	};
+	myChart3.setOption(option3);
+	$(window).resize(myChart3.resize);
+
+	/*
+	 *  预测准确站点top10
+	 */
+
+    function queryAccurate() {
+        var html="";
+        $.ajax({
+            url: "../../Accurate_top10/select",
+            type: "post",
+            dataType : "json",
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberRecords+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Accurate").html(html);
+
+            }
+        });
+
+    }
+    /*
+     *  预测异常站点top10
+     */
+    function queryAbnormal() {
+        var html="";
+        $.ajax({
+            url: "../../Abnormal_top10/select",
+            type: "post",
+            dataType : "json",
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberRecords+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Abnormal").html(html);
+
+            }
+        });
+
+    }
+</script>
+</html>

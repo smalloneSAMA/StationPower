@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src = 'echarts.js'></script>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <title>温度与设备故障关系</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+
+<body>
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <p>将时间按照10分钟进行分割，对数据重取样，计算每个时间片的平均温度和故障次数；</p>
+        <p>采用离散化分组方式，将温度划分为低温、正常温度、高温【5~18，19~25，26~40】，柱状图为分组后的分布图；</p>
+        <p>经计算与分析发现：最适宜的环境温度为【19~25】度，温度提升10度故障率提升约24%，当温度下降10度，故障率提高约46%，说明低温对设备故障影响更大。</p>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>温度与设备故障关系挖掘</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id='temp_faiure' style='height: 600px;'></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script type='text/javascript'>
+    $(document).ready(function(){
+
+        temp();
+
+
+    });
+
+    function temp() {
+        $.ajax({
+            url: "../../Relationship_Temperature_FailureRate/select",
+            type: "post",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+
+
+
+                TfData(data);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+
+    }
+
+    function TfData(obj) {
+        var tempData = new Array();
+        var failureDate = new Array();
+
+        function sortbyTemp(a,b) {
+            return a.Temperature-b.Temperature;
+        }
+        obj.sort(sortbyTemp);
+
+
+        $.each(obj,function (i,item) {
+            tempData[i] = item.Temperature;
+
+            failureDate[i] = item.FailureRate;
+
+        });
+
+
+
+
+
+
+    var myChart = echarts.init(document.getElementById('temp_faiure'));
+    option = {
+        title: {
+            text: '温度与故障率关系',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'axis',
+            formatter: '温度: {b0}℃ <br />单位时间单位设备故障率: {c0}',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                //dataView: {readOnly: false},
+                magicType: {type: ['line', 'bar']},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis:  {
+            name:'温度（℃）',
+            //boundaryGap:false,
+            //type: 'category',
+            boundaryGap: false,
+            offset: 6,
+            min: -4,
+            //max: 33,
+            data: tempData
+        },
+        yAxis: {
+            type: 'value',
+            name: '单位时间单位设备故障率',
+            //nameLocation: 'end',
+            nameTextStyle: {
+                verticalAlign: 'middle'
+            },
+            axisLabel: {
+                formatter: '{value}'
+            },
+            axisPointer: {
+                snap: true
+            }
+        },
+        // visualMap: {
+        //     show: false,
+        //     dimension: 0,
+        //     pieces: [{
+        //         gt: '8',
+        //         lte: 12-6,
+        //         color: 'red'
+        //     }, {
+        //         gt: 19,
+        //         lte: 25,
+        //         color: 'blue'
+        //     }, {
+        //         gt: 27,
+        //         lte: 32,
+        //         color: 'red'
+        //     }]
+        // },
+        series: [
+            {
+                name:'单位时间单位设备故障率',
+                type:'line',
+                smooth: true,
+                connectNulls: true,
+                symbolSize:8,
+                //showAllSymbol:true,
+                data: failureDate,
+
+                markArea: {
+                    data: [ [{
+                        name: '低温区间故障率',
+                        xAxis: '8',
+                        yAxis: '0'
+
+                    }, {
+                        xAxis: '12',
+                        yAxis: '0.000072'
+                    }], [{
+                        name: '合适区间故障率',
+                        xAxis: '19',
+                        yAxis: '0'
+                    }, {
+                        xAxis: '24',
+                        yAxis: '0.000050'
+                    }],[{
+                        name: '高温区间故障率',
+                        xAxis: '27',
+                        yAxis: '0'
+                    }, {
+                        xAxis: '32',
+                        yAxis: '0.000061'
+                    }] ]
+                }
+
+            }]
+    };
+
+    myChart.setOption(option);
+
+    }
+</script>
+
+</body>
+</html>
