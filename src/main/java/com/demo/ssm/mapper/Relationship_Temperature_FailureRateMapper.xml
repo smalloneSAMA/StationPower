@@ -18,13 +18,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="TempMap" >
         SELECT *
-        FROM temperatureandfailurerate_relationship
+        FROM TemperatureAndFailurerate_relationship
 
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM temperatureandfailurerate_relationship
+        FROM TemperatureAndFailurerate_relationship
 
     </select>
 

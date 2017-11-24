@@ -21,12 +21,12 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="StationMap" >
         SELECT *
-        FROM businessroute_stationproperty
+        FROM BusinessRoute_stationProperty
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM businessroute_stationproperty
+        FROM BusinessRoute_stationProperty
 
     </select>
 

@@ -17,12 +17,12 @@
     
     <select id="selectByPrimaryKey" resultMap="AverageFailureMap" >
         SELECT *
-        FROM companyaveragefailurerate_8_years
+        FROM CompanyAverageFailurerate_8_years
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM companyaveragefailurerate_8_years
+        FROM CompanyAverageFailurerate_8_years
 
     </select>
     

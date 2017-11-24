@@ -15,18 +15,14 @@ public class FailureRate_forecastServiceImpl implements FailureRate_forecastServ
     @Autowired
     private FailureRate_forecastMapper failureRate_forecastMapper;
 
+
     @Override
-    public List<FailureRate_forecast> selectByPrimaryKey() throws IOException{
-
-        return failureRate_forecastMapper.selectByPrimaryKey();
-
-
+    public FailureRate_forecast Query(String id, String Province) throws IOException {
+        return failureRate_forecastMapper.Query(id,Province);
     }
 
     @Override
-    public  int count() throws IOException{
-        return failureRate_forecastMapper.count();
+    public int Count(String Province) throws IOException {
+        return failureRate_forecastMapper.Count(Province);
     }
-
-
 }

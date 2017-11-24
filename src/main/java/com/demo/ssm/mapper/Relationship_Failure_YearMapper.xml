@@ -19,13 +19,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="YearMap" >
         SELECT *
-        FROM failurerateanduseyear_relationship
+        FROM FailurerateAndUseyear_relationship
 
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM failurerateanduseyear_relationship
+        FROM FailurerateAndUseyear_relationship
 
     </select>
 

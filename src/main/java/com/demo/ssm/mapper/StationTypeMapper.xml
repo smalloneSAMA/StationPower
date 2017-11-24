@@ -18,13 +18,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="TypeMap" >
         SELECT *
-        FROM stationtypeandbusinessnum
+        FROM StationTypeAndBusinessnum
 
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM stationtypeandbusinessnum
+        FROM StationTypeAndBusinessnum
 
     </select>
 

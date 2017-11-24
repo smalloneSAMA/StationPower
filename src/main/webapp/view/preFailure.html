@@ -43,6 +43,38 @@
                         </a>
                     </div>
                 </div>
+                <div class="query">
+                    <form>
+                        &nbsp &nbsp 省份选择:
+                        <select name="cars" id="Province" style="margin-bottom: 10px;">
+                            <option value="安徽">安徽</option>
+                            <option value="北京">北京</option>
+                            <option value="福建">福建</option>
+                            <option value="甘肃">甘肃</option>
+                            <option value="河北">河北</option>
+                            <option value="河南">河南</option>
+                            <option value="黑龙江">黑龙江</option>
+                            <option value="吉林">吉林</option>
+                            <option value="江苏">江苏</option>
+                            <option value="江西">江西</option>
+                            <option value="蒙东">蒙东</option>
+                            <option value="宁夏">宁夏</option>
+                            <option value="青海">青海</option>
+                            <option value="山西">山西</option>
+                            <option value="天津">天津</option>
+                            <option value="西藏">西藏</option>
+                            <option value="浙江">浙江</option>
+                            <option value="重庆">重庆</option>
+
+                        </select>
+                        设备ID:<input id="Equi_id" type="text" name="设备ID" style="position: absolute; bottom: 470px; height: 20px;width: 100px;">
+                        <input type="button" value="查询" onclick="forecastLine()" style="height: 24px;position: absolute; bottom: 468px;left: 300px">
+
+
+
+
+                    </form>
+                </div>
                 <div class="ibox-content">
                     <div style='height: 400px;' id="curve"></div>
                 </div>
@@ -265,52 +297,68 @@
 <script type='text/javascript'>
 
     $(document).ready(function(){
-
-        forecastLine();
+        DefaultLine();
+//        forecastLine();
         failureCheck();
 
 
     });
 
     function forecastLine() {
-        $.ajax({
-            url: "../../FailureRate_forecast/select",
-            type: "post",
-            dataType: "json",
-            async: false,
-            success: function (data) {
+        var Province = $("#Province").val();
+        var Equi_id = $("#Equi_id").val();
+        if(Equi_id==null){
+            window.alert("设备ID不能为空");
+        }
+        else {
+            $.ajax({
+                url: "../../FailureRate_forecast/select",
+                type: "post",
+                dataType: "json",
+                async: false,
+                data: "Province=" + Province + "&id=" + Equi_id,
+                success: function (data) {
+                    if(data.result != false) {
+                        Line(data);
+                    }
+                    else {
+                        window.alert("无法查询到改设备信息");
+                    }
 
-                Line(data);
-
-            },
-            error: function (data) {
-                if (data.result == "error") {
-                    alert("出现异常");
+                },
+                error: function (data) {
+                    if (data.result == false) {
+                        alert("出现异常");
+                    }
                 }
-            }
-        });
+            });
+        }
 
     }
 
     function Line(obj) {
-
-        var timeData = new Array();
+        var time = obj.time;
+        time=time.replace("[","").replace("]","");
+//        alert(time);
+        var timeData = [];
+        timeData=time.split(",");
+//        alert(timeData);
         //按使用时间排序
         function sortbyTemp(a,b) {
             return a.UseTime-b.UseTime;
         }
-        obj.sort(sortbyTemp);
+        timeData.sort(sortbyTemp);
 
-        $.each(obj,function (i,item) {
+        /*$.each(obj,function (i,item) {
             timeData[i]= item.UseTime;
-        });
+        });*/
 
 
         var chart_curve = echarts.init(document.getElementById('curve'));
         var data = [];
         var dots = [];
-        var eta = 603.076;
-        var beta = 1.702;
+        var eta = obj.eta;
+        var beta = obj.beta;
         var alarm_time_d = timeData;
 
         var n = alarm_time_d.length;
@@ -405,6 +453,134 @@
                 data: data
             }
                 , {
+                    name: '数据点',
+                    type: 'scatter',
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                            opacity: 0.7
+                        }
+                    },
+                    symbolSize: 15,
+                    label: {
+                        emphasis: {
+                            show: true,
+                            position: 'left',
+                            textStyle: {
+                                fontSize: 18
+                            }
+                        }
+                    },
+                    color: 'red',
+                    data: dots
+                }
+            ],
+
+            color: ['#3398DB'],
+        };
+        chart_curve.setOption(option);
+        $(window).resize(chart_curve.resize);
+    }
+    function DefaultLine() {
+        var chart_curve = echarts.init(document.getElementById('curve'));
+        var data = [];
+        var dots = [];
+        var eta = 603.076;
+        var beta = 1.702;
+        var alarm_time_d = [193.9998, 199.4447, 356.7919, 388.2432, 498.4180, 665.6233, 832.3102, 1055.6704];
+
+        var n = alarm_time_d.length;
+        for(var p = 0; p < n; p++){
+            f = (p + 0.7)/(n + 0.4);
+            var mm = alarm_time_d[p];
+            dots.push([mm, f]);
+
+        }
+        var e = Math.E;
+        for (var i = 0; i <= 1200; i++) {
+            var r =  1 - Math.pow(e,-Math.pow((i/eta),beta));
+            // var r = i+3;
+            data.push([i, r]);
+        }
+        option = {
+            title: {
+                text: '设备故障率预测',
+                left: 'center'
+            },
+            legend: {
+                type: 'plain',
+                // orient: 'vertical',
+                top: 30,
+                right: 100,
+                data: ['拟合曲线', '数据点']
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '中位秩 <br />{a}：{c0} 次每年',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            xAxis : [
+                {
+                    name: '工作时长（小时）',
+                    nameLocation: 'middle',
+                    nameGap: 40,
+                    nameTextStyle: {
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    },
+                    type : 'value',
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLabel: {
+                        margin: 15,
+                        fontSize: 14,
+                        fontWeight: 'bolder'
+                    },
+
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    },
+                    splitNumber: 10
+                }
+            ],
+            yAxis: {
+                name: '故障率',
+                type: 'value',
+                nameTextStyle: {
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                },
+                axisLabel: {
+                    margin: 15,
+                    fontSize: 14,
+                    fontWeight: 'bolder'
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            },
+            series: [{
+                // coordinateSystem: 'polar',
+                name: '拟合曲线',
+                type: 'line',
+                lineStyle: {
+                    normal: {
+                        width: 4,
+                        opacity: 0.8
+                    }
+                },
+                symbol: 'none',
+                smooth: 'true',
+                data: data
+            }
+                ,{
                     name: '数据点',
                     type: 'scatter',
                     itemStyle: {

@@ -19,13 +19,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="AbnormalMap" >
       SELECT *
-      FROM abnormalstation_top10
+      FROM AbnormalStation_top10
     </select>
     
     <!-- 查询表的数据个数-->
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM abnormalstation_top10
+        FROM AbnormalStation_top10
 
     </select>
 

@@ -19,13 +19,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="RouteMap" >
         SELECT *
-        FROM businessrouteassignment
+        FROM BusinessRouteAssignment
 
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM businessrouteassignment
+        FROM BusinessRouteAssignment
 
     </select>
 

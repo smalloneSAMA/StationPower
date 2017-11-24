@@ -23,37 +23,35 @@ public class FailureRate_forecastController {
     //查询异常对象数据
     @RequestMapping("/select")
     @ResponseBody
-    public JSONArray S_dataQuality(HttpServletRequest request,String user){
-        JSONArray jsonArray=new JSONArray();
-        JSONObject jsonObjecterror = new JSONObject();
+    public JSONObject S_dataQuality(HttpServletRequest request,String Province,String id){
+//        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        String time=null;
+        double eta=0;
+        double beta=0;
+        try {
 
-
-
-        try{
-            int i=0;
-            int k=failureRate_forecastService.count();
-            List<FailureRate_forecast> list = failureRate_forecastService.selectByPrimaryKey();
-            while (i<k) {
-                JSONObject jsonObject = new JSONObject() ;
-                jsonObject.put("UseTime", (list.get(i)).getUseTime());
-                jsonArray.add(jsonObject);
-                i++;
-            }
-            return jsonArray;
-
-
-
-
+                FailureRate_forecast equi = failureRate_forecastService.Query(id,Province);
+                if(equi==null){
+                    jsonObject.put("result",false);
+                }else {
+                    time = equi.getALARM_TIME_D();
+                    beta = equi.getBETA();
+                    eta = equi.getETA();
+                    jsonObject.put("time", time);
+                    jsonObject.put("beta", beta);
+                    jsonObject.put("eta", eta);
+                }
+                return jsonObject;
 //            System.out.println("result:"+ JSON.toJSONString(jsonArray));
-
 
 //            return jsonArray;
 
         } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
-            jsonArray.add(jsonObjecterror);
-            return jsonArray;
+            jsonObject.put("result",false);
+//            jsonArray.add(jsonObject);
+            return jsonObject;
 
         }
 

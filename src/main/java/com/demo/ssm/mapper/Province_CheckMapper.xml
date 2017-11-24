@@ -20,13 +20,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="CheckMap" >
         SELECT *
-        FROM provinceequipmentfailureforecast_check
+        FROM ProvinceEquipmentFailureForecast_check
 
     </select>
 
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
-        FROM provinceequipmentfailureforecast_check
+        FROM ProvinceEquipmentFailureForecast_check
 
     </select>
 
