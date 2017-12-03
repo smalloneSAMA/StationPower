@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_net.StationPropertyMapper" >
+
+    <!--结果映射-->
+    <resultMap id="StationMap" type="com.demo.ssm.po.S_net.StationProperty">
+        <id column="obj_id" property="obj_id" jdbcType="VARCHAR"/>
+        <result column="Province" property="Province" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="Xaxis" property="Xaxis" jdbcType="VARCHAR"/>
+        <result column="Yaxis" property="Yaxis" jdbcType="VARCHAR"/>
+        <result column="businessNum" property="businessNum" jdbcType="VARCHAR"/>
+        <result column="kuorong" property="kuorong" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--字段片段-->
+    <sql id="Station">
+        id,Province,name,Xaxis,Yaxis,businessNum,kuorong
+    </sql>
+
+    <!--按照ID查询-->
+    <select id="selectByPrimaryKey" parameterType="String" resultMap="StationMap" >
+        SELECT *
+        FROM jiangxi1
+        WHERE Province=#{Province}
+
+    </select>
+
+    <select id="count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM jiangxi1
+        WHERE Province=#{Province}
+
+    </select>
+
+    <select id="selectByID" resultType="String">
+        SELECT name
+        FROM jiangxi1
+        WHERE Province=#{Province} AND obj_id=#{obj_id}
+    </select>
+
+</mapper>

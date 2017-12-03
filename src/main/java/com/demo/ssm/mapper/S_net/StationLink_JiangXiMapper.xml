@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_net.StationLink_JiangXiMapper" >
+
+    <!--结果映射-->
+    <resultMap id="LinkMap" type="com.demo.ssm.po.S_net.StationLink_JiangXi">
+        <!--<id column="obj_id1" property="obj_id1" jdbcType="INTEGER"/>-->
+        <!--<id column="obj_id2" property="obj_id2" jdbcType="INTEGER"/>-->
+        <!--<result column="Province" property="Province" jdbcType="VARCHAR"/>-->
+        <result column="name1" property="name1" jdbcType="VARCHAR"/>
+        <result column="name2" property="name2" jdbcType="VARCHAR"/>
+        <result column="fiberOcc" property="fiberOcc" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--字段片段-->
+    <sql id="Link">
+        name1,name2,fiberOcc
+    </sql>
+
+    <!--按照省份查询-->
+    <select id="selectByPrimaryKey" parameterType="String" resultMap="LinkMap" >
+        SELECT name1,name2,fiberOcc
+        FROM jiangxi2
+        WHERE Province=#{Province}
+    </select>
+
+    <!--按照ID查询Occ-->
+    <select id="selectByID"  resultType="Double" >
+        SELECT fiberOcc
+        FROM jiangxi2
+        WHERE Province=#{Province} AND obj_id2=#{obj_id2} AND obj_id1=#{obj_id1}
+    </select>
+
+    <select id="count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM jiangxi2
+        WHERE Province=#{Province}
+
+    </select>
+
+
+
+</mapper>

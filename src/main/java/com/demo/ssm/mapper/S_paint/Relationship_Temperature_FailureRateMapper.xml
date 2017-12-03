@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_paint.Relationship_Temperature_FailureRateMapper" >
+
+    <!--结果映射-->
+    <resultMap id="TempMap" type="com.demo.ssm.po.S_paint.Relationship_Temperature_FailureRate">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="Temperature" property="temperature" jdbcType="VARCHAR"/>
+        <result column="UnitTimeFailureRate" property="failureRate" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--字段片段-->
+    <sql id="Temp">
+        ID,Temperature,FailureRate
+    </sql>
+
+    <!--按照ID查询-->
+    <select id="selectByPrimaryKey" resultMap="TempMap" >
+        SELECT *
+        FROM TemperatureAndFailurerate_relationship
+
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT COUNT(id)
+        FROM TemperatureAndFailurerate_relationship
+
+    </select>
+
+</mapper>

@@ -9,7 +9,8 @@
 
     <title>通信网优化</title>
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
 
     <link href="css/animate.min.css" rel="stylesheet">
@@ -18,46 +19,9 @@
 </head>
 
 <body class="gray-bg">
-    <div class="row  border-bottom white-bg dashboard-header">
-        <div class="col-sm-12">
-            <p>（1）<font style='font-size:15px;'><b>现有问题 : </b></font>现有电力通信网络存在资源浪费、业务承载不均衡、网络及业务可靠性较差等问题；通信网扩容、增容缺乏科学有效得数据手段支撑。
-            </p>
-            <p>（2）<font style='font-size:15px;'><b>目标 : </b></font>合理分配业务，节约网络资源，保证负载均衡，提高业务可靠性；基于网络瓶颈节点的识别指导增容、扩容及网络结构的优化。
-            </p>
-			<p>（3）<font style='font-size:15px;'><b>方案 : </b></font>提出评价通信网可靠性的标准：网络总风险度、资源风险均衡度和业务风险均衡度；改进遗传算法，提出新的编码方式与变异方式。
-            </p>
-        </div>
-    </div>
+
     <div class="wrapper wrapper-content animated fadeInRight">
-		<div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>通信网可靠性</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="graph_flot.html#">选项1</a>
-                                </li>
-                                <li><a href="graph_flot.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div style="height:600px" id="dataFlow"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 		
 		<div class="row">
 			<div class="col-sm-12">
@@ -98,54 +62,32 @@
                         </div>
                     </div>
                     <div class="ibox-content">
+                        <form>
+                            省份选择:
+                            <select name="cars" id="Province" style="margin-bottom: 12px;">
+                                <option value="安徽">安徽</option>
+                                <option value="北京">北京</option>
+                                <option value="福建">福建</option>
+                                <option value="甘肃">甘肃</option>
+                                <option value="河北">河北</option>
+                                <option value="河南">河南</option>
+                                <option value="黑龙江">黑龙江</option>
+                                <option value="吉林">吉林</option>
+                                <option value="江苏">江苏</option>
+                                <option value="江西" selected>江西</option>
+                                <option value="蒙东">蒙东</option>
+                                <option value="宁夏">宁夏</option>
+                                <option value="青海">青海</option>
+                                <option value="陕西">陕西</option>
+                                <option value="天津">天津</option>
+                                <option value="西藏">西藏</option>
+                                <option value="浙江">浙江</option>
+                                <option value="重庆">重庆</option>
+                            </select>
+                            <input type="button" value="查询" onclick="loadStation()" style="margin-bottom: 12px;height: 22px; bottom: 88.6%;left: 30%">
+                            <br>
+                        </form>
                         <div id="main" style="width:100%;height:1000px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="ibox">
-                    <div class="ibox-content text-center">
-                        <h2 class="m-b-xxs"><b>二、业务路由分配</b></h2>
-                    </div>
-					<div class="white-bg dashboard-header">
-						<p>下图显示的是(220kV垱岭变～上饶供电公司)继电保护进向I线RCS-931BM业务02，分配路径图</p>
-						<p>对每条业务先通过Dijkstra算法求出前n条最短路径，初始化每条业务选择的路由分配方案，再通过遗传算法，选择、交叉、变异进入下一代，直到算法终止。</p>
-						<p>算法终止的条件：采用三个指标网络总风险度：通信网中所有资源（设备和光缆）的风险度之和（取最小值）；
-资源风险均衡度：网络中设备和光缆风险度的方差和的倒数，代表网路风险均摊在资源上（取最大值）；
-业务风险均衡度：网络中业务风险度方差的倒数，代表网路风险均摊在业务上（取最大值）。</p>
-					</div>
-                </div>
-			</div>
-		</div>
-		
-		<div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>路径分配图</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="graph_flot.html#">选项1</a>
-                                </li>
-                                <li><a href="graph_flot.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div id="distribute" style="width:100%;height:1000px;"></div>
                     </div>
                 </div>
             </div>
@@ -155,13 +97,31 @@
     <script src="js/bootstrap.min.js?v=3.3.5"></script>
     <script src="js/content.min.js?v=1.0.0"></script>
 	<script src="S_js/echarts.js"></script>
-	<script src="S_js/jiangxi.js"></script>
-	<script src="S_js/china.js"></script>
+    <script src="S_js/anhui.js"></script>
+    <script src="S_js/beijing.js"></script>
+    <script src="S_js/fujian.js"></script>
+    <script src="S_js/gansu.js"></script>
+    <script src="S_js/hebei.js"></script>
+    <script src="S_js/henan.js"></script>
+    <script src="S_js/heilongjiang.js"></script>
+    <script src="S_js/jilin.js"></script>
+    <script src="S_js/jiangsu.js"></script>
+    <script src="S_js/jiangxi.js"></script>
+    <script src="S_js/neimenggu.js"></script>
+    <script src="S_js/ningxia.js"></script>
+    <script src="S_js/qinghai.js"></script>
+    <script src="S_js/shanxi1.js"></script>
+    <script src="S_js/tianjin.js"></script>
+    <script src="S_js/xizang.js"></script>
+    <script src="S_js/zhejiang.js"></script>
+    <script src="S_js/chongqing.js"></script>
+    <script src="S_js/china.js"></script>
 </body>
+
 <script type="text/javascript">
     $(document).ready(function(){
         loadStation();
-        loadPath();
+//        loadPath();
 
     });
 
@@ -170,12 +130,15 @@
 	 */
 
     function loadStation() {
+        var Province = $("#Province").val();
+
         //获取各站点信息
         $.ajax({
             url: "../../StationProperty/select",
             type: "post",
             dataType: "json",
             async: false,
+            data:"Province="+Province,
             success: function (data) {
                 //取出信息
                 Station(data);
@@ -198,8 +161,13 @@
         var geoCoordMap = new Array();
         var station = new Array();
         var example ;
+        var prov=null;
+        var Province = $("#Province").val();
 
         $.each(obj,function (i,item) {
+//            省份信息
+            prov=item.Province;
+
 //            站点GIS坐标
             geoCoordMap[item.Name] = [item.xAxis,item.yAxis];
 //            站点内部属性
@@ -214,14 +182,7 @@
 //            alert(station[i]);
         });
 
-
-
-
-
-
-
     var myChart = echarts.init(document.getElementById('main'));
-
 
         //获取站点连接信息
         $.ajax({
@@ -229,6 +190,7 @@
             type: "post",
             dataType: "json",
             async: false,
+            data:"Province="+Province,
             success: function (data) {
 
                 StationLink(data);
@@ -259,9 +221,6 @@
         edges[i]=[name1,name2];
 
     });
-
-
-
 
 
         //var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
@@ -330,11 +289,11 @@
                 )
             }
         ];
-
+        var Province = $("#Province").val();
         option = {
             //backgroundColor: '#003',//#404a59
             title : {
-                text: '江西',
+                text: Province,
                 subtext: '站点分布图',
                 left: 'center',
                 textStyle : {
@@ -376,7 +335,7 @@
                 }
             ],
             geo: {
-                map: '江西',
+                map: Province,
                 label: {
                     emphasis: {
                         show: false
@@ -402,368 +361,4 @@
     }
 
 }
-
-
-
-	
-	/*
-	 * 通信网可靠性三个指标示意图
-	 */
-	var myChart2 = echarts.init(document.getElementById('dataFlow'));
-	option2 = {
-		title: {
-			text: '三个可靠性指标'
-		},
-		tooltip : {
-			trigger: 'item',
-			formatter: function (params) {
-				if(params.name.indexOf("网络总风险度") != -1)
-					return '网络中所有资源的风险度总和。';
-				else if(params.name.indexOf("资源风险均衡度") != -1)
-					return '网络中所有资源风险度的方差的倒数，表示网络风险均匀分摊在每个资源上的程度。';
-				else if(params.name.indexOf("业务风险均衡度") != -1)
-					return '网络中所有业务风险度的方差的倒数，表示网络风险均匀分摊在每个业务上的程度。';
-				else
-					return params.name;
-			}
-		},
-		animationDurationUpdate: 1500,
-		animationEasingUpdate: 'quinticInOut',
-		series : [
-			{
-				type: 'graph',
-				layout: 'none',
-				symbolSize: 70,
-				//roam: true,
-				label: {
-					normal: {
-						show: true
-					}
-				},
-				edgeSymbol: ['circle', 'arrow'],
-				edgeSymbolSize: [4, 10],
-				edgeLabel: {
-					normal: {
-						textStyle: {
-							fontSize: 20
-						}
-					}
-				},
-				data: [
-					{name: '通信网络可靠性',x: 100,y: 100},
-					{name: '网络',x: 50,y: 150},
-					{name: '资源',x: 100,y: 150},
-					{name: '业务',x: 150,y: 150},
-					{name: '网络总风险度',x: 50,y: 200},
-					{name: '资源风险均衡度',x: 100,y: 200},
-					{name: '业务风险均衡度',x: 150,y: 200}
-				],
-				// links: [],
-				links: [
-					{source: '通信网络可靠性',target: '网络'},
-					{source: '通信网络可靠性',target: '资源'},
-					{source: '通信网络可靠性',target: '业务'},
-					{source: '网络',target: '网络总风险度',label: {normal: {show: true,formatter: '指标'}}},
-					{source: '资源',target: '资源风险均衡度',label: {normal: {show: true,formatter: '指标'}}},
-					{source: '业务',target: '业务风险均衡度',label: {normal: {show: true,formatter: '指标'}}}
-				],
-				lineStyle: {
-					normal: {
-						opacity: 0.9,
-						width: 2,
-						curveness: 0
-					}
-				}
-			}
-		]
-	};
-	myChart2.setOption(option2);
-	$(window).resize(myChart2.resize);
-
-
-
-
-	/*
-	 * 路由分配
-	 */
-
-
-	function loadPath(){
-        //获取站点数据
-        $.ajax({
-            url: "../../StationProperty_Route/select",
-            type: "post",
-            dataType: "json",
-            async: false,
-            success: function (data) {
-
-
-                Line(data);
-
-            },
-            error: function (data) {
-                if (data.result == "error") {
-                    alert("出现异常");
-                }
-            }
-        });
-
-    }
-
-
-
-    function Line(obj) {
-
-        var geoCoordMap1 = new Array();
-        var station1 = new Array();
-        var example1 ;
-        $.each(obj,function (i,item) {
-//            站点GIS坐标
-            geoCoordMap1[item.Name] = [item.xAxis,item.yAxis];
-//            站点属性
-            example1={
-                name : item.Name,
-                businessNum : item.BusinessNum,
-                kuorong : item.KuoRong,
-
-            };
-//            每个站点的数据
-            station1[i]= example1;
-//            alert(station[i]);
-        });
-
-
-
-
-
-
-
-	var myChart1 = echarts.init(document.getElementById('distribute'));
-
-	// 每个站点的GIS数据
-//	var geoCoordMap1 = {
-//		'220kV垱岭变':[117.12,28.97],
-//		'220kV上饶变':[117.85,28.43],
-//		'220kV茅家岭变':[117.99,28.43],
-//		'上饶供电公司':[117.97,28.50]
-//		//'220kV向塘变':[115.93,28.55],
-//		//'220kV梧岗变':[115.80,28.55]
-//	};
-	
-	// 各个站点的相关属性
-//	var station1 = [
-//		{name:'220kV垱岭变',businessNum:212,kuorong:0.75},
-//		{name:'220kV上饶变',businessNum:207,kuorong:0.67},
-//		{name:'220kV茅家岭变',businessNum:179,kuorong:0.67},
-//		{name:'上饶供电公司',businessNum:164,kuorong:0.3}
-//		//{name:'220kV向塘变',businessNum:25,kuorong:0.67},
-//		//{name:'220kV梧岗变',businessNum:74,kuorong:0.43}
-//	];
-        //获取路由
-        $.ajax({
-            url: "../../BusinessRoute/select",
-            type: "post",
-            dataType: "json",
-            async: false,
-            success: function (data) {
-
-                StationPath(data);
-
-            },
-            error: function (data) {
-                if (data.result == "error") {
-                    alert("出现异常");
-                }
-            }
-        });
-
-
-        function StationPath(obj){
-            var edges1 = new Array();
-            var name11;
-            var name22;
-            //取出路由信息
-            $.each(obj,function (i,item) {
-                name11={
-                    name:item.StationName1
-                };
-                name22={
-                    name:item.StationName2,
-                    fiberOcc: item.FiberOcc
-                };
-                edges1[i]=[name11,name22];
-
-            });
-
-
-
-	// 各个站点之间的连接情况
-//	var edges1 = [
-//		[{name:'220kV垱岭变'}, {name:'220kV上饶变',fiberOcc:0.56}],
-//		[{name:'220kV上饶变'}, {name:'220kV茅家岭变',fiberOcc:0.3}],
-//		[{name:'220kV茅家岭变'}, {name:'上饶供电公司',fiberOcc:0.3}]
-//		//[{name:'220kV向塘变'}, {name:'220kV梧岗变',fiberOcc:0.3}]
-//	];
-
-	var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
-
-	var convertData1 = function (data) {
-		var res = [];
-		for (var i = 0; i < data.length; i++) {
-			var dataItem = data[i];
-			var fromCoord = geoCoordMap1[dataItem[0].name];
-			var toCoord = geoCoordMap1[dataItem[1].name];
-			if (fromCoord && toCoord) {
-				res.push({
-					//fromName: dataItem[0].name,
-					//toName: dataItem[1].name,
-					name: "铅芯占用率",
-					coords: [fromCoord, toCoord],
-					value: dataItem[1].fiberOcc
-				});
-			}
-		}
-		return res;
-	};
-
-	var color1 = ['#a6c84c', '#ffa022', '#46bee9'];
-	
-	var series1 = [
-		{//两个站点之间的连线
-			type: 'lines',
-			zlevel: 2,
-			symbol: ['none', 'none'],
-			symbolSize: 10,
-			lineStyle: {
-				normal: {
-					//color: '#a6c84c',
-					width: 1,
-					opacity: 0.6,
-					curveness: 0.2
-				}
-			},
-			data: convertData1(edges1)
-		},
-		{
-			type: 'lines',
-			zlevel: 2,
-			symbol: ['none', 'arrow'],
-			symbolSize: 10,
-			effect: {
-				show: true,
-				period: 6,
-				trailLength: 0,
-				symbol: planePath,
-				symbolSize: 15
-			},
-			lineStyle: {
-				normal: {
-					color: '#a6c84c',
-					width: 1,
-					opacity: 0.6,
-					curveness: 0.2
-				}
-			},
-			data: convertData1(edges1)
-		},
-		{//每个站点
-			type: 'effectScatter',
-			coordinateSystem: 'geo',
-			zlevel: 2,
-			rippleEffect: {
-				brushType: 'stroke'
-			},
-			label: {
-				normal: {
-					show: false,
-					position: 'right',
-					formatter: '{b}'
-				}
-			},
-			//symbolSize: function (val) {
-				//return val[2] / 8;
-			//},
-			symbolSize: 6,
-			data: station1.map(function (dataItem) {
-					return {
-						name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,
-						value: geoCoordMap1[dataItem.name].concat([dataItem.kuorong])
-					};
-				}
-			)
-		}
-	];
-
-	option1 = {
-		//backgroundColor: '#003',//#404a59
-		title : {
-			text: '江西',
-			subtext: '路径分配图',
-			left: 'center',
-			textStyle : {
-				color: '#404a59'
-			}
-		},
-		tooltip : {
-			trigger: 'item',
-			formatter: function (params) {
-				if(params.name.indexOf("铅芯占用率") == -1)
-					return params.name;
-				else
-					return params.name+ ' : ' + params.value;
-			}
-		},
-		toolbox:{
-			show:true,
-			feature:{
-				mark:{show:!0},
-				//dataView:{show:!0,readOnly:!1},
-				restore:{show:!0},
-				saveAsImage:{show:!0}
-			}
-		},
-		visualMap: [
-			{
-				min: 0,
-				max: 1,
-				text:['高','低'],
-				precision:2,
-				calculable: true,
-				top:'center',
-				inRange: {
-					color: ['#50a3ba', '#eac736', '#d94e5d']
-				},
-				textStyle: {
-					color: '#003'
-				}
-			}
-		],
-		geo: {
-			map: '江西',
-			label: {
-				emphasis: {
-					show: false
-				}
-			},
-			roam: true,
-			itemStyle: {
-				normal: {
-					areaColor: '#323c48',
-					borderColor: '#ffefd5'//#ffefd5,#404a59
-				},
-				emphasis: {
-					areaColor: '#2a333d'
-				}
-			}
-		},
-		series: series1
-	};
-
-	// 使用刚指定的配置项和数据显示图表。
-    myChart1.setOption(option1);
-	$(window).resize(myChart1.resize);
-    }
-
-    }
-
 </script>

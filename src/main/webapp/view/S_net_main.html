@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>通信网优化</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <p>（1）<font style='font-size:15px;'><b>现有问题 : </b></font>现有电力通信网络存在资源浪费、业务承载不均衡、网络及业务可靠性较差等问题；通信网扩容、增容缺乏科学有效得数据手段支撑。
+        </p>
+        <p>（2）<font style='font-size:15px;'><b>目标 : </b></font>合理分配业务，节约网络资源，保证负载均衡，提高业务可靠性；基于网络瓶颈节点的识别指导增容、扩容及网络结构的优化。
+        </p>
+        <p>（3）<font style='font-size:15px;'><b>方案 : </b></font>提出评价通信网可靠性的标准：网络总风险度、资源风险均衡度和业务风险均衡度；改进遗传算法，提出新的编码方式与变异方式。
+        </p>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>通信网可靠性</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="graph_flot.html#">选项1</a>
+                            </li>
+                            <li><a href="graph_flot.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div style="height:600px" id="dataFlow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.5"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="S_js/echarts.js"></script>
+<script src="S_js/anhui.js"></script>
+<script src="S_js/beijing.js"></script>
+<script src="S_js/fujian.js"></script>
+<script src="S_js/gansu.js"></script>
+<script src="S_js/hebei.js"></script>
+<script src="S_js/henan.js"></script>
+<script src="S_js/heilongjiang.js"></script>
+<script src="S_js/jilin.js"></script>
+<script src="S_js/jiangsu.js"></script>
+<script src="S_js/jiangxi.js"></script>
+<script src="S_js/neimenggu.js"></script>
+<script src="S_js/ningxia.js"></script>
+<script src="S_js/qinghai.js"></script>
+<script src="S_js/shanxi1.js"></script>
+<script src="S_js/tianjin.js"></script>
+<script src="S_js/xizang.js"></script>
+<script src="S_js/zhejiang.js"></script>
+<script src="S_js/chongqing.js"></script>
+<script src="S_js/china.js"></script>
+</body>
+<script type="text/javascript">
+
+
+
+	
+	/*
+	 * 通信网可靠性三个指标示意图
+	 */
+	var myChart2 = echarts.init(document.getElementById('dataFlow'));
+	option2 = {
+		title: {
+			text: '三个可靠性指标'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: function (params) {
+				if(params.name.indexOf("网络总风险度") != -1)
+					return '网络中所有资源的风险度总和。';
+				else if(params.name.indexOf("资源风险均衡度") != -1)
+					return '网络中所有资源风险度的方差的倒数，表示网络风险均匀分摊在每个资源上的程度。';
+				else if(params.name.indexOf("业务风险均衡度") != -1)
+					return '网络中所有业务风险度的方差的倒数，表示网络风险均匀分摊在每个业务上的程度。';
+				else
+					return params.name;
+			}
+		},
+		animationDurationUpdate: 1500,
+		animationEasingUpdate: 'quinticInOut',
+		series : [
+			{
+				type: 'graph',
+				layout: 'none',
+				symbolSize: 70,
+				//roam: true,
+				label: {
+					normal: {
+						show: true
+					}
+				},
+				edgeSymbol: ['circle', 'arrow'],
+				edgeSymbolSize: [4, 10],
+				edgeLabel: {
+					normal: {
+						textStyle: {
+							fontSize: 20
+						}
+					}
+				},
+				data: [
+					{name: '通信网络可靠性',x: 100,y: 100},
+					{name: '网络',x: 50,y: 150},
+					{name: '资源',x: 100,y: 150},
+					{name: '业务',x: 150,y: 150},
+					{name: '网络总风险度',x: 50,y: 200},
+					{name: '资源风险均衡度',x: 100,y: 200},
+					{name: '业务风险均衡度',x: 150,y: 200}
+				],
+				// links: [],
+				links: [
+					{source: '通信网络可靠性',target: '网络'},
+					{source: '通信网络可靠性',target: '资源'},
+					{source: '通信网络可靠性',target: '业务'},
+					{source: '网络',target: '网络总风险度',label: {normal: {show: true,formatter: '指标'}}},
+					{source: '资源',target: '资源风险均衡度',label: {normal: {show: true,formatter: '指标'}}},
+					{source: '业务',target: '业务风险均衡度',label: {normal: {show: true,formatter: '指标'}}}
+				],
+				lineStyle: {
+					normal: {
+						opacity: 0.9,
+						width: 2,
+						curveness: 0
+					}
+				}
+			}
+		]
+	};
+	myChart2.setOption(option2);
+	$(window).resize(myChart2.resize);
+
+
+</script>

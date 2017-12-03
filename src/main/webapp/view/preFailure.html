@@ -46,7 +46,7 @@
                 <div class="query">
                     <form>
                         &nbsp &nbsp 省份选择:
-                        <select name="cars" id="Province" style="margin-bottom: 10px;">
+                        <select name="cars" id="Province" style="margin-bottom: 12px;">
                             <option value="安徽">安徽</option>
                             <option value="北京">北京</option>
                             <option value="福建">福建</option>
@@ -60,15 +60,17 @@
                             <option value="蒙东">蒙东</option>
                             <option value="宁夏">宁夏</option>
                             <option value="青海">青海</option>
-                            <option value="山西">山西</option>
+                            <option value="陕西">陕西</option>
                             <option value="天津">天津</option>
                             <option value="西藏">西藏</option>
                             <option value="浙江">浙江</option>
                             <option value="重庆">重庆</option>
 
                         </select>
-                        设备ID:<input id="Equi_id" type="text" name="设备ID" style="position: absolute; bottom: 470px; height: 20px;width: 100px;">
-                        <input type="button" value="查询" onclick="forecastLine()" style="height: 24px;position: absolute; bottom: 468px;left: 300px">
+                        <br>
+                        &nbsp&nbsp&nbsp&nbsp设备ID:&nbsp<input id="Equi_id" type="text" name="设备ID" style=" margin-bottom: 12px;bottom: 87.8%; height: 20px;width: 120px;">
+                        <input type="button" value="查询" onclick="forecastLine()" style="margin-bottom: 12px;height: 22px; bottom: 87.8%;left: 30%">
+                        <br>
 
 
 
@@ -307,10 +309,10 @@
     function forecastLine() {
         var Province = $("#Province").val();
         var Equi_id = $("#Equi_id").val();
-        if(Equi_id==null){
-            window.alert("设备ID不能为空");
-        }
-        else {
+//        if(Equi_id.equals(null)){
+//            window.alert("设备ID不能为空");
+//        }
+//        else {
             $.ajax({
                 url: "../../FailureRate_forecast/select",
                 type: "post",
@@ -332,7 +334,7 @@
                     }
                 }
             });
-        }
+//        }
 
     }
 

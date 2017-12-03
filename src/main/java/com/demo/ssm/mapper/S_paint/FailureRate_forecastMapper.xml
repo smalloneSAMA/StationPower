@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_paint.FailureRate_forecastMapper" >
+
+    <!--结果映射-->
+    <resultMap id="FailureMap" type="com.demo.ssm.po.S_paint.FailureRate_forecast">
+        <id column="Province" property="Province" jdbcType="VARCHAR"/>
+        <result column="BETA" property="BETA" jdbcType="VARCHAR"/>
+        <result column="ALARM_TIME_D" property="ALARM_TIME_D" jdbcType="VARCHAR"/>
+        <result column="BETA" property="BETA" jdbcType="VARCHAR"/>
+        <result column="ETA" property="ETA" jdbcType="VARCHAR"/>
+        <result column="R" property="R" jdbcType="VARCHAR"/>
+        <result column="FA" property="FA" jdbcType="VARCHAR"/>
+        <result column="P" property="P" jdbcType="VARCHAR"/>
+        <result column="ERROR" property="ERROR" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--字段片段
+    <sql id="FailureRate">
+        ID,UseTime
+    </sql>-->
+
+    <!--按照ID查询-->
+    <!--<select id="selectByPrimaryKey" resultMap="FailureMap" >
+        SELECT *
+        FROM EquipmentFailurerate_forecast
+
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM EquipmentFailurerate_forecast
+
+    </select>-->
+
+    <!--安徽查询-->
+    <select id="Query" parameterType="String" resultMap="FailureMap" >
+        SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province=#{Province} AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="Count" parameterType="String" resultType="java.lang.Integer" >
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province=#{Province}
+
+    </select>
+
+   <!-- &lt;!&ndash;北京查询&ndash;&gt;
+    <select id="selectByPrimaryKey_BeiJing" parameterType="String" resultMap="FailureMap" >
+        SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='北京' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_BeiJing" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='北京'
+
+    </select>
+
+    &lt;!&ndash;重庆查询&ndash;&gt;
+    <select id="selectByPrimaryKey_ChongQing" parameterType="String" resultMap="FailureMap" >
+        SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='重庆' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_ChongQing" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='重庆'
+
+    </select>
+
+    &lt;!&ndash;福建查询&ndash;&gt;
+    <select id="selectByPrimaryKey_FuJian" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='福建' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_FuJian" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='福建'
+
+    </select>
+
+    &lt;!&ndash;甘肃查询&ndash;&gt;
+    <select id="selectByPrimaryKey_GanSu" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='甘肃' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_GanSu" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='甘肃'
+
+    </select>
+
+    &lt;!&ndash;河北查询&ndash;&gt;
+    <select id="selectByPrimaryKey_HeBei" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='河北' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_HeBei" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='河北'
+
+    </select>
+
+    &lt;!&ndash;黑龙江查询&ndash;&gt;
+    <select id="selectByPrimaryKey_HeiLongJiang" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='黑龙江' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_HeiLongJiang" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='黑龙江'
+
+    </select>
+
+    &lt;!&ndash;河南查询&ndash;&gt;
+    <select id="selectByPrimaryKey_HeNan" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='河南' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_HeNan" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='河南'
+
+    </select>
+
+    &lt;!&ndash;江苏查询&ndash;&gt;
+    <select id="selectByPrimaryKey_JiangSu" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='江苏' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_JiangSu" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='江苏'
+
+    </select>
+
+    &lt;!&ndash;江西查询&ndash;&gt;
+    <select id="selectByPrimaryKey_JiangXi" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='江西' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_JiangXi" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='江西'
+
+    </select>
+
+    &lt;!&ndash;吉林查询&ndash;&gt;
+    <select id="selectByPrimaryKey_JiLin" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='吉林' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_JiLin" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='吉林'
+
+    </select>
+
+    &lt;!&ndash;蒙东查询&ndash;&gt;
+    <select id="selectByPrimaryKey_MengDong" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='蒙东' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_MengDong" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='蒙东'
+
+    </select>
+
+    &lt;!&ndash;宁夏查询&ndash;&gt;
+    <select id="selectByPrimaryKey_NingXia" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='宁夏' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_NingXia" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='宁夏'
+
+    </select>
+
+    &lt;!&ndash;青海查询&ndash;&gt;
+    <select id="selectByPrimaryKey_QingHai" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='青海' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_QingHai" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='青海'
+
+    </select>
+
+    &lt;!&ndash;山西查询&ndash;&gt;
+    <select id="selectByPrimaryKey_ShanXi" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='山西' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_ShanXi" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='山西'
+
+    </select>
+
+    &lt;!&ndash;天津查询&ndash;&gt;
+    <select id="selectByPrimaryKey_TianJin" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='天津' AND NE_OBJ_ID = #{id}
+    </select>
+
+    <select id="count_TianJin" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='天津'
+
+    </select>
+
+    &lt;!&ndash;西藏查询&ndash;&gt;
+    <select id="selectByPrimaryKey_XiZang" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='西藏' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_XiZang" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM EquipFailForecast_XiZang
+
+    </select>
+
+    &lt;!&ndash;浙江查询&ndash;&gt;
+    <select id="selectByPrimaryKey_ZheJiang" parameterType="String" resultMap="FailureMap" >
+         SELECT *
+        FROM Forecast_EquipmentFailureRate
+        WHERE Province='浙江' AND NE_OBJ_ID = #{id}
+
+    </select>
+
+    <select id="count_ZheJiang" resultType="java.lang.Integer">
+        SELECT COUNT(NE_OBJ_ID)
+        FROM EquipFailForecast_ZheJiang
+
+    </select>-->
+
+</mapper>

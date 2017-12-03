@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>站点业务数分析</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="./css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+                    <div class="ibox-content text-center">
+                        <h2 class="m-b-xxs"><b>站点业务数分析</b></h2>
+                    </div>
+					<div class="white-bg dashboard-header">
+						<h2>1.特征工程</h2>
+						<p>通过专家推荐和相关性分析的方法，找到了与站点业务数量相关的一些特征，包括站点类型、电压等级、调度等级、站点建成年限、站点在拓扑图中的中心度、站点中光传输设备数量、站点所属系统以及一些组合特征。分析发现，站点类型与业务数量相关性最强，不同类型站点业务数量相差显著。</p>
+					</div>
+                </div>
+			</div>
+		</div>
+		
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>站点类型与业务数关系</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="buzNum" style="width:100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>站点中心度和业务数关系</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="buzNum1" style="width:100%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--插入选择-->
+        <div class="row  border-bottom white-bg dashboard-header">
+            <div class="col-sm-12">
+                <form>
+                    省份选择:
+                    <select name="cars" >
+                        <option value="安徽">安徽</option>
+                        <option value="北京">北京</option>
+                        <option value="福建">福建</option>
+                        <option value="甘肃">甘肃</option>
+                        <option value="河北">河北</option>
+                        <option value="河南">河南</option>
+                        <option value="黑龙江">黑龙江</option>
+                        <option value="吉林">吉林</option>
+                        <option value="江苏">江苏</option>
+                        <option value="江西">江西</option>
+                        <option value="蒙东">蒙东</option>
+                        <option value="宁夏">宁夏</option>
+                        <option value="青海">青海</option>
+                        <option value="山西">山西</option>
+                        <option value="天津">天津</option>
+                        <option value="西藏">西藏</option>
+                        <option value="浙江">浙江</option>
+                        <option value="重庆">重庆</option>
+                    </select>
+                    <input type="button" value="查询" onclick="zx()" >
+                </form>
+            </div>
+        </div>
+
+		<div class="row">
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>预测准确站点top10</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>站点名称</th>
+                                    <th>系统记录业务数</th>
+                                    <th>预测业务数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Accurate">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>异常站点top10</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>站点名称</th>
+                                    <th>系统记录业务数</th>
+                                    <th>预测业务数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Abnormal">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+
+		
+
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
+	<script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <!--<script src="js/demo/echarts-demo.min.js"></script>-->
+    
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        loadType();
+        loadCentrality();
+        queryAbnormal();
+        queryAccurate();
+
+    });
+
+    //站点中心类型与业务数关系的数据
+    function loadType(){
+        //获取数据
+        $.ajax({
+            url: "../../StationType/select",
+            type: "post",
+            dataType : "json",
+            async:  false,
+            success:function(data){
+                //数据取出
+                buzNum(data);
+
+            },
+            error: function (data) {
+                if(data.result=="error"){
+                    alert("出现异常");
+                }
+            }
+        });
+    }
+
+    //中心度与业务数关系的数据
+    function loadCentrality() {
+        $.ajax({
+            url: "../../Relationship_Centrality_BusinessNum/select",
+            type: "post",
+            dataType : "json",
+            async:  false,
+            success:function(data){
+
+                buzNum1(data);
+
+            },
+            error: function (data) {
+                if(data.result=="error"){
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+
+    /*
+     * 站点业务类型和业务数关系
+     */
+    function buzNum(obj){
+        var myChart = echarts.init(document.getElementById('buzNum'));
+
+
+        //取出站点类型数据
+        var typearray = new Array();
+        $.each(obj,function(i,item){
+            typearray[i] = item.name;
+        });
+
+        //业务数
+        var businessNumarray = new Array();
+        //取出业务数
+        $.each(obj,function(i,item){
+            businessNumarray[i] = item.value;
+        });
+
+
+      //  标记点
+        var point = new Array();
+        point = obj;
+
+
+        //视图
+        option = {
+            title : {
+                text: '站点类型与业务数关系'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            // X轴
+            xAxis : [
+                {
+//				type : 'category',
+                data : typearray,
+                name : '站点类型',
+                    axisLabel: {
+                        interval: 0
+                    }
+                }
+            ],
+            // Y 轴
+            yAxis : [
+                {
+                    type : 'value',
+                    name : '平均业务数'
+                }
+            ],
+            // 标记点
+            series : [
+                {
+                    name:'平均业务数',
+                    type:'bar',
+                    data:businessNumarray,
+                    markPoint : {
+                        data : point
+                    }
+                    /*markLine : {
+                        data : [
+                            {type : 'average', name : '平均值'}
+                        ]
+                    }*/
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        $(window).resize(myChart.resize);
+
+    }
+
+
+
+	/*
+	 * 站点中心度和业务数关系
+	 */
+	function buzNum1(obj) {
+
+        var myChart1 = echarts.init(document.getElementById('buzNum1'));
+        //按照站点中心度排序
+        function sortbyTemp(a,b) {
+            return a.name-b.name;
+        }
+        obj.sort(sortbyTemp);
+
+
+        //坐标点
+//        var xy = new Object();
+        var xyArray =new Array;
+        $.each(obj,function(i,item){
+//            xy.point = [item.name,item.value];
+            xyArray[i]= [item.name,item.value];
+        });
+
+
+        //  标记点
+        var point = new Array();
+        point = obj;
+
+        option1 = {
+            title: {
+                text: '站点中心度和业务数关系'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            xAxis:  {
+                min: 0,
+                max: 1,
+                type: 'value',
+                name: '中心度'
+            },
+            yAxis: {
+                min: 0,
+                max: 120,
+                type: 'value',
+                name: '平均业务数'
+            },
+            series: [
+                {
+                    name:'平均业务数',
+                    type:'line',
+                    data: xyArray,
+                    markPoint : {
+                        data : point
+                    }
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+        $(window).resize(myChart1.resize);
+
+    }
+
+	/*
+	 *  预测准确站点top10
+	 */
+
+    function queryAccurate() {
+        var html="";
+        $.ajax({
+            url: "../../Accurate_top10/select",
+            type: "post",
+            dataType : "json",
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberRecords+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Accurate").html(html);
+
+            }
+        });
+
+    }
+    /*
+     *  预测异常站点top10
+     */
+    function queryAbnormal() {
+        var html="";
+        $.ajax({
+            url: "../../Abnormal_top10/select",
+            type: "post",
+            dataType : "json",
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberRecords+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Abnormal").html(html);
+
+            }
+        });
+
+    }
+</script>
+</html>
