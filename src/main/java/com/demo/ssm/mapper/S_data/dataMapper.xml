@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_data.dataMapper" >
+
+    <!--结果映射-->
+    <resultMap id="Map" type="com.demo.ssm.po.S_data.data">
+        <id column="obj_id" property="obj_id" jdbcType="VARCHAR"/>
+        <result column="CHANNEL_TYPE" property="Val" jdbcType="VARCHAR"/>
+        <result column="CHANNEL_RATE" property="Val" jdbcType="VARCHAR"/>
+        <result column="BUZ_TYPE" property="Val" jdbcType="VARCHAR"/>
+        <result column="BUZ_RATE" property="Val" jdbcType="VARCHAR"/>
+        <result column="INTERFACE_TYPE" property="Val" jdbcType="VARCHAR"/>
+        <result column="predict" property="predict" jdbcType="VARCHAR"/>
+        <result column="probablity" property="probablity" jdbcType="DOUBLE"/>
+    </resultMap>
+
+   <!-- 字段片段
+    <sql id="Abnormal">
+        ID,TransformSubstation,BusinessNumRecords,BusinessNumForecast
+    </sql>-->
+    <!-- 查询表的数据个数
+       <select id="count" resultType="java.lang.Integer">
+           SELECT COUNT(id)
+           FROM AbnormalStation_top10
+
+       </select>-->
+
+
+    <!--channel_type_diff查询-->
+    <select id="channel_typeQ" resultMap="Map" >
+        SELECT *
+        FROM channel_type_diff
+        WHERE Province =#{Province}
+    </select>
+    <select id="channel_type_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM channel_type_diff
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--channel_type_null查询-->
+    <select id="channel_type_null" resultMap="Map" >
+        SELECT *
+        FROM channel_type_null
+        WHERE Province =#{Province}
+    </select>
+    <select id="channel_type_null_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM channel_type_null
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--channel_rate_diff查询-->
+    <select id="channel_rateQ" resultMap="Map" >
+        SELECT *
+        FROM channel_rate_diff
+        WHERE Province =#{Province}
+    </select>
+    <select id="channel_rateQ_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM channel_rate_diff
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--channel_rate_null查询-->
+    <select id="channel_rate_null" resultMap="Map" >
+        SELECT *
+        FROM channel_rate_null
+        WHERE Province =#{Province}
+    </select>
+    <select id="channel_rate_null_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM channel_rate_null
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--buz_type_diff查询-->
+    <select id="buz_typeQ" resultMap="Map" >
+        SELECT *
+        FROM buz_type_diff
+        WHERE Province =#{Province}
+    </select>
+    <select id="buz_typeQ_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM buz_type_diff
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--buz_type_null查询-->
+    <select id="buz_type_null" resultMap="Map" >
+        SELECT *
+        FROM buz_type_null
+        WHERE Province =#{Province}
+    </select>
+    <select id="buz_type_null_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM buz_type_null
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--buz_rate_diff查询-->
+    <select id="buz_rateQ" resultMap="Map" >
+        SELECT *
+        FROM buz_rate_diff
+        WHERE Province =#{Province}
+    </select>
+    <select id="buz_rateQ_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM buz_rate_diff
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--buz_rate_null查询-->
+    <select id="buz_rate_null" resultMap="Map" >
+        SELECT *
+        FROM buz_rate_null
+        WHERE Province =#{Province}
+    </select>
+    <select id="buz_rate_null_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM buz_rate_null
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--interface_type_diff查询-->
+    <select id="interface_typeQ" resultMap="Map" >
+        SELECT *
+        FROM interface_type_diff
+        WHERE Province =#{Province}
+    </select>
+    <select id="interface_typeQ_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM interface_type_diff
+        WHERE Province = #{Province}
+
+    </select>
+
+
+    <!--interface_type_null查询-->
+    <select id="interface_type_null" resultMap="Map" >
+        SELECT *
+        FROM interface_type_null
+        WHERE Province =#{Province}
+    </select>
+    <select id="interface_type_null_Count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(Province)
+        FROM interface_type_null
+        WHERE Province = #{Province}
+
+    </select>
+
+
+
+
+
+
+
+</mapper>

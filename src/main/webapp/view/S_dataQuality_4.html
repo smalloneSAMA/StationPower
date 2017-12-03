@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>通道类型</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="./css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+        <!--插入选择-->
+        <div class="row  border-bottom white-bg dashboard-header">
+            <div class="col-sm-12">
+                <form>
+                    省份选择:
+                    <select id="province" name="cars" >
+                        <option value="安徽">安徽</option>
+                        <option value="北京">北京</option>
+                        <option value="福建">福建</option>
+                        <option value="甘肃">甘肃</option>
+                        <option value="河北">河北</option>
+                        <option value="河南">河南</option>
+                        <option value="黑龙江">黑龙江</option>
+                        <option value="吉林">吉林</option>
+                        <option value="江苏">江苏</option>
+                        <option value="江西" SELECTED>江西</option>
+                        <option value="蒙东">蒙东</option>
+                        <option value="宁夏">宁夏</option>
+                        <option value="青海">青海</option>
+                        <option value="山西">山西</option>
+                        <option value="天津">天津</option>
+                        <option value="西藏">西藏</option>
+                        <option value="浙江">浙江</option>
+                        <option value="重庆">重庆</option>
+                    </select>
+                    <input type="button" value="查询" onclick="channel_type()" >
+                </form>
+            </div>
+        </div>
+
+		<div class="row">
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>通道类型异常设备</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>设备ID</th>
+                                    <th>通道类型</th>
+                                    <th>通道类型预测</th>
+                                    <th>正确率</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Accurate">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>通道类型为空设备</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>设备ID</th>
+                                    <th>通道类型预测</th>
+                                    <th>准确率</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Abnormal">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!--<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+                    <div class="ibox-content text-center">
+                        <h2 class="m-b-xxs"><b>二、业务类型分析</b></h2>
+                    </div>
+                </div>
+			</div>
+		</div>-->
+		
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
+	<script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <!--<script src="js/demo/echarts-demo.min.js"></script>-->
+    
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        channel_type();
+
+    });
+
+	/*
+	 *  通道类型异常设备
+	 */
+
+    function channel_type() {
+        var province = $("#province").val();
+        var html="";
+        $.ajax({
+            url: "../../S_data/channel_type",
+            type: "post",
+            dataType : "json",
+            data:"Province="+province,
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberRecords+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Accurate").html(html);
+
+            }
+        });
+
+        /*
+             *  通道类型为空设备
+             */
+        var html2="";
+        $.ajax({
+            url: "../../S_data/channel_type_null",
+            type: "post",
+            dataType : "json",
+            data:"Province="+province,
+            success: function (data){
+                $.each(data,function (i,item) {
+                    html2+="<tr>"+
+                        "<td>"+item.ID+"</td>"+
+                        "<td>"+item.StationName+"</td>"+
+                        "<td>"+item.NumberForecast+"</td>"+
+                        "</tr>";
+
+
+                } )
+                $("#Abnormal").html(html2);
+
+            }
+        });
+
+    }
+
+</script>
+</html>

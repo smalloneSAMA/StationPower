@@ -1,7 +1,7 @@
-package com.demo.ssm.service.interf;
+package com.demo.ssm.service.interf.S_data;
 
 
-import com.demo.ssm.po.StationType;
+import com.demo.ssm.po.S_data.StationType;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

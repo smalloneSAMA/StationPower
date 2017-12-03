@@ -1,4 +1,4 @@
-package com.demo.ssm.po;
+package com.demo.ssm.po.S_reliability;
 
 public class ExampleAnalysis {
     private Integer id;

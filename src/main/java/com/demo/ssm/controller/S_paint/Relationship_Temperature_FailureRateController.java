@@ -1,11 +1,9 @@
-package com.demo.ssm.controller;
+package com.demo.ssm.controller.S_paint;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.demo.ssm.po.Abnormal_top10;
-import com.demo.ssm.po.Province_Check;
-import com.demo.ssm.service.interf.Abnormal_top10Service;
-import com.demo.ssm.service.interf.Province_CheckService;
+import com.demo.ssm.po.S_paint.Relationship_Temperature_FailureRate;
+import com.demo.ssm.service.interf.S_paint.Relationship_Temperature_FailureRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +14,10 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Province_Check")
-public class Province_CheckController {
+@RequestMapping("/Relationship_Temperature_FailureRate")
+public class Relationship_Temperature_FailureRateController {
     @Autowired
-    private Province_CheckService province_CheckService;
+    private Relationship_Temperature_FailureRateService relationship_Temperature_FailureRateService;
 
     //查询异常对象数据
     @RequestMapping("/select")
@@ -30,19 +28,17 @@ public class Province_CheckController {
 
 
         try{
-//            int k=province_CheckService.count();
+//            int k=relationship_Temperature_FailureRateService.count();
 //            int i = 0;
 //            while (k>0) {
 //                int j = i;
 //                while (1>0) {
-//                    if(province_CheckService.selectByPrimaryKey(j + 1) != null) {
+//                    if(relationship_Temperature_FailureRateService.selectByPrimaryKey(j + 1) != null) {
 //                        JSONObject jsonObject = new JSONObject();
-//                        Province_Check province_Checkinfo = province_CheckService.selectByPrimaryKey(j + 1);
-//                        jsonObject.put("Province", province_Checkinfo.getProvince());
-//                        jsonObject.put("AverageError", province_Checkinfo.getAverageError());
-//                        jsonObject.put("Strobe12hours", province_Checkinfo.getStrobe12hours());
-//                        jsonObject.put("Strobe24hours", province_Checkinfo.getStrobe24hours());
-//                        jsonObject.put("Strobe48hours", province_Checkinfo.getStrobe48hours());
+//                        Relationship_Temperature_FailureRate relationship_Temperature_FailureRateinfo = relationship_Temperature_FailureRateService.selectByPrimaryKey(j + 1);
+//                        jsonObject.put("Temperature", relationship_Temperature_FailureRateinfo.getTemperature());
+//                        jsonObject.put("FailureRate", relationship_Temperature_FailureRateinfo.getFailureRate());
+//
 //                        jsonArray.add(jsonObject);
 //                        k--;
 //                        break;
@@ -56,15 +52,12 @@ public class Province_CheckController {
 //
 //            return jsonArray;
             int i=0;
-            int k=province_CheckService.count();
-            List<Province_Check> list = province_CheckService.selectByPrimaryKey();
+            int k=relationship_Temperature_FailureRateService.count();
+            List<Relationship_Temperature_FailureRate> list = relationship_Temperature_FailureRateService.selectByPrimaryKey();
             while (i<k) {
                 JSONObject jsonObject = new JSONObject() ;
-                jsonObject.put("Province", (list.get(i)).getProvince());
-                jsonObject.put("AverageError", (list.get(i)).getAverageError());
-                jsonObject.put("Strobe12hours", (list.get(i)).getStrobe12hours());
-                jsonObject.put("Strobe24hours", (list.get(i)).getStrobe24hours());
-                jsonObject.put("Strobe48hours", (list.get(i)).getStrobe48hours());
+                jsonObject.put("Temperature", (list.get(i)).getTemperature());
+                jsonObject.put("FailureRate", (list.get(i)).getFailureRate());
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -78,6 +71,11 @@ public class Province_CheckController {
         }
 
     }
+
+    //排序
+
+
+
 
 
 

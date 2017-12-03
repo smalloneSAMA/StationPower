@@ -1,8 +1,8 @@
-package com.demo.ssm.service.Impl;
+package com.demo.ssm.service.Impl.S_data;
 
-import com.demo.ssm.mapper.Relationship_Centrality_BusinessNumMapper;
-import com.demo.ssm.po.Relationship_Centrality_BusinessNum;
-import com.demo.ssm.service.interf.Relationship_Centrality_BusinessNumService;
+import com.demo.ssm.mapper.S_data.Relationship_Centrality_BusinessNumMapper;
+import com.demo.ssm.po.S_data.Relationship_Centrality_BusinessNum;
+import com.demo.ssm.service.interf.S_data.Relationship_Centrality_BusinessNumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
