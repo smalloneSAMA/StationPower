@@ -31,6 +31,7 @@
         SELECT *
         FROM channel_type_diff
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="channel_type_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -45,6 +46,7 @@
         SELECT *
         FROM channel_type_null
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="channel_type_null_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -59,6 +61,7 @@
         SELECT *
         FROM channel_rate_diff
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="channel_rateQ_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -73,6 +76,7 @@
         SELECT *
         FROM channel_rate_null
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="channel_rate_null_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -87,6 +91,7 @@
         SELECT *
         FROM buz_type_diff
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="buz_typeQ_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -101,6 +106,7 @@
         SELECT *
         FROM buz_type_null
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="buz_type_null_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -115,6 +121,7 @@
         SELECT *
         FROM buz_rate_diff
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="buz_rateQ_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -129,6 +136,7 @@
         SELECT *
         FROM buz_rate_null
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="buz_rate_null_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -142,7 +150,8 @@
     <select id="interface_typeQ" resultMap="Map" >
         SELECT *
         FROM interface_type_diff
-        WHERE Province =#{Province}
+        WHERE Province =#{Province} AND interface_type != ""
+        ORDER BY Probablity DESC
     </select>
     <select id="interface_typeQ_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
@@ -157,6 +166,7 @@
         SELECT *
         FROM interface_type_null
         WHERE Province =#{Province}
+        ORDER BY Probablity DESC
     </select>
     <select id="interface_type_null_Count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)

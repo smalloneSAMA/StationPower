@@ -22,21 +22,21 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" parameterType="String" resultMap="StationMap" >
         SELECT *
-        FROM jiangxi1
+        FROM StationProperty
         WHERE Province=#{Province}
 
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
-        FROM jiangxi1
+        FROM StationProperty
         WHERE Province=#{Province}
 
     </select>
 
     <select id="selectByID" resultType="String">
         SELECT name
-        FROM jiangxi1
+        FROM StationProperty
         WHERE Province=#{Province} AND obj_id=#{obj_id}
     </select>
 

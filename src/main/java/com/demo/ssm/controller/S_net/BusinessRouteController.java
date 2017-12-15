@@ -33,47 +33,36 @@ public class BusinessRouteController {
         JSONObject jsonObjecterror = new JSONObject();
 
         try{
-//            int k=businessRouteService.count();
-//            int i = 0;
-//            while (k>0) {
-//                int j = i;
-//
-//                while (1>0) {
-//                    if(businessRouteService.selectByPrimaryKey(j + 1) != null) {
-//                        JSONObject jsonObject = new JSONObject();
-//                        BusinessRoute businessRouteinfo = businessRouteService.selectByPrimaryKey(j + 1);
-//                        jsonObject.put("StationName1", businessRouteinfo.getStationName1());
-//                        jsonObject.put("StationName2", businessRouteinfo.getStationName2());
-//                        jsonObject.put("FiberOcc", businessRouteinfo.getFiberOcc());
-//                        jsonArray.add(jsonObject);
-//                        k--;
-//                        break;
-//                    }
-//                    j++;
-//                }
-//                i=j+1;
-//            }
-////            System.out.println("result:"+ JSON.toJSONString(jsonArray));
-//
-//
-//            return jsonArray;
+
             int i=0;
 //            int k=businessRouteService.count(Province);
 //            查出量站点路由
             List<BusinessRoute> list = businessRouteService.selectByPrimaryKey(Province,buz_id);
 
 //            while (i<k) {
+            if(list.size()==0){
+                JSONObject jsonObject = new JSONObject() ;
+                jsonObject.put("result", false);
+                jsonObject.put("name1", "1");
+                jsonObject.put("name2", "2");
+                jsonObject.put("FiberOcc", 1);
+                jsonArray.add(jsonObject);
+
+            }else {
                 String route = (list.get(i)).getRoute();
 //                分割路由
-                String []ids = route.split(",");
-                int len= ids.length;
+                String[] ids = route.split(",");
+                Integer len = ids.length;
 //                ids[0]="0CF3663A-EB41-4DF9-9061-D27EDA049BFD-00456";
 //                ids[1]="0CF3663A-EB41-4DF9-9061-D27EDA049BFD-00469";
 //            传入json
+
                 for(int a=0,b=1;b<len;a++,b++){
                     JSONObject jsonObject = new JSONObject() ;
+                    jsonObject.put("result", true);
                     jsonObject.put("name1", stationPropertyService.selectByID(Province,ids[a]));
                     jsonObject.put("name2", stationPropertyService.selectByID(Province,ids[b]));
+//                    jsonObject.put("result", "success");
                     if(stationLink_JiangXiService.selectByID(ids[a],ids[b],Province)==null){
 
                         jsonObject.put("FiberOcc", stationLink_JiangXiService.selectByID(ids[b],ids[a],Province));
@@ -83,6 +72,7 @@ public class BusinessRouteController {
                     }
                     jsonArray.add(jsonObject);
                 }
+            }
 
 //                i++;
 //            }
@@ -90,7 +80,7 @@ public class BusinessRouteController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result",false);
             jsonArray.add(jsonObjecterror);
             return jsonArray;
         }

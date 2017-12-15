@@ -91,115 +91,115 @@
         </div>
 
         <!--插入选择-->
-        <div class="row  border-bottom white-bg dashboard-header">
-            <div class="col-sm-12">
-                <form>
-                    省份选择:
-                    <select name="cars" >
-                        <option value="安徽">安徽</option>
-                        <option value="北京">北京</option>
-                        <option value="福建">福建</option>
-                        <option value="甘肃">甘肃</option>
-                        <option value="河北">河北</option>
-                        <option value="河南">河南</option>
-                        <option value="黑龙江">黑龙江</option>
-                        <option value="吉林">吉林</option>
-                        <option value="江苏">江苏</option>
-                        <option value="江西">江西</option>
-                        <option value="蒙东">蒙东</option>
-                        <option value="宁夏">宁夏</option>
-                        <option value="青海">青海</option>
-                        <option value="山西">山西</option>
-                        <option value="天津">天津</option>
-                        <option value="西藏">西藏</option>
-                        <option value="浙江">浙江</option>
-                        <option value="重庆">重庆</option>
-                    </select>
-                    <input type="button" value="查询" onclick="zx()" >
-                </form>
-            </div>
-        </div>
+        <!--<div class="row  border-bottom white-bg dashboard-header">-->
+            <!--<div class="col-sm-12">-->
+                <!--<form>-->
+                    <!--省份选择:-->
+                    <!--<select name="cars" >-->
+                        <!--<option value="安徽">安徽</option>-->
+                        <!--<option value="北京">北京</option>-->
+                        <!--<option value="福建">福建</option>-->
+                        <!--<option value="甘肃">甘肃</option>-->
+                        <!--<option value="河北">河北</option>-->
+                        <!--<option value="河南">河南</option>-->
+                        <!--<option value="黑龙江">黑龙江</option>-->
+                        <!--<option value="吉林">吉林</option>-->
+                        <!--<option value="江苏">江苏</option>-->
+                        <!--<option value="江西">江西</option>-->
+                        <!--<option value="蒙东">蒙东</option>-->
+                        <!--<option value="宁夏">宁夏</option>-->
+                        <!--<option value="青海">青海</option>-->
+                        <!--<option value="山西">山西</option>-->
+                        <!--<option value="天津">天津</option>-->
+                        <!--<option value="西藏">西藏</option>-->
+                        <!--<option value="浙江">浙江</option>-->
+                        <!--<option value="重庆">重庆</option>-->
+                    <!--</select>-->
+                    <!--<input type="button" value="查询" onclick="zx()" >-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
 
-		<div class="row">
-			<div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>预测准确站点top10</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_basic.html#">选项1</a>
-                                </li>
-                                <li><a href="table_basic.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>序号</th>
-                                    <th>站点名称</th>
-                                    <th>系统记录业务数</th>
-                                    <th>预测业务数</th>
-                                </tr>
-                            </thead>
-                            <tbody id="Accurate">
+		<!--<div class="row">-->
+			<!--<div class="col-sm-6">-->
+                <!--<div class="ibox float-e-margins">-->
+                    <!--<div class="ibox-title">-->
+                        <!--<h5>预测准确站点top10</h5>-->
+                        <!--<div class="ibox-tools">-->
+                            <!--<a class="collapse-link">-->
+                                <!--<i class="fa fa-chevron-up"></i>-->
+                            <!--</a>-->
+                            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">-->
+                                <!--<i class="fa fa-wrench"></i>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu dropdown-user">-->
+                                <!--<li><a href="table_basic.html#">选项1</a>-->
+                                <!--</li>-->
+                                <!--<li><a href="table_basic.html#">选项2</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                            <!--<a class="close-link">-->
+                                <!--<i class="fa fa-times"></i>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="ibox-content">-->
+                        <!--<table class="table table-hover">-->
+                            <!--<thead>-->
+                                <!--<tr>-->
+                                    <!--<th>序号</th>-->
+                                    <!--<th>站点名称</th>-->
+                                    <!--<th>系统记录业务数</th>-->
+                                    <!--<th>预测业务数</th>-->
+                                <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody id="Accurate">-->
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-			<div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>异常站点top10</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_basic.html#">选项1</a>
-                                </li>
-                                <li><a href="table_basic.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>序号</th>
-                                    <th>站点名称</th>
-                                    <th>系统记录业务数</th>
-                                    <th>预测业务数</th>
-                                </tr>
-                            </thead>
-                            <tbody id="Abnormal">
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+			<!--<div class="col-sm-6">-->
+                <!--<div class="ibox float-e-margins">-->
+                    <!--<div class="ibox-title">-->
+                        <!--<h5>异常站点top10</h5>-->
+                        <!--<div class="ibox-tools">-->
+                            <!--<a class="collapse-link">-->
+                                <!--<i class="fa fa-chevron-up"></i>-->
+                            <!--</a>-->
+                            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">-->
+                                <!--<i class="fa fa-wrench"></i>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu dropdown-user">-->
+                                <!--<li><a href="table_basic.html#">选项1</a>-->
+                                <!--</li>-->
+                                <!--<li><a href="table_basic.html#">选项2</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                            <!--<a class="close-link">-->
+                                <!--<i class="fa fa-times"></i>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="ibox-content">-->
+                        <!--<table class="table table-hover">-->
+                            <!--<thead>-->
+                                <!--<tr>-->
+                                    <!--<th>序号</th>-->
+                                    <!--<th>站点名称</th>-->
+                                    <!--<th>系统记录业务数</th>-->
+                                    <!--<th>预测业务数</th>-->
+                                <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody id="Abnormal">-->
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 		
 
 		

@@ -7,43 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d62446d9-6e2e-478a-860b-2886bf72f7a8" name="Default" comment="修改了页面结构 后台文件结构 添加了多个查询功能">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Province_CheckMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/ExampleAnalysisMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/Accurate_top10.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_net/StationProperty.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/Province_Check.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationLink_JiangXiServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationProperty_RouteServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/AverageFailureRateServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Province_CheckServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Relationship_Failure_YearServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Relationship_Temperature_FailureRateServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/beijing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/chongqing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/guangxi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/guizhou.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/shandong.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_js/xinjiang.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/FailureRate_forecastController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Accurate_top10Mapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/BusinessRouteMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/FailureRate_forecastMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Relationship_Failure_YearMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/BusinessRouteExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Relationship_Failure_YearExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/StationLink_JiangXi.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/StationLink_JiangXiExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/StationProperty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/StationTypeExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/BusinessRouteServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/FailureRate_forecastService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/Relationship_Centrality_BusinessNumService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/Relationship_Failure_YearService.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_33.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_44.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_55.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_66.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationProperty_RouteController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationProperty_RouteMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationProperty_RouteMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_net/StationProperty_Route.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationProperty_RouteServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationProperty_RouteService.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/controller/Accurate_top10Controller.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/controller/Relationship_Temperature_FailureRateController.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Abnormal_top10Mapper.xml" afterPath="" />
@@ -110,24 +83,24 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/StationLink_JiangXiService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/StationProperty_RouteService.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/db.properties" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/db.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationPropertyMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationPropertyMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/login.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/preFailure.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/preFailure.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/register.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/db.properties" afterPath="$PROJECT_DIR$/target/classes/config/db.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/BusinessRouteController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Temperature_FailureRateController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/Province_CheckController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Abnormal_top10Controller.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/AverageFailureRateMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/BusinessRouteMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/StationTypeMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Province_CheckMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Province_CheckMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/StationProperty_RouteMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationProperty_RouteService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Abnormal_top10Example.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/Abnormal_top10.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/ExampleAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/ExampleAnalysis.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/Relationship_Centrality_BusinessNumServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/Relationship_Centrality_BusinessNumServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/StationTypeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/StationTypeService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -154,101 +127,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Province_CheckService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Province_CheckService.java">
+      <file leaf-file-name="S_dataQuality_4.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="360">
+              <caret line="87" column="32" lean-forward="true" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+              <folding>
+                <marker date="1513259360974" expanded="true" signature="9032:9059" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="9116:9145" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="9211:9240" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="9325:9354" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="10805:10833" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="10891:10920" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="10967:10996" ph="..." />
+                <marker date="1513259360974" expanded="true" signature="11079:11108" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Relationship_Failure_YearService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Relationship_Failure_YearService.java">
+      <file leaf-file-name="S_net_route.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_route.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="392">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Relationship_Temperature_FailureRateService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Relationship_Temperature_FailureRateService.java">
+      <file leaf-file-name="S_net_expand.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="390">
+              <caret line="80" column="18" lean-forward="false" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExampleAnalysisController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/ExampleAnalysisController.java">
+      <file leaf-file-name="S_dataQuality_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AverageFailureRateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/AverageFailureRateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BusinessRouteController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="80" column="67" lean-forward="false" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FailureRate_forecastController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/FailureRate_forecastController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Province_CheckController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Province_CheckController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Relationship_Failure_YearController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Relationship_Temperature_FailureRateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Temperature_FailureRateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="390">
+              <caret line="204" column="8" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -267,8 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>targ</find>
-      <find>registerTo</find>
       <find>user</find>
       <find>repassword</find>
       <find>base</find>
@@ -280,7 +208,6 @@
       <find>Equi_id</find>
       <find>id</find>
       <find>loginType</find>
-      <find>ibox-title</find>
       <find>forecastLine</find>
       <find>jiangxi.js</find>
       <find>main</find>
@@ -295,8 +222,11 @@
       <find>i</find>
       <find>edges1</find>
       <find>queryAccurate</find>
-      <find>province</find>
       <find>Abnorma</find>
+      <find>row  border-bottom white-bg dashboard-header</find>
+      <find>province</find>
+      <find>ibox-title</find>
+      <find>业务可靠性</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -317,26 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationPropertyMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Abnormal_top10Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Accurate_top10Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Relationship_Centrality_BusinessNumController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/StationTypeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/BusinessRouteService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationLink_JiangXiService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationProperty_RouteService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationPropertyService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_net/StationProperty_Route.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationProperty_RouteMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationPropertyController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/StationLink_JiangXiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationProperty_RouteController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationLink_JiangXiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Relationship_Temperature_FailureRateMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/ExampleAnalysisMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Province_CheckMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/FailureRate_forecastMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Relationship_Failure_YearMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/AverageFailureRate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/ExampleAnalysis.java" />
@@ -367,7 +277,27 @@
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Province_CheckController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Temperature_FailureRateController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationPropertyMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_23.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_24.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_25.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_26.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_66.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" />
       </list>
     </option>
   </component>
@@ -421,10 +351,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="336" />
+    <option name="y" value="102" />
+    <option name="width" value="1223" />
+    <option name="height" value="843" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -453,10 +383,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -514,245 +444,7 @@
               <item name="StationPower" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="S_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="S_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="S_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-              <item name="S_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-              <item name="S_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-              <item name="S_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-              <item name="S_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-              <item name="S_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-              <item name="S_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
@@ -768,41 +460,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="MavenFirst-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="MavenFirst-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="MavenFirst-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="MavenFirst-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -816,7 +473,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="E:/projectfile/electricPowerSystem-综合" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="Browse Repositories&#9;null&#9;null&#10;Maven pr&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
@@ -843,11 +500,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\360Downloads\StationPower\src\main\webapp\view" />
+      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\js\plugins" />
       <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\controller" />
       <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\service\interf" />
       <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\service\Impl" />
-      <recent name="E:\360Downloads\StationPower\src\main\webapp\view" />
-      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\S_js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1153,7 +810,24 @@
       <workItem from="1512272087170" duration="958000" />
       <workItem from="1512281228190" duration="5774000" />
       <workItem from="1512290304921" duration="308000" />
-      <workItem from="1512290677730" duration="3925000" />
+      <workItem from="1512290677730" duration="5048000" />
+      <workItem from="1512304879912" duration="828000" />
+      <workItem from="1512381881291" duration="379000" />
+      <workItem from="1512391111684" duration="2734000" />
+      <workItem from="1512459895393" duration="538000" />
+      <workItem from="1512464889481" duration="176000" />
+      <workItem from="1512470853594" duration="1923000" />
+      <workItem from="1512625373946" duration="4070000" />
+      <workItem from="1512725954359" duration="2590000" />
+      <workItem from="1512818559834" duration="988000" />
+      <workItem from="1513050325201" duration="3196000" />
+      <workItem from="1513069114510" duration="4017000" />
+      <workItem from="1513085427195" duration="596000" />
+      <workItem from="1513141934465" duration="682000" />
+      <workItem from="1513144464017" duration="416000" />
+      <workItem from="1513144962974" duration="378000" />
+      <workItem from="1513241799812" duration="16354000" />
+      <workItem from="1513309507773" duration="2857000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1511247154782</created>
@@ -1190,7 +864,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511514053067</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改了页面结构 后台文件结构 添加了多个查询功能">
+      <created>1512295081912</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1512295081912</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1226,7 +907,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446973000" />
+    <option name="totallyTimeSpent" value="490818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1241,7 +922,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="5.2083336E-4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1252,7 +933,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49886104" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34168565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41799545" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1260,13 +941,12 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.104166664" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.117154814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11617312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2719957" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21834764" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.50416666" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32346243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1274,6 +954,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32346243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1326,7 +1007,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="132" />
+      <option name="time" value="136" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1339,419 +1020,287 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Abnormal_top10Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="9966">
+          <caret line="313" column="0" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Accurate_top10Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Relationship_Centrality_BusinessNumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/StationTypeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/BusinessRouteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationLink_JiangXiService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationProperty_RouteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationPropertyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_net/StationProperty_Route.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationProperty_RouteMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationPropertyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="1254">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
-            <element signature="e#990#1041#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1513259361340" expanded="true" signature="8918:8934" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="8918:8945" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9002:9020" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9002:9031" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9097:9115" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9097:9126" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9211:9229" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10683:10710" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10683:10711" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10769:10798" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10845:10863" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10845:10874" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10957:10975" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10957:10986" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationLink_JiangXiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-759">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="1254">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <marker date="1513259361370" expanded="true" signature="8969:8996" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9053:9082" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9148:9177" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9262:9291" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10734:10762" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10820:10849" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10896:10925" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="11008:11037" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <marker date="1513259360974" expanded="true" signature="9032:9059" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9116:9145" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9325:9354" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10805:10833" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10891:10920" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10967:10996" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="11079:11108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <marker date="1513259361298" expanded="true" signature="9032:9059" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9116:9145" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9325:9354" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10805:10833" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10891:10920" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10967:10996" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="11079:11108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_33.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_44.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="205" column="34" lean-forward="true" selection-start-line="205" selection-start-column="34" selection-end-line="205" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_55.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="204" column="47" lean-forward="true" selection-start-line="204" selection-start-column="47" selection-end-line="204" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="127" column="33" lean-forward="true" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3066">
-          <caret line="367" column="29" lean-forward="true" selection-start-line="367" selection-start-column="29" selection-end-line="367" selection-end-column="29" />
+        <state relative-caret-position="9966">
+          <caret line="313" column="0" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationProperty_RouteController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1287">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Relationship_Temperature_FailureRateMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/FailureRate_forecastMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1254">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
-            <marker date="1512292500982" expanded="true" signature="1429:1537" ph="SELECT * FRO... Forecast_EquipmentFailureRate" />
-            <marker date="1512292500982" expanded="true" signature="1641:1742" ph="SELECT COUNT... Forecast_EquipmentFailureRate" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1513259361340" expanded="true" signature="8918:8934" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="8918:8945" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9002:9020" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9002:9031" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9097:9115" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9097:9126" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9211:9229" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10683:10710" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10683:10711" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10769:10798" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10845:10863" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10845:10874" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10957:10975" ph="..." />
+            <marker date="1513259361340" expanded="true" signature="10957:10986" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/ExampleAnalysisMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Province_CheckMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/FailureRate_forecastMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Relationship_Failure_YearMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/Relationship_Failure_YearMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1254">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
-            <marker date="1512292500238" expanded="true" signature="810:866" ph="SELECT * FRO... FailurerateAndUseyear_relationship" />
-            <marker date="1512292500238" expanded="true" signature="946:1010" ph="SELECT COUNT... FailurerateAndUseyear_relationship" />
+            <marker date="1513259361370" expanded="true" signature="8969:8996" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9053:9082" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9148:9177" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="9262:9291" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10734:10762" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10820:10849" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="10896:10925" ph="..." />
+            <marker date="1513259361370" expanded="true" signature="11008:11037" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/AverageFailureRate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_66.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="336">
+          <caret line="173" column="45" lean-forward="false" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <marker date="1513259361298" expanded="true" signature="9032:9059" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9116:9145" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="9325:9354" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10805:10833" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10891:10920" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="10967:10996" ph="..." />
+            <marker date="1513259361298" expanded="true" signature="11079:11108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/temp_failure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/ExampleAnalysis.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="87" column="32" lean-forward="true" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+          <folding>
+            <marker date="1513259360974" expanded="true" signature="9032:9059" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9116:9145" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9211:9240" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="9325:9354" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10805:10833" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10891:10920" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="10967:10996" ph="..." />
+            <marker date="1513259360974" expanded="true" signature="11079:11108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="204" column="8" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/FailureRate_forecast.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="390">
+          <caret line="80" column="18" lean-forward="false" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/Province_Check.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_route.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/Relationship_Failure_Year.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_paint/Relationship_Temperature_FailureRate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/BusinessRouteServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationLink_JiangXiServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationPropertyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationProperty_RouteServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/ExampleAnalysisServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/AverageFailureRateServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/FailureRate_forecastServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Province_CheckServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Relationship_Failure_YearServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/Relationship_Temperature_FailureRateServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/ExampleAnalysisService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/AverageFailureRateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/FailureRate_forecastService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Province_CheckService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Relationship_Failure_YearService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_paint/Relationship_Temperature_FailureRateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/ExampleAnalysisController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/AverageFailureRateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/FailureRate_forecastController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Province_CheckController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Temperature_FailureRateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="80" column="67" lean-forward="false" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="392">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

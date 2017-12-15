@@ -304,7 +304,7 @@ public class dataController {
 
 
     //查询异常interface_rate
-    @RequestMapping("/interface_type")
+    @RequestMapping("/interface_type_diff")
     @ResponseBody
     public JSONArray interface_type(HttpServletRequest request, String Province) {
         JSONArray jsonArray = new JSONArray();

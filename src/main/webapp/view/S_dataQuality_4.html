@@ -11,132 +11,163 @@
 
     <link rel="shortcut icon" href="favicon.ico"> <link href="./css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
 
+    <style>
+        .ibox-title{
+            border-top-color: white;
+
+        }
+
+    </style>
+
 </head>
 
 <body class="gray-bg">
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <p>（1）对不同类型的数据使用不同的预处理方案。对文本类型数据使用自然语言处理（NLP）提取其关键字；对属性类型数据使用One-Hot编码将其转化为数字类型；对数字类型数据，根据其分布不同考虑是否需要归一化或标准化。
+        </p>
+        <p>（2）通过相关性分析，信息增益计算等方法从全量的字段中选取特征。
+        </p>
+        <p>（3）初步训练模型，在后期再通过专家推荐特征对模型进行优化。
+        </p>
+    </div>
+</div>
         <!--插入选择-->
-        <div class="row  border-bottom white-bg dashboard-header">
-            <div class="col-sm-12">
-                <form>
-                    省份选择:
-                    <select id="province" name="cars" >
-                        <option value="安徽">安徽</option>
-                        <option value="北京">北京</option>
-                        <option value="福建">福建</option>
-                        <option value="甘肃">甘肃</option>
-                        <option value="河北">河北</option>
-                        <option value="河南">河南</option>
-                        <option value="黑龙江">黑龙江</option>
-                        <option value="吉林">吉林</option>
-                        <option value="江苏">江苏</option>
-                        <option value="江西" SELECTED>江西</option>
-                        <option value="蒙东">蒙东</option>
-                        <option value="宁夏">宁夏</option>
-                        <option value="青海">青海</option>
-                        <option value="山西">山西</option>
-                        <option value="天津">天津</option>
-                        <option value="西藏">西藏</option>
-                        <option value="浙江">浙江</option>
-                        <option value="重庆">重庆</option>
-                    </select>
-                    <input type="button" value="查询" onclick="channel_type()" >
-                </form>
+        <div class="row" style="padding: 10px 9px">
+            <div class="col-xs-2">
+                <select class="form-control" id="province" name="cars" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="成都">成都</option>
+                    <option value="重庆">重庆</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="河南">河南</option>
+                    <option value="湖北">湖北</option>
+                    <option value="湖南">湖南</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西" SELECTED>江西</option>
+                    <option value="冀北">冀北</option>
+                    <option value="吉林">吉林</option>
+                    <option value="辽宁">辽宁</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="山西">山西</option>
+                    <option value="陕西">陕西</option>
+                    <option value="山东">山东</option>
+                    <option value="四川">四川</option>
+                    <option value="天津">天津</option>
+                    <option value="新疆">新疆</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                </select>
+            </div>
+            <div class="col-xs-8 no-margins no-padding">
+                <button class="btn btn-white " type="button" onclick="buz_type()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
             </div>
         </div>
 
-		<div class="row">
-			<div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>通道类型异常设备</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_basic.html#">选项1</a>
-                                </li>
-                                <li><a href="table_basic.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
+
+        <!--测试-->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>通道类型异常设备-准确率top10</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="table_data_tables.html#">选项1</a>
+                                    </li>
+                                    <li><a href="table_data_tables.html#">选项2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <table class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center">设备ID    </th>
+                                    <th style="text-align: center">通道类型</th>
+                                    <th style="text-align: center">通道类型预测</th>
+                                    <th style="text-align: center">准确率</th>
+                                </tr>
+                                </thead>
+                                <tbody id="channel_type_diff">
+
+                                </tbody>
+
+                            </table>
+
                         </div>
                     </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>设备ID</th>
-                                    <th>通道类型</th>
-                                    <th>通道类型预测</th>
-                                    <th>正确率</th>
-                                </tr>
-                            </thead>
-                            <tbody id="Accurate">
-
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
-            </div>
-			<div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>通道类型为空设备</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_basic.html#">选项1</a>
-                                </li>
-                                <li><a href="table_basic.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
+
+
+                <div class="col-sm-12" >
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>通道类型为空设备-准确率top10</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="table_data_tables.html#">选项1</a>
+                                    </li>
+                                    <li><a href="table_data_tables.html#">选项2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <table class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                <tr >
+                                    <th style="text-align: center">设备ID    </th>
+                                    <th style="text-align: center">通道类型    </th>
+                                    <th style="text-align: center">通道类型预测</th>
+                                    <th style="text-align: center">准确率</th>
+                                </tr>
+                                </thead>
+                                <tbody id="channel_type_null">
+
+                                </tbody>
+
+                            </table>
+
                         </div>
                     </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>设备ID</th>
-                                    <th>通道类型预测</th>
-                                    <th>准确率</th>
-                                </tr>
-                            </thead>
-                            <tbody id="Abnormal">
+                </div>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
-        </div>
-		
-		<!--<div class="row">
-			<div class="col-sm-12">
-				<div class="ibox">
-                    <div class="ibox-content text-center">
-                        <h2 class="m-b-xxs"><b>二、业务类型分析</b></h2>
-                    </div>
-                </div>
-			</div>
-		</div>-->
+
 		
     </div>
     <script src="js/jquery.min.js?v=2.1.4"></script>
@@ -145,13 +176,21 @@
 	<script src="S_js/echarts.js"></script>
     <script src="js/content.min.js?v=1.0.0"></script>
     <!--<script src="js/demo/echarts-demo.min.js"></script>-->
+        <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+        <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+        <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+        <script src="js/content.min.js?v=1.0.0"></script>
+        <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <!--<script>-->
+            <!--$(document).ready(function(){$(".dataTables-example").dataTable();var oTable=$("#editable").dataTable();oTable.$("td").editable("../example_ajax.php",{"callback":function(sValue,y){var aPos=oTable.fnGetPosition(this);oTable.fnUpdate(sValue,aPos[0],aPos[1])},"submitdata":function(value,settings){return{"row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]}},"width":"90%","height":"100%"})});function fnClickAddRow(){$("#editable").dataTable().fnAddData(["Custom row","New row","New row","New row","New row"])};-->
+        <!--</script>-->
     
 </body>
 <script type="text/javascript">
 
     $(document).ready(function(){
 
-        channel_type();
+        buz_type();
 
     });
 
@@ -159,9 +198,10 @@
 	 *  通道类型异常设备
 	 */
 
-    function channel_type() {
+    function buz_type() {
         var province = $("#province").val();
-        var html="";
+
+        var html1=""
         $.ajax({
             url: "../../S_data/channel_type",
             type: "post",
@@ -169,19 +209,42 @@
             data:"Province="+province,
             success: function (data){
                 $.each(data,function (i,item) {
-                    html+="<tr>"+
-                        "<td>"+item.ID+"</td>"+
-                        "<td>"+item.StationName+"</td>"+
-                        "<td>"+item.NumberRecords+"</td>"+
-                        "<td>"+item.NumberForecast+"</td>"+
+                    html1+=" <tr class=\"gradeA\">"+
+                        "<td style='text-align: left;width: 30%'>"+item.ID+"</td>"+
+                        "<td style='text-align: center;width: 20%'>"+item.StationName+"</td>"+
+                        "<td style='text-align: center;width: 20%'>"+item.NumberRecords+"</td>"+
+                        "<td class=\"center\" style='text-align: center;width: 30%'>"+item.NumberForecast+"</td>"+
                         "</tr>";
 
 
+
+
                 } )
-                $("#Accurate").html(html);
+                $("#channel_type_diff").html(html1);
 
             }
         });
+
+//        加载框框
+        $(document).ready(function(){
+//            $(".dataTables-example").dataTable();
+            var oTable=$("#editable").dataTable();
+            oTable.$("td").editable("../example_ajax.php",{
+                "callback":function(sValue,y){
+                    var aPos=oTable.fnGetPosition(this);
+                    oTable.fnUpdate(sValue,aPos[0],aPos[1])
+                },
+                "submitdata":function(value,settings){
+                    return{
+                        "row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]
+                    }
+                    },
+                "width":"90%","height":"100%"
+            })});
+        function fnClickAddRow(){
+            $("#editable").dataTable().fnAddData(
+                ["Custom row","New row","New row","New row","New row"])
+        };
 
         /*
              *  通道类型为空设备
@@ -194,15 +257,16 @@
             data:"Province="+province,
             success: function (data){
                 $.each(data,function (i,item) {
-                    html2+="<tr>"+
-                        "<td>"+item.ID+"</td>"+
-                        "<td>"+item.StationName+"</td>"+
-                        "<td>"+item.NumberForecast+"</td>"+
+                    html2+=" <tr class=\"gradeA\" >"+
+                        "<td style='text-align: left ;width:30%;' >"+item.ID+"</td>"+
+                        "<td style='text-align: center;width: 20%'>空</td>"+
+                        "<td style='text-align: center;width: 20%'>"+item.StationName+"</td>"+
+                        "<td class=\"center\" style='text-align: center;width: 30%'>"+item.NumberForecast+"</td>"+
                         "</tr>";
 
 
                 } )
-                $("#Abnormal").html(html2);
+                $("#channel_type_null").html(html2);
 
             }
         });

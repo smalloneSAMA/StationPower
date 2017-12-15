@@ -21,20 +21,20 @@
     <!--按照省份查询-->
     <select id="selectByPrimaryKey" parameterType="String" resultMap="LinkMap" >
         SELECT name1,name2,fiberOcc
-        FROM jiangxi2
+        FROM StationLink
         WHERE Province=#{Province}
     </select>
 
     <!--按照ID查询Occ-->
     <select id="selectByID"  resultType="Double" >
         SELECT fiberOcc
-        FROM jiangxi2
+        FROM StationLink
         WHERE Province=#{Province} AND obj_id2=#{obj_id2} AND obj_id1=#{obj_id1}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(Province)
-        FROM jiangxi2
+        FROM StationLink
         WHERE Province=#{Province}
 
     </select>

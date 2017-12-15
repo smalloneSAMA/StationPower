@@ -19,13 +19,13 @@
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="RouteMap" >
         SELECT *
-        FROM jiangxi3
+        FROM StationRoute
         WHERE Province = #{Province} AND buz_id=#{buz_id}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(buz_id)
-        FROM jiangxi3
+        FROM StationRoute
         WHERE Province = #{Province}
 
     </select>
