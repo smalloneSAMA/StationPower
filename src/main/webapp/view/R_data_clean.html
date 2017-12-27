@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相关业务数据清洗</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+<body>
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <form>
+            <label>省份选择:</label>
+            <select name="cars" >
+                <option value="安徽">安徽</option>
+                <option value="北京">北京</option>
+                <option value="福建">福建</option>
+                <option value="甘肃">甘肃</option>
+                <option value="河北">河北</option>
+                <option value="河南">河南</option>
+                <option value="黑龙江">黑龙江</option>
+                <option value="吉林">吉林</option>
+                <option value="江苏">江苏</option>
+                <option value="江西">江西</option>
+                <option value="蒙东">蒙东</option>
+                <option value="宁夏">宁夏</option>
+                <option value="青海">青海</option>
+                <option value="山西">山西</option>
+                <option value="天津">天津</option>
+                <option value="西藏">西藏</option>
+                <option value="浙江">浙江</option>
+                <option value="重庆">重庆</option>
+            </select>
+
+            <input type="button" style="display: block; margin-top: 20px;"value="故障日志数据清洗" onclick="zx()" >
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>业务基本信息</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_basic.html#">选项1</a>
+                        </li>
+                        <li><a href="table_basic.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+                    <tr>
+                        <th>地区</th>
+                        <th>原始故障</th>
+                        <th>标记故障</th>
+                        <th>过滤重复</th>
+                        <th>合并频闪</th>
+                    </tr>
+                    <tr>
+                        <th>江西</th>
+                        <th>4198323</th>
+                        <th>849292</th>
+                        <th>695436</th>
+                        <th>26255</th>
+                    </tr>
+                    <tr>
+                        <th>江苏</th>
+                        <th>9283156</th>
+                        <th>474537</th>
+                        <th>430222</th>
+                        <th>24221</th>
+                    </tr>
+                    <tr>
+                        <th>山东</th>
+                        <th>4072027</th>
+                        <th>594015</th>
+                        <th>544866</th>
+                        <th>19964</th>
+                    </tr>
+                    <tr>
+                        <th>湖北</th>
+                        <th>29295203</th>
+                        <th>401783</th>
+                        <th>323956</th>
+                        <th>16313</th>
+                    </tr>
+                    <tr>
+                        <th>河南</th>
+                        <th>4720153</th>
+                        <th>568646</th>
+                        <th>532672</th>
+                        <th>24454</th>
+                    </tr>
+                    <tr>
+                        <th>北京</th>
+                        <th>2227775</th>
+                        <th>164755</th>
+                        <th>153406</th>
+                        <th>9194</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

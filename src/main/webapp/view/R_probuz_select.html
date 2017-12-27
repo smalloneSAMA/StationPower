@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>省份和业务选择</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+<div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <form>
+            <!--<label>省份选择:</label>-->
+            <!--<select name="cars" id="province">-->
+                <!--<option value="安徽">安徽</option>-->
+                <!--<option value="北京">北京</option>-->
+                <!--<option value="福建">福建</option>-->
+                <!--<option value="甘肃">甘肃</option>-->
+                <!--<option value="河北">河北</option>-->
+                <!--<option value="河南">河南</option>-->
+                <!--<option value="黑龙江">黑龙江</option>-->
+                <!--<option value="吉林">吉林</option>-->
+                <!--<option value="江苏">江苏</option>-->
+                <!--<option value="江西" selected="selected">江西</option>-->
+                <!--<option value="蒙东">蒙东</option>-->
+                <!--<option value="宁夏">宁夏</option>-->
+                <!--<option value="青海">青海</option>-->
+                <!--<option value="山西">山西</option>-->
+                <!--<option value="天津">天津</option>-->
+                <!--<option value="西藏">西藏</option>-->
+                <!--<option value="浙江">浙江</option>-->
+                <!--<option value="重庆">重庆</option>-->
+            <!--</select>-->
+            <label  style="margin-left: 30px;">业务类型选择：</label>
+            <select id="buz_type">
+                <option value="1" selected="selected">继电保护</option>
+                <option value="2">安全自动装置</option>
+                <option value="3">调度自动化</option>
+            </select>
+            <br><br>
+            <input id="buz_id" type="text" name="设备ID" value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04479" />
+            <input id="btn" type="button" value="查询" onclick="zx()"/>
+        </form>
+    </div>
+</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>业务基本信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="lalala">
+                        <!--<table class="table table-hover">-->
+                            <!--<tr>-->
+                                <!--<th>业务ID</th>-->
+                                <!--<td>027C39B6-5069-473A-8CF1-513268B6DBD3-02770</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<th>业务名称</th>-->
+                                <!--<td>(220kV向塘变～500kV进贤变)继电保护进向I线RCS-931BM业务02</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<th>业务类型</th>-->
+                                <!--<td> 继电保护（1）</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<th>通道ID</th>-->
+                                <!--<td>027C39B6-5069-473A-8CF1-513268B6DBD3-02746 </td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<th>通道名称</th>-->
+                                <!--<td>E_2M[向塘变SM1662:1框-2槽-XiangTang_62_A094/r01s1b02p01c01端口~时隙:1-->
+                                    <!--<br><>进贤变SM1662:1框-2槽-JinXianB_62_A002/r01s1b02p03c01端口~时隙:1]-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<th>通道类型</th>-->
+                                <!--<td> SDH通道</td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                    </div>
+                </div>
+            </div>
+		
+		<!--<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+                    <div class="ibox-content text-center">
+                        <h2 class="m-b-xxs"><b>二、业务类型分析</b></h2>
+                    </div>
+                </div>
+			</div>
+		</div>-->
+		
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
+	<script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <!--<script src="js/demo/echarts-demo.min.js"></script>-->
+    
+</body>
+<script type="text/javascript">
+    $(function() {
+        $('#btn').click(function () {
+//            alert("lalala");
+//        var Province = $("#Province").val();
+            var buz_type = $('#buz_type').val();
+            var buz_id = $('#buz_id').val();
+            var Str = '';
+//            alert(buz_id);
+            $.ajax({
+                url: "../../../t/chaxun",
+                type: "post",
+                dataType: "json",
+                async: false,
+                data: "buz_type="+buz_type+"&buz_id="+buz_id,
+                success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                        Str = Str + '<table class="table table-hover">';
+                        if(i==0){
+                            if(data[i]['业务类型']=="1"){
+                                data[i]['业务类型']="继电保护"
+                            }
+                            if(data[i]['业务类型']=="2"){
+                                data[i]['业务类型']="安全自动装置"
+                            }
+                            if(data[i]['业务类型']=="3"){
+                                data[i]['业务类型']="调度自动化"
+                            }
+                            if(data[i]['业务服务状态']=="0"){
+                                data[i]['业务服务状态']="退役"
+                            }
+                            if(data[i]['业务服务状态']=="1"){
+                                data[i]['业务服务状态']="在役"
+                            }
+                            Str = Str+'<tr>' +
+                                '<th>'+'业务ID'+'</th>' +
+                                '<td>'+ data[i]['业务ID'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'业务名称'+'</th>' +
+                                '<td>'+ data[i]['业务名称'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'业务全名'+'</th>' +
+                                '<td>'+ data[i]['业务全名'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'业务类型'+'</th>' +
+                                '<td>'+ data[i]['业务类型'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'业务服务状态'+'</th>' +
+                                '<td>'+ data[i]['业务服务状态'] +'</td><tr>';
+                        }else {
+                            if(data[i]['通道是否删除']=="1"){
+                                data[i]['通道是否删除']="未删除"
+                            }
+                            if(data[i]['通道是否删除']=="0"){
+                                data[i]['通道是否删除']="已删除"
+                            }
+                            if(data[i]['通道类型']=="1"){
+                                data[i]['通道类型']="SDH通道"
+                            }
+                            if(data[i]['通道类型']=="2"){
+                                data[i]['通道类型']="SDH通道"
+                            }
+                            if(data[i]['通道服务状态']=="1"){
+                                data[i]['通道服务状态']="在役"
+                            }else{
+                                data[i]['通道服务状态']="退役"
+                            }
+                            Str = Str+'<tr>' +
+                                '<th>'+'通道ID'+'</th>' +
+                                '<td>'+ data[i]['通道ID'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'通道名称'+'</th>' +
+                                '<td>'+ data[i]['通道名称'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'通道是否删除'+'</th>' +
+                                '<td>'+ data[i]['通道是否删除'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'通道类型'+'</th>' +
+                                '<td>'+ data[i]['通道类型'] +'</td><tr>'+'<tr>' +
+                                '<th>'+'通道服务状态'+'</th>' +
+                                '<td>'+ data[i]['通道服务状态'] +'</td><tr>';
+                        }
+                        Str += '</table>';
+                    }
+
+                    $("#lalala").html(Str);
+
+                },
+                error: function (data) {
+                    if (data.result == "error") {
+                        alert("输入的id错误");
+                    }
+                }
+            });
+        });
+    });
+</script>
+</html>

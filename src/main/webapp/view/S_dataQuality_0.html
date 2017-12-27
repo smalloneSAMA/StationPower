@@ -168,74 +168,74 @@
 	/*
 	 * 数据分析流程图
 	 */
-	var myChart2 = echarts.init(document.getElementById('dataFlow'));
-	option2 = {
-		title: {
-			text: '数据分析流程图'
-		},
-		tooltip: {},
-		animationDurationUpdate: 1500,
-		animationEasingUpdate: 'quinticInOut',
-		series : [
-			{
-				type: 'graph',
-				layout: 'none',
-				symbolSize: 70,
-				//roam: true,
-				label: {
-					normal: {
-						show: true
-					}
-				},
-				edgeSymbol: ['circle', 'arrow'],
-				edgeSymbolSize: [4, 10],
-				edgeLabel: {
-					normal: {
-						textStyle: {
-							fontSize: 20
-						}
-					}
-				},
-				data: [
-					{name: '数据',x: 0,y: 200}, 
-					{name: '文本',x: 200,y: 100}, 
-					{name: '属性',x: 200,y: 200}, 
-					{name: '数值',x: 200,y: 300},
-					{name: 'NLP',x: 300,y: 100}, 
-					{name: 'One Hot',x: 300,y: 200}, 
-					{name: '标准化',x: 300,y: 300}, 
-					{name: '字段相关性',x: 500,y: 200},
-					{name: '异常数据标记',x: 500,y: 400}, 
-					{name: '专家检验',x: 300,y: 400}
-				],
-				// links: [],
-				links: [
-					{source: '数据',target: '文本'}, 
-					{source: '数据',target: '属性'}, 
-					{source: '数据',target: '数值'}, 
-					{source: '文本',target: 'NLP'},
-					{source: '属性',target: 'One Hot'}, 
-					{source: '数值',target: '标准化'}, 
-					{source: 'NLP',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}}, 
-					{source: 'One Hot',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}},
-					{source: '标准化',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}}, 
-					{source: '字段相关性',target: '异常数据标记',label: {normal: {show: true,formatter: '模型训练'}}}, 
-					{source: '异常数据标记',target: '专家检验',label: {normal: {show: true,formatter: '模型验证'}},lineStyle: {normal: { curveness: 0.2 }}}, 
-					{source: '专家检验',target: '异常数据标记',label: {normal: {show: true,formatter: '反馈优化'}},lineStyle: {normal: { curveness: 0.2 }}},
-					{source: '专家检验',target: '字段相关性',label: {normal: {show: true,formatter: '专家推荐特征'}}}
-				],
-				lineStyle: {
-					normal: {
-						opacity: 0.9,
-						width: 2,
-						curveness: 0
-					}
-				}
-			}
-		]
-	};
-	myChart2.setOption(option2);
-	$(window).resize(myChart2.resize);
+    var myChart2 = echarts.init(document.getElementById('dataFlow'));
+    option2 = {
+        title: {
+            text: '数据分析流程图'
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                type: 'graph',
+                layout: 'none',
+                symbolSize: 70,
+                //roam: true,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [4, 10],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                data: [
+                    {name: '数据',x: 0,y: 200},
+                    {name: '文本',x: 200,y: 100},
+                    {name: '属性',x: 200,y: 200},
+                    {name: '数值',x: 200,y: 300},
+                    {name: 'NLP',x: 300,y: 100},
+                    {name: 'One Hot',x: 300,y: 200},
+                    {name: '标准化',x: 300,y: 300},
+                    {name: '字段相关性',x: 500,y: 200},
+                    {name: '异常数据标记',x: 500,y: 400},
+                    {name: '专家检验',x: 300,y: 400}
+                ],
+                // links: [],
+                links: [
+                    {source: '数据',target: '文本'},
+                    {source: '数据',target: '属性'},
+                    {source: '数据',target: '数值'},
+                    {source: '文本',target: 'NLP'},
+                    {source: '属性',target: 'One Hot'},
+                    {source: '数值',target: '标准化'},
+                    {source: 'NLP',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}},
+                    {source: 'One Hot',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}},
+                    {source: '标准化',target: '字段相关性',label: {normal: {show: true,formatter: '特征工程'}}},
+                    {source: '字段相关性',target: '异常数据标记',label: {normal: {show: true,formatter: '模型训练'}}},
+                    {source: '异常数据标记',target: '专家检验',label: {normal: {show: true,formatter: '模型验证'}},lineStyle: {normal: { curveness: 0.2 }}},
+                    {source: '专家检验',target: '异常数据标记',label: {normal: {show: true,formatter: '反馈优化'}},lineStyle: {normal: { curveness: 0.2 }}},
+                    {source: '专家检验',target: '字段相关性',label: {normal: {show: true,formatter: '专家推荐特征'}}}
+                ],
+                lineStyle: {
+                    normal: {
+                        opacity: 0.9,
+                        width: 2,
+                        curveness: 0
+                    }
+                }
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+    $(window).resize(myChart2.resize);
 	
 	/*
 	 * 模型选择关系图

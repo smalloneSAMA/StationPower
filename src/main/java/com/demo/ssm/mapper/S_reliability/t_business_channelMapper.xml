@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.t_business_channelMapper" >
+
+    <!--结果映射-->
+    <resultMap id="t_business_channelMap" type="com.demo.ssm.po.S_reliability.t_business_channel">
+        <id column="_id" property="_id" jdbcType="VARCHAR"/>
+        <result column="CHANNEL_ID" property="CHANNEL_ID" jdbcType="VARCHAR"/>
+
+
+    </resultMap>
+
+    <!--字段片段-->
+    <!--<sql id="Analysis">-->
+    <!--ID,TransformSubstation,UseTime,beta,eta-->
+    <!--</sql>-->
+
+    <!--按照ID查询-->
+    <select id="selectByPrimaryKey" parameterType="String" resultMap="t_business_channelMap" >
+        SELECT *
+        FROM t_business_channel
+        WHERE BUSINESS_ID =#{buz_id}
+    </select>
+
+    <select id="count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(_id)
+        FROM t_business_channel
+        WHERE BUSINESS_ID =#{buz_id}
+    </select>
+
+</mapper>

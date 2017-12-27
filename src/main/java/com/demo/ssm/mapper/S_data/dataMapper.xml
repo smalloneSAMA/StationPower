@@ -30,7 +30,7 @@
     <select id="channel_typeQ" resultMap="Map" >
         SELECT *
         FROM channel_type_diff
-        WHERE Province =#{Province}
+        WHERE Province =#{Province} AND channel_type != ""
         ORDER BY Probablity DESC
     </select>
     <select id="channel_type_Count" parameterType="String" resultType="java.lang.Integer">
@@ -60,7 +60,7 @@
     <select id="channel_rateQ" resultMap="Map" >
         SELECT *
         FROM channel_rate_diff
-        WHERE Province =#{Province}
+        WHERE Province =#{Province} AND channel_rate != ""
         ORDER BY Probablity DESC
     </select>
     <select id="channel_rateQ_Count" parameterType="String" resultType="java.lang.Integer">
@@ -90,7 +90,7 @@
     <select id="buz_typeQ" resultMap="Map" >
         SELECT *
         FROM buz_type_diff
-        WHERE Province =#{Province}
+        WHERE Province =#{Province} AND buz_type != ""
         ORDER BY Probablity DESC
     </select>
     <select id="buz_typeQ_Count" parameterType="String" resultType="java.lang.Integer">
@@ -120,7 +120,7 @@
     <select id="buz_rateQ" resultMap="Map" >
         SELECT *
         FROM buz_rate_diff
-        WHERE Province =#{Province}
+        WHERE Province =#{Province} AND buz_rate != ""
         ORDER BY Probablity DESC
     </select>
     <select id="buz_rateQ_Count" parameterType="String" resultType="java.lang.Integer">

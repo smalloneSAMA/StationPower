@@ -19,8 +19,6 @@ public class StationLink_JiangXiServiceImpl implements StationLink_JiangXiServic
     public List<StationLink_JiangXi> selectByPrimaryKey(String Province) throws IOException{
 
         return stationLink_JiangXiMapper.selectByPrimaryKey(Province);
-
-
     }
     @Override
     public  int count(String Province) throws IOException{
@@ -28,8 +26,18 @@ public class StationLink_JiangXiServiceImpl implements StationLink_JiangXiServic
     }
 
     @Override
-    public Double selectByID(String obj_id1, String obj_id2, String Province) throws IOException {
-        return stationLink_JiangXiMapper.selectByID(obj_id1,obj_id2,Province);
+    public int countByID(String Province, String obj_id) throws IOException {
+        return stationLink_JiangXiMapper.countByID(Province,obj_id);
+    }
+
+    @Override
+    public Double selectBy2ID(String obj_id1, String obj_id2, String Province) throws IOException {
+        return stationLink_JiangXiMapper.selectBy2ID(obj_id1,obj_id2,Province);
+    }
+
+    @Override
+    public List<StationLink_JiangXi> selectByID(String Province, String obj_id) throws IOException {
+        return stationLink_JiangXiMapper.selectByID(Province,obj_id);
     }
 
 

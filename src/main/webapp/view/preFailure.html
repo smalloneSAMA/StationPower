@@ -29,6 +29,43 @@
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row" style="padding: 10px 9px">
+
+        <div class="row" style="padding: 13px 0px">
+            <div class="col-xs-2">
+                <select class="form-control" id="Province" name="省份" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西" SELECTED>江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="陕西">陕西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
+            </div>
+
+            <div class="col-xs-2" style="padding-left: 0px">
+                <input id="Equi_id" type="text" name="设备ID" placeholder="请输入设备ID"  class="form-control">
+            </div>
+
+            <div class="col-xs-8 no-margins no-padding">
+
+                <button  class="btn btn-white " type="button" onclick="forecastLine()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+            </div>
+        </div>
+
+    </div>
     <div class="row">
         <div class="col-sm-8">
             <div class="ibox float-e-margins">
@@ -43,40 +80,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="query">
-                    <form>
-                        &nbsp &nbsp 省份选择:
-                        <select name="cars" id="Province" style="margin-bottom: 12px;">
-                            <option value="安徽">安徽</option>
-                            <option value="北京">北京</option>
-                            <option value="福建">福建</option>
-                            <option value="甘肃">甘肃</option>
-                            <option value="河北">河北</option>
-                            <option value="河南">河南</option>
-                            <option value="黑龙江">黑龙江</option>
-                            <option value="吉林">吉林</option>
-                            <option value="江苏">江苏</option>
-                            <option value="江西">江西</option>
-                            <option value="蒙东">蒙东</option>
-                            <option value="宁夏">宁夏</option>
-                            <option value="青海">青海</option>
-                            <option value="陕西">陕西</option>
-                            <option value="天津">天津</option>
-                            <option value="西藏">西藏</option>
-                            <option value="浙江">浙江</option>
-                            <option value="重庆">重庆</option>
 
-                        </select>
-                        <br>
-                        &nbsp&nbsp&nbsp&nbsp设备ID:&nbsp<input id="Equi_id" type="text" name="设备ID" style=" margin-bottom: 12px;bottom: 87.8%; height: 20px;width: 120px;">
-                        <input type="button" value="查询" onclick="forecastLine()" style="margin-bottom: 12px;height: 22px; bottom: 87.8%;left: 30%">
-                        <br>
-
-
-
-
-                    </form>
-                </div>
                 <div class="ibox-content">
                     <div style='height: 400px;' id="curve"></div>
                 </div>
@@ -324,7 +328,7 @@
                         Line(data);
                     }
                     else {
-                        window.alert("无法查询到改设备信息");
+                        window.alert("无法查询到改设备信息，请确认省份和设备ID");
                     }
 
                 },

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <title>业务可靠性预测</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <meta charset="utf-8">
+    <!--赋值START-->
+    <script type="text/javascript">
+        var equipLst = new Array();
+        equipLst[0] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-52028',
+            name:'洪源变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 613.02462472222226, 1577.7369444444444],
+            beta:0.8682,
+            eta:932.6369
+        };
+        equipLst[1] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-42722',
+            name:'乐平变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[2] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-53570',
+            name:'南昌变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[3] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-55509',
+            name:'永修变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[4] = {
+            id:'7109571B-DCC4-4CD3-BBD4-4EFDC2D8F49F-00057',
+            name:'马回岭变OptiX OSN 7500',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 8,
+            devtype : '10010',
+            alarmTimeLst : [172.0389, 485.8572, 548.4536, 841.7092],
+            beta:1.449755372167,
+            eta:616.211169411713
+        };
+        equipLst[5] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-56280',
+            name:'石钟山变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 613.02473805555553, 1577.7369444444444],
+            beta:0.8682,
+            eta:932.6370
+        };
+        //                document.write(equipLst[3].proname);
+        var e = Math.E;
+        var r_arr = new Array();
+        for (var i = 0; i <= 200; i++) {
+            var r = 1;
+            for (var k = 0; k < 5; k++) {
+                var ETA = equipLst[k].eta;
+                var BETA= equipLst[k].beta;
+                r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+            }
+            r_arr.push([i, r]);
+        }
+    </script>
+    <!--赋值END-->
+    <style>
+        .conn{
+            width: 700px;
+            height: 700px;
+            margin: 10px;
+            /*padding: 0 10px;*/
+            float: left
+        }
+        .curve{
+            width: 480px;
+            height: 400px;
+            margin: 20px 30px;
+            padding: 10px 10px
+            /*display: inline;*/
+        }
+        .fl{
+            float: left
+        }
+        .in-line{
+            display: inline
+        }
+        .cl{
+            height: 700px;
+            margin: 10px 10px 20px 10px;
+        }
+        .childDiv{
+            float:left; width: 40%; border:2px solid lightslategray;
+        }
+        .buzdiv{
+            width: 900px;
+            height: 500px;
+            margin: 20px 30px;
+            padding: 10px 10px
+
+        }
+    </style>
+</head>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!--业务可靠性-->
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <label>省份选择:</label>
+                <select name="cars" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西">江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="山西">山西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
+                <label  style="margin-left: 30px;">业务类型选择：</label>
+                <select id="buz_type">
+                    <option value="继电保护">继电保护</option>
+                    <option value="安全自动装置">安全自动装置</option>
+                    <option value="调度自动化">调度自动化</option>
+                </select>
+                <br><br>
+                <input placeholder="请输入业务ID">
+                <input type="button" value="查询" onclick="zx()" >
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>该业务的可靠性预测</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="buz_r" class="buzdiv fl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--业务可靠性预测-->
+<script type="text/javascript">
+    var myChart2 = echarts.init(document.getElementById("buz_r"));
+    var option_buz = {
+        title: {
+            text: '业务可靠性预测',
+            textStyle: {
+                fontsize: 18,
+                color: '#FF3030'
+            },
+            subtext: "(500kV石钟山变～500kV洪源变)石洪线\n继电保护业务01B",
+            subtextStyle: {
+                color: "#1E90FF",
+                fontSize: 16
+            },
+            left: 'center'
+        },
+        legend: {
+            type: 'plain',
+            // orient: 'vertical',
+            right: 10
+//            data: ['可靠性拟合曲线', '故障率拟合曲线', '数据点']
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '中位秩 <br />{a}：{c0} 次每年',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        xAxis : [
+            {
+                name: '累积工作时长（小时）',
+                nameLocation: 'middle',
+                nameGap: 40,
+                nameTextStyle: {
+                    fontSize: 16,
+                    fontWeight: 'bold'
+                },
+                type : 'value',
+                axisTick: {
+                    alignWithLabel: true
+                },
+                axisLabel: {
+                    margin: 15,
+                    fontSize: 14,
+                    fontWeight: 'bolder'
+                },
+
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                splitNumber: 10
+            }
+        ],
+        yAxis: {
+            name: '业务可靠性',
+            type: 'value',
+            nameTextStyle: {
+                fontSize: 16,
+                fontWeight: 'bold'
+            },
+            axisLabel: {
+                margin: 15,
+                fontSize: 14,
+                fontWeight: 'bolder'
+            },
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        },
+        grid:{
+            x:50,
+            y:100,
+        },
+        series: [{
+            // coordinateSystem: 'polar',
+            name: '业务可靠性拟合曲线',
+            type: 'line',
+            lineStyle: {
+                normal: {
+                    width: 4,
+                    opacity: 0.8
+                }
+            },
+            symbol: 'none',
+            smooth: 'true',
+            color: ['#3398DB'],
+            data: r_arr
+        }
+        ]
+    };
+    myChart2.setOption(option_buz);
+</script>
+
+<script>
+    function getCurve(ALARMDARRAY,ETA,BETA){
+        var rArray = [];
+        var fArray = [];
+        var dots = [];
+        var n = ALARMDARRAY.length;
+        var lastnode = ALARMDARRAY[n-1];
+//            document.write(lastnode+"\n");
+        for(var p = 0; p < n; p++){
+            f = (p + 0.7)/(n + 0.4);
+            var mm = ALARMDARRAY[p];
+            dots.push([mm, f]);
+        }
+        var e = Math.E;
+        for (var i = 0; i <= lastnode; i++) {
+            var f =  1 - Math.pow(e,-Math.pow((i/ETA),BETA));
+            var r = 1 - f;
+            rArray.push([i, r]);
+            fArray.push([i, f]);
+        }
+        return {
+            'r': rArray,
+            'f': fArray,
+            'd': dots
+        };
+    }
+</script>
+<script>
+    function getOption(data_r, data_f, dots,num) {
+        var subname = equipLst[num].name;
+        var option_1 = {
+            title: {
+                text: "设备可靠性预测",
+                subtext: "——" + subname,
+                subtextStyle: {
+                    color: "#1E90FF",
+                    fontSize: 16
+                },
+                left: 'center'
+            },
+            grid:{
+                x:50,
+                y:100,
+            },
+
+            legend: {
+                type: 'plain',
+                // orient: 'vertical',
+                top: 60,
+                right: 60,
+                data: ['可靠性拟合曲线', '故障率拟合曲线', '数据点']
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '中位秩 <br />{a}：{c0} 次每年',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            xAxis: [
+                {
+                    name: '工作时长（小时）',
+                    nameLocation: 'middle',
+                    nameGap: 40,
+                    nameTextStyle: {
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    },
+                    type: 'value',
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLabel: {
+                        margin: 15,
+                        fontSize: 14,
+                        fontWeight: 'bolder'
+                    },
+
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    },
+                    splitNumber: 10
+                }
+            ],
+            yAxis: {
+                //            name: '可靠性',
+                type: 'value',
+                nameTextStyle: {
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                },
+                axisLabel: {
+                    margin: 15,
+                    fontSize: 14,
+                    fontWeight: 'bolder'
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            },
+            series: [{
+                // coordinateSystem: 'polar',
+                name: '可靠性拟合曲线',
+                type: 'line',
+                top: 'center',
+                lineStyle: {
+                    normal: {
+                        width: 4,
+                        opacity: 0.8
+                    }
+                },
+                symbol: 'none',
+                smooth: 'true',
+                color: ['#3398DB'],
+                data: data_r
+            }, {
+                // coordinateSystem: 'polar',
+                name: '故障率拟合曲线',
+                type: 'line',
+                lineStyle: {
+                    normal: {
+                        width: 2,
+                        opacity: 0.8
+                    }
+                },
+                color: ["#8B3A3A"],
+                symbol: 'none',
+                smooth: 'true',
+                data: data_f
+            }
+                , {
+                    name: '数据点',
+                    type: 'scatter',
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                            opacity: 0.7
+                        }
+                    },
+                    symbolSize: 15,
+                    label: {
+                        emphasis: {
+                            show: true,
+                            position: 'left',
+                            textStyle: {
+                                fontSize: 18
+                            }
+                        }
+                    },
+                    color: 'red',
+                    data: dots
+                }
+            ]
+        };
+        return option_1;
+    }
+</script>
+<script type="text/javascript">
+    var odiv = document.getElementById("divLst");
+    var divLst = document.getElementsByName("eq");
+    for(var i = 0;i < divLst.length; i++){
+        var mc = echarts.init(divLst[i]);
+        var alarmTimeLst = equipLst[i].alarmTimeLst;
+        var beta1 = equipLst[i].beta;
+        var eta1 = equipLst[i].eta;
+//            document.write(typeof (alarmTimeLst));
+        var d_r, d_f, d_d = new Array();
+        var value = getCurve(alarmTimeLst,eta1,beta1);
+//            document.write(value);
+        d_r = value.r;
+        d_f = value.f;
+        d_d = value.d;
+//            document.write(d_r+"\n" + d_d);
+        option = getOption(d_r, d_f, d_d, i);
+        mc.setOption(option);
+    }
+    //        var mc = echarts.init(odiv);
+    //        var alarmTimeLst = [171.8808, 548.4536, 1577.7369];
+    //        var beta1 = 0.8697;
+    //        var eta1 = 897.8741;
+    //        var d_r, d_f, d_d = new Array();
+    //        var value = getCurve(alarmTimeLst,eta1,beta1);
+    //        d_r = value.r;
+    //        d_f = value.f;
+    //        d_d = value.d;
+    ////        document.write(d_r+"\n" + d_d);
+    //        option = getOption(d_r, d_f, d_d);
+    //        mc.setOption(option);
+</script>
+
+</body>
+</html>

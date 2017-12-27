@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制业务拓扑结构</title>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <!--赋值START-->
+    <script type="text/javascript">
+        var equipLst = new Array();
+        equipLst[0] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-52028',
+            name:'洪源变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 613.02462472222226, 1577.7369444444444],
+            beta:0.8682,
+            eta:932.6369
+        };
+        equipLst[1] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-42722',
+            name:'乐平变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[2] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-53570',
+            name:'南昌变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[3] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-55509',
+            name:'永修变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+            beta:0.8697,
+            eta:897.8741
+        };
+        equipLst[4] = {
+            id:'7109571B-DCC4-4CD3-BBD4-4EFDC2D8F49F-00057',
+            name:'马回岭变OptiX OSN 7500',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 8,
+            devtype : '10010',
+            alarmTimeLst : [172.0389, 485.8572, 548.4536, 841.7092],
+            beta:1.449755372167,
+            eta:616.211169411713
+        };
+        equipLst[5] = {
+            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-56280',
+            name:'石钟山变Metro5000',
+            type_name : '光传输设备',
+            proname : '华为',
+            workyear : 11,
+            devtype : '10015',
+            alarmTimeLst : [171.88083333333333, 613.02473805555553, 1577.7369444444444],
+            beta:0.8682,
+            eta:932.6370
+        };
+        //                document.write(equipLst[3].proname);
+        var e = Math.E;
+        var r_arr = new Array();
+        for (var i = 0; i <= 200; i++) {
+            var r = 1;
+            for (var k = 0; k < 5; k++) {
+                var ETA = equipLst[k].eta;
+                var BETA= equipLst[k].beta;
+                r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+            }
+            r_arr.push([i, r]);
+        }
+    </script>
+    <!--赋值END-->
+    <style>
+        .conn{
+            width: 700px;
+            height: 700px;
+            margin: 10px;
+            /*padding: 0 10px;*/
+            float: left
+        }
+        .curve{
+            width: 480px;
+            height: 400px;
+            margin: 20px 30px;
+            padding: 10px 10px
+            /*display: inline;*/
+        }
+        .fl{
+            float: left
+        }
+        .in-line{
+            display: inline
+        }
+        .cl{
+            height: 700px;
+            margin: 10px 10px 20px 10px;
+        }
+        .childDiv{
+            float:left; width: 40%; border:2px solid lightslategray;
+        }
+        .buzdiv{
+            width: 900px;
+            height: 500px;
+            margin: 20px 30px;
+            padding: 10px 10px
+
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>承载业务的通道拓扑图</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="buz" class="conn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--关系图-->
+<script type="text/javascript">
+    var myChart1 = echarts.init(document.getElementById("buz"));
+    var option1={
+        title:{
+            text: "案例分析",
+            left: "center",
+            subtext: "(500kV石钟山变～500kV洪源变)石洪线\n继电保护业务01B",
+            subtextStyle: {
+                fontSize: 16,
+                align: "center",
+                color: "gray"
+            }
+
+        },
+        tooltip: {
+            show: true,
+            trigger: "item",
+            triggerOn: "mousemove",
+//                enterable: true,
+            confine: true,
+            hideDelay: "200"
+        },
+        series: [{
+            name: "设备",
+            type: "graph",
+            layout: "circular",
+            top: '40',
+            width: "70%",
+            symbolSize: 50,
+            roam: true,
+            label: {
+                normal: {
+                    show: true
+                }
+            },
+            lineStyle: {
+                normal: {
+                    width: 5,
+                    curveness: -0.1
+                }
+            },
+            data: [{
+                name: equipLst[0].name.substr(0,3),
+                symbolSize: 55,
+                tooltip: {
+                    formatter: "设备名称："+equipLst[0].name
+                    +"<br>设备类型："+equipLst[0].type_name
+                    +"<br>生产厂家："+equipLst[0].proname
+                    +"<br>设备型号："+equipLst[0].devtype
+                    +"<br>使用年限："+equipLst[0].workyear
+                }
+//                    x: 300,
+//                    y: 300
+            }, {
+                name: equipLst[1].name.substr(0,3),
+                tooltip: {
+                    formatter: "设备名称："+equipLst[1].name
+                    +"<br>设备类型："+equipLst[1].type_name
+                    +"<br>生产厂家："+equipLst[1].proname
+                    +"<br>设备型号："+equipLst[1].devtype
+                    +"<br>使用年限："+equipLst[1].workyear
+                }
+//                    x: 800,
+//                    y: 300
+            }, {
+                name: equipLst[2].name.substr(0,3),
+                tooltip: {
+                    formatter: "设备名称："+equipLst[2].name
+                    +"<br>设备类型："+equipLst[2].type_name
+                    +"<br>生产厂家："+equipLst[2].proname
+                    +"<br>设备型号："+equipLst[2].devtype
+                    +"<br>使用年限："+equipLst[2].workyear
+                }
+//                    x: 550,
+//                    y: 100
+            }, {
+                name: equipLst[3].name.substr(0,3),
+                tooltip: {
+                    formatter: "设备名称："+"永修变Metro5000"
+                    +"<br>设备类型："+"光传输设备"
+                    +"<br>生产厂家："+"华为"
+                    +"<br>设备型号："+'11'
+                    +"<br>使用年限："+'10015'
+                }
+//                    x: 550,
+//                    y: 500
+            }, {
+                name: equipLst[4].name.substr(0,4),
+                tooltip: {
+                    formatter: "设备名称："+equipLst[4].name
+                    +"<br>设备类型："+equipLst[4].type_name
+                    +"<br>生产厂家："+equipLst[4].proname
+                    +"<br>设备型号："+equipLst[4].devtype
+                    +"<br>使用年限："+equipLst[4].workyear
+                }
+//                    x: 800,
+//                    y: 300
+            }, {
+                name: equipLst[5].name.substr(0,4),
+                symbolSize: 55,
+                tooltip: {
+                    formatter: "设备名称："+equipLst[5].name
+                    +"<br>设备类型："+equipLst[5].type_name
+                    +"<br>生产厂家："+equipLst[5].proname
+                    +"<br>设备型号："+equipLst[5].devtype
+                    +"<br>使用年限："+equipLst[5].workyear
+                }
+//                    x: 800,
+//                    y: 300
+            }],
+            edgeLabel: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 12,
+                        color: "#363636"
+                    },
+                    formatter:  "{c}",
+//                            '{a|{c}}',
+//                            '{b|这段文本采用样式b}'
+//                        ].join('\n'),
+//
+//                        rich: {
+//                            a: {
+//                                color: "#363636",
+//                                lineHeight: 10
+//                            },
+//                            b: {
+//                                fontSize: 18,
+//                                fontFamily: 'Microsoft YaHei',
+//                                borderColor: '#449933'
+//                            }
+//                        }
+                }
+            },
+            links: [{
+                source: 0,
+                target: 1,
+                value: '(500kV洪源变～500kV乐平变)\n\n24芯OPGW光缆段01',
+                symbolSize: [5, 20]
+            },{
+                source: 1,
+                target: 2,
+                value: '(500kV南昌变～500kV乐平变)\n\n16芯OPGW光缆段01',
+                symbolSize: [5, 20]
+            },{
+                source: 2,
+                target: 3,
+                value:'(500kV南昌变～500kV永修变)\n\n32芯OPGW光缆段01',
+                symbolSize: [5, 20]
+            },{
+                source: 3,
+                target: 4,
+                value: '(500kV马回岭变～500kV永修变)\n\n24芯OPGW光缆段01',
+                symbolSize: [5, 20]
+            },{
+                source: 4,
+                target: 5,
+                value: '(500kV马回岭变～500kV石钟山变)\n\n24芯OPGW光缆段01',
+                symbolSize: [5, 20]
+            },{
+                source: 5,
+                target: 6,
+                symbolSize: [5, 20]
+            }]
+        }]
+    };
+    myChart1.setOption(option1);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.t_channel_baseMapper" >
+
+    <!--结果映射-->
+    <resultMap id="channel_baseMap" type="com.demo.ssm.po.S_reliability.t_channel_base">
+        <id column="_id" property="_id" jdbcType="VARCHAR"/>
+        <result column="OBJ_ID" property="OBJ_ID" jdbcType="VARCHAR"/>
+        <result column="NAME" property="NAME" jdbcType="VARCHAR"/>
+        <result column="SERVICE_STATE" property="SERVICE_STATE" jdbcType="VARCHAR"/>
+        <result column="CHANNEL_TYPE" property="CHANNEL_TYPE" jdbcType="VARCHAR"/>
+        <result column="DELETE_FLAG" property="DELETE_FLAG" jdbcType="VARCHAR"/>
+        <result column="A_RES_ID" property="A_RES_ID" jdbcType="VARCHAR"/>
+        <result column="Z_RES_ID" property="Z_RES_ID" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--字段片段-->
+    <!--<sql id="Analysis">-->
+        <!--ID,TransformSubstation,UseTime,beta,eta-->
+    <!--</sql>-->
+
+    <!--按照ID查询-->
+    <select id="selectByPrimaryKey" parameterType="String" resultMap="channel_baseMap" >
+        SELECT *
+        FROM t_channel_base
+        WHERE OBJ_ID =#{CHANNEL_ID}
+    </select>
+
+    <select id="count" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(_id)
+        FROM t_channel_base
+        WHERE OBJ_ID =#{CHANNEL_ID}
+    </select>
+
+</mapper>

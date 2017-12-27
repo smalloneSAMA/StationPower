@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <title>业务可靠性预测案例分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <meta charset="utf-8">
+    <style>
+        .conn{
+            width: 700px;
+            height: 700px;
+            margin: 10px;
+            /*padding: 0 10px;*/
+            float: left
+        }
+        .curve{
+            width: 480px;
+            height: 400px;
+            margin: 20px 30px;
+            padding: 10px 10px
+            /*display: inline;*/
+        }
+        .fl{
+            float: left
+        }
+        .in-line{
+            display: inline
+        }
+        .cl{
+            height: 700px;
+            margin: 10px 10px 20px 10px;
+        }
+        .childDiv{
+            float:left; width: 40%; border:2px solid lightslategray;
+        }
+        .buzdiv{
+            width: 900px;
+            height: 500px;
+            margin: 20px 30px;
+            padding: 10px 10px
+
+        }
+    </style>
+</head>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <label>省份选择:</label>
+                <select name="cars" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西">江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="山西">山西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
+                <label  style="margin-left: 30px;">业务类型选择：</label>
+                <select id="buz_type">
+                    <option value="继电保护">继电保护</option>
+                    <option value="安全自动装置">安全自动装置</option>
+                    <option value="调度自动化">调度自动化</option>
+                </select>
+                <br><br>
+                <input placeholder="请输入业务ID">
+                <input type="button" value="查询" onclick="zx()" >
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>该业务的可靠性评估</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="buz_r" class="buzdiv fl">
+                        <img src="../img/buzR1.png" width="720"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+</html>

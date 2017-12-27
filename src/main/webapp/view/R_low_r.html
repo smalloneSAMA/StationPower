@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>低可靠性业务发现</title>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="S_js/echarts.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+<body>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <label>省份选择:</label>
+                <select name="cars" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西" selected = "selected">江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="山西">山西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
+                <label  style="margin-left: 30px;">业务类型选择：</label>
+                <select id="buz_type">
+                    <option value="继电保护" selected = "selected">继电保护</option>
+                    <option value="安全自动装置">安全自动装置</option>
+                    <option value="调度自动化">调度自动化</option>
+                </select>
+                <br><br>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>各省份低可靠性业务发现</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="table_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="table_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>序号</th>
+                            <th>业务名称</th>
+                            <th>业务可靠性</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>（220kV吉安变~500kV文山变）继电保护文吉II线继电保护II业务</td>
+                            <td> 0.333</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>（220kV盘龙山变~220kV双港变）继电保护业务03</td>
+                            <td> 0.379</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>（500kV石钟山变~500kV洪源变）石洪线WXH-803A/B6继电保护业务01B</td>
+                            <td> 0.420</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>（500kV信州变~220kV上饶变）继电保护业务01</td>
+                            <td> 0.531</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>（220kV虹桥变~220kV流口变）继电保护流桥线业务</td>
+                            <td> 0.533</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

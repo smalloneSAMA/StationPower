@@ -63,11 +63,11 @@ public class BusinessRouteController {
                     jsonObject.put("name1", stationPropertyService.selectByID(Province,ids[a]));
                     jsonObject.put("name2", stationPropertyService.selectByID(Province,ids[b]));
 //                    jsonObject.put("result", "success");
-                    if(stationLink_JiangXiService.selectByID(ids[a],ids[b],Province)==null){
+                    if(stationLink_JiangXiService.selectBy2ID(ids[a],ids[b],Province)==null){
 
-                        jsonObject.put("FiberOcc", stationLink_JiangXiService.selectByID(ids[b],ids[a],Province));
+                        jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids[b],ids[a],Province));
                     }else {
-                        jsonObject.put("FiberOcc", stationLink_JiangXiService.selectByID(ids[a],ids[b],Province));
+                        jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids[a],ids[b],Province));
 
                     }
                     jsonArray.add(jsonObject);
