@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_net.ProvinceMapper" >
+
+    <update id="setCurrentProvince" parameterType="String">
+        update Province
+        <set >
+            <if test="province != null" >
+                Province = #{province,jdbcType=VARCHAR},
+            </if>
+        </set>
+
+        where id = 1
+
+    </update>
+
+    <delete id="deleteRoute" parameterType="String">
+        delete from StationRoute
+        where Province = #{province,jdbcType=VARCHAR}
+    </delete>
+
+    <delete id="deleteLink" parameterType="String">
+        delete from StationLink
+        where Province = #{province,jdbcType=VARCHAR}
+    </delete>
+
+    <delete id="deleteProperty" parameterType="String">
+        delete from StationProperty
+        where Province = #{province,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

@@ -50,6 +50,7 @@ public class BusinessRouteController {
 
             }else {
                 String route = (list.get(i)).getRoute();
+                route = route.replaceAll("'", "").replaceAll(" ", "");
 //                分割路由
                 String[] ids = route.split(",");
                 Integer len = ids.length;

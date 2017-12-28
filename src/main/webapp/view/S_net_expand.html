@@ -15,6 +15,7 @@
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
 
 </head>
 
@@ -64,6 +65,7 @@
             <div class="col-xs-8 no-margins no-padding">
 
                 <button  class="btn btn-white " type="button" onclick="loadStation()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+                <button  class="btn btn-white " type="button" onclick="refreshData()" value="" style="width: 15%;color:#ffffff;background-color: #1ab394;">刷&nbsp;&nbsp;新&nbsp;&nbsp;数&nbsp;&nbsp;据</button>
             </div>
         </div>
 		<div class="row">
@@ -122,6 +124,7 @@
     <script src="S_js/zhejiang.js"></script>
     <script src="S_js/chongqing.js"></script>
     <script src="S_js/china.js"></script>
+    <script src="layer/layer.js"></script>
 </body>
 
 <script type="text/javascript">
@@ -160,6 +163,41 @@
         });
 
 
+    }
+
+    /*
+	 * 刷新数据
+	 */
+
+    function refreshData() {
+
+        var Province = $("#Province").val();
+
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+
+        //处理所有数据，并调用py重新生成数据插入数据库
+        $.ajax({
+            url: "../../dealData/dealProvinceData",
+            type: "post",
+            dataType: "json",
+            async: true,
+            data:"Province="+Province,
+            success: function (data) {
+                //loading层
+
+                layer.close(index);
+
+                loadStation();
+
+            },
+            error: function (data) {
+                if (data.result == false) {
+                    alert("出现异常");
+                }
+            }
+        });
     }
 
 
