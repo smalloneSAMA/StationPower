@@ -92,7 +92,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:jconsole:1.8.0">
         <CLASSES>
-          <root url="jar://E:/work software/java/lib/jconsole.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_74/lib/jconsole.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -101,7 +101,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:tools:1.8.0">
         <CLASSES>
-          <root url="jar://E:/work software/java/lib/tools.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_74/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -192,9 +192,27 @@
 
     });
 
-	/*
-	 *  业务类型异常设备
-	 */
+    /*
+  * 调用python代码，更新数据库数据
+  *
+  * */
+    function Jpflash(){
+        var province=$("#province").val();
+        $.ajax({
+            url:"../../S_data/Jpbuztype",
+            type:"post",
+            dataType:"json",
+            data:"Province="+province,
+            success:function(){buz_type()}
+        })
+    }
+
+
+
+
+    /*
+     *  业务类型异常设备
+     */
 
     function buz_type() {
         var province = $("#province").val();
