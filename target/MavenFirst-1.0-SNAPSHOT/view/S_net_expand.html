@@ -15,6 +15,7 @@
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
 
 </head>
 
@@ -37,11 +38,40 @@
                 </div>
 			</div>
 		</div>
-	
+        <div class="row" style="padding: 13px 0px">
+            <div class="col-xs-2">
+                <select class="form-control" id="Province" name="province" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西" selected>江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="陕西">陕西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
+            </div>
+
+            <div class="col-xs-8 no-margins no-padding">
+
+                <button  class="btn btn-white " type="button" onclick="loadStation()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+                <button  class="btn btn-white " type="button" onclick="refreshData()" value="" style="width: 15%;color:#ffffff;background-color: #1ab394;">刷&nbsp;&nbsp;新&nbsp;&nbsp;数&nbsp;&nbsp;据</button>
+            </div>
+        </div>
 		<div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                    <div class="ibox-title" style="border: 0px;">
                         <h5>江西省站点分布图</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
@@ -61,32 +91,10 @@
                             </a>
                         </div>
                     </div>
+
+
+
                     <div class="ibox-content">
-                        <form>
-                            省份选择:
-                            <select name="cars" id="Province" style="margin-bottom: 12px;">
-                                <option value="安徽">安徽</option>
-                                <option value="北京">北京</option>
-                                <option value="福建">福建</option>
-                                <option value="甘肃">甘肃</option>
-                                <option value="河北">河北</option>
-                                <option value="河南">河南</option>
-                                <option value="黑龙江">黑龙江</option>
-                                <option value="吉林">吉林</option>
-                                <option value="江苏">江苏</option>
-                                <option value="江西" selected>江西</option>
-                                <option value="蒙东">蒙东</option>
-                                <option value="宁夏">宁夏</option>
-                                <option value="青海">青海</option>
-                                <option value="陕西">陕西</option>
-                                <option value="天津">天津</option>
-                                <option value="西藏">西藏</option>
-                                <option value="浙江">浙江</option>
-                                <option value="重庆">重庆</option>
-                            </select>
-                            <input type="button" value="查询" onclick="loadStation()" style="margin-bottom: 12px;height: 22px; bottom: 88.6%;left: 30%">
-                            <br>
-                        </form>
                         <div id="main" style="width:100%;height:1000px;"></div>
                     </div>
                 </div>
@@ -116,6 +124,7 @@
     <script src="S_js/zhejiang.js"></script>
     <script src="S_js/chongqing.js"></script>
     <script src="S_js/china.js"></script>
+    <script src="layer/layer.js"></script>
 </body>
 
 <script type="text/javascript">
@@ -154,6 +163,41 @@
         });
 
 
+    }
+
+    /*
+	 * 刷新数据
+	 */
+
+    function refreshData() {
+
+        var Province = $("#Province").val();
+
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+
+        //处理所有数据，并调用py重新生成数据插入数据库
+        $.ajax({
+            url: "../../dealData/dealProvinceData",
+            type: "post",
+            dataType: "json",
+            async: true,
+            data:"Province="+Province,
+            success: function (data) {
+                //loading层
+
+                layer.close(index);
+
+                loadStation();
+
+            },
+            error: function (data) {
+                if (data.result == false) {
+                    alert("出现异常");
+                }
+            }
+        });
     }
 
 

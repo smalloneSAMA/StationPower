@@ -15,6 +15,7 @@
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
 
     <style>
         .ibox-title{
@@ -70,6 +71,10 @@
             </div>
             <div class="col-xs-8 no-margins no-padding">
                 <button class="btn btn-white " type="button" onclick="buz_type()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+                <!--</div>-->
+
+                <!--<div class="col-xs-8 no-margins no-padding">-->
+                <button class="btn btn-white " type="button" onclick="Jpflash()" value="数据更新" style="width: 15%;color:#ffffff;background-color: #1ab394;">数据更新</button>
             </div>
         </div>
 
@@ -179,6 +184,7 @@
         <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
         <script src="js/content.min.js?v=1.0.0"></script>
         <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <script src="layer/layer.js"></script>
         <!--<script>-->
             <!--$(document).ready(function(){$(".dataTables-example").dataTable();var oTable=$("#editable").dataTable();oTable.$("td").editable("../example_ajax.php",{"callback":function(sValue,y){var aPos=oTable.fnGetPosition(this);oTable.fnUpdate(sValue,aPos[0],aPos[1])},"submitdata":function(value,settings){return{"row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]}},"width":"90%","height":"100%"})});function fnClickAddRow(){$("#editable").dataTable().fnAddData(["Custom row","New row","New row","New row","New row"])};-->
         <!--</script>-->
@@ -192,9 +198,32 @@
 
     });
 
-	/*
-	 *  业务类型异常设备
-	 */
+    /*
+  * 调用python代码，更新数据库数据
+  *
+  * */
+    function Jpflash(){
+        var province=$("#province").val();
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+        $.ajax({
+            url:"../../S_data/Jpbuztype",
+            type:"post",
+            dataType:"json",
+            data:"Province="+province,
+            success:function(data){
+                layer.close(index);
+                buz_type()}
+        })
+    }
+
+
+
+
+    /*
+     *  业务类型异常设备
+     */
 
     function buz_type() {
         var province = $("#province").val();
