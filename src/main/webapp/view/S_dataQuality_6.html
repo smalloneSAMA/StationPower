@@ -71,9 +71,11 @@
             </div>
             <div class="col-xs-8 no-margins no-padding">
                 <button class="btn btn-white " type="button" onclick="buz_type()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+            <!--</div>-->
+            <!--<div class="col-xs-8 no-margins no-padding">-->
+                <button class="btn btn-white " type="button" onclick="re_buz_type()" value="刷新" style="width: 15%;color:#ffffff;background-color: #1ab394;">刷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新</button>
             </div>
         </div>
-
 
         <!--测试-->
 
@@ -270,6 +272,22 @@
             }
         });
 
+    }
+
+
+    function re_buz_type(){
+        var province = $("#province").val();
+        $.ajax({
+            url: "../../S_data/re_interface_type",
+            type: "post",
+            dataType : "json",
+            data:"Province="+province,
+            success: function (data){
+                $.each(data,function (i,item) {
+                } )
+            }
+        });
+        buz_type();
     }
 
 </script>

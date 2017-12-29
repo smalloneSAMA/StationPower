@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -302,6 +305,43 @@ public class dataController {
     }
 
 
+    //刷新buz_rate数据
+    @RequestMapping("/re_buz_rate")
+    @ResponseBody
+    public JSONArray re_buz_rate(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        List<String> processList = new ArrayList<>();
+        String line = "";
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        System.out.printf(Province);
+        String[] url=new String[]{"python","D:\\channelRate2.py",Province};
+        try {
+            System.out.printf("\npython程序准备执行\n");
+            Process pr=Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+            jsonObject.put("success", "success");
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObject.put("success", "faile");
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        jsonArray.add(jsonObject);
+        return jsonArray;
+    }
+
+
+
+
+
 
     //查询异常interface_rate
     @RequestMapping("/interface_type_diff")
@@ -370,4 +410,38 @@ public class dataController {
         }
 
     }
+
+    //刷新interface_type数据
+    @RequestMapping("/re_interface_type")
+    @ResponseBody
+    public JSONArray re_interface_type(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        List<String> processList = new ArrayList<>();
+        String line = "";
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        System.out.printf(Province);
+        String[] url=new String[]{"python","D:\\predictInterfaceType.py",Province};
+        try {
+            System.out.printf("\npython程序predictInterfaceType准备执行\n");
+            Process pr=Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+            jsonObject.put("success", "success");
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObject.put("success", "faile");
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        jsonArray.add(jsonObject);
+        return jsonArray;
+    }
 }
+
