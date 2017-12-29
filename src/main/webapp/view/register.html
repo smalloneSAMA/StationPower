@@ -1,0 +1,95 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <base href="<%=basePath%>">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 注册</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet">
+    <!--<%&#45;&#45;<base target="_blank">&#45;&#45;%>-->
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="100;ie.html" />
+    <![endif]-->
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name">SG</h1>
+
+        </div>
+        <h3>注册账号</h3>
+        <!--role="form"-->
+        <!--${pageContext.request.contextPath }-->
+        <form class="m-t"   method="post">
+            <div class="form-group">
+                用户名<input id="user" type="email" class="form-control"  >
+            </div>
+            <div class="form-group">
+                密码<input type="password" id="password" class="form-control"   >
+            </div>
+            <div class="form-group">
+                确认密码<input type="password" id="password2"  class="form-control"  >
+            </div>
+            <!--<button type="submit" class="btn btn-primary block full-width m-b">登 录</button>-->
+            <input onclick="registerTo()" class="btn btn-primary block full-width m-b" value="注册"/>
+        </form>
+    </div>
+</div>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.5"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</body>
+<script>
+    function registerTo() {
+//        $("#submitId").onclick=null;
+        var user = $("#user");
+        var password = $("#password");
+        var password2 = $("#password2");
+        //判断用户名或密码是否为空
+
+        if(user == null || user == "")
+        {
+            window.alert("用户名不能空");
+        }
+        else if(password == null || password == ""){
+            window.alert("密码不能空");
+        }
+        else{
+            $.ajax({
+                type: "post",
+                dataType : "json",
+                url: "../user/register/",
+                data: "username=" + user + "&password=" + password,
+                success: function (data) {
+                    if(data.result){
+                        alert("Ss");
+                        location='../view/login.html';
+                    }
+                    else window.alert("注册失败");
+
+                }
+            });
+
+        }
+    }
+
+
+
+</script>
+
+</html>
