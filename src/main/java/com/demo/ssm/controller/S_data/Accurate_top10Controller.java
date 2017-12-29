@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,6 +21,35 @@ import java.util.List;
 public class Accurate_top10Controller {
     @Autowired
     private Accurate_top10Service accurate_top10Service;
+
+
+    @RequestMapping("/Jpac10")
+    @ResponseBody
+    public Integer Jpac10(HttpServletRequest request){
+        //java调用python程序更新数据库数据
+        String line="";
+        List<String> processList = new ArrayList<>();
+        String[] url=new String[]{"python","E:\\python\\Project\\predictBuzNum.py"};
+        try {
+            System.out.printf("\npython  predictBuzNum程序准备执行\n");
+            Process pr=Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        return 0;
+    }
+
+
+
 
     //查询异常对象数据
     @RequestMapping("/select")
