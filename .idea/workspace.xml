@@ -6,54 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d62446d9-6e2e-478a-860b-2886bf72f7a8" name="Default" comment="修改了页面结构 后台文件结构 添加了多个查询功能">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/t_channel_baseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_business_channelMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_business_channelMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_buzMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_buzMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_channel_baseMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_channel_baseMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_sdh_ccMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_sdh_ccMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_topologyMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_topologyMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_business_channel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_buz.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_channel_base.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_sdh_cc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_topology.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_business_channelServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_buzServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_channel_baseServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_sdh_ccServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_topologyServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_business_channelService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_buzService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_channel_baseService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_sdh_ccService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_topologyService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_buz_pre.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_buz_reliability.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_data_clean.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_equip_failure.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_fiber_failure.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_low_r.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_probuz_select.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/R_topo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/ExampleAnalysisController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/ExampleAnalysisMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/ExampleAnalysisMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/ExampleAnalysis.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/ExampleAnalysisServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/ExampleAnalysisService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_33.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_44.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_55.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_66.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/aa.html" afterPath="" />
+    <list default="true" id="d62446d9-6e2e-478a-860b-2886bf72f7a8" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/logincontroller.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/UserMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/UserMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/User.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/UserServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/UserService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/register.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/controller/Accurate_top10Controller.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/controller/Relationship_Temperature_FailureRateController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/controller/logincontroller.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Abnormal_top10Mapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Accurate_top10Mapper.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/ExampleAnalysisMapper.class" afterPath="" />
@@ -61,6 +25,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Province_CheckMapper.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Relationship_Centrality_BusinessNumMapper.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/Relationship_Temperature_FailureRateMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/UserMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/mapper/UserMapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/Accurate_top10.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/Accurate_top10Example.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/AverageFailureRateExample.class" afterPath="" />
@@ -70,28 +36,31 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/Relationship_Centrality_BusinessNumExample.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/StationType.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/StationTypeExample.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/po/User.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/Abnormal_top10ServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/Accurate_top10ServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/ExampleAnalysisServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/Province_CheckServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/Relationship_Centrality_BusinessNumServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/StationProperty_RouteServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/Impl/UserServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/interf/Abnormal_top10Service.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/interf/AverageFailureRateService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/interf/StationLink_JiangXiService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/interf/StationTypeService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/com/demo/ssm/service/interf/UserService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/aa.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/buz_example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/css/plugins/footable/fonts/footable.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/css/plugins/jqgrid/ui.jqgrid.css0820" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/js/plugins/jqgrid/i18n/grid.locale-cn.js0820" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/js/plugins/jqgrid/jquery.jqGrid.min.js0820" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/preFailure.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/pro_type_year.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/register.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/temp_failure.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/controller/AverageFailureRateController.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/controller/Relationship_Centrality_BusinessNumController.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/controller/StationLink_JiangXiController.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/controller/StationProperty_RouteController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/controller/logincontroller.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/Abnormal_top10Mapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/ExampleAnalysisMapper.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/FailureRate_forecastMapper.class" afterPath="" />
@@ -99,6 +68,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/Relationship_Failure_YearMapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/StationPropertyMapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/StationProperty_RouteMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/UserMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/mapper/UserMapper.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/Accurate_top10.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/AverageFailureRateExample.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/BusinessRoute.class" afterPath="" />
@@ -108,36 +79,26 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/Relationship_Failure_YearExample.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/Relationship_Temperature_FailureRate.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/StationType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/po/User.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/Accurate_top10ServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/FailureRate_forecastServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/Province_CheckServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/Relationship_Temperature_FailureRateServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/StationLink_JiangXiServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/Impl/UserServiceImpl.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/Abnormal_top10Service.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/ExampleAnalysisService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/FailureRate_forecastService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/Relationship_Centrality_BusinessNumService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/StationLink_JiangXiService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/StationProperty_RouteService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/demo/ssm/service/interf/UserService.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationLink_JiangXiController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationLink_JiangXiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/StationLink_JiangXiMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationLink_JiangXiServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationLink_JiangXiServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationLink_JiangXiService.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationLink_JiangXiService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/index_v1.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/index_v1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/preFailure.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/preFailure.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index_v1.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index_v1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/preFailure.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/preFailure.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/db.properties" afterPath="$PROJECT_DIR$/target/classes/config/db.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/view/buz_example.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/buz_exampl1e.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -163,78 +124,7 @@
     <favorites_list name="StationPower" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="R_buz_pre.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_buz_pre.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_buz_reliability.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_buz_reliability.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_data_clean.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_data_clean.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_equip_failure.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_equip_failure.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_fiber_failure.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_fiber_failure.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_low_r.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_low_r.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R_probuz_select.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_probuz_select.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="137" column="48" lean-forward="true" selection-start-line="137" selection-start-column="48" selection-end-line="137" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -433,9 +323,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -485,8 +372,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="S_paint" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
@@ -495,14 +381,60 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="S_reliability" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower_zhenghe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower_zhenghe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="Impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower_zhenghe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="interf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower_zhenghe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StationPower_zhenghe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower_zhenghe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -875,6 +807,7 @@
       <workItem from="1514010929293" duration="16222000" />
       <workItem from="1514031862717" duration="182000" />
       <workItem from="1514354627912" duration="491000" />
+      <workItem from="1514547104883" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1511247154782</created>
@@ -961,7 +894,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537983000" />
+    <option name="totallyTimeSpent" value="538290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -974,7 +907,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -988,7 +920,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09339408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44874716" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41799545" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -999,7 +931,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19635193" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28379828" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.50416666" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1058,7 +990,8 @@
     <MESSAGE value="上传" />
     <MESSAGE value="增加了查询功能 页面窗口还有点问题" />
     <MESSAGE value="修改了页面结构 后台文件结构 添加了多个查询功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了页面结构 后台文件结构 添加了多个查询功能" />
+    <MESSAGE value="删掉以前不要的东西" />
+    <option name="LAST_COMMIT_MESSAGE" value="删掉以前不要的东西" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1075,13 +1008,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_business_channel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_reliability/t_topology.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1314,13 +1240,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/preFailure.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="192" column="15" lean-forward="true" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/preFailure.html" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/view/buz_exampl1e.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
@@ -1420,8 +1340,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_probuz_select.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="137" column="48" lean-forward="true" selection-start-line="137" selection-start-column="48" selection-end-line="137" selection-end-column="48" />
+        <state relative-caret-position="196">
+          <caret line="133" column="18" lean-forward="true" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           <folding />
         </state>
       </provider>
