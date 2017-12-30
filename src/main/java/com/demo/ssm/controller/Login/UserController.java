@@ -36,4 +36,24 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/regist")
+    @ResponseBody
+    public JSONObject userRegist(String username,String password){
+//        String username = "123456@123.com";
+//        String password = "123456";
+        JSONObject jsonObject = new JSONObject() ;
+        try {
+            userService.userRegist(username,password);
+            User user = userService.userLogin(username);
+            if (user.getPassword().equals(password))
+                jsonObject.put("result", true);
+            else
+                jsonObject.put("result", false);
+            return jsonObject;
+        }catch (Exception e) {
+            jsonObject.put("result",false);
+            return jsonObject;
+        }
+    }
+
 }
