@@ -35,18 +35,31 @@
         <h3>注册账号</h3>
         <!--role="form"-->
         <!--${pageContext.request.contextPath }-->
-        <form class="m-t"   method="post">
+        <!--<form class="m-t"   method="post">-->
+            <!--<div class="form-group">-->
+                <!--用户名<input id="user" type="email" class="form-control"  >-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--密码<input type="password" id="password" class="form-control"   >-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--确认密码<input type="password" id="password2"  class="form-control"  >-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<button type="submit" class="btn btn-primary block full-width m-b">登 录</button>&ndash;&gt;-->
+            <!--<button type="button" onclick="registerTo()" class="btn btn-primary block full-width m-b" value="注册">注 册</button>-->
+        <!--</form>-->
+        <form class="m-t" role="form" method="post" target="_blank">
             <div class="form-group">
-                用户名<input id="user" type="email" class="form-control"  >
+                <input id="username" type="email" class="form-control" placeholder="用户名" required="">
             </div>
             <div class="form-group">
-                密码<input type="password" id="password" class="form-control"   >
+                <input id="passwd" type="password" class="form-control" placeholder="密码" required="">
             </div>
             <div class="form-group">
-                确认密码<input type="password" id="password2"  class="form-control"  >
+                <input id="passwd2" type="password" class="form-control" placeholder="确认密码" required="">
             </div>
-            <!--<button type="submit" class="btn btn-primary block full-width m-b">登 录</button>-->
-            <input onclick="registerTo()" class="btn btn-primary block full-width m-b" value="注册"/>
+            <button type="button"   class="btn btn-primary block full-width m-b" onclick="registerTo()" >注册</button>
+
         </form>
     </div>
 </div>
@@ -57,12 +70,17 @@
 <script>
     function registerTo() {
 //        $("#submitId").onclick=null;
-        var user = $("#user");
-        var password = $("#password");
-        var password2 = $("#password2");
+
+        var username = $("#username").val();
+        var password = $("#passwd").val();
+        var password2 = $("#passwd2").val();
+        var param = {
+            username:username,
+            password:password
+        }
         //判断用户名或密码是否为空
 
-        if(user == null || user == "")
+        if(username == null || username == "")
         {
             window.alert("用户名不能空");
         }
@@ -73,14 +91,14 @@
             $.ajax({
                 type: "post",
                 dataType : "json",
-                url: "../user/register/",
-                data: "username=" + user + "&password=" + password,
+                url: "../../../user/regist",
+                data: param,
                 success: function (data) {
                     if(data.result){
-                        alert("Ss");
-                        location='../view/login.html';
+                        alert("注册成功");
+                        location='L_login.html';
                     }
-                    else window.alert("注册失败");
+                    else alert("注册失败");
 
                 }
             });

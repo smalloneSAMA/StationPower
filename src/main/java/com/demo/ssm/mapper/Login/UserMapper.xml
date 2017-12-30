@@ -15,7 +15,7 @@
         WHERE username = #{username}
     </select>
 
-    <insert id="insertUser" >
+    <insert id="userRegist" >
         INSERT INTO user
         (username,password)
         VALUES (#{username},#{password})

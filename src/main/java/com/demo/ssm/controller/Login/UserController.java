@@ -39,7 +39,7 @@ public class UserController {
     @RequestMapping("/regist")
     @ResponseBody
     public JSONObject userRegist(String username,String password){
-//        String username = "123456@123.com";
+//        String username = "123456123@123.com";
 //        String password = "123456";
         JSONObject jsonObject = new JSONObject() ;
         try {
