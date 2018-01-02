@@ -219,7 +219,9 @@
                 name : item.Name,
                 businessNum : item.BusinessNum,
                 kuorong : item.KuoRong,
-
+                portOcc:item.portOcc,
+                buzNumRate:item.buzNumRate,
+                increaseRate:item.increaseRate
             };
 //            每个站点的数据
             station[i]= example;
@@ -293,15 +295,22 @@
         var series = [
             {//两个站点之间的连线
                 type: 'lines',
-                zlevel: 2,
+                zlevel: 1,
+                effect: {
+                    show: true,
+                    constantSpeed: 30,
+                    symbol: 'pin',
+                    symbolSize: 3,
+                    trailLength: 0
+                },
                 symbol: ['none', 'none'],
                 symbolSize: 10,
                 lineStyle: {
                     normal: {
                         //color: '#a6c84c',
                         width: 1,
-                        opacity: 0.6,
-                        curveness: 0
+                        opacity: 0.2,
+                        curveness: 0.1
                     }
                 },
                 data: convertData(edges)
@@ -309,7 +318,9 @@
             {//每个站点
                 type: 'effectScatter',
                 coordinateSystem: 'geo',
-                zlevel: 2,
+                hoverAnimation: true,
+                showEffectOn: 'render',
+                zlevel: 1,
                 rippleEffect: {
                     brushType: 'stroke'
                 },
@@ -320,14 +331,21 @@
                         formatter: '{b}'
                     }
                 },
-                //symbolSize: function (val) {
-                //return val[2] / 8;
-                //},
-                symbolSize: 6,
+                symbolSize: function (val) {
+                    x = val[2] * 20;
+                    if(x < 2){
+                        return 1;
+                    }
+                    return x;
+                },
+//                symbolSize: 3,
                 data: station.map(function (dataItem) {
                         return {
                             name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,
-                            value: geoCoordMap[dataItem.name].concat([dataItem.kuorong])
+                            value: geoCoordMap[dataItem.name].concat([dataItem.kuorong]),
+                            portOcc:dataItem.portOcc,
+                            buzNumRate:dataItem.buzNumRate,
+                            increaseRate:dataItem.increaseRate
                         };
                     }
                 )
@@ -357,7 +375,7 @@
                 show:true,
                 feature:{
                     mark:{show:!0},
-                    //dataView:{show:!0,readOnly:!1},
+                    dataView:{show:!0,readOnly:!1},
                     restore:{show:!0},
                     saveAsImage:{show:!0}
                 }
@@ -372,6 +390,8 @@
                     top:'center',
                     inRange: {
                         color: ['#50a3ba', '#eac736', '#d94e5d']
+//                        color: ['#a4c6fc', '#5c9bfb', '#2374fa','#003583','#003583','#001d47']
+//                        color: ['#efdcd2','#f7bc9a','#f3a376','#f58157', '#f36938','#ef5a0b']
                     },
                     textStyle: {
                         color: '#003'
@@ -389,7 +409,7 @@
                 itemStyle: {
                     normal: {
                         areaColor: '#323c48',
-                        borderColor: '#ffefd5'//#ffefd5,#404a59
+                        borderColor: '#ffefd5',//'#404a59'
                     },
                     emphasis: {
                         areaColor: '#2a333d'
@@ -399,10 +419,39 @@
             series: series
         };
 
+        myChart.on('click', function (params) {
+            var node = params.name;
+            var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
+            var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
+            var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
+            var if_exist = RegExp("扩容").test(node);
+            if(if_exist){
+
+                layer.config({
+                    extend: 'routeSkin/style.css', //同样需要加载新皮肤
+                    skin:'layer-ext-yi'
+                });
+
+                layer.msg("端口占用率："+portOcc+" <br> 站点承载的重要业务数："+buzNumRate+" <br> 站点业务数增长率：" +increaseRate, {
+                    time: 90000, //5s后自动关闭,
+                    btnAlign: 'c',
+                    skin:'layer-ext-yi',
+//                    btn: ['新增下级问题'],
+                    closeBtn: 1,
+                    tipsMore:false,
+                    yes:function (index, layero) {
+                        layer.close(index);
+                    }
+                });
+            }
+        });
+
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         $(window).resize(myChart.resize);
     }
+
+
 
 }
 </script>
