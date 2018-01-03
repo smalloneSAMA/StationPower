@@ -133,7 +133,7 @@
         </div>
     </div>
 
-    <div class="col-sm-6" style="opacity: 0.9;z-index: 0">
+    <div class="col-sm-6" style="opacity: 1;z-index: 0">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>通信网优化</h5>
@@ -455,6 +455,7 @@ $(document).ready(function () {
         {//每个站点
             type: 'effectScatter',
             coordinateSystem: 'geo',
+            hoverAnimation: true,
             zlevel: 2,
             rippleEffect: {
                 brushType: 'stroke'
@@ -466,10 +467,14 @@ $(document).ready(function () {
                     formatter: '{b}'
                 }
             },
-            //symbolSize: function (val) {
-            //return val[2] / 8;
-            //},
-            symbolSize: 6,
+            symbolSize: function (val) {
+                x = val[2] * 15;
+                if(x < 2){
+                    return 1;
+                }
+                return x;
+            },
+//            symbolSize: 6,
             data: station.map(function (dataItem) {
                     return {
                         name: dataItem.name + ' , 业务数：' + dataItem.businessNum + '，扩容迫切性：' + dataItem.kuorong,
