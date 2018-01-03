@@ -295,7 +295,11 @@
         var series = [
             {//两个站点之间的连线
                 type: 'lines',
+                coordinateSystem: 'geo',
                 zlevel: 1,
+                large: true,
+                symbol: ['none', 'none'],
+                symbolSize: 10,
                 effect: {
                     show: true,
                     constantSpeed: 30,
@@ -303,8 +307,6 @@
                     symbolSize: 3,
                     trailLength: 0
                 },
-                symbol: ['none', 'none'],
-                symbolSize: 10,
                 lineStyle: {
                     normal: {
                         //color: '#a6c84c',
@@ -320,7 +322,7 @@
                 coordinateSystem: 'geo',
                 hoverAnimation: true,
                 showEffectOn: 'render',
-                zlevel: 1,
+                zlevel: 2,
                 rippleEffect: {
                     brushType: 'stroke'
                 },
@@ -351,6 +353,7 @@
                 )
             }
         ];
+
         var Province = $("#Province").val();
         option = {
             //backgroundColor: '#003',//#404a59
@@ -375,7 +378,7 @@
                 show:true,
                 feature:{
                     mark:{show:!0},
-                    dataView:{show:!0,readOnly:!1},
+//                    dataView:{show:!0,readOnly:!1},
                     restore:{show:!0},
                     saveAsImage:{show:!0}
                 }
@@ -409,7 +412,7 @@
                 itemStyle: {
                     normal: {
                         areaColor: '#323c48',
-                        borderColor: '#ffefd5',//'#404a59'
+                        borderColor: '#ffefd5'//'#404a59'
                     },
                     emphasis: {
                         areaColor: '#2a333d'
@@ -444,6 +447,14 @@
                     }
                 });
             }
+        });
+        myChart.on("mouseover", function (params){
+
+            var name = params.name;
+            myChart.dispatchAction({
+                    type: 'downplay',
+                    name:name
+                });
         });
 
         // 使用刚指定的配置项和数据显示图表。
