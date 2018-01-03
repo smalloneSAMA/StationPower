@@ -142,7 +142,7 @@
 
         //获取站点数据
         $.ajax({
-            url: "../../StationProperty/select",
+            url: "../../StationProperty/S_dataQualityFilter",
             type: "post",
             dataType: "json",
             async: false,
@@ -180,7 +180,7 @@
             example1={
                 name : item.Name,
                 businessNum : item.BusinessNum,
-                kuorong : item.KuoRong,
+                kuorong : item.KuoRong
 
             };
 //            每个站点的数据
@@ -248,7 +248,8 @@
                 };
                 name22={
                     name:item.name2,
-                    fiberOcc: item.FiberOcc
+                    fiberOcc: item.FiberOcc,
+                    route:item.route
                 };
                 edges1[i]=[name11,name22];
 
@@ -281,49 +282,38 @@
 					//toName: dataItem[1].name,
 					name: "铅芯占用率",
 					coords: [fromCoord, toCoord],
-					value: dataItem[1].fiberOcc
+					value: dataItem[1].fiberOcc,
+                    route: dataItem[1].route
 				});
 			}
 		}
 		return res;
 	};
 
+
 	var color1 = ['#a6c84c', '#ffa022', '#46bee9'];
 	
 	var series1 = [
-		{//两个站点之间的连线
-			type: 'lines',
-			zlevel: 2,
-			symbol: ['none', 'none'],
-			symbolSize: 10,
-			lineStyle: {
-				normal: {
-					//color: '#a6c84c',
-					width: 1,
-					opacity: 0.6,
-					curveness: 0.2
-				}
-			},
-			data: convertData1(edges1)
-		},
 		{
 			type: 'lines',
-			zlevel: 2,
-			symbol: ['none', 'arrow'],
+			zlevel: 10,
+            coordinateSystem: 'geo',
+			symbol: ['none', 'none'],
 			symbolSize: 10,
 			effect: {
 				show: true,
 				period: 6,
 				trailLength: 0,
-				symbol: planePath,
+                symbol: 'pin',
+//				symbol: planePath,
 				symbolSize: 15
 			},
 			lineStyle: {
 				normal: {
-					color: '#a6c84c',
-					width: 1,
+				    color:'#ffffff',
 					opacity: 0.6,
-					curveness: 0.2
+					curveness: 0.1,
+                    width: 2
 				}
 			},
 			data: convertData1(edges1)
@@ -331,6 +321,8 @@
 		{//每个站点
 			type: 'effectScatter',
 			coordinateSystem: 'geo',
+            hoverAnimation: true,
+            showEffectOn: 'render',
 			zlevel: 2,
 			rippleEffect: {
 				brushType: 'stroke'
@@ -345,7 +337,13 @@
 			//symbolSize: function (val) {
 				//return val[2] / 8;
 			//},
-			symbolSize: 6,
+            symbolSize: function (val) {
+                x = val[2] * 20;
+                if(x < 2){
+                    return 1;
+                }
+                return x;
+            },
 			data: station1.map(function (dataItem) {
 					return {
 						name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,

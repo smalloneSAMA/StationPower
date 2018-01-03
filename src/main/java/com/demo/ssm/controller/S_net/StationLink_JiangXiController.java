@@ -49,6 +49,40 @@ public class StationLink_JiangXiController {
 
     }
 
+    //查询异常对象数据
+    @RequestMapping("/S_dataQualityLink")
+    @ResponseBody
+    public JSONArray S_dataQualityLink(HttpServletRequest request,String Province){
+        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObjecterror = new JSONObject();
+
+        try{
+            int i=0;
+            int k=stationLink_JiangXiService.count(Province);
+            List<StationLink_JiangXi> list = stationLink_JiangXiService.selectByPrimaryKey(Province);
+            while (i<k) {
+                String name1 = list.get(i).getName1();
+                String name2 = list.get(i).getName2();
+                if (!name1.contains("35kV") && !name1.contains("110kV")&&!name2.contains("35kV") && !name2.contains("110kV")) {
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("Name1", (list.get(i)).getName1());
+                    jsonObject.put("Name2", (list.get(i)).getName2());
+                    jsonObject.put("FiberOcc", (list.get(i)).getFiberOcc());
+                    jsonArray.add(jsonObject);
+                }
+                i++;
+            }
+            return jsonArray;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObjecterror.put("result","result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
+        }
+
+    }
+
 //    按照ID查询
     @RequestMapping("/selectByID")
     @ResponseBody

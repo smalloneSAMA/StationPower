@@ -71,9 +71,36 @@ public class BusinessRouteController {
                         jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids[a],ids[b],Province));
 
                     }
+                    jsonObject.put("route", 1);
                     jsonArray.add(jsonObject);
                 }
+
+
+                String route_2 = (list.get(i)).getRoute_2();
+                if(!"none".equals(route_2)){
+                    route_2 = route_2.replaceAll("'", "").replaceAll(" ", "");
+                    //分割路由
+                    String[] ids_2 = route_2.split(",");
+                    Integer len_2 = ids_2.length;
+
+                    for(int a=0,b=1;b<len_2;a++,b++){
+                        JSONObject jsonObject = new JSONObject() ;
+                        jsonObject.put("result", true);
+                        jsonObject.put("name1", stationPropertyService.selectByID(Province,ids_2[a]));
+                        jsonObject.put("name2", stationPropertyService.selectByID(Province,ids_2[b]));
+                        if(stationLink_JiangXiService.selectBy2ID(ids_2[a],ids_2[b],Province)==null){
+
+                            jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids_2[b],ids_2[a],Province));
+                        }else {
+                            jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids_2[a],ids_2[b],Province));
+
+                        }
+                        jsonObject.put("route", 2);
+                        jsonArray.add(jsonObject);
+                    }
+                }
             }
+
 
 //                i++;
 //            }
