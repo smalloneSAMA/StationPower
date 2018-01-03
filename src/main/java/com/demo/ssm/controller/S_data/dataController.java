@@ -524,9 +524,9 @@ public class dataController {
     public JSONObject buz_type_diff_pin(){
         JSONObject jsonObject = new JSONObject();
 
-        Integer a = dataService.Count_pin_BT(0.95);
-        Integer b = dataService.Count_pin_BT(0.90);
-        Integer c = dataService.Count_pin_BT(0.8);
+        Integer a = dataService.Count_pin_BT(0.6);
+        Integer b = dataService.Count_pin_BT(0.55);
+        Integer c = dataService.Count_pin_BT(0.5);
         Integer d = dataService.Count_pin_BT(-0.1);
 
 
@@ -551,9 +551,9 @@ public class dataController {
     public JSONObject buz_rate_diff_pin(){
         JSONObject jsonObject = new JSONObject();
 
-        Integer a = dataService.Count_pin_BR(0.95);
-        Integer b = dataService.Count_pin_BR(0.90);
-        Integer c = dataService.Count_pin_BR(0.8);
+        Integer a = dataService.Count_pin_BR(0.5);
+        Integer b = dataService.Count_pin_BR(0.4);
+        Integer c = dataService.Count_pin_BR(0.3);
         Integer d = dataService.Count_pin_BR(-0.1);
 
 
@@ -578,9 +578,9 @@ public class dataController {
     public JSONObject channel_type_diff_pin(){
         JSONObject jsonObject = new JSONObject();
 
-        Integer a = dataService.Count_pin_CT(0.95);
-        Integer b = dataService.Count_pin_CT(0.90);
-        Integer c = dataService.Count_pin_CT(0.8);
+        Integer a = dataService.Count_pin_CT(0.90);
+        Integer b = dataService.Count_pin_CT(0.80);
+        Integer c = dataService.Count_pin_CT(0.7);
         Integer d = dataService.Count_pin_CT(-0.1);
 
 
@@ -605,9 +605,9 @@ public class dataController {
     public JSONObject channel_rate_diff_pin(){
         JSONObject jsonObject = new JSONObject();
 
-        Integer a = dataService.Count_pin_CR(0.95);
-        Integer b = dataService.Count_pin_CR(0.90);
-        Integer c = dataService.Count_pin_CR(0.8);
+        Integer a = dataService.Count_pin_CR(0.5);
+        Integer b = dataService.Count_pin_CR(0.45);
+        Integer c = dataService.Count_pin_CR(0.4);
         Integer d = dataService.Count_pin_CR(-0.1);
 
 
