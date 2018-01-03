@@ -296,7 +296,7 @@
             {//两个站点之间的连线
                 type: 'lines',
                 coordinateSystem: 'geo',
-                zlevel: 1,
+                zlevel: 9,
                 large: true,
                 symbol: ['none', 'none'],
                 symbolSize: 10,
@@ -322,7 +322,7 @@
                 coordinateSystem: 'geo',
                 hoverAnimation: true,
                 showEffectOn: 'render',
-                zlevel: 2,
+                zlevel: 9,
                 rippleEffect: {
                     brushType: 'stroke'
                 },
@@ -391,6 +391,7 @@
                     precision:2,
                     calculable: true,
                     top:'center',
+                    hoverLink:true,
                     inRange: {
                         color: ['#50a3ba', '#eac736', '#d94e5d']
 //                        color: ['#a4c6fc', '#5c9bfb', '#2374fa','#003583','#003583','#001d47']
@@ -415,7 +416,9 @@
                         borderColor: '#ffefd5'//'#404a59'
                     },
                     emphasis: {
-                        areaColor: '#2a333d'
+                        areaColor: '#2a333d',
+                        opacity:0
+//                        zlevel:0
                     }
                 }
             },
@@ -448,14 +451,7 @@
                 });
             }
         });
-        myChart.on("mouseover", function (params){
 
-            var name = params.name;
-            myChart.dispatchAction({
-                    type: 'downplay',
-                    name:name
-                });
-        });
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
