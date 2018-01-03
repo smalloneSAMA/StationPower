@@ -66,6 +66,10 @@ public class StationPropertyController {
                 jsonObject.put("yAxis", (list.get(i)).getYaxis());
                 jsonObject.put("BusinessNum", (list.get(i)).getBusinessNum());
                 jsonObject.put("KuoRong", (list.get(i)).getKuorong());
+                jsonObject.put("OBJ_ID", (list.get(i)).getObj_id());
+                jsonObject.put("portOcc", (list.get(i)).getPortOcc());
+                jsonObject.put("buzNumRate", (list.get(i)).getBuzNumRate());
+                jsonObject.put("increaseRate", (list.get(i)).getIncreaseRate());
                 jsonArray.add(jsonObject);
                 i++;
             }
