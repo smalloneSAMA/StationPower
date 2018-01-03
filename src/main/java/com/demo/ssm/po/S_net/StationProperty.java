@@ -15,12 +15,6 @@ public class StationProperty {
 
     private double kuorong;
 
-    private String portOcc;
-
-    private String buzNumRate;
-
-    private String increaseRate;
-
     public String getObj_id() {
         return obj_id;
     }
@@ -75,29 +69,5 @@ public class StationProperty {
 
     public void setKuorong(double kuorong) {
         this.kuorong = kuorong;
-    }
-
-    public String getPortOcc() {
-        return portOcc;
-    }
-
-    public void setPortOcc(String portOcc) {
-        this.portOcc = portOcc;
-    }
-
-    public String getBuzNumRate() {
-        return buzNumRate;
-    }
-
-    public void setBuzNumRate(String buzNumRate) {
-        this.buzNumRate = buzNumRate;
-    }
-
-    public String getIncreaseRate() {
-        return increaseRate;
-    }
-
-    public void setIncreaseRate(String increaseRate) {
-        this.increaseRate = increaseRate;
     }
 }

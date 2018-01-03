@@ -11,10 +11,6 @@
         <result column="Yaxis" property="Yaxis" jdbcType="VARCHAR"/>
         <result column="businessNum" property="businessNum" jdbcType="VARCHAR"/>
         <result column="kuorong" property="kuorong" jdbcType="VARCHAR"/>
-        <result column="portOcc" property="portOcc" jdbcType="VARCHAR"/>
-        <result column="buzNumRate" property="buzNumRate" jdbcType="VARCHAR"/>
-        <result column="increaseRate" property="increaseRate" jdbcType="VARCHAR"/>
-
 
     </resultMap>
 
