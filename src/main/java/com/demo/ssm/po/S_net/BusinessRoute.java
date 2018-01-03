@@ -7,6 +7,8 @@ public class BusinessRoute {
 
     private String route;
 
+    private String route_2;
+
     public String getBuz_id() {
         return buz_id;
     }
@@ -29,5 +31,13 @@ public class BusinessRoute {
 
     public void setRoute(String route) {
         this.route = route;
+    }
+
+    public String getRoute_2() {
+        return route_2;
+    }
+
+    public void setRoute_2(String route_2) {
+        this.route_2 = route_2;
     }
 }
