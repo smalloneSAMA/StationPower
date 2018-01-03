@@ -14,18 +14,53 @@
         <result column="probablity" property="probablity" jdbcType="DOUBLE"/>
     </resultMap>
 
-   <!-- 字段片段
-    <sql id="Abnormal">
-        ID,TransformSubstation,BusinessNumRecords,BusinessNumForecast
-    </sql>-->
-    <!-- 查询表的数据个数
-       <select id="count" resultType="java.lang.Integer">
-           SELECT COUNT(id)
-           FROM AbnormalStation_top10
+    <!--饼状图查询各个准确率区间的记录个数-->
+    <!--buz_type_diff-->
+    <select id="Count_pin_BT" parameterType="Double" resultType="java.lang.Integer">
+        SELECT COUNT(probablity)
+        FROM buz_type_diff
+        WHERE probablity >= #{prob}
 
-       </select>-->
+    </select>
+
+    <!--buz_rate_diff-->
+    <select id="Count_pin_BR" parameterType="Double" resultType="java.lang.Integer">
+        SELECT COUNT(probablity)
+        FROM buz_rate_diff
+        WHERE probablity >= #{prob}
+
+    </select>
+
+    <!--channel_type_diff-->
+    <select id="Count_pin_CT" parameterType="Double" resultType="java.lang.Integer">
+        SELECT COUNT(probablity)
+        FROM channel_type_diff
+        WHERE probablity >= #{prob}
+
+    </select>
+
+    <!--channel_rate_diff-->
+    <select id="Count_pin_CR" parameterType="Double" resultType="java.lang.Integer">
+        SELECT COUNT(probablity)
+        FROM channel_rate_diff
+        WHERE probablity >= #{prob}
+
+    </select>
+
+    <!--interface_type_diff-->
+    <select id="Count_pin_IT" parameterType="Double" resultType="java.lang.Integer">
+        SELECT COUNT(probablity)
+        FROM interface_type_diff
+        WHERE probablity >= #{prob}
+
+    </select>
 
 
+
+
+
+
+    <!--查询各个部分的数据和刷新数据-->
     <!--channel_type_diff查询-->
     <select id="channel_typeQ" resultMap="Map" >
         SELECT *

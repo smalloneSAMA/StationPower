@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Controller
 @RequestMapping("/S_data")
 public class dataController {
@@ -29,16 +28,16 @@ public class dataController {
     //Jy利用Java调用python程序
     @RequestMapping("/Jpchanneltype")
     @ResponseBody
-    public int Jpchanneltype(HttpServletRequest request,String Province){
+    public int Jpchanneltype(HttpServletRequest request, String Province) {
         //java调用python程序更新数据库数据
         //将select选中的省份传递给python
         System.out.printf(Province);
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python","E:\\python\\Project\\channelType.py",Province};
-        String line="";
+        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\channelType.py", Province};
+        String line = "";
         try {
             System.out.printf("\npython Jpchanneltype程序准备执行\n");
-            Process pr=Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -51,13 +50,13 @@ public class dataController {
         for (String out : processList) {
             System.out.println(out);
         }
-    return 0;
+        return 0;
     }
 
     //查询异常channel_type
     @RequestMapping("/channel_type")
     @ResponseBody
-    public JSONArray channel_type(HttpServletRequest request, String Province){
+    public JSONArray channel_type(HttpServletRequest request, String Province) {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
@@ -66,8 +65,8 @@ public class dataController {
         try {
             Integer s = dataService.channel_type_Count(Province);
             List<data> list = dataService.channel_typeQ(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -79,19 +78,19 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result", "result");
             jsonArray.add(jsonObjecterror);
             return jsonArray;
 
         }
     }
+
     //查询异常channel_type_null
     @RequestMapping("/channel_type_null")
     @ResponseBody
-    public JSONArray channel_type_null(HttpServletRequest request, String Province){
+    public JSONArray channel_type_null(HttpServletRequest request, String Province) {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
@@ -100,8 +99,8 @@ public class dataController {
         try {
             Integer s = dataService.channel_type_null_Count(Province);
             List<data> list = dataService.channel_type_null(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -112,16 +111,14 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result", "result");
             jsonArray.add(jsonObjecterror);
             return jsonArray;
 
         }
     }
-
 
 
     //查询异常channel_rate
@@ -136,8 +133,8 @@ public class dataController {
         try {
             Integer s = dataService.channel_rateQ_Count(Province);
             List<data> list = dataService.channel_rateQ(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -149,15 +146,15 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-    catch (IOException e) {
-        e.printStackTrace();
-        jsonObjecterror.put("result","result");
-        jsonArray.add(jsonObjecterror);
-        return jsonArray;
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObjecterror.put("result", "result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
 
+        }
     }
-    }
+
     //查询异常channel_rate_null
     @RequestMapping("/channel_rate_null")
     @ResponseBody
@@ -194,16 +191,16 @@ public class dataController {
 
     @RequestMapping("/Jpbuztype")
     @ResponseBody
-    public int Jpflash(HttpServletRequest request,String Province){
+    public int Jpflash(HttpServletRequest request, String Province) {
         //java调用python程序更新数据库数据
         //将select选中的省份传递给python
         System.out.printf(Province);
-        String line="";
+        String line = "";
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python","E:\\python\\Project\\predicateBTNew.py",Province};
+        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predicateBTNew.py", Province};
         try {
             System.out.printf("\npython程序准备执行\n");
-            Process pr=Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -216,7 +213,7 @@ public class dataController {
         for (String out : processList) {
             System.out.println(out);
         }
-    return 0;
+        return 0;
     }
 
     //查询异常buz_type
@@ -231,8 +228,8 @@ public class dataController {
         try {
             Integer s = dataService.buz_typeQ_Count(Province);
             List<data> list = dataService.buz_typeQ(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -244,15 +241,15 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result", "result");
             jsonArray.add(jsonObjecterror);
             return jsonArray;
 
         }
     }
+
     //查询异常buz_type_null
     @RequestMapping("/buz_type_null")
     @ResponseBody
@@ -289,16 +286,16 @@ public class dataController {
 
     @RequestMapping("/Jpbuzrate")
     @ResponseBody
-    public int Jpbuzrate(HttpServletRequest request,String Province){
+    public int Jpbuzrate(HttpServletRequest request, String Province) {
         //java调用python程序更新数据库数据
         //将select选中的省份传递给python
         System.out.printf(Province);
-        String line="";
+        String line = "";
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python","E:\\python\\Project\\predictBuzRate.py",Province};
+        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predictBuzRate.py", Province};
         try {
             System.out.printf("\npython  buzrate程序准备执行\n");
-            Process pr=Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -327,8 +324,8 @@ public class dataController {
         try {
             Integer s = dataService.buz_rateQ_Count(Province);
             List<data> list = dataService.buz_rateQ(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -340,15 +337,15 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result", "result");
             jsonArray.add(jsonObjecterror);
             return jsonArray;
 
         }
     }
+
     //查询异常buz_rate_null
     @RequestMapping("/buz_rate_null")
     @ResponseBody
@@ -395,10 +392,10 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String[] url=new String[]{"python","D:\\channelRate2.py",Province};
+        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\channelRate2.py", Province};
         try {
             System.out.printf("\npython程序准备执行\n");
-            Process pr=Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -418,10 +415,6 @@ public class dataController {
     }
 
 
-
-
-
-
     //查询异常interface_rate
     @RequestMapping("/interface_type_diff")
     @ResponseBody
@@ -434,8 +427,8 @@ public class dataController {
         try {
             Integer s = dataService.interface_typeQ_Count(Province);
             List<data> list = dataService.interface_typeQ(Province);
-            if(s<10){
-                k=s;
+            if (s < 10) {
+                k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
@@ -447,15 +440,15 @@ public class dataController {
                 i++;
             }
             return jsonArray;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            jsonObjecterror.put("result","result");
+            jsonObjecterror.put("result", "result");
             jsonArray.add(jsonObjecterror);
             return jsonArray;
 
         }
     }
+
     //查询异常interface_type_null
     @RequestMapping("/interface_type_null")
     @ResponseBody
@@ -501,10 +494,10 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String[] url=new String[]{"python","D:\\predictInterfaceType.py",Province};
+        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predictInterfaceType.py", Province};
         try {
             System.out.printf("\npython程序predictInterfaceType准备执行\n");
-            Process pr=Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -522,5 +515,143 @@ public class dataController {
         jsonArray.add(jsonObject);
         return jsonArray;
     }
+
+
+//    饼状图各概率区间记录个数
+    //buz_type
+    @RequestMapping("/buz_type_diff_pin")
+    @ResponseBody
+    public JSONObject buz_type_diff_pin(){
+        JSONObject jsonObject = new JSONObject();
+
+        Integer a = dataService.Count_pin_BT(0.95);
+        Integer b = dataService.Count_pin_BT(0.90);
+        Integer c = dataService.Count_pin_BT(0.8);
+        Integer d = dataService.Count_pin_BT(-0.1);
+
+
+        a=a;
+        d=d-c;
+        c=c-b;
+        b=b-a;
+
+        jsonObject.put("a",a);
+        jsonObject.put("b",b);
+        jsonObject.put("c",c);
+        jsonObject.put("d",d);
+
+        return jsonObject;
+
+
+    }
+
+    //buz_rate
+    @RequestMapping("/buz_rate_diff_pin")
+    @ResponseBody
+    public JSONObject buz_rate_diff_pin(){
+        JSONObject jsonObject = new JSONObject();
+
+        Integer a = dataService.Count_pin_BR(0.95);
+        Integer b = dataService.Count_pin_BR(0.90);
+        Integer c = dataService.Count_pin_BR(0.8);
+        Integer d = dataService.Count_pin_BR(-0.1);
+
+
+        a=a;
+        d=d-c;
+        c=c-b;
+        b=b-a;
+
+        jsonObject.put("a",a);
+        jsonObject.put("b",b);
+        jsonObject.put("c",c);
+        jsonObject.put("d",d);
+
+        return jsonObject;
+
+
+    }
+
+    //channel_type
+    @RequestMapping("/channel_type_diff_pin")
+    @ResponseBody
+    public JSONObject channel_type_diff_pin(){
+        JSONObject jsonObject = new JSONObject();
+
+        Integer a = dataService.Count_pin_CT(0.95);
+        Integer b = dataService.Count_pin_CT(0.90);
+        Integer c = dataService.Count_pin_CT(0.8);
+        Integer d = dataService.Count_pin_CT(-0.1);
+
+
+        a=a;
+        d=d-c;
+        c=c-b;
+        b=b-a;
+
+        jsonObject.put("a",a);
+        jsonObject.put("b",b);
+        jsonObject.put("c",c);
+        jsonObject.put("d",d);
+
+        return jsonObject;
+
+
+    }
+
+    //channel_rate
+    @RequestMapping("/channel_rate_diff_pin")
+    @ResponseBody
+    public JSONObject channel_rate_diff_pin(){
+        JSONObject jsonObject = new JSONObject();
+
+        Integer a = dataService.Count_pin_CR(0.95);
+        Integer b = dataService.Count_pin_CR(0.90);
+        Integer c = dataService.Count_pin_CR(0.8);
+        Integer d = dataService.Count_pin_CR(-0.1);
+
+
+        a=a;
+        d=d-c;
+        c=c-b;
+        b=b-a;
+
+        jsonObject.put("a",a);
+        jsonObject.put("b",b);
+        jsonObject.put("c",c);
+        jsonObject.put("d",d);
+
+        return jsonObject;
+
+
+    }
+
+    //interface_type
+    @RequestMapping("/interface_type_diff_pin")
+    @ResponseBody
+    public JSONObject interface_type_diff_pin(){
+        JSONObject jsonObject = new JSONObject();
+
+        Integer a = dataService.Count_pin_IT(0.95);
+        Integer b = dataService.Count_pin_IT(0.90);
+        Integer c = dataService.Count_pin_IT(0.8);
+        Integer d = dataService.Count_pin_IT(-0.1);
+
+
+        a=a;
+        d=d-c;
+        c=c-b;
+        b=b-a;
+
+        jsonObject.put("a",a);
+        jsonObject.put("b",b);
+        jsonObject.put("c",c);
+        jsonObject.put("d",d);
+
+        return jsonObject;
+
+
+    }
+
 }
 

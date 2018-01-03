@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--360浏览器优先以webkit内核解析-->
+
+
+    <title>智能电网通信大数据分析系统首页</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="row" style="background-color: #faf2cc; ">
+
+    <video muted autoplay loop style="width: 100%">
+        <source src="video/极乐净土%201080p.mp4" type="video/mp4">
+    </video>
+
+    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>数据质量</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
+                    <option id="BT" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                    <option id="BR" value="../../S_data/buz_rate_diff_pin">业务带宽-准确率</option>
+                    <option selected id="CT" value="../../S_data/channel_type_diff_pin">通道类型-准确率</option>
+                    <option id="CR" value="../../S_data/channel_rate_diff_pin">通道速率-准确率</option>
+                    <option id="IT" value="../../S_data/interface_type_diff_pin">接口类型-准确率</option>
+                </select>
+                <div id="pin" style="height: 400px;"></div>
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>数据质量</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
+                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                    </select>
+                <div id="pin1" style="height: 400px;"></div>
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>数据质量</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
+                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                </select>
+                <div id="pin1" style="height: 400px;"></div>
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5></h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="graph_flot.html#">选项1</a>
+                        </li>
+                        <li><a href="graph_flot.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
+                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                </select>
+                <div id="main" style="width:100%;height: 400px"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="S_js/echarts.js"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.5"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+<script src="js/content.min.js"></script>
+<script src="js/welcome.min.js"></script>
+<script src="S_js/jiangxi.js"></script>
+<script src="S_js/china.js"></script>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    data_pin();
+})
+    /*
+     *数据质量饼图
+    */
+    //    画图
+    function pin(data) {
+
+        aa = data.a;
+        bb = data.b;
+        cc = data.c;
+        dd = data.d;
+
+
+        var pinCharts = echarts.init(document.getElementById("pin"));
+        option_pin = {
+            title: {
+                text: '准确率情况统计',
+                subtext: '虚构数据',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                // orient: 'vertical',
+                // top: 'middle',
+                bottom: 10,
+                left: 'center',
+                data: ['100%~95%', '90%~95%', '<90%']
+            },
+            series: [
+                {
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    selectedMode: 'single',
+                    data: [
+                        {value: aa, name: '100%~95%'},
+                        {value: bb, name: '90%~95%'},
+                        {value: cc, name: '80%~90%'},
+                        {value: dd, name: '<80%'},
+
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        pinCharts.setOption(option_pin);
+        $(window).resize(pinCharts.resize);
+    }
+
+//    数据获取
+    function data_pin() {
+        var a = $("#pin_select").val();
+        $.ajax({
+            async:false,
+            url: a,
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                pin(data);
+            }
+        })
+    }
+
+    /*
+	 * 江西站点分布图（扩容预测）
+	 */
+    var mapChart = echarts.init(document.getElementById('main'));
+    // 每个站点的GIS数据
+    var geoCoordMap = {
+        '220kV垱岭变': [117.12, 28.97],
+        '220kV上饶变': [117.85, 28.43],
+        '220kV茅家岭变': [117.99, 28.43],
+        '220kV渝水变': [114.930835, 27.810834],
+        '上饶供电公司': [117.97, 28.50],
+        '500kV罗坊变': [114.93, 27.8],
+        '500kV赣州变': [115.0, 25.87],
+        '500kV乐平变': [117.21, 28.97],
+        '220kV斗门变': [115.93, 28.55],
+        '220kV龙岗变': [115.82, 28.7],
+        '500kV文山变': [114.98, 27.12],
+        '500kV南昌变': [115.85, 28.68],
+        '110kV沙土变': [114.93, 27.78],
+        '500kV梦山变': [115.53, 28.07],
+        '赣东北供电公司': [117.12, 28.90],
+        '220kV金子山变': [117.07, 28.7],
+        '集控中心': [114.38, 28.1],
+        '220kV石滩变': [115.78, 28.2],
+        '220kV渡口变': [114.93, 25.87],
+        '220kV铜城变': [117.22, 28.28],
+        '500kV马回岭变': [115.88, 29.62],
+        '220kV王源变': [117.95, 28.40],
+        '南昌供电公司': [115.75, 28.5],
+        '220kV嘉定变': [114.93, 25.38],
+        '江西省电力公司': [115.95, 28.68],
+        '500kV信州变': [117.95, 28.43],
+        '220kV燕丰变': [114.93, 25.83],
+        '220kV康乐变': [114.43, 28.20],
+        '220kV高新变': [117.12, 28.7],
+        '220kV流口变': [117.10, 28.28],
+        '220kV清江变': [116.53, 27.22],
+        '220kV袁州变': [114.38, 27.8],
+        '500kV永修变': [115.8, 29.03],
+        '220kV信和变': [114.25, 27.8],
+        '500kV石钟山变': [116.22, 29.73],
+        '220kV龟峰变': [117.43, 28.4],
+        '220kV百乐变': [115.03, 24.78],
+        '500kV抚州变': [116.35, 28.0],
+        '500kV孔目江变': [114.83, 27.8],
+        '500kV安源变': [113.87, 27.65],
+        '500kV雷公山变': [114.78, 24.92],
+        '220kV吉安变': [114.85, 27.12],
+        '220kV妙智变': [115.98, 29.68],
+        '220kV荷舍变': [114.78, 28.38],
+        '220kV西郊变': [115.73, 28.72],
+        '220kV玉山变': [118.25, 28.68],
+        '220kV竹航山变': [118.18, 28.43],
+        '赣西供电公司': [114.92, 27.82],
+        '220kV上高变': [114.92, 28.23],
+        '220kV李家变': [117.25, 29.37],
+        '220kV官上变': [117.92, 28.43],
+        '220kV祥符变': [115.37, 28.42],
+        '220kV德兴变': [117.57, 28.95],
+        '220kV葛山变': [115.13, 27.22],
+        '220kV跑马坪变': [113.73, 27.65],
+        '110kV沈家岭变': [117.12, 28.99]
+    };
+
+    // 各个站点的相关属性
+    var station = [
+        {name: '220kV垱岭变', businessNum: 212, kuorong: 0.75},
+        {name: '220kV上饶变', businessNum: 207, kuorong: 0.67},
+        {name: '220kV茅家岭变', businessNum: 179, kuorong: 0.67},
+        {name: '220kV渝水变', businessNum: 168, kuorong: 0.79},
+        {name: '上饶供电公司', businessNum: 164, kuorong: 0.3},
+        {name: '500kV罗坊变', businessNum: 153, kuorong: 0.98},
+        {name: '500kV赣州变', businessNum: 147, kuorong: 0.68},
+        {name: '500kV乐平变', businessNum: 141, kuorong: 0.58},
+        {name: '220kV斗门变', businessNum: 134, kuorong: 0.94},
+        {name: '220kV龙岗变', businessNum: 130, kuorong: 0.67},
+        {name: '500kV文山变', businessNum: 128, kuorong: 0.34},
+        {name: '500kV南昌变', businessNum: 127, kuorong: 0.34},
+        {name: '110kV沙土变', businessNum: 119, kuorong: 0.34},
+        {name: '500kV梦山变', businessNum: 119, kuorong: 0.34},
+        {name: '赣东北供电公司', businessNum: 116, kuorong: 0.67},
+        {name: '220kV金子山变', businessNum: 111, kuorong: 0.89},
+        {name: '集控中心', businessNum: 110, kuorong: 0.98},
+        {name: '220kV石滩变', businessNum: 102, kuorong: 0.56},
+        {name: '220kV渡口变', businessNum: 100, kuorong: 0.34},
+        {name: '220kV铜城变', businessNum: 98, kuorong: 0.78},
+        {name: '500kV马回岭变', businessNum: 98, kuorong: 0.56},
+        {name: '220kV王源变', businessNum: 98, kuorong: 0.45},
+        {name: '南昌供电公司', businessNum: 98, kuorong: 0.23},
+        {name: '220kV嘉定变', businessNum: 97, kuorong: 0.69},
+        {name: '江西省电力公司', businessNum: 93, kuorong: 0.49},
+        {name: '500kV信州变', businessNum: 93, kuorong: 0.78},
+        {name: '220kV燕丰变', businessNum: 92, kuorong: 0.63},
+        {name: '220kV康乐变', businessNum: 92, kuorong: 0.85},
+        {name: '220kV高新变', businessNum: 92, kuorong: 0.47},
+        {name: '220kV流口变', businessNum: 92, kuorong: 0.67},
+        {name: '220kV清江变', businessNum: 92, kuorong: 0.80},
+        {name: '220kV袁州变', businessNum: 92, kuorong: 0.45},
+        {name: '500kV永修变', businessNum: 91, kuorong: 0.76},
+        {name: '220kV信和变', businessNum: 90, kuorong: 0.23},
+        {name: '500kV石钟山变', businessNum: 90, kuorong: 0.49},
+        {name: '220kV龟峰变', businessNum: 89, kuorong: 0.72},
+        {name: '220kV百乐变', businessNum: 88, kuorong: 0.62},
+        {name: '500kV抚州变', businessNum: 88, kuorong: 0.41},
+        {name: '500kV孔目江变', businessNum: 87, kuorong: 0.49},
+        {name: '500kV安源变', businessNum: 87, kuorong: 0.89},
+        {name: '500kV雷公山变', businessNum: 83, kuorong: 0.50},
+        {name: '220kV吉安变', businessNum: 83, kuorong: 0.68},
+        {name: '220kV妙智变', businessNum: 82, kuorong: 0.46},
+        {name: '220kV荷舍变', businessNum: 80, kuorong: 0.29},
+        {name: '220kV西郊变', businessNum: 80, kuorong: 0.90},
+        {name: '220kV玉山变', businessNum: 80, kuorong: 0.85},
+        {name: '220kV竹航山变', businessNum: 79, kuorong: 0.78},
+        {name: '赣西供电公司', businessNum: 78, kuorong: 0.48},
+        {name: '220kV上高变', businessNum: 78, kuorong: 0.70},
+        {name: '220kV李家变', businessNum: 78, kuorong: 0.49},
+        {name: '220kV官上变', businessNum: 78, kuorong: 0.80},
+        {name: '220kV祥符变', businessNum: 78, kuorong: 0.58},
+        {name: '220kV德兴变', businessNum: 77, kuorong: 0.9},
+        {name: '220kV葛山变', businessNum: 77, kuorong: 0.67},
+        {name: '220kV跑马坪变', businessNum: 77, kuorong: 0.57},
+        {name: '110kV沈家岭变', businessNum: 20, kuorong: 0.68}
+    ];
+
+    // 各个站点之间的连接情况
+    var edges = [
+        [{name: '220kV垱岭变'}, {name: '110kV沈家岭变', fiberOcc: 0}],
+        [{name: '220kV垱岭变'}, {name: '220kV上饶变', fiberOcc: 0.8}],
+        [{name: '220kV茅家岭变'}, {name: '上饶供电公司', fiberOcc: 0.5}],
+        [{name: '220kV斗门变'}, {name: '江西省电力公司', fiberOcc: 0.8}],
+        [{name: '220kV玉山变'}, {name: '220kV德兴变', fiberOcc: 0.3}],
+        [{name: '220kV百乐变'}, {name: '500kV雷公山变', fiberOcc: 0.5}],
+        [{name: '500kV南昌变'}, {name: '500kV马回岭变', fiberOcc: 0.6}],
+        [{name: '220kV上高变'}, {name: '500kV抚州变', fiberOcc: 0.9}],
+        [{name: '220kV袁州变'}, {name: '220kV葛山变', fiberOcc: 0.2}],
+        [{name: '赣东北供电公司'}, {name: '220kV流口变', fiberOcc: 0.32}],
+        [{name: '220kV竹航山变'}, {name: '220kV德兴变', fiberOcc: 0.46}],
+        [{name: '500kV罗坊变'}, {name: '220kV祥符变', fiberOcc: 0.78}],
+        [{name: '110kV沙土变'}, {name: '220kV官上变', fiberOcc: 0.67}],
+        [{name: '500kV石钟山变'}, {name: '220kV西郊变', fiberOcc: 0.94}],
+        [{name: '500kV孔目江变'}, {name: '500kV安源变', fiberOcc: 0.12}],
+        [{name: '220kV葛山变'}, {name: '500kV抚州变', fiberOcc: 0.22}],
+        [{name: '220kV荷舍变'}, {name: '220kV燕丰变', fiberOcc: 0.54}],
+        [{name: '220kV西郊变'}, {name: '500kV信州变', fiberOcc: 0.67}],
+        [{name: '220kV妙智变'}, {name: '220kV渡口变', fiberOcc: 0.18}],
+        [{name: '500kV乐平变'}, {name: '220kV清江变', fiberOcc: 0.3}],
+        [{name: '集控中心'}, {name: '上饶供电公司', fiberOcc: 0.4}]
+    ];
+
+    //var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var dataItem = data[i];
+            var fromCoord = geoCoordMap[dataItem[0].name];
+            var toCoord = geoCoordMap[dataItem[1].name];
+            if (fromCoord && toCoord) {
+                res.push({
+                    //fromName: dataItem[0].name,
+                    //toName: dataItem[1].name,
+                    name: "铅芯占用率",
+                    coords: [fromCoord, toCoord],
+                    value: dataItem[1].fiberOcc
+                });
+            }
+        }
+        return res;
+    };
+
+    var color = ['#a6c84c', '#ffa022', '#46bee9'];
+
+    var series = [
+        {//两个站点之间的连线
+            type: 'lines',
+            zlevel: 2,
+            symbol: ['none', 'none'],
+            symbolSize: 10,
+            lineStyle: {
+                normal: {
+                    //color: '#a6c84c',
+                    width: 1,
+                    opacity: 0.6,
+                    curveness: 0
+                }
+            },
+            data: convertData(edges)
+        },
+        {//每个站点
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            zlevel: 2,
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            label: {
+                normal: {
+                    show: false,
+                    position: 'right',
+                    formatter: '{b}'
+                }
+            },
+            //symbolSize: function (val) {
+            //return val[2] / 8;
+            //},
+            symbolSize: 6,
+            data: station.map(function (dataItem) {
+                    return {
+                        name: dataItem.name + ' , 业务数：' + dataItem.businessNum + '，扩容迫切性：' + dataItem.kuorong,
+                        value: geoCoordMap[dataItem.name].concat([dataItem.kuorong])
+                    };
+                }
+            )
+        }
+    ];
+
+    option_map = {
+        //backgroundColor: '#003',//#404a59
+        title: {
+            text: '江西',
+            subtext: '站点分布图',
+            left: 'center',
+            textStyle: {
+                color: '#404a59'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                if (params.name.indexOf("铅芯占用率") == -1)
+                    return params.name;
+                else
+                    return params.name + ' : ' + params.value;
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: !0},
+                //dataView:{show:!0,readOnly:!1},
+                restore: {show: !0},
+                saveAsImage: {show: !0}
+            }
+        },
+        visualMap: [
+            {
+                min: 0,
+                max: 1,
+                text: ['高', '低'],
+                precision: 2,
+                calculable: true,
+                top: 'center',
+                inRange: {
+                    color: ['#50a3ba', '#eac736', '#d94e5d']
+                },
+                textStyle: {
+                    color: '#003'
+                }
+            }
+        ],
+        geo: {
+            map: '江西',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#ffefd5'//#ffefd5,#404a59
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        series: series
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    mapChart.setOption(option_map);
+    $(window).resize(mapChart.resize);
+
+
+</script>
+</html>

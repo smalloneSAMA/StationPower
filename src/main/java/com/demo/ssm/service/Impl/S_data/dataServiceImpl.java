@@ -13,6 +13,36 @@ public class dataServiceImpl implements dataService {
     @Autowired
     dataMapper dataS ;
 
+
+//    饼图所用
+    @Override
+    public Integer Count_pin_BT(Double prob) {
+        return dataS.Count_pin_BT(prob);
+    }
+
+    @Override
+    public Integer Count_pin_BR(Double prob) {
+        return dataS.Count_pin_BR(prob);
+    }
+
+    @Override
+    public Integer Count_pin_CT(Double prob) {
+        return dataS.Count_pin_CT(prob);
+    }
+
+    @Override
+    public Integer Count_pin_CR(Double prob) {
+        return dataS.Count_pin_CR(prob);
+    }
+
+    @Override
+    public Integer Count_pin_IT(Double prob) {
+        return dataS.Count_pin_IT(prob);
+    }
+
+
+
+//    专题所用
     @Override
     public List<data> channel_typeQ(String Province) {
         return dataS.channel_typeQ(Province);

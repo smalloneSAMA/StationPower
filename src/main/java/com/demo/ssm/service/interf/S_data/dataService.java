@@ -9,6 +9,18 @@ import java.util.List;
 
 @Service
 public interface dataService {
+
+    Integer Count_pin_BT(Double prob);
+
+    Integer Count_pin_BR(Double prob);
+
+    Integer Count_pin_CT(Double prob);
+
+    Integer Count_pin_CR(Double prob);
+
+    Integer Count_pin_IT(Double prob);
+
+
     List<data> channel_typeQ(String Province);
 
     List<data> channel_type_null(String Province);

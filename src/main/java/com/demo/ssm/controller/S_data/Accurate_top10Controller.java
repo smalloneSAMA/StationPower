@@ -29,7 +29,7 @@ public class Accurate_top10Controller {
         //java调用python程序更新数据库数据
         String line="";
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python","E:\\python\\Project\\predictBuzNum.py"};
+        String[] url=new String[]{"python","E:\\project\\所有python脚本\\predictBuzNum.py"};
         try {
             System.out.printf("\npython  predictBuzNum程序准备执行\n");
             Process pr=Runtime.getRuntime().exec(url);
