@@ -22,13 +22,9 @@
 
 <body class="gray-bg">
 
-<div class="row" style="background-color: #faf2cc; ">
+<div class="row" >
 
-    <video muted autoplay loop style="width: 100%">
-        <source src="video/极乐净土%201080p.mp4" type="video/mp4">
-    </video>
-
-    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 25px">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>数据质量</h5>
@@ -67,10 +63,10 @@
         </div>
     </div>
 
-    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 25px">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>数据质量</h5>
+                <h5>设备画像</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -92,9 +88,9 @@
             <div class="ibox-content">
 
                 <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
-                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                    <option id="22" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
                     </select>
-                <div id="pin1" style="height: 400px;"></div>
+                <div id="shan" style="height: 400px;"></div>
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
             </div>
@@ -102,10 +98,10 @@
         </div>
     </div>
 
-    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-bottom: 0px;">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>数据质量</h5>
+                <h5>业务可靠性</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -137,10 +133,10 @@
         </div>
     </div>
 
-    <div class="col-sm-6" style="opacity: 0.8;z-index: 0">
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5></h5>
+                <h5>通信网优化</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -184,6 +180,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
     data_pin();
+    paint_shan;
 })
     /*
      *数据质量饼图
@@ -201,7 +198,7 @@ $(document).ready(function () {
         option_pin = {
             title: {
                 text: '准确率情况统计',
-                subtext: '虚构数据',
+//                subtext: '虚构数据',
                 left: 'center'
             },
             tooltip: {
@@ -213,7 +210,7 @@ $(document).ready(function () {
                 // top: 'middle',
                 bottom: 10,
                 left: 'center',
-                data: ['100%~95%', '90%~95%', '<90%']
+                data: ['100%~95%', '90%~95%','80%~90%', '<80%']
             },
             series: [
                 {
@@ -255,6 +252,17 @@ $(document).ready(function () {
             }
         })
     }
+
+    /*
+     *设备画像部分各省闪频变化
+     *
+    */
+    
+    //闪频变化画图
+
+    
+
+
 
     /*
 	 * 江西站点分布图（扩容预测）
