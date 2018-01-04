@@ -41,6 +41,8 @@ public class t_channel_baseController {
     private t_alarm_cleanService t_alarm_cleanService;
     @Autowired
     private t_weibullService t_weibullService;
+    @Autowired
+    private t_fuber_faultService t_fuber_faultService;
 
     //    @RequestMapping("/tu")
 //    @ResponseBody
@@ -171,17 +173,23 @@ public class t_channel_baseController {
 
     @RequestMapping("/tt")
     @ResponseBody
-    public JSONArray tt(@ModelAttribute("Buz_id") String buz_id,ModelMap mmp){
+    public JSONArray tt(HttpServletRequest request){
 //        @ModelAttribute("Buz_id") String buz_id,ModelMap mmp
 //        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
 
-        //集合去重复
+        //取出session里的值
+        String buz_id = request.getSession().getAttribute("buz_id").toString();
+
+        //调用tu方法获得设备id集合
         List<String> list = tu(buz_id);
+
+        //集合去重复
         LinkedHashSet<String> lhs = new LinkedHashSet<>();
         lhs.addAll(list);
         list.clear();
         list.addAll(lhs);
 
+        //根据设备id查询各种信息展示到前台页面
         int len = list.size();
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
@@ -210,10 +218,14 @@ public class t_channel_baseController {
         }
     }
 
+    public JSONArray xian(List list){
+        return null;
+    }
+
     //查询异常对象数据
     @RequestMapping("/chaxun")
     @ResponseBody
-    public JSONArray chaxun(ModelMap mmp,String buz_type,String buz_id) {
+    public JSONArray chaxun(HttpServletRequest request,ModelMap mmp,String buz_type,String buz_id) {
 //        placeholder="请输入业务ID"
 //        ,String buz_type,String buz_id
 //        String buz_type = "1";
@@ -221,7 +233,9 @@ public class t_channel_baseController {
         t_buz t_buz = new t_buz();
         t_buz.setBUZ_TYPE(buz_type);
         t_buz.setOBJ_ID(buz_id);
-        mmp.addAttribute("Buz_id",buz_id);
+        //把buz_id存到session
+        request.getSession().setAttribute("buz_id",buz_id);
+//        mmp.addAttribute("Buz_id",buz_id);
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         try{
