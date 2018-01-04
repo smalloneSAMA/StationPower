@@ -295,7 +295,11 @@
         var series = [
             {//两个站点之间的连线
                 type: 'lines',
-                zlevel: 1,
+                coordinateSystem: 'geo',
+                zlevel: 9,
+                large: true,
+                symbol: ['none', 'none'],
+                symbolSize: 10,
                 effect: {
                     show: true,
                     constantSpeed: 30,
@@ -303,8 +307,6 @@
                     symbolSize: 3,
                     trailLength: 0
                 },
-                symbol: ['none', 'none'],
-                symbolSize: 10,
                 lineStyle: {
                     normal: {
                         //color: '#a6c84c',
@@ -320,7 +322,7 @@
                 coordinateSystem: 'geo',
                 hoverAnimation: true,
                 showEffectOn: 'render',
-                zlevel: 1,
+                zlevel: 9,
                 rippleEffect: {
                     brushType: 'stroke'
                 },
@@ -351,6 +353,7 @@
                 )
             }
         ];
+
         var Province = $("#Province").val();
         option = {
             //backgroundColor: '#003',//#404a59
@@ -375,7 +378,7 @@
                 show:true,
                 feature:{
                     mark:{show:!0},
-                    dataView:{show:!0,readOnly:!1},
+//                    dataView:{show:!0,readOnly:!1},
                     restore:{show:!0},
                     saveAsImage:{show:!0}
                 }
@@ -388,6 +391,7 @@
                     precision:2,
                     calculable: true,
                     top:'center',
+                    hoverLink:true,
                     inRange: {
                         color: ['#50a3ba', '#eac736', '#d94e5d']
 //                        color: ['#a4c6fc', '#5c9bfb', '#2374fa','#003583','#003583','#001d47']
@@ -409,10 +413,12 @@
                 itemStyle: {
                     normal: {
                         areaColor: '#323c48',
-                        borderColor: '#ffefd5',//'#404a59'
+                        borderColor: '#ffefd5'//'#404a59'
                     },
                     emphasis: {
-                        areaColor: '#2a333d'
+                        areaColor: '#2a333d',
+                        opacity:0
+//                        zlevel:0
                     }
                 }
             },
@@ -445,6 +451,7 @@
                 });
             }
         });
+
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);

@@ -24,6 +24,7 @@
 
 <div class="row" >
 
+    <!--数据质量-->
     <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 25px">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
@@ -63,6 +64,7 @@
         </div>
     </div>
 
+    <!--设备画像-->
     <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 25px">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
@@ -87,10 +89,10 @@
             </div>
             <div class="ibox-content">
 
-                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
+                <select onchange="paint_bar()" class="form-control" id="paint_select" style="width: 32%">
                     <option id="22" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
                     </select>
-                <div id="shan" style="height: 400px;"></div>
+                <div id="paint" style="height: 400px;"></div>
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
             </div>
@@ -98,6 +100,7 @@
         </div>
     </div>
 
+    <!--业务可靠性-->
     <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-bottom: 0px;">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
@@ -133,7 +136,8 @@
         </div>
     </div>
 
-    <div class="col-sm-6" style="opacity: 0.9;z-index: 0">
+    <!--通信网优化-->
+    <div class="col-sm-6" style="opacity: 1;z-index: 0">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>通信网优化</h5>
@@ -156,9 +160,8 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 32%">
-                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
-                </select>
+                <label  class="form-control"style="width: 32%;opacity: 0">
+                </label>
                 <div id="main" style="width:100%;height: 400px"></div>
             </div>
         </div>
@@ -180,7 +183,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
     data_pin();
-    paint_shan;
+    paint_bar();
 })
     /*
      *数据质量饼图
@@ -259,7 +262,60 @@ $(document).ready(function () {
     */
     
     //闪频变化画图
+    function paint_bar() {
+//        var a = $("#paint_select").val();
+        var paintCharts = echarts.init(document.getElementById("paint"))
 
+//        app.title = '设备故障预测检验';
+
+        option_paint = {
+            title: {
+                text: '设备故障预测检验',
+                subtext: '虚构数据',
+                left: 'center'
+            },
+
+            color: ['#3398DB'],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['平均', '12小时', '24小时', '48小时'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'直接访问',
+                    type:'bar',
+                    barWidth: '60%',
+                    data:[100, 80, 60, 40]
+                }
+            ]
+        };
+
+        paintCharts.setOption(option_paint);
+        $(window).resize(paintCharts.resize);
+
+    }
     
 
 
@@ -455,6 +511,7 @@ $(document).ready(function () {
         {//每个站点
             type: 'effectScatter',
             coordinateSystem: 'geo',
+            hoverAnimation: true,
             zlevel: 2,
             rippleEffect: {
                 brushType: 'stroke'
@@ -466,10 +523,14 @@ $(document).ready(function () {
                     formatter: '{b}'
                 }
             },
-            //symbolSize: function (val) {
-            //return val[2] / 8;
-            //},
-            symbolSize: 6,
+            symbolSize: function (val) {
+                x = val[2] * 15;
+                if(x < 2){
+                    return 1;
+                }
+                return x;
+            },
+//            symbolSize: 6,
             data: station.map(function (dataItem) {
                     return {
                         name: dataItem.name + ' , 业务数：' + dataItem.businessNum + '，扩容迫切性：' + dataItem.kuorong,

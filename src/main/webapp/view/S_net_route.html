@@ -15,6 +15,7 @@
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
 
 </head>
 
@@ -123,6 +124,7 @@
     <script src="S_js/zhejiang.js"></script>
     <script src="S_js/chongqing.js"></script>
     <script src="S_js/china.js"></script>
+    <script src="layer/layer.js"></script>
 </body>
 
 <script type="text/javascript">
@@ -180,7 +182,10 @@
             example1={
                 name : item.Name,
                 businessNum : item.BusinessNum,
-                kuorong : item.KuoRong
+                kuorong : item.KuoRong,
+                portOcc:item.portOcc,
+                buzNumRate:item.buzNumRate,
+                increaseRate:item.increaseRate
 
             };
 //            每个站点的数据
@@ -316,6 +321,19 @@
                     width: 2
 				}
 			},
+            label: {
+                normal: {
+                    show: true,
+                    position: 'middle',
+                    formatter: function (val) {
+                        var route = val.data.route;
+                        if( route == 2){
+                            return '备用线路'
+                        }
+                        return '主线路'
+                    }
+                }
+            },
 			data: convertData1(edges1)
 		},
 		{//每个站点
@@ -347,7 +365,10 @@
 			data: station1.map(function (dataItem) {
 					return {
 						name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,
-						value: geoCoordMap1[dataItem.name].concat([dataItem.kuorong])
+						value: geoCoordMap1[dataItem.name].concat([dataItem.kuorong]),
+                        portOcc:dataItem.portOcc,
+                        buzNumRate:dataItem.buzNumRate,
+                        increaseRate:dataItem.increaseRate
 					};
 				}
 			)
@@ -355,7 +376,7 @@
 	];
 	var Province = $("#Province").val();
 	option1 = {
-		//backgroundColor: '#003',//#404a59
+//		backgroundColor: '#404a59',//#404a59
 		title : {
 			text: Province,
 			subtext: '路径分配图',
@@ -388,7 +409,8 @@
 				max: 1,
 				text:['高','低'],
 				precision:2,
-				calculable: true,
+				calculable: false,
+                hoverLink:true,
 				top:'center',
 				inRange: {
 					color: ['#50a3ba', '#eac736', '#d94e5d']
@@ -418,6 +440,33 @@
 		},
 		series: series1
 	};
+
+            myChart1.on('click', function (params) {
+                var node = params.name;
+                var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
+                var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
+                var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
+                var if_exist = RegExp("扩容").test(node);
+                if(if_exist){
+
+                    layer.config({
+                        extend: 'routeSkin/style.css', //同样需要加载新皮肤
+                        skin:'layer-ext-yi'
+                    });
+
+                    layer.msg("端口占用率："+portOcc+" <br> 站点承载的重要业务数："+buzNumRate+" <br> 站点业务数增长率：" +increaseRate, {
+                        time: 90000, //5s后自动关闭,
+                        btnAlign: 'c',
+                        skin:'layer-ext-yi',
+//                    btn: ['新增下级问题'],
+                        closeBtn: 1,
+                        tipsMore:false,
+                        yes:function (index, layero) {
+                            layer.close(index);
+                        }
+                    });
+                }
+            });
 
 	// 使用刚指定的配置项和数据显示图表。
     myChart1.setOption(option1);
