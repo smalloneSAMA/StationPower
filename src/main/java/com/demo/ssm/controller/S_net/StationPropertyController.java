@@ -113,6 +113,7 @@ public class StationPropertyController {
                 jsonObject.put("buzNumRate", (list.get(i)).getBuzNumRate());
                 jsonObject.put("increaseRate", (list.get(i)).getIncreaseRate());
                 jsonArray.add(jsonObject);
+
                 }
                 i++;
 
