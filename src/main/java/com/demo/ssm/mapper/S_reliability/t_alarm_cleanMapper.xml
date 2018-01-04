@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.t_alarm_cleanMapper" >
+
+    <!--结果映射-->
+    <resultMap id="alarm_cleanMap" type="com.demo.ssm.po.S_reliability.t_alarm_clean">
+        <id column="NE_OBJ_ID" property="NE_OBJ_ID" jdbcType="VARCHAR"/>
+        <result column="NE_NAME" property="NE_NAME" jdbcType="VARCHAR"/>
+        <result column="DEV_TYPE_NAME" property="DEV_TYPE_NAME" jdbcType="VARCHAR"/>
+        <result column="PRODUCER_NAME" property="PRODUCER_NAME" jdbcType="VARCHAR"/>
+        <result column="PRODUCER_ID" property="PRODUCER_ID" jdbcType="VARCHAR"/>
+        <result column="WORK_YEAR" property="WORK_YEAR" jdbcType="VARCHAR"/>
+        <result column="DEV_TYPE" property="DEV_TYPE" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--按照好多条件查询-->
+    <select id="select" parameterType="String" resultMap="alarm_cleanMap" >
+        SELECT *
+        FROM t_alarm_clean
+        WHERE NE_OBJ_ID=#{NE_OBJ_ID}
+    </select>
+
+</mapper>

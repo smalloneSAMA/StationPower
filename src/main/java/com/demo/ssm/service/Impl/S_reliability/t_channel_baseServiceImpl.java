@@ -1,7 +1,5 @@
 package com.demo.ssm.service.Impl.S_reliability;
 
-
-
 import com.demo.ssm.mapper.S_reliability.t_channel_baseMapper;
 import com.demo.ssm.po.S_reliability.t_channel_base;
 import com.demo.ssm.service.interf.S_reliability.t_channel_baseService;
@@ -10,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-
 @Service
 public class t_channel_baseServiceImpl implements t_channel_baseService {
     @Autowired

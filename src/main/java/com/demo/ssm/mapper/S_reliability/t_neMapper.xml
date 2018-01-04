@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.t_neMapper" >
+
+    <!--结果映射-->
+    <resultMap id="sdh_ccMap" type="com.demo.ssm.po.S_reliability.t_ne">
+        <id column="OBJ_ID" property="OBJ_ID" jdbcType="VARCHAR"/>
+        <result column="NAME" property="NAME" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--按照好多条件查询-->
+    <select id="select" parameterType="String" resultMap="sdh_ccMap" >
+        SELECT *
+        FROM t_ne
+        WHERE OBJ_ID=#{OBJ_ID}
+    </select>
+
+</mapper>

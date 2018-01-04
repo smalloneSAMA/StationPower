@@ -13,89 +13,6 @@
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
-    <!--赋值START-->
-    <script type="text/javascript">
-        var equipLst = new Array();
-        equipLst[0] = {
-            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-52028',
-            name:'洪源变Metro5000',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 11,
-            devtype : '10015',
-            alarmTimeLst : [171.88083333333333, 613.02462472222226, 1577.7369444444444],
-            beta:0.8682,
-            eta:932.6369
-        };
-        equipLst[1] = {
-            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-42722',
-            name:'乐平变Metro5000',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 11,
-            devtype : '10015',
-            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
-            beta:0.8697,
-            eta:897.8741
-        };
-        equipLst[2] = {
-            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-53570',
-            name:'南昌变Metro5000',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 11,
-            devtype : '10015',
-            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
-            beta:0.8697,
-            eta:897.8741
-        };
-        equipLst[3] = {
-            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-55509',
-            name:'永修变Metro5000',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 11,
-            devtype : '10015',
-            alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
-            beta:0.8697,
-            eta:897.8741
-        };
-        equipLst[4] = {
-            id:'7109571B-DCC4-4CD3-BBD4-4EFDC2D8F49F-00057',
-            name:'马回岭变OptiX OSN 7500',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 8,
-            devtype : '10010',
-            alarmTimeLst : [172.0389, 485.8572, 548.4536, 841.7092],
-            beta:1.449755372167,
-            eta:616.211169411713
-        };
-        equipLst[5] = {
-            id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-56280',
-            name:'石钟山变Metro5000',
-            type_name : '光传输设备',
-            proname : '华为',
-            workyear : 11,
-            devtype : '10015',
-            alarmTimeLst : [171.88083333333333, 613.02473805555553, 1577.7369444444444],
-            beta:0.8682,
-            eta:932.6370
-        };
-        //                document.write(equipLst[3].proname);
-        var e = Math.E;
-        var r_arr = new Array();
-        for (var i = 0; i <= 200; i++) {
-            var r = 1;
-            for (var k = 0; k < 5; k++) {
-                var ETA = equipLst[k].eta;
-                var BETA= equipLst[k].beta;
-                r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
-            }
-            r_arr.push([i, r]);
-        }
-    </script>
-    <!--赋值END-->
     <style>
         .conn{
             width: 700px;
@@ -134,259 +51,190 @@
     </style>
 </head>
 <body>
-<div class="wrapper wrapper-content animated fadeInRight">
-    <!--各个设备可靠性-->
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>洪源变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq0" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>乐平变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq1" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>南昌变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq2" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>永修变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq3" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>马回岭变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq4" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>石钟山变设备可靠性预测</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div name="eq" id="eq5" class="curve fl"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="wrapper wrapper-content animated fadeInRight" id="lalala">
+
 </div>
 
 <script>
-    function getCurve(ALARMDARRAY,ETA,BETA){
-        var rArray = [];
-        var fArray = [];
-        var dots = [];
-        var n = ALARMDARRAY.length;
-        var lastnode = ALARMDARRAY[n-1];
-//            document.write(lastnode+"\n");
-        for(var p = 0; p < n; p++){
-            f = (p + 0.7)/(n + 0.4);
-            var mm = ALARMDARRAY[p];
-            dots.push([mm, f]);
-        }
-        var e = Math.E;
-        for (var i = 0; i <= lastnode; i++) {
-            var f =  1 - Math.pow(e,-Math.pow((i/ETA),BETA));
-            var r = 1 - f;
-            rArray.push([i, r]);
-            fArray.push([i, f]);
-        }
-        return {
-            'r': rArray,
-            'f': fArray,
-            'd': dots
-        };
-    }
-</script>
-<script>
-    function getOption(data_r, data_f, dots,num) {
-        var subname = equipLst[num].name;
-        var option_1 = {
-            title: {
-                text: "设备可靠性预测",
-                subtext: "——" + subname,
-                subtextStyle: {
-                    color: "#1E90FF",
-                    fontSize: 16
-                },
-                left: 'center'
-            },
-            grid:{
-                x:50,
-                y:100,
-            },
 
-            legend: {
-                type: 'plain',
-                // orient: 'vertical',
-                top: 60,
-                right: 60,
-                data: ['可靠性拟合曲线', '故障率拟合曲线', '数据点']
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: '中位秩 <br />{a}：{c0} 次每年',
-                axisPointer: {
-                    type: 'cross'
+</script>
+<script type="text/javascript">
+    $(function(){
+        var equipLst = new Array();
+        var str = '';
+        $.ajax({
+            url: "../../t/tt",
+            type: "post",
+            dataType: "json",
+            async: false,
+//                data: "buz_type="+buz_type+"&buz_id="+buz_id,
+            success: function (data) {
+                for(var i=0;i<data.length;i++){
+                    equipLst[i] = data[i];
+                    alert(i);
+                    if (i%2==0) {
+                        str = str + '<div class="row"><div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5>'+'<div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq0" class="curve fl"></div></div></div></div>'
+                    }else{
+                        str = str + '<div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5><div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq1" class="curve fl"></div></div></div></div></div>'
+                    }
                 }
+                if (data.length%2==1){
+                    str = str+'</div>'
+                }
+                $("#lalala").html(str);
             },
-            xAxis: [
-                {
-                    name: '工作时长（小时）',
-                    nameLocation: 'middle',
-                    nameGap: 40,
+            error: function (data) {
+                alert("输入的id错误");
+            }
+        });
+
+
+        var e = Math.E;
+        var r_arr = new Array();
+        for (var i = 0; i <= 200; i++) {
+            var r = 1;
+            for (var k = 0; k < 5; k++) {
+                var ETA = equipLst[k].eta;
+//                    alert(ETA);
+                var BETA= equipLst[k].beta;
+                r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+            }
+            r_arr.push([i, r]);
+        }
+
+        function getCurve(ALARMDARRAY,ETA,BETA){
+            var rArray = [];
+            var fArray = [];
+            var dots = [];
+            var ALARMDARRAY = ALARMDARRAY.slice(1,-1).split(',');
+            var n = ALARMDARRAY.length;
+            var lastnode = ALARMDARRAY[n-1];
+            for(var p = 0; p < n; p++){
+                f = (p + 0.7)/(n + 0.4);
+                var mm = ALARMDARRAY[p];
+                dots.push([mm, f]);
+            }
+            var e = Math.E;
+            for (var i = 0; i <= lastnode; i++) {
+                var f =  1 - Math.pow(e,-Math.pow((i/ETA),BETA));
+                var r = 1 - f;
+                rArray.push([i, r]);
+                fArray.push([i, f]);
+            }
+//            alert(rArray);
+            return {
+                'r': rArray,
+                'f': fArray,
+                'd': dots
+            };
+        }
+
+        function getOption(data_r, data_f, dots,num) {
+            var subname = equipLst[num].name;
+            var option_1 = {
+                title: {
+                    text: "设备可靠性预测",
+                    subtext: "——" + subname,
+                    subtextStyle: {
+                        color: "#1E90FF",
+                        fontSize: 16
+                    },
+                    left: 'center'
+                },
+                grid:{
+                    x:50,
+                    y:100,
+                },
+
+                legend: {
+                    type: 'plain',
+                    // orient: 'vertical',
+                    top: 60,
+                    right: 60,
+                    data: ['可靠性拟合曲线', '故障率拟合曲线', '数据点']
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '中位秩 <br />{a}：{c0} 次每年',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                xAxis: [
+                    {
+                        name: '工作时长（小时）',
+                        nameLocation: 'middle',
+                        nameGap: 40,
+                        nameTextStyle: {
+                            fontSize: 18,
+                            fontWeight: 'bold'
+                        },
+                        type: 'value',
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLabel: {
+                            margin: 15,
+                            fontSize: 14,
+                            fontWeight: 'bolder'
+                        },
+
+                        splitLine: {
+                            lineStyle: {
+                                type: 'dashed'
+                            }
+                        },
+                        splitNumber: 10
+                    }
+                ],
+                yAxis: {
+                    //            name: '可靠性',
+                    type: 'value',
                     nameTextStyle: {
                         fontSize: 18,
                         fontWeight: 'bold'
-                    },
-                    type: 'value',
-                    axisTick: {
-                        alignWithLabel: true
                     },
                     axisLabel: {
                         margin: 15,
                         fontSize: 14,
                         fontWeight: 'bolder'
                     },
-
                     splitLine: {
                         lineStyle: {
                             type: 'dashed'
                         }
-                    },
-                    splitNumber: 10
-                }
-            ],
-            yAxis: {
-                //            name: '可靠性',
-                type: 'value',
-                nameTextStyle: {
-                    fontSize: 18,
-                    fontWeight: 'bold'
+                    }
                 },
-                axisLabel: {
-                    margin: 15,
-                    fontSize: 14,
-                    fontWeight: 'bolder'
-                },
-                splitLine: {
+                series: [{
+                    // coordinateSystem: 'polar',
+                    name: '可靠性拟合曲线',
+                    type: 'line',
+                    top: 'center',
                     lineStyle: {
-                        type: 'dashed'
-                    }
-                }
-            },
-            series: [{
-                // coordinateSystem: 'polar',
-                name: '可靠性拟合曲线',
-                type: 'line',
-                top: 'center',
-                lineStyle: {
-                    normal: {
-                        width: 4,
-                        opacity: 0.8
-                    }
-                },
-                symbol: 'none',
-                smooth: 'true',
-                color: ['#3398DB'],
-                data: data_r
-            }, {
-                // coordinateSystem: 'polar',
-                name: '故障率拟合曲线',
-                type: 'line',
-                lineStyle: {
-                    normal: {
-                        width: 2,
-                        opacity: 0.8
-                    }
-                },
-                color: ["#8B3A3A"],
-                symbol: 'none',
-                smooth: 'true',
-                data: data_f
-            }
-                , {
+                        normal: {
+                            width: 4,
+                            opacity: 0.8
+                        }
+                    },
+                    symbol: 'none',
+                    smooth: 'true',
+                    color: ['#3398DB'],
+                    data: data_r
+                }, {
+                    // coordinateSystem: 'polar',
+                    name: '故障率拟合曲线',
+                    type: 'line',
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            opacity: 0.8
+                        }
+                    },
+                    color: ["#8B3A3A"],
+                    symbol: 'none',
+                    smooth: 'true',
+                    data: data_f
+                }, {
                     name: '数据点',
                     type: 'scatter',
                     itemStyle: {
@@ -408,30 +256,30 @@
                     color: 'red',
                     data: dots
                 }
-            ]
-        };
-        return option_1;
-    }
-</script>
-<script type="text/javascript">
-    var odiv = document.getElementById("divLst");
-    var divLst = document.getElementsByName("eq");
-    for(var i = 0;i < divLst.length; i++){
-        var mc = echarts.init(divLst[i]);
-        var alarmTimeLst = equipLst[i].alarmTimeLst;
-        var beta1 = equipLst[i].beta;
-        var eta1 = equipLst[i].eta;
-//            document.write(typeof (alarmTimeLst));
-        var d_r, d_f, d_d = new Array();
-        var value = getCurve(alarmTimeLst,eta1,beta1);
-//            document.write(value);
-        d_r = value.r;
-        d_f = value.f;
-        d_d = value.d;
+                ]
+            };
+            return option_1;
+        }
+
+        var odiv = document.getElementById("divLst");
+        var divLst = document.getElementsByName("eq");
+
+        for(var i = 0;i < divLst.length; i++){
+            var mc = echarts.init(divLst[i]);
+            var alarmTimeLst = equipLst[i].alarmTimeLst;
+            var beta1 = equipLst[i].beta;
+            var eta1 = equipLst[i].eta;
+            var d_r, d_f, d_d = new Array();
+            var value = getCurve(alarmTimeLst,eta1,beta1);
+            d_r = value.r;
+            d_f = value.f;
+            d_d = value.d;
 //            document.write(d_r+"\n" + d_d);
-        option = getOption(d_r, d_f, d_d, i);
-        mc.setOption(option);
-    }
+            option = getOption(d_r, d_f, d_d, i);
+            mc.setOption(option);
+        }
+    });
+
 </script>
 </body>
 </html>

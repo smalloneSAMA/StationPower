@@ -3,7 +3,7 @@
 <mapper namespace="com.demo.ssm.mapper.S_reliability.t_business_channelMapper" >
 
     <!--结果映射-->
-    <resultMap id="t_business_channelMap" type="com.demo.ssm.po.S_reliability.t_business_channel">
+    <resultMap id="business_channelMap" type="com.demo.ssm.po.S_reliability.t_business_channel">
         <id column="_id" property="_id" jdbcType="VARCHAR"/>
         <result column="CHANNEL_ID" property="CHANNEL_ID" jdbcType="VARCHAR"/>
 
@@ -16,7 +16,7 @@
     <!--</sql>-->
 
     <!--按照ID查询-->
-    <select id="selectByPrimaryKey" parameterType="String" resultMap="t_business_channelMap" >
+    <select id="selectByPrimaryKey" parameterType="String" resultMap="business_channelMap" >
         SELECT *
         FROM t_business_channel
         WHERE BUSINESS_ID =#{buz_id}
