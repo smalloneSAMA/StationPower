@@ -85,12 +85,6 @@ public class StationPropertyController {
 
     }
 
-
-
-
-
-
-
     //查询异常对象数据
     @RequestMapping("/S_dataQualityFilter")
     @ResponseBody
@@ -107,18 +101,18 @@ public class StationPropertyController {
             while (i<k) {
                 String name = list.get(i).getName();
                 if (!name.contains("35kV") && !name.contains("110kV")) {
-                    JSONObject jsonObject = new JSONObject() ;
+                JSONObject jsonObject = new JSONObject() ;
 //                jsonObject.put("Province",(list.get(i)).getProvince());
-                    jsonObject.put("Name", (list.get(i)).getName());
-                    jsonObject.put("xAxis", (list.get(i)).getXaxis());
-                    jsonObject.put("yAxis", (list.get(i)).getYaxis());
-                    jsonObject.put("BusinessNum", (list.get(i)).getBusinessNum());
-                    jsonObject.put("KuoRong", (list.get(i)).getKuorong());
-                    jsonObject.put("OBJ_ID", (list.get(i)).getObj_id());
-                    jsonObject.put("portOcc", (list.get(i)).getPortOcc());
-                    jsonObject.put("buzNumRate", (list.get(i)).getBuzNumRate());
-                    jsonObject.put("increaseRate", (list.get(i)).getIncreaseRate());
-                    jsonArray.add(jsonObject);
+                jsonObject.put("Name", (list.get(i)).getName());
+                jsonObject.put("xAxis", (list.get(i)).getXaxis());
+                jsonObject.put("yAxis", (list.get(i)).getYaxis());
+                jsonObject.put("BusinessNum", (list.get(i)).getBusinessNum());
+                jsonObject.put("KuoRong", (list.get(i)).getKuorong());
+                jsonObject.put("OBJ_ID", (list.get(i)).getObj_id());
+                jsonObject.put("portOcc", (list.get(i)).getPortOcc());
+                jsonObject.put("buzNumRate", (list.get(i)).getBuzNumRate());
+                jsonObject.put("increaseRate", (list.get(i)).getIncreaseRate());
+                jsonArray.add(jsonObject);
 
                 }
                 i++;

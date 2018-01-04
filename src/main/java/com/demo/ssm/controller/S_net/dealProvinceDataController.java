@@ -35,7 +35,7 @@ public class dealProvinceDataController {
             //删除当前省份三个表的数据库记录
             Boolean deleteStatics = provinceService.deleteProvinceData(Province);
             //python脚本文件及其命令
-            String[] arg = new String[] {"python3", "/Users/gubaidan/PycharmProjects/ShortPath/shortPath.py",Province};
+            String[] arg = new String[] {"python3", "E:/project/所有python脚本/shortPath.py",Province};
             //执行python脚本
             Process proc = Runtime.getRuntime().exec(arg);
             //proc.waitFor();

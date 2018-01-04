@@ -26,33 +26,7 @@ public class Province_CheckController {
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
 
-
         try{
-//            int k=province_CheckService.count();
-//            int i = 0;
-//            while (k>0) {
-//                int j = i;
-//                while (1>0) {
-//                    if(province_CheckService.selectByPrimaryKey(j + 1) != null) {
-//                        JSONObject jsonObject = new JSONObject();
-//                        Province_Check province_Checkinfo = province_CheckService.selectByPrimaryKey(j + 1);
-//                        jsonObject.put("Province", province_Checkinfo.getProvince());
-//                        jsonObject.put("AverageError", province_Checkinfo.getAverageError());
-//                        jsonObject.put("Strobe12hours", province_Checkinfo.getStrobe12hours());
-//                        jsonObject.put("Strobe24hours", province_Checkinfo.getStrobe24hours());
-//                        jsonObject.put("Strobe48hours", province_Checkinfo.getStrobe48hours());
-//                        jsonArray.add(jsonObject);
-//                        k--;
-//                        break;
-//                    }
-//                    j++;
-//                }
-//                i=j+1;
-//            }
-////            System.out.println("result:"+ JSON.toJSONString(jsonArray));
-//
-//
-//            return jsonArray;
             int i=0;
             int k=province_CheckService.count();
             List<Province_Check> list = province_CheckService.selectByPrimaryKey();
