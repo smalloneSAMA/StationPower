@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_data.data;
 import com.demo.ssm.service.interf.S_data.dataService;
+import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,34 +25,6 @@ public class dataController {
 
     @Autowired
     dataService dataService;
-
-    //Jy利用Java调用python程序
-    @RequestMapping("/Jpchanneltype")
-    @ResponseBody
-    public int Jpchanneltype(HttpServletRequest request, String Province) {
-        //java调用python程序更新数据库数据
-        //将select选中的省份传递给python
-        System.out.printf(Province);
-        List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\all_python\\channelType.py", Province};
-        String line = "";
-        try {
-            System.out.printf("\npython Jpchanneltype程序准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
-            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
-            }
-            input.close();
-            System.out.printf("\npython end\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (String out : processList) {
-            System.out.println(out);
-        }
-        return 0;
-    }
 
     //查询异常channel_type
     @RequestMapping("/channel_type")
@@ -120,7 +93,6 @@ public class dataController {
         }
     }
 
-
     //查询异常channel_rate
     @RequestMapping("/channel_rate")
     @ResponseBody
@@ -187,33 +159,6 @@ public class dataController {
 
         }
 
-    }
-
-    @RequestMapping("/Jpbuztype")
-    @ResponseBody
-    public int Jpflash(HttpServletRequest request, String Province) {
-        //java调用python程序更新数据库数据
-        //将select选中的省份传递给python
-        System.out.printf(Province);
-        String line = "";
-        List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\all_python\\predicateBTNew.py", Province};
-        try {
-            System.out.printf("\npython程序准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
-            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
-            }
-            input.close();
-            System.out.printf("\npython end\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (String out : processList) {
-            System.out.println(out);
-        }
-        return 0;
     }
 
     //查询异常buz_type
@@ -284,34 +229,6 @@ public class dataController {
 
     }
 
-    @RequestMapping("/Jpbuzrate")
-    @ResponseBody
-    public int Jpbuzrate(HttpServletRequest request, String Province) {
-        //java调用python程序更新数据库数据
-        //将select选中的省份传递给python
-        System.out.printf(Province);
-        String line = "";
-        List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\all_python\\predictBuzRate.py", Province};
-        try {
-            System.out.printf("\npython  buzrate程序准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
-            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
-            }
-            input.close();
-            System.out.printf("\npython end\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (String out : processList) {
-            System.out.println(out);
-        }
-        return 0;
-    }
-
-
     //查询异常buz_rate
     @RequestMapping("/buz_rate")
     @ResponseBody
@@ -379,41 +296,6 @@ public class dataController {
         }
 
     }
-
-
-    //刷新buz_rate数据
-    @RequestMapping("/re_buz_rate")
-    @ResponseBody
-    public JSONArray re_buz_rate(HttpServletRequest request, String Province) {
-        //java调用python程序更新数据库数据
-        //将select选中的省份传递给python
-        List<String> processList = new ArrayList<>();
-        String line = "";
-        JSONArray jsonArray = new JSONArray();
-        JSONObject jsonObject = new JSONObject();
-        System.out.printf(Province);
-        String[] url = new String[]{"python", "E:\\project\\all_python\\channelRate2.py", Province};
-        try {
-            System.out.printf("\npython程序准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
-            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
-            }
-            input.close();
-            System.out.printf("\npython end\n");
-            jsonObject.put("success", "success");
-        } catch (IOException e) {
-            e.printStackTrace();
-            jsonObject.put("success", "faile");
-        }
-        for (String out : processList) {
-            System.out.println(out);
-        }
-        jsonArray.add(jsonObject);
-        return jsonArray;
-    }
-
 
     //查询异常interface_rate
     @RequestMapping("/interface_type_diff")
@@ -483,38 +365,7 @@ public class dataController {
 
     }
 
-    //刷新interface_type数据
-    @RequestMapping("/re_interface_type")
-    @ResponseBody
-    public JSONArray re_interface_type(HttpServletRequest request, String Province) {
-        //java调用python程序更新数据库数据
-        //将select选中的省份传递给python
-        List<String> processList = new ArrayList<>();
-        String line = "";
-        JSONArray jsonArray = new JSONArray();
-        JSONObject jsonObject = new JSONObject();
-        System.out.printf(Province);
-        String[] url = new String[]{"python", "E:\\project\\all_python\\predictInterfaceType.py", Province};
-        try {
-            System.out.printf("\npython程序predictInterfaceType准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
-            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
-            }
-            input.close();
-            System.out.printf("\npython end\n");
-            jsonObject.put("success", "success");
-        } catch (IOException e) {
-            e.printStackTrace();
-            jsonObject.put("success", "faile");
-        }
-        for (String out : processList) {
-            System.out.println(out);
-        }
-        jsonArray.add(jsonObject);
-        return jsonArray;
-    }
+
 
 
 //    饼状图各概率区间记录个数
@@ -652,6 +503,164 @@ public class dataController {
 
 
     }
+
+
+    /**
+     * 刷新数据
+     */
+
+    //Jy利用Java调用python程序
+    //刷新//channel_type
+    @RequestMapping("/Jpchanneltype")
+    @ResponseBody
+    public int Jpchanneltype(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        System.out.printf(Province);
+        List<String> processList = new ArrayList<>();
+        String[] url = new String[]{"python", path_python.getCT(), Province};
+        String line = "";
+        try {
+            System.out.printf("\npython Jpchanneltype程序准备执行\n");
+            Process pr = Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        return 0;
+    }
+
+    //刷新buz_type
+    @RequestMapping("/Jpbuztype")
+    @ResponseBody
+    public int Jpflash(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        System.out.printf(Province);
+        String line = "";
+        List<String> processList = new ArrayList<>();
+        String[] url = new String[]{"python", path_python.getBT(), Province};
+        try {
+            System.out.printf("\npython程序准备执行\n");
+            Process pr = Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        return 0;
+    }
+
+    //刷新buz_rate
+    @RequestMapping("/Jpbuzrate")
+    @ResponseBody
+    public int Jpbuzrate(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        System.out.printf(Province);
+        String line = "";
+        List<String> processList = new ArrayList<>();
+        String[] url = new String[]{"python", path_python.getBR(), Province};
+        try {
+            System.out.printf("\npython  buzrate程序准备执行\n");
+            Process pr = Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        return 0;
+    }
+
+    //刷新channel_rate数据
+    @RequestMapping("/re_channel_rate")
+    @ResponseBody
+    public JSONArray re_channel_rate(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        List<String> processList = new ArrayList<>();
+        String line = "";
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        System.out.printf(Province);
+        String[] url = new String[]{"python", path_python.getCR(), Province};
+        try {
+            System.out.printf("\npython程序准备执行\n");
+            Process pr = Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+            jsonObject.put("success", "success");
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObject.put("success", "faile");
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        jsonArray.add(jsonObject);
+        return jsonArray;
+    }
+
+    //刷新interface_type数据
+    @RequestMapping("/re_interface_type")
+    @ResponseBody
+    public JSONArray re_interface_type(HttpServletRequest request, String Province) {
+        //java调用python程序更新数据库数据
+        //将select选中的省份传递给python
+        List<String> processList = new ArrayList<>();
+        String line = "";
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        System.out.printf(Province);
+        String[] url = new String[]{"python", path_python.getIT(), Province};
+        try {
+            System.out.printf("\npython程序predictInterfaceType准备执行\n");
+            Process pr = Runtime.getRuntime().exec(url);
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+            System.out.printf("\npython end\n");
+            jsonObject.put("success", "success");
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObject.put("success", "faile");
+        }
+        for (String out : processList) {
+            System.out.println(out);
+        }
+        jsonArray.add(jsonObject);
+        return jsonArray;
+    }
+
+
 
 }
 

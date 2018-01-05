@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_data.Accurate_top10;
 import com.demo.ssm.service.interf.S_data.Accurate_top10Service;
+import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class Accurate_top10Controller {
         //java调用python程序更新数据库数据
         String line="";
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python","E:\\project\\所有python脚本\\predictBuzNum.py"};
+        String[] url=new String[]{"python", path_python.getBN()};
         try {
             System.out.printf("\npython  predictBuzNum程序准备执行\n");
             Process pr=Runtime.getRuntime().exec(url);

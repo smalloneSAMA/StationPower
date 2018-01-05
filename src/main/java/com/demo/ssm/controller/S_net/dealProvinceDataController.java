@@ -1,6 +1,7 @@
 package com.demo.ssm.controller.S_net;
 
 import com.demo.ssm.service.interf.S_net.ProvinceService;
+import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class dealProvinceDataController {
     @Autowired
     private ProvinceService provinceService;
 
+//    private path_python path;
+
     /*
     * 设置需要重新生成数据的省份 并且调用python脚本重新生成route link property数据
     */
@@ -35,7 +38,8 @@ public class dealProvinceDataController {
             //删除当前省份三个表的数据库记录
             Boolean deleteStatics = provinceService.deleteProvinceData(Province);
             //python脚本文件及其命令
-            String[] arg = new String[] {"python", "E:\\project\\all_python\\shortPath.py",Province};
+//            String a=;
+            String[] arg = new String[] {"python", path_python.getSR(),Province};
             //执行python脚本
             Process proc = Runtime.getRuntime().exec(arg);
             //proc.waitFor();
