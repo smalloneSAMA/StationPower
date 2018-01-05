@@ -142,10 +142,8 @@
             </div>
             <div class="ibox-content">
 
-                <select onchange="data_pin()" class="form-control" id="reliability_select" style="width: 26%">
-                    <option id="BT1" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
-                </select>
-                <div id="pin1" style="height: 400px;"></div>
+
+                <div id="reb" style="height: 439px;"></div>
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
             </div>
@@ -375,6 +373,247 @@ $(document).ready(function () {
         }
     });
 }
+
+
+
+/*
+    *业务可靠性影响因素
+    */
+    var rebChart1 = echarts.init(document.getElementById('reb'));
+    option_reb = {
+        title: {
+            text: '影响因素',
+            left: 'center'
+        },
+    series: [
+        {
+            type: "graph",
+            layout: "force",
+            symbol: "circle",
+            symbolSize: 30,
+            roam: true,
+            force: {
+                repulsion: 800
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: "inside",
+                    textStyle: {
+                        fontSize: 8
+                    }
+                }
+            },
+            lineStyle: {
+                normal: {
+                    color: "gray",
+                    width: 2,
+                    opacity: 0.8
+                }
+            },
+            edgeSymbolSize: [10, 30],
+            categories: [{
+                name: "一级",
+                label: {
+                    normal:{
+                        fontSize: 14
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        symbolSize: 130,
+                        color: "#FF6A6A",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+//                            opacity: 0.8
+                    }
+                }
+            },{
+                name: "二级",
+                symbolSize: 95,
+                label: {
+                    normal:{
+                        fontSize: 12
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#4169E1",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            },{
+                name: "三级",
+                symbolSize: 75,
+                label: {
+                    normal:{
+                        fontSize: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#1E90FF",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            },{
+                name: "四级",
+                symbolSize: 55,
+                label: {
+                    normal:{
+                        fontSize: 8,
+                        color: "#4F4F4F",
+                        fontWeight: "bolder"
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#87CEFA",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            }],
+            data: [{
+                name: "业务可靠性",
+                category: 0,
+                symbolSize : 130,
+                draggable: true
+            },{
+                name: "设备可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "传输介质可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "拓扑结构可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "生产厂家",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "设备型号",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "使用年限",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "机房环境",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "站点环境",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "设备负载",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "湿度",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "温度",
+                category: 3,
+                symbolSize : 55,
+                draggable: true
+            },{
+                name: "地质",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "气象",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "市政数据",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "光缆类型",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            }],
+            links: [{
+                source: "业务可靠性",
+                target: "设备可靠性"
+            },{
+                source: "业务可靠性",
+                target: "传输介质可靠性"
+            },{
+                source: "业务可靠性",
+                target: "拓扑结构可靠性"
+            },{
+                source: "设备可靠性",
+                target: "生产厂家"
+            },{
+                source: "设备可靠性",
+                target: "设备型号"
+            },{
+                source: "设备可靠性",
+                target: "使用年限"
+            },{
+                source: "设备可靠性",
+                target: "机房环境"
+            },{
+                source: "设备可靠性",
+                target: "设备负载"
+            },{
+                source: "设备可靠性",
+                target: "站点环境"
+            },{
+                source: "机房环境",
+                target: "温度"
+            },{
+                source: "机房环境",
+                target: "湿度"
+            },{
+                source: "站点环境",
+                target: "气象"
+            },{
+                source: "站点环境",
+                target: "地质"
+            },{
+                source: "传输介质可靠性",
+                target: "光缆类型"
+            },{
+                source: "传输介质可靠性",
+                target: "市政数据"
+            }]
+        }
+    ]
+};
+    rebChart1.setOption(option_reb);
 
 
 

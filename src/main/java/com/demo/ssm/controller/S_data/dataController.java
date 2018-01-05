@@ -33,7 +33,7 @@ public class dataController {
         //将select选中的省份传递给python
         System.out.printf(Province);
         List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\channelType.py", Province};
+        String[] url = new String[]{"python", "E:\\project\\all_python\\channelType.py", Province};
         String line = "";
         try {
             System.out.printf("\npython Jpchanneltype程序准备执行\n");
@@ -197,7 +197,7 @@ public class dataController {
         System.out.printf(Province);
         String line = "";
         List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predicateBTNew.py", Province};
+        String[] url = new String[]{"python", "E:\\project\\all_python\\predicateBTNew.py", Province};
         try {
             System.out.printf("\npython程序准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
@@ -292,7 +292,7 @@ public class dataController {
         System.out.printf(Province);
         String line = "";
         List<String> processList = new ArrayList<>();
-        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predictBuzRate.py", Province};
+        String[] url = new String[]{"python", "E:\\project\\all_python\\predictBuzRate.py", Province};
         try {
             System.out.printf("\npython  buzrate程序准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
@@ -392,7 +392,7 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\channelRate2.py", Province};
+        String[] url = new String[]{"python", "E:\\project\\all_python\\channelRate2.py", Province};
         try {
             System.out.printf("\npython程序准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
@@ -494,7 +494,7 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String[] url = new String[]{"python", "E:\\project\\所有python脚本\\predictInterfaceType.py", Province};
+        String[] url = new String[]{"python", "E:\\project\\all_python\\predictInterfaceType.py", Province};
         try {
             System.out.printf("\npython程序predictInterfaceType准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);

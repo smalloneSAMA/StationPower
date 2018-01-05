@@ -10,7 +10,7 @@
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
 </head>
 <body>
-<div class="row  border-bottom white-bg dashboard-header">
+<!--<div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12">
         <form>
             <label>省份选择:</label>
@@ -37,6 +37,47 @@
 
             <input type="button" style="display: block; margin-top: 20px;"value="故障日志数据清洗" onclick="zx()" >
         </form>
+    </div>
+</div>-->
+
+<div class="row" style="padding: 13px 0px">
+    <div class="col-xs-2">
+        <select class="form-control" id="Province" name="cars" >
+            <option value="安徽">安徽</option>
+            <option value="北京">北京</option>
+            <option value="福建">福建</option>
+            <option value="甘肃">甘肃</option>
+            <option value="河北">河北</option>
+            <option value="河南">河南</option>
+            <option value="黑龙江">黑龙江</option>
+            <option value="吉林">吉林</option>
+            <option value="江苏">江苏</option>
+            <option value="江西">江西</option>
+            <option value="蒙东">蒙东</option>
+            <option value="宁夏">宁夏</option>
+            <option value="青海">青海</option>
+            <option value="山西">山西</option>
+            <option value="天津">天津</option>
+            <option value="西藏">西藏</option>
+            <option value="浙江">浙江</option>
+            <option value="重庆">重庆</option>
+        </select>
+
+    </div>
+    <div class="col-xs-2">
+        <select class="form-control" id="type" name="cars" >
+            <option value="继电保护">继电保护</option>
+            <option value="安全自动装置">安全自动装置</option>
+            <option value="调度自动化">调度自动化</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2" style="padding-left: 0px">
+        <input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">
+
+    </div>
+    <div class="col-xs-2 ">
+        <button  class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 80%;color:#ffffff;background-color: #1ab394;">故障日志数据清洗</button>
     </div>
 </div>
 

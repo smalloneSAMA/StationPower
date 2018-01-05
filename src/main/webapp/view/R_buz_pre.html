@@ -135,11 +135,27 @@
 </head>
 <div class="wrapper wrapper-content animated fadeInRight">
     <!--业务可靠性-->
-    <div class="row">
-        <div class="col-sm-12">
+
+        <!--<div class="col-sm-12">
             <form>
                 <label>省份选择:</label>
                 <select name="cars" >
+
+                </select>
+                <label  style="margin-left: 30px;">业务类型选择：</label>
+                <select id="buz_type">
+
+                </select>
+                <br><br>
+                <input placeholder="请输入业务ID">
+                <input type="button" value="查询" onclick="zx()" >
+                <br>
+                <br>
+            </form>
+        </div>-->
+        <div class="row" style="padding: 13px 0px">
+            <div class="col-xs-2">
+                <select class="form-control" id="Province" name="cars" >
                     <option value="安徽">安徽</option>
                     <option value="北京">北京</option>
                     <option value="福建">福建</option>
@@ -159,20 +175,25 @@
                     <option value="浙江">浙江</option>
                     <option value="重庆">重庆</option>
                 </select>
-                <label  style="margin-left: 30px;">业务类型选择：</label>
-                <select id="buz_type">
+
+            </div>
+            <div class="col-xs-2">
+                <select class="form-control" id="type" name="cars" >
                     <option value="继电保护">继电保护</option>
                     <option value="安全自动装置">安全自动装置</option>
                     <option value="调度自动化">调度自动化</option>
                 </select>
-                <br><br>
-                <input placeholder="请输入业务ID">
-                <input type="button" value="查询" onclick="zx()" >
-                <br>
-                <br>
-            </form>
+            </div>
+
+            <div class="col-xs-2" style="padding-left: 0px">
+                <input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">
+
+            </div>
+            <div class="col-xs-1 ">
+                <button  class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+            </div>
         </div>
-    </div>
+
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
