@@ -12,6 +12,8 @@ public class t_spc_zone {
 
     private String PAR_ZONE;
 
+    private String REAL_NAME;
+
     public String getProvince() {
         return Province;
     }
@@ -50,5 +52,13 @@ public class t_spc_zone {
 
     public void setPAR_ZONE(String PAR_ZONE) {
         this.PAR_ZONE = PAR_ZONE;
+    }
+
+    public String getREAL_NAME() {
+        return REAL_NAME;
+    }
+
+    public void setREAL_NAME(String REAL_NAME) {
+        this.REAL_NAME = REAL_NAME;
     }
 }
