@@ -58,15 +58,17 @@ public class DealAreaBorderController {
                                                      @RequestParam("xPoint")String xPoint,
                                                      @RequestParam("yPoint")String yPoint,
                                                      @RequestParam("listSize")int listSize){
+
+
         Map<String,Object> map = new HashMap<>();
         List<zone_roly> zoneRolies = new ArrayList<>();
         List<Site> siteList = new ArrayList<>();
 
 
         if(listSize>0){
-            String conditions = request.getParameter("siteList");
+            String conditions = request.getParameter("siteList");   //从前台接受json格式坐标集
             JSONArray conditionList = JSONArray.fromObject(conditions);
-            for(int i = 0;i<conditionList.size();i++){
+            for(int i = 0;i<conditionList.size();i++){                 //遍历json  转换为list对象集合
                 Site temp = new Site();
                 temp.setxPoint(conditionList.getJSONObject(i).getString("xPoint"));
                 temp.setyPoint(conditionList.getJSONObject(i).getString("yPoint"));
