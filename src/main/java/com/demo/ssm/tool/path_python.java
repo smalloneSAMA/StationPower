@@ -27,7 +27,7 @@ public class path_python {
         return "E:\\360Downloads\\StationPower_zh\\src\\main\\webapp\\view\\python_all\\predictInterfaceType.py";
     }
     public static String getSR(){
-        return "E:\\360Downloads\\StationPower_zh\\src\\main\\webapp\\view\\python_all\\shortPath.py";
+        return "/Users/gubaidan/PycharmProjects/ShortPath/shortPath.py";
     }
 
 

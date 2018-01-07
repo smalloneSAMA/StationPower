@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>地图经纬度描点工具</title>
+<!--
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+-->
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QwQyZcHpWnW48sSnqmVqtRAc"></script>
+	<script src="js/jquery.min.js"></script>
+
+</head>
+<body>
+<div style="width:80%;height:650px;border:1px solid gray" id="container"></div>
+
+<div style="right:10px;top:8px;position: absolute;width:18%; height: 650px;border:1px solid gray">
+	<p>
+		&nbsp;手动：<input id="startBtn" type="button" onclick="startTool();" value="开启取点工具" />
+	</p>
+
+	<p>
+		&nbsp;自动：<input id="start" type="button" onclick="draw();" value="开始收集全国地区边界" />
+	</p>
+
+	<p>
+		&nbsp;搜索：<input type="input" name="addr"  id="addr" />
+		<input type="button" onclick="getBoundary()" value="搜索" />
+	</p>
+	
+
+	<hr>
+	<p style="padding: 0 5px;">
+		<span>经纬度：</span><input type="button" onclick="map.clearOverlays();document.getElementById('info').innerHTML = '';points=[];" value="清除" />
+		<textarea id="info" style="width:94%;margin:2px;max-height: 980px;min-height: 440px;overflow-y:scroll;" readonly="readonly"></textarea>
+	</p>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	var map = new BMap.Map("container");                        // 创建Map实例
+	map.centerAndZoom("北京", 9);     // 初始化地图,设置中心点坐标和地图级别
+	map.setDefaultCursor("pointer");//设置地图默认的鼠标指针样式
+	map.enableScrollWheelZoom();//启用滚轮放大缩小，默认禁用。
+
+	var key = 1;    //开关
+	var newpoint;   //一个经纬度
+	var points = [];    //数组，放经纬度信息
+	var polyline = new BMap.Polyline(); //折线覆盖物
+
+    var dic_center = { "北京": "北京", "天津": "天津", "上海": "上海", "重庆": "重庆", "河北": "石家庄",
+                        "河南": "郑州", "湖北": "武汉", "湖南": "长沙", "江苏": "南京", "江西": "南昌",
+                        "辽宁": "沈阳", "吉林": "长春", "黑龙江": "哈尔滨", "陕西": "西安", "山西": "太原",
+                        "山东": "济南", "四川": "成都", "青海": "西宁", "安徽": "合肥", "海南": "海口",
+                        "广东": "广州", "贵州": "贵阳", "浙江": "杭州", "福建": "福州", "台湾": "台北",
+                        "甘肃": "兰州", "云南": "昆明", "西藏": "拉萨", "宁夏": "银川", "广西": "南宁",
+                        "新疆": "乌鲁木齐", "内蒙古": "呼和浩特", "香港": "香港", "澳门": "澳门"
+
+            };
+
+	function draw() {
+        $.ajax({
+            url: '../../DealAreaBorder/BorderCollection',
+            type: "get",
+            async: true,
+            dataType : "json",
+            success: function (data) {
+                if(data.total>0){
+
+                    $.each(data.tSpcZones,function (index,item) {
+                        var areaName = item.name;
+                        if(areaName=='' || areaName==null){
+                            return true;
+                        }else{
+                            invokeBorder(item, areaName);
+                        }
+
+                    });
+
+                }
+            },
+            error: function (data) {
+                alert("获取区域信息失败!");
+            }
+        });
+
+    }
+
+    function invokeBorder(item, areaName){
+
+	        $("#addr").val(item.province+"-"+areaName);
+
+	        var temp_item = item;
+
+            var province = item.province;
+
+            var bdary = new BMap.Boundary();
+
+            bdary.get(areaName, function(rs){       //获取行政区域
+                map.clearOverlays();        //清除地图覆盖物
+                var count = rs.boundaries.length; //行政区域的点有多少个
+                if (count === 0) {
+                    invokeBorder(temp_item,dic_center[province]);
+                }else{
+                    var pointArray = [];
+                    for (var i = 0; i < count; i++) {
+                        var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
+                        map.addOverlay(ply);  //添加覆盖物
+                        //outLocation(rs.boundaries[i]);//输出 经纬度
+                        pointArray = pointArray.concat(ply.getPath());
+                    }
+                    map.setViewport(pointArray);    //调整视野
+                    storeBoundaryAuto(rs.boundaries,item);
+                }
+
+            });
+    }
+
+
+
+	function startTool(){   //开关函数
+		if(key==1){
+			document.getElementById("startBtn").style.background = "green";
+			document.getElementById("startBtn").style.color = "white";
+			document.getElementById("startBtn").value = "开启中";
+			key=0;
+		}
+		else{
+			document.getElementById("startBtn").value = "开启取点工具";
+			document.getElementById("startBtn").style.background = "";
+			document.getElementById("startBtn").style.color = "";
+			key=1;
+		}
+	}
+
+	map.addEventListener("click",function(e){   //单击地图，形成折线覆盖物
+		newpoint = new BMap.Point(e.point.lng,e.point.lat);
+		if(key==0){
+		//    if(points[points.length].lng==points[points.length-1].lng){alert(111);}
+			points.push(newpoint);  //将新增的点放到数组中
+			polyline.setPath(points);   //设置折线的点数组
+			map.addOverlay(polyline);   //将折线添加到地图上
+			document.getElementById("info").innerHTML += "[" + e.point.lng + "," + e.point.lat + "],\n";    //输出数组里的经纬度
+		}
+	});
+	map.addEventListener("dblclick",function(e){   //双击地图，形成多边形覆盖物
+		if(key==0){
+			map.disableDoubleClickZoom();   //关闭双击放大
+			var polygon = new BMap.Polygon(points);
+			map.addOverlay(polygon);   //将折线添加到地图上
+		}
+	});
+
+	function getBoundary(){
+        var addr = document.getElementById("addr").value;
+        if(addr=='' || addr==null){
+            alert("地址为空");
+            return;
+        }
+        var bdary = new BMap.Boundary();
+        bdary.get(addr, function(rs){       //获取行政区域
+            map.clearOverlays();        //清除地图覆盖物
+            var count = rs.boundaries.length; //行政区域的点有多少个
+            if (count === 0) {
+                alert('未能获取当前输入行政区域');
+                return ;
+            }
+
+            var pointArray = [];
+            for (var i = 0; i < count; i++) {
+                var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
+                map.addOverlay(ply);  //添加覆盖物
+                outLocation(rs.boundaries[i]);//输出 经纬度
+                pointArray = pointArray.concat(ply.getPath());
+            }
+            map.setViewport(pointArray);    //调整视野
+        });
+    }
+
+    function storeBoundaryAuto(collection,originalItem){
+
+	    var siteList = new Array();
+
+        var poly = [];
+
+        var array = [];
+
+        for(var i=0;i<collection.length;i++){
+            var temp = collection[i].split(';');
+            array = array.concat(temp);
+        }
+
+
+	    $.each(array,function (index,item) {
+
+            var x = item.substring(0,item.indexOf(','));
+            var y = item.substring(item.indexOf(',')+1,item.length);
+            var site = new Object();
+            site.xPoint = x;
+            site.yPoint = y;
+            siteList.push(site);
+            poly.push(site);
+
+        });
+
+        var x_start = parseFloat(poly[0].xPoint);
+
+        var y_start = parseFloat(poly[0].yPoint);
+
+        var x_end = 0;
+
+        var y_end = 0;
+
+	    var middle = Math.ceil(poly.length / 2);
+
+	    for(var i = middle;i<poly.length;i++){
+	        if(rayCasting(poly[i], poly)){
+                x_end = parseFloat(poly[i].xPoint);
+                y_end = parseFloat(poly[i].yPoint);
+                x_start = (x_start+x_end)/2;
+                y_start = (y_start+y_end)/2;
+            }
+        }
+
+
+
+
+	    var param = {
+            siteList:JSON.stringify(siteList),
+            listSize:siteList.length,
+            province:originalItem.province,
+            station:originalItem.obj_ID,
+            area:originalItem.name,
+            xPoint:x_start,
+            yPoint:y_start
+        };
+        $.ajax({
+            url: '../../DealAreaBorder/insertBorderCollection',
+            type: "post",
+            async: true,
+            dataType : "json",
+            data:param,
+            success: function (data) {
+                if(data.result === true){
+
+
+
+                }
+            },
+            error: function (data) {
+                return false;
+            }
+        });
+    }
+
+	//输出 经纬度
+	function outLocation(str){
+		var jsonStr = "";
+		var array = str.split(";");
+		var count = array.length;
+		var appendStr = ",\n";
+		for (var j = 0; j < count; j++) {
+			if(j==count){
+				appendStr = "";
+			}
+			jsonStr += "["+array[j]+"]"+appendStr;
+		}
+		document.getElementById("info").innerHTML += "\n"+jsonStr;    //输出数组里的经纬度
+	}
+
+    // 射线判断函数
+    function rayCasting(p, poly) {
+        var px = p[0],
+            py = p[1],
+            flag = false;
+
+        for(var i = 0, l = poly.length, j = l - 1; i < l; j = i, i++) {
+            var sx = poly[i][0],
+                sy = poly[i][1],
+                tx = poly[j][0],
+                ty = poly[j][1];
+
+            // 点与多边形顶点重合
+            if((sx === px && sy === py) || (tx === px && ty === py)) {
+                return true
+            }
+
+            // 判断线段两端点是否在射线两侧
+            if((sy < py && ty >= py) || (sy >= py && ty < py)) {
+                // 线段上与射线 Y 坐标相同的点的 X 坐标
+                var x = sx + (py - sy) * (tx - sx) / (ty - sy);
+
+                // 点在多边形的边上
+                if(x === px) {
+                    return true
+                }
+
+                // 射线穿过多边形的边界
+                if(x > px) {
+                    flag = !flag
+                }
+            }
+        }
+
+        // 射线穿过多边形边界的次数为奇数时点在多边形内
+        if(flag) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

@@ -230,6 +230,8 @@
 
     var myChart = echarts.init(document.getElementById('main'));
 
+    myChart.clear();
+
         //获取站点连接信息
         $.ajax({
             url: "../../StationLink_JiangXi/S_dataQualityLink",

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_net.zone_rolyMapper" >
+
+    <insert id="insertRoly" parameterType="com.demo.ssm.po.S_net.zone_roly">
+
+        insert into zone_roly (Province,Area,Station,Xpoint,Ypoint,Roly_x,Roly_y)
+        values (#{Province,jdbcType=VARCHAR}, #{Area,jdbcType=VARCHAR}, #{Station,jdbcType=VARCHAR},
+        #{Xpoint,jdbcType=VARCHAR}, #{Ypoint,jdbcType=VARCHAR}, #{Roly_x,jdbcType=VARCHAR}, #{Roly_y,jdbcType=VARCHAR})
+
+    </insert>
+
+    <insert id="insertRolyWithList" parameterType="java.util.List">
+
+        insert into zone_roly (Province,Area,Station,Xpoint,Ypoint,Roly_x,Roly_y)
+        values
+
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{item.Province,jdbcType=VARCHAR}, #{item.Area,jdbcType=VARCHAR}, #{item.Station,jdbcType=VARCHAR},
+            #{item.Xpoint,jdbcType=VARCHAR}, #{item.Ypoint,jdbcType=VARCHAR}, #{item.Roly_x,jdbcType=VARCHAR}, #{item.Roly_y,jdbcType=VARCHAR})
+
+        </foreach>
+
+    </insert>
+
+
+</mapper>
