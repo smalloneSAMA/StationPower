@@ -68,13 +68,12 @@
                 if(data.total>0){
 
                     $.each(data.tSpcZones,function (index,item) {
-                        var areaName = item.name;
+                        var areaName = item.real_NAME;
                         if(areaName=='' || areaName==null){
                             return true;
                         }else{
                             invokeBorder(item, areaName);
                         }
-
                     });
 
                 }
@@ -88,19 +87,24 @@
 
     function invokeBorder(item, areaName){
 
-	        $("#addr").val(item.province+"-"+areaName);
+	        $("#addr").val(item.province+"-"+areaName);  //输出当前区域名称
 
-	        var temp_item = item;
+	        var temp_item = item;						//暂存当前区域对象
 
-            var province = item.province;
+            var province = item.province;               //区域所属省份
 
             var bdary = new BMap.Boundary();
 
-            bdary.get(areaName, function(rs){       //获取行政区域
-                map.clearOverlays();        //清除地图覆盖物
-                var count = rs.boundaries.length; //行政区域的点有多少个
+            bdary.get(areaName, function(rs){     	  //获取行政区域
+
+                map.clearOverlays();                   //清除地图覆盖物
+
+                var count = rs.boundaries.length;      //行政区域的点有多少个
+
                 if (count === 0) {
-                    invokeBorder(temp_item,dic_center[province]);
+
+                    invokeBorder(temp_item,dic_center[province]);     //如果查不到 则查询当前省份 省会城市边界
+
                 }else{
                     var pointArray = [];
                     for (var i = 0; i < count; i++) {
@@ -179,61 +183,96 @@
 
     function storeBoundaryAuto(collection,originalItem){
 
-	    var siteList = new Array();
+	    var siteList = new Array();      //初始化区域边界对象列表
 
-        var poly = [];
+        var poly = [];                   //初始化区域边界对象列表  用于计算区域基准点
 
-        var array = [];
+        var array = [];                  //初始化区域边界对象列表  用于计算区域基准点
 
         for(var i=0;i<collection.length;i++){
-            var temp = collection[i].split(';');
-            array = array.concat(temp);
+
+            var temp = collection[i].split(';');     	//以分号将获得的数据集存在数组
+
+            array = array.concat(temp);					//连接所有数据
         }
 
 
-	    $.each(array,function (index,item) {
+	    $.each(array,function (index,item) {			//遍历坐标集
 
-            var x = item.substring(0,item.indexOf(','));
-            var y = item.substring(item.indexOf(',')+1,item.length);
+            var x = item.substring(0,item.indexOf(','));				//经度
+
+            var y = item.substring(item.indexOf(',')+1,item.length);	//纬度
+
             var site = new Object();
             site.xPoint = x;
             site.yPoint = y;
-            siteList.push(site);
-            poly.push(site);
+            siteList.push(site);										//存入
+            poly.push(site);									    	//存入
 
         });
 
-        var x_start = parseFloat(poly[0].xPoint);
+
+        var x_start = parseFloat(poly[0].xPoint);                      //将区域边界点集合中第一个点作为起点
 
         var y_start = parseFloat(poly[0].yPoint);
 
-        var x_end = 0;
+        var middle = Math.ceil(poly.length / 2);					   //中点 = 坐标数量 / 2
 
-        var y_end = 0;
+        var x_middle = parseFloat(poly[middle].xPoint);				   //初始化中点
 
-	    var middle = Math.ceil(poly.length / 2);
+        var y_middle = parseFloat(poly[middle].yPoint);
 
-	    for(var i = middle;i<poly.length;i++){
-	        if(rayCasting(poly[i], poly)){
-                x_end = parseFloat(poly[i].xPoint);
-                y_end = parseFloat(poly[i].yPoint);
-                x_start = (x_start+x_end)/2;
-                y_start = (y_start+y_end)/2;
+        var x_target = (x_start+x_middle)/2;						   //初始基准点
+
+        var y_target = (y_start+y_middle)/2;
+
+        var temp_point = new Object();					               //新建坐标对象
+
+        temp_point.xPoint = x_target;
+
+        temp_point.yPoint = y_target;
+
+
+	    for(var k = middle + 1;i<poly.length;i++){
+
+	        if(rayCasting(temp_point, poly)){			//基准点：编辑点集合中起点和中点连线的  线段中点 ， 如果不在区域内部，则[middle+1]
+
+                x_target = temp_point.xPoint;						   //初始线段中点坐标
+
+                y_target = temp_point.yPoint;
+
+                break;
+
+            }else {
+
+                x_middle = parseFloat(poly[k].xPoint);				   //中点+1
+
+                y_middle = parseFloat(poly[k].yPoint);
+
+                x_target = (x_start+x_middle)/2;					   //重新计算线段中点坐标
+
+                y_target = (y_start+y_middle)/2;
+
+                temp_point.xPoint = x_target;
+
+                temp_point.yPoint = y_target;
+
             }
         }
 
 
-
-
 	    var param = {
+
             siteList:JSON.stringify(siteList),
             listSize:siteList.length,
             province:originalItem.province,
             station:originalItem.obj_ID,
             area:originalItem.name,
-            xPoint:x_start,
-            yPoint:y_start
+            xPoint:x_target,
+            yPoint:y_target
+
         };
+
         $.ajax({
             url: '../../DealAreaBorder/insertBorderCollection',
             type: "post",
@@ -243,8 +282,7 @@
             success: function (data) {
                 if(data.result === true){
 
-
-
+					//
                 }
             },
             error: function (data) {
@@ -270,40 +308,35 @@
 
     // 射线判断函数
     function rayCasting(p, poly) {
-        var px = p[0],
-            py = p[1],
-            flag = false;
+
+        var px = p.xPoint, py = p.yPoint, flag = false;
 
         for(var i = 0, l = poly.length, j = l - 1; i < l; j = i, i++) {
-            var sx = poly[i][0],
-                sy = poly[i][1],
-                tx = poly[j][0],
-                ty = poly[j][1];
+            var sx = poly[i].xPoint,
+                sy = poly[i].yPoint,
+                tx = poly[j].xPoint,
+                ty = poly[j].yPoint;
 
-            // 点与多边形顶点重合
-            if((sx === px && sy === py) || (tx === px && ty === py)) {
+            if((sx === px && sy === py) || (tx === px && ty === py)) {    // 点与多边形顶点重合
                 return true
             }
 
-            // 判断线段两端点是否在射线两侧
-            if((sy < py && ty >= py) || (sy >= py && ty < py)) {
-                // 线段上与射线 Y 坐标相同的点的 X 坐标
-                var x = sx + (py - sy) * (tx - sx) / (ty - sy);
+            if((sy < py && ty >= py) || (sy >= py && ty < py)) {           // 判断线段两端点是否在射线两侧
 
-                // 点在多边形的边上
-                if(x === px) {
+                var x = sx + (py - sy) * (tx - sx) / (ty - sy);            // 线段上与射线 Y 坐标相同的点的 X 坐标
+
+                if(x === px) {							// 点在多边形的边上
                     return true
                 }
 
-                // 射线穿过多边形的边界
-                if(x > px) {
+                if(x > px) {							// 射线穿过多边形的边界
                     flag = !flag
                 }
             }
         }
 
-        // 射线穿过多边形边界的次数为奇数时点在多边形内
-        if(flag) {
+
+        if(flag) {    					 // 射线穿过多边形边界的次数为奇数时点在多边形内
             return true;
         }else{
             return false;
