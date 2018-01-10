@@ -60,10 +60,13 @@ public class StationLink_JiangXiController {
             int i=0;
             int k=stationLink_JiangXiService.count(Province);
             List<StationLink_JiangXi> list = stationLink_JiangXiService.selectByPrimaryKey(Province);
+            //List<String> ids = stationLink_JiangXiService.selectDistinctStation(Province);
             while (i<k) {
                 String name1 = list.get(i).getName1();
                 String name2 = list.get(i).getName2();
-                if (!name1.contains("35kV") && !name1.contains("110kV")&&!name2.contains("35kV") && !name2.contains("110kV")) {
+                //String id1 = list.get(i).getObj_id1();
+                //String id2 = list.get(i).getObj_id2();
+                if (!name1.contains("35kV") && !name1.contains("10kV")&&!name2.contains("35kV") && !name2.contains("10kV")) {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("Name1", (list.get(i)).getName1());
                     jsonObject.put("Name2", (list.get(i)).getName2());

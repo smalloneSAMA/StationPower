@@ -63,7 +63,7 @@
             </div>
 
             <div class="col-xs-2" style="padding-left: 0px">
-                <input id="buz_id" type="text" name="业务ID" placeholder="请输入路由业务ID" value="029CF020-34CD-4F6F-A6E8-223B16FC696E-05479" class="form-control">
+                <input id="buz_id" type="text" name="业务ID" placeholder="请输入路由业务ID" value="34388FE8-3DD7-4417-91FF-B1E19A527063-24825" class="form-control">
             </div>
 
             <div class="col-xs-8 no-margins no-padding">
@@ -144,7 +144,7 @@
 
         //获取站点数据
         $.ajax({
-            url: "../../StationProperty/S_dataQualityFilter",
+            url: "../../StationProperty/StationFilterForRote",
             type: "post",
             dataType: "json",
             async: false,
@@ -436,7 +436,8 @@
 					borderColor: '#ffefd5'//#ffefd5,#404a59
 				},
 				emphasis: {
-					areaColor: '#2a333d'
+					areaColor: '#2a333d',
+                    opacity:0
 				}
 			}
 		},

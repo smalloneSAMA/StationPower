@@ -19,4 +19,6 @@ public interface StationLink_JiangXiService {
     int countByID(@Param("Province")String Province,@Param("obj_id")String obj_id)throws IOException;
 
     Double selectBy2ID(@Param("obj_id1")String obj_id1,@Param("obj_id2")String obj_id2,@Param("Province")String Province)throws IOException;
+
+    List<String> selectDistinctStation(@Param("Province")String Province);
 }
