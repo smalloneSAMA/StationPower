@@ -29,6 +29,9 @@ public class path_python {
     public static String getSR(){
         return "/Users/gubaidan/PycharmProjects/ShortPath/shortPath.py";
     }
+    public static String getRe(){
+        return "E:\\py\\receive\\Fiberreliability.py";
+    }
 
 
 

@@ -39,44 +39,54 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
-                    <table class="table table-hover">
-                        <tr>
-                            <th>光缆类型</th>
-                            <th>总长度</th>
-                            <th>单位长度可靠性</th>
-                        </tr>
-                        <tr>
-                            <td>ADSS</td>
-                            <td>3829</td>
-                            <td>0.999973</td>
-                        </tr>
-                        <tr>
-                            <td>OPGW</td>
-                            <td>25564</td>
-                            <td>0.999959</td>
-                        </tr>
-                        <tr>
-                            <td>普通光缆</td>
-                            <td>14601</td>
-                            <td>0.999280</td>
-                        </tr>
-                    </table>
+                <div class="ibox-content" id="lalala">
+                    <!--<table class="table table-hover">-->
+                        <!--<tr>-->
+                            <!--<th>光缆类型</th>-->
+                            <!--<th>总长度</th>-->
+                            <!--<th>单位长度可靠性</th>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>ADSS</td>-->
+                            <!--<td>3829</td>-->
+                            <!--<td>0.999973</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>OPGW</td>-->
+                            <!--<td>25564</td>-->
+                            <!--<td>0.999959</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>普通光缆</td>-->
+                            <!--<td>14601</td>-->
+                            <!--<td>0.999280</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
                 </div>
             </div>
         </div>
-
-        <!--<div class="row">
-            <div class="col-sm-12">
-                <div class="ibox">
-                    <div class="ibox-content text-center">
-                        <h2 class="m-b-xxs"><b>二、业务类型分析</b></h2>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
     </div>
 </div>
 </body>
+<script>
+    $(function() {
+        var Str = '';
+        $.ajax({
+            url: "../../t/fiber",
+            type: "post",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                Str = Str + '<table class="table table-hover"><tr><th>光缆类型</th><th>总长度</th><th>单位长度可靠性</th></tr>';
+                for(var i=0;i<data.length;i++){
+                    Str = Str+'<tr><td>'+data[i]['光缆类型']+'</td><td>'+data[i]['总长度']+'</td><td>'+data[i]['单位长度可靠性']+'</td><tr>';
+                }
+                $("#lalala").html(Str);
+            },
+            error: function (data) {
+                alert("输入的id错误");
+            }
+        });
+    });
+</script>
 </html>

@@ -139,7 +139,7 @@
     $(function() {
         $('#btn').click(function () {
 //            alert("lalala");
-//        var Province = $("#Province").val();
+            var province = $("#Province").val();
             var buz_type = $('#buz_type').val();
             var buz_id = $('#buz_id').val();
             var Str = '';
@@ -148,7 +148,7 @@
                 type: "post",
                 dataType: "json",
                 async: false,
-                data: "buz_type="+buz_type+"&buz_id="+buz_id,
+                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
                 success: function (data) {
                     for(var i=0;i<data.length;i++){
                         Str = Str + '<table class="table table-hover">';
