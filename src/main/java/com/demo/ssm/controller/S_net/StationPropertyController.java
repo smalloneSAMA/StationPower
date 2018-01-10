@@ -3,6 +3,7 @@ package com.demo.ssm.controller.S_net;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_net.StationProperty;
+import com.demo.ssm.service.interf.S_net.StationLink_JiangXiService;
 import com.demo.ssm.service.interf.S_net.StationPropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import java.util.List;
 public class StationPropertyController {
     @Autowired
     private StationPropertyService stationPropertyService;
+    @Autowired
+    private StationLink_JiangXiService stationLink_JiangXiService;
 
     //查询异常对象数据
     @RequestMapping("/select")
@@ -85,7 +88,7 @@ public class StationPropertyController {
 
     }
 
-    //查询异常对象数据
+    //查询对象数据
     @RequestMapping("/S_dataQualityFilter")
     @ResponseBody
     public JSONArray S_dataQualityFilter(HttpServletRequest request,String Province){
@@ -98,9 +101,11 @@ public class StationPropertyController {
             int i=0;
             int k=stationPropertyService.count(Province);
             List<StationProperty> list = stationPropertyService.selectByPrimaryKey(Province);
+            //List<String> ids = stationLink_JiangXiService.selectDistinctStation(Province);
             while (i<k) {
                 String name = list.get(i).getName();
-                if (!name.contains("35kV") && !name.contains("110kV")) {
+                //String obj_id = list.get(i).getObj_id();
+                if (!name.contains("35kV") && !name.contains("10kV")) {
                 JSONObject jsonObject = new JSONObject() ;
 //                jsonObject.put("Province",(list.get(i)).getProvince());
                 jsonObject.put("Name", (list.get(i)).getName());
@@ -129,6 +134,52 @@ public class StationPropertyController {
 
     }
 
+
+    //查询对象数据
+    @RequestMapping("/StationFilterForRote")
+    @ResponseBody
+    public JSONArray StationFilterForRote(HttpServletRequest request,String Province){
+        JSONArray jsonArray=new JSONArray();
+        JSONObject jsonObjecterror = new JSONObject();
+
+
+
+        try{
+            int i=0;
+            int k=stationPropertyService.count(Province);
+            List<StationProperty> list = stationPropertyService.selectByPrimaryKey(Province);
+            List<String> ids = stationLink_JiangXiService.selectDistinctStation(Province);
+            while (i<k) {
+                String name = list.get(i).getName();
+                String obj_id = list.get(i).getObj_id();
+                if ((!name.contains("35kV") && !name.contains("10kV"))||ids.contains(obj_id)) {
+                    JSONObject jsonObject = new JSONObject() ;
+//                jsonObject.put("Province",(list.get(i)).getProvince());
+                    jsonObject.put("Name", (list.get(i)).getName());
+                    jsonObject.put("xAxis", (list.get(i)).getXaxis());
+                    jsonObject.put("yAxis", (list.get(i)).getYaxis());
+                    jsonObject.put("BusinessNum", (list.get(i)).getBusinessNum());
+                    jsonObject.put("KuoRong", (list.get(i)).getKuorong());
+                    jsonObject.put("OBJ_ID", (list.get(i)).getObj_id());
+                    jsonObject.put("portOcc", (list.get(i)).getPortOcc());
+                    jsonObject.put("buzNumRate", (list.get(i)).getBuzNumRate());
+                    jsonObject.put("increaseRate", (list.get(i)).getIncreaseRate());
+                    jsonArray.add(jsonObject);
+
+                }
+                i++;
+
+            }
+            return jsonArray;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            jsonObjecterror.put("result","result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
+        }
+
+    }
 
 
 
