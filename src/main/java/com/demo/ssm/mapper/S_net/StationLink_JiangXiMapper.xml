@@ -51,6 +51,20 @@
 
     </select>
 
+    <select id="selectDistinctObj_1" parameterType="String" resultType="String">
+        SELECT DISTINCT obj_id1
+        FROM StationLink
+        WHERE Province=#{Province}
+
+    </select>
+
+    <select id="selectDistinctObj_2" parameterType="String" resultType="String">
+        SELECT DISTINCT obj_id2
+        FROM StationLink
+        WHERE Province=#{Province}
+
+    </select>
+
 
 
 

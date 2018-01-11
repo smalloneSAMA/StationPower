@@ -19,4 +19,7 @@ public interface StationLink_JiangXiMapper {
 
     Double selectBy2ID(@Param("obj_id1")String obj_id1,@Param("obj_id2")String obj_id2,@Param("Province")String Province)throws IOException;
 
+    List<String> selectDistinctObj_1(@Param("Province")String Province);
+
+    List<String> selectDistinctObj_2(@Param("Province")String Province);
 }

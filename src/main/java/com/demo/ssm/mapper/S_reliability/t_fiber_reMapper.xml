@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.t_fiber_reMapper" >
+
+    <!--结果映射-->
+    <resultMap id="fiber_reMap" type="com.demo.ssm.po.S_reliability.t_fiber_re">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="length" property="length" jdbcType="VARCHAR"/>
+        <result column="reliability" property="reliability" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--按照好多条件查询-->
+    <select id="select" parameterType="String" resultMap="fiber_reMap" >
+        SELECT *
+        FROM t_fiber_re
+        WHERE province=#{province}
+    </select>
+
+</mapper>

@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_reliability.*;
 import com.demo.ssm.service.interf.S_reliability.*;
 import com.demo.ssm.service.Impl.S_reliability.*;
+import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,11 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
 
 @Controller
 //@SessionAttributes("Buz_id")
@@ -43,9 +44,11 @@ public class t_channel_baseController {
     private t_weibullService t_weibullService;
     @Autowired
     private t_fuber_faultService t_fuber_faultService;
+    @Autowired
+    private t_fiber_reService t_fiber_reService;
 
-    //    @RequestMapping("/tu")
-//    @ResponseBody
+    @RequestMapping("/tu")
+    @ResponseBody
     public ArrayList<String> tu(String buz_id){
         String buz_type = "1";
 //        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
@@ -218,14 +221,99 @@ public class t_channel_baseController {
         }
     }
 
-    public JSONArray xian(List list){
-        return null;
+    @RequestMapping("/xian")
+    @ResponseBody
+    public JSONArray xian(HttpServletRequest request){
+        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
+        //取出session里的值
+//        String buz_id = request.getSession().getAttribute("buz_id").toString();
+
+        //调用tu方法获得设备id集合
+        List<String> list = tu(buz_id);
+
+        int len = list.size();
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObjecterror = new JSONObject();
+        try {
+            for(int i=0;i<len-1;i++){
+                t_fuber_fault t_fuber_fault = t_fuber_faultService.select(list.get(i),list.get(i+1));
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("id", (t_fuber_fault.getOBJ_ID()));
+                jsonArray.add(jsonObject);
+            }
+            return jsonArray;
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonObjecterror.put("result","result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
+        }
+
+
     }
+
+
+    @RequestMapping("/fiber")
+    @ResponseBody
+    public JSONArray fiber(HttpServletRequest request) {
+
+        //取出session里的值
+//        String province = request.getSession().getAttribute("province").toString();
+        String province = "江西";
+        List<String> processList = new ArrayList<>();
+        String line = "";
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObjecterror = new JSONObject();
+        try {
+            //设置省份
+            //Boolean setStatics = provinceService.setProvince(Province);
+
+            //python脚本文件及其命令
+            String[] arg = new String[] {"python", path_python.getRe()};  //,province
+
+            //执行python脚本
+            Process proc = Runtime.getRuntime().exec(arg);
+
+            //proc.waitFor();
+            BufferedReader input = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                processList.add(line);
+            }
+            input.close();
+
+            for (String out : processList) {
+                System.out.println(out);
+            }
+
+            //查询当前省份光缆可靠性表的数据库记录
+            List<t_fiber_re> list = t_fiber_reService.select(province);
+            int len = list.size();
+
+            for (int i=0;i<len;i++){
+                JSONObject jsonObject = new JSONObject() ;
+                jsonObject.put("光缆类型", (list.get(i)).getType());
+                jsonObject.put("总长度", (list.get(i)).getLength());
+                jsonObject.put("单位长度可靠性", (list.get(i)).getReliability());
+                jsonArray.add(jsonObject);
+            }
+            return jsonArray;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsonObjecterror.put("result","result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
+        }
+
+
+
+    }
+
 
     //查询异常对象数据
     @RequestMapping("/chaxun")
     @ResponseBody
-    public JSONArray chaxun(HttpServletRequest request,ModelMap mmp,String buz_type,String buz_id) {
+    public JSONArray chaxun(HttpServletRequest request,ModelMap mmp,String buz_type,String buz_id,String province) {
 //        placeholder="请输入业务ID"
 //        ,String buz_type,String buz_id
 //        String buz_type = "1";
@@ -233,8 +321,10 @@ public class t_channel_baseController {
         t_buz t_buz = new t_buz();
         t_buz.setBUZ_TYPE(buz_type);
         t_buz.setOBJ_ID(buz_id);
-        //把buz_id存到session
+        //把buz_id和省份存到session
         request.getSession().setAttribute("buz_id",buz_id);
+        request.getSession().setAttribute("province",province);
+
 //        mmp.addAttribute("Buz_id",buz_id);
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
