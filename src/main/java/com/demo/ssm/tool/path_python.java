@@ -30,7 +30,7 @@ public class path_python {
         return "E:\\360Downloads\\StationPower_zh\\src\\main\\webapp\\view\\python_all\\shortPath.py";
     }
     public static String getRe(){
-        return "E:\\py\\receive\\Fiberreliability.py";
+        return "E:\\360Downloads\\StationPower_zh\\src\\main\\webapp\\view\\python_all\\Fiberreliability.py";
     }
 
 
