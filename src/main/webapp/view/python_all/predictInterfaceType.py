@@ -8,7 +8,12 @@ import sys
 def predict_interface_type(province):
     word_type = 'interface_type'
     path = 'D:/' + word_type + '/' + province + '_'
-    conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=province, port=3306, charset='utf8')
+    pro6 = ['anhui', 'chongqing', 'gansu', 'henan', 'hubei', 'hunan', 'jiangsu', 'liaoning', 'ningxia', 'shan1xi',
+            'shandong', 'sichuan', 'xinjiang']
+    if database in pro6:
+        conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+    else:
+        conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
     conn1 = db.connect(host='172.16.135.19', user='root', passwd='hadoop', db='jiangxi_power', port=3306, charset='utf8')
     # 业务表，接口类型不为空
     cur = conn.cursor()

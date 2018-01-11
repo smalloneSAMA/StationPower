@@ -22,8 +22,13 @@ print(name)
 database =name
 province =name
 
+pro6=['anhui','chongqing','gansu','henan','hubei','hunan','jiangsu','liaoning','ningxia','shan1xi','shandong','sichuan','xinjiang']
+
 path = 'E:/yeal/JXResult/' + province + '_'
-conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=province, port=3306, charset='utf8')
+if database in pro6:
+    conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+else:
+    conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
 cur = conn.cursor()
 conn1 = db.connect(host='172.16.135.19', user='root', passwd='hadoop', db='jiangxi_power', port=3306, charset='utf8')
 cursor = conn1.cursor()

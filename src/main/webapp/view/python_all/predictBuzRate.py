@@ -9,9 +9,19 @@ def predict_buz_rate(province):
     # jiangxi_before170619
     word_type = 'buz_rate'
     #path = 'C:/dykang/electricData/predict/' + word_type + '/' + province + '_'
+    pro6 = ['anhui', 'chongqing', 'gansu', 'henan', 'hubei', 'hunan', 'jiangsu', 'liaoning', 'ningxia', 'shan1xi',
+            'shandong', 'sichuan', 'xinjiang','jiangxi']
     path = 'F:/' + province + '_'
     # conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=province, port=3306, charset='utf8')
-    conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=province, port=3306, charset='utf8')
+    if province in pro6:
+        if province=='jiangxi':
+            database='jiangxi_before170619'
+        else:
+            database=province
+        conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+    else:
+        database=province
+        conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
     # 业务带宽不为空
     cur = conn.cursor()
     cur.execute("select distinct name,buz_type,dispatch_level,a_site_id,z_site_id,0,0,buz_rate from t_buz where buz_rate is not null and buz_rate <> ''")
@@ -161,6 +171,6 @@ dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing
 name=dict[sys.argv[1]]
 print(name)
 
-database =name
+#database =name
 province =name
 predict_buz_rate(province)
