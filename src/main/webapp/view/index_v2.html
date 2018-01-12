@@ -143,7 +143,7 @@
             <div class="ibox-content">
 
 
-                <div id="reb" style="height: 439px; "></div>
+                <div style="height: 439px; "><div id="reb" style="width: 100%;height: 100%"></div></div>
                 <!--<img style="height: 90%;width: 90%" src="shouye.jpg">-->
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
@@ -1747,58 +1747,54 @@ function paint1() {
 var rebChart1 = echarts.init(document.getElementById('reb'));
 option_reb = {
     title: {
-        text: '上古官二代',
-        link:'www.baidu.com'
+        left: 'center',
+        text: '业务路径'
     },
     tooltip: {},
-    animationDurationUpdate: 1500,
+    animationDurationUpdate: 10,
     animationEasingUpdate: 'quinticInOut',
     label: {
         normal: {
             show: true,
             textStyle: {
-                fontSize: 18
+                fontSize: 9
             },
         }
     },
     legend: {
+        show:true,
         x: "center",
         bottom: 10,
-        data: ["三皇五帝", "夏", '商','周','春秋战国','秦汉']
+        data: ["业务一", "业务二", '业务三','业务四']
     },
     series: [
 
         {
             type: 'graph',
             layout: 'force',
-            symbolSize: 60,
+            symbolSize: 40,
             focusNodeAdjacency: true,
             roam: true,
             categories: [{
-                name: '三皇五帝'
+                name: '业务一'
             }, {
-                name: '夏'
+                name: '业务二'
             }, {
-                name: '商'
+                name: '业务三'
             }, {
-                name: '周'
-            },
-                {
-                    name: '春秋战国'
-                },
-                {
-                    name: '秦汉'
-                }],
+                name: '业务四'
+            }
+            ],
             label: {
                 normal: {
                     show: true,
                     textStyle: {
-                        fontSize: 18
+                        fontSize: 11
                     },
                 }
             },
             force: {
-                repulsion: 2000
+                repulsion: 500
             },
             //edgeSymbol: ['pin'],
             //edgeSymbolSize: [1, 10],
@@ -1806,7 +1802,7 @@ option_reb = {
                 normal: {
                     show: true,
                     textStyle: {
-                        fontSize: 18
+                        fontSize: 9
                     },
                     formatter: "{c}"
                 }
@@ -1841,16 +1837,107 @@ option_reb = {
                     // draggable: true,
                 },
 
+//                业务二
+                {
+                    name: '洪源变2',
+                    category: 1
+                },
+                {
+                    name: '乐平变2',
+                    category: 1
+                },
+                {
+                    name: '南昌变2',
+                    category: 1
+                },
+                {
+                    name: '永修变2',
+                    category: 1
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变2',
+                    category: 1
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变2',
+                    category: 1
+                    // draggable: true,
+                },
+
+//                业务三
+                {
+                    name: '洪源变3',
+                    category: 2
+                },
+                {
+                    name: '乐平变3',
+                    category: 2
+                },
+                {
+                    name: '南昌变3',
+                    category: 2
+                },
+                {
+                    name: '永修变3',
+                    category: 2
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变3',
+                    category: 2
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变3',
+                    category: 2
+                    // draggable: true,
+                },
+
+//                业务四
+                {
+                    name: '洪源变4',
+                    category: 3
+                },
+                {
+                    name: '乐平变4',
+                    category: 3
+                },
+                {
+                    name: '南昌变4',
+                    category: 3
+                },
+                {
+                    name: '永修变4',
+                    category: 3
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变4',
+                    category: 3
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变4',
+                    category: 3
+                    // draggable: true,
+                },
+
 
 
             ],
-            links: [{
+            links: [
+                {
                 source: '洪源变',
                 target: '乐平变',
                 value: '24芯OPGW光缆段01',
                 lineStyle:{
                     normal:{
-                        color:'red',
+                        color:'black',
                     }
                 }
 
@@ -1858,17 +1945,33 @@ option_reb = {
                 {
                     source: '乐平变',
                     target: '南昌变',
-                    value: '16芯OPGW光缆段01'
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
                 },
                 {
                     source: '南昌变',
                     target: '永修变',
-                    value: '32芯OPGW光缆段01'
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
                 },
                 {
                     source: '永修变',
                     target: '马回岭变',
-                    value: '24芯OPGW光缆段01'
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
                 },
                 {
                     source: '马回岭变',
@@ -1876,17 +1979,177 @@ option_reb = {
                     value: '24芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
-                            color:'red',
-                            type:'dotted'
+                            color:'black',
                         }
                     }
                 },
+
+//                业务二
+                {
+                    source: '洪源变2',
+                    target: '乐平变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变2',
+                    target: '南昌变2',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变2',
+                    target: '永修变2',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变2',
+                    target: '马回岭变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变2',
+                    target: '石钟山变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+//                业务三
+                {
+                    source: '洪源变3',
+                    target: '乐平变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变3',
+                    target: '南昌变3',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变3',
+                    target: '永修变3',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变3',
+                    target: '马回岭变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变3',
+                    target: '石钟山变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+//                业务四
+                {
+                    source: '洪源变4',
+                    target: '乐平变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变4',
+                    target: '南昌变4',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变4',
+                    target: '永修变4',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变4',
+                    target: '马回岭变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变4',
+                    target: '石钟山变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+
             ],
             lineStyle: {
                 normal: {
-                    opacity: 0.7,
+                    opacity: 1,
                     width: 1,
-                    curveness: 0.1
+                    curveness: 0
                 }
             }
         }

@@ -34,30 +34,7 @@ public class AverageFailureRateController {
 
 
         try{
-////            for(int i=0;i<7;i++)
-//            int k=averageFailureRateService.count();
-//            int i = 0;
-//            while (k>0) {
-//                int j = i;
-//
-//                while (1>0) {
-//                    if(averageFailureRateService.selectByPrimaryKey(j + 1) != null) {
-//                        JSONObject jsonObject = new JSONObject();
-//                        AverageFailureRate averageFailureRateinfo = averageFailureRateService.selectByPrimaryKey(j + 1);
-//                        jsonObject.put("Company", averageFailureRateinfo.getCompany());
-//                        jsonObject.put("FailureRate", averageFailureRateinfo.getFailureRate());
-//                        jsonArray.add(jsonObject);
-//                        k--;
-//                        break;
-//                    }
-//                    j++;
-//                }
-//                i=j+1;
-//            }
-////            System.out.println("result:"+ JSON.toJSONString(jsonArray));
-//
-//
-//            return jsonArray;
+
             int i=0;
             int k=averageFailureRateService.count();
             List<AverageFailureRate> list = averageFailureRateService.selectByPrimaryKey();
