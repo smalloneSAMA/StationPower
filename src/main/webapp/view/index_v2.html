@@ -1747,8 +1747,8 @@ function paint1() {
 var rebChart1 = echarts.init(document.getElementById('reb'));
 option_reb = {
     title: {
-        text: '业务拓扑结构',
-
+        text: '上古官二代',
+        link:'www.baidu.com'
     },
     tooltip: {},
     animationDurationUpdate: 1500,
@@ -1813,94 +1813,41 @@ option_reb = {
             },
             data: [
                 {
-                    name: '神农',
+                    name: '洪源变',
                     category: 0
                 },
                 {
-                    name: '伏羲',
+                    name: '乐平变',
                     category: 0
                 },
                 {
-                    name: '蚩尤',
+                    name: '南昌变',
                     category: 0
                 },
                 {
-                    name: '黄帝',
+                    name: '永修变',
                     category: 0,
                     //symbolSize: [250, 250],
-                    symbol: 'image://http://louruyue.notbad.cn/uploadimage/pic_201251143747.jpg',
                 },
 
                 {
-                    name: '颛顼',
+                    name: '马回岭变',
                     category: 0,
-                    draggable: true,
+                    // draggable: true,
                 },
                 {
-                    name: '帝喾',
+                    name: '石钟山变',
                     category: 0,
-                    draggable: true,
-                },
-                {
-                    name: '尧',
-                    category: 0,
-                    draggable: true,
+                    // draggable: true,
                 },
 
-                {
-                    name: '舜',
-                    category: 0,
-                    draggable: true,
-                },
-                {
-                    name: '禹',
-                    category: 1,
-                    draggable: true,
-                },
-
-
-                {
-                    name: '夏桀',
-                    category: 1,
-                    draggable: true,
-                },
-                {
-                    name: '契',
-                    category: 2,
-                    draggable: true,
-                },
-                {
-                    name: '商汤',
-                    category: 2,
-                    draggable: true,
-                },
-                {
-                    name: '纣王',
-                    category: 2,
-                    draggable: true,
-                },
-                {
-                    name: '姬发',
-                    category: 3,
-                    draggable: true,
-                },
-                {
-                    name: '姬昌',
-                    category: 3,
-                    draggable: true,
-                },
-                {
-                    name: '后稷',
-                    category: 3,
-                    draggable: true,
-                },
 
 
             ],
             links: [{
-                source: '黄帝',
-                target: '颛顼',
-                value: '孙子',
+                source: '洪源变',
+                target: '乐平变',
+                value: '24芯OPGW光缆段01',
                 lineStyle:{
                     normal:{
                         color:'red',
@@ -1909,145 +1856,30 @@ option_reb = {
 
             },
                 {
-                    source: '黄帝',
-                    target: '帝喾',
-                    value: '太孙'
+                    source: '乐平变',
+                    target: '南昌变',
+                    value: '16芯OPGW光缆段01'
                 },
                 {
-                    source: '颛顼',
-                    target: '禹',
-                    value: '爷孙'
+                    source: '南昌变',
+                    target: '永修变',
+                    value: '32芯OPGW光缆段01'
                 },
                 {
-                    source: '颛顼',
-                    target: '舜',
-                    value: '8世孙'
+                    source: '永修变',
+                    target: '马回岭变',
+                    value: '24芯OPGW光缆段01'
                 },
                 {
-                    source: '颛顼',
-                    target: '帝喾',
-                    value: '让位',
+                    source: '马回岭变',
+                    target: '石钟山变',
+                    value: '24芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
                             color:'red',
                             type:'dotted'
                         }
                     }
-                },
-                {
-                    source: '帝喾',
-                    target: '尧',
-                    value: '儿子',
-                    lineStyle:{
-                        normal:{
-                            color:'red',
-                        }
-                    }
-                },
-                {
-                    source: '尧',
-                    target: '舜',
-                    value: '禅让',
-                    lineStyle:{
-                        normal:{
-                            color:'red',
-                            type:'dotted'
-                        }
-                    }
-                },
-                {
-                    source: '舜',
-                    target: '禹',
-                    value: '禅让',
-                    lineStyle:{
-                        normal:{
-                            color:'red',
-                            type:'dotted'
-                        }
-                    }
-                },
-                {
-                    source: '禹',
-                    target: '夏桀',
-                    value: 'n代世袭',
-                    lineStyle:{
-                        normal:{
-                            color:'red'
-                        }
-                    }
-                },
-                {
-                    source: '商汤',
-                    target: '夏桀',
-                    value: '商汤灭夏',
-                    lineStyle:{
-                        normal:{
-                            color:'red',
-                            type:'dotted'
-                        }
-                    }
-                },
-                {
-                    source: '商汤',
-                    target: '纣王',
-                    value: 'n代世袭',
-                    lineStyle:{
-                        normal:{
-                            color:'red'
-                        }
-                    }
-                },
-                {
-                    source: '姬发',
-                    target: '纣王',
-                    value: '武王伐纣',
-                    lineStyle:{
-                        normal:{
-                            color:'red',
-                            type:'dotted'
-                        }
-                    }
-                },
-                {
-                    source: '帝喾',
-                    target: '后稷',
-                    value: '父子,'
-                },
-                {
-                    source: '后稷',
-                    target: '姬昌',
-                    value: '16世孙,'
-                },
-                {
-                    source: '姬昌',
-                    target: '姬发',
-                    value: '父子'
-                },
-
-                {
-                    source: '黄帝',
-                    target: '神农',
-                    value: '使臣服'
-                },
-                {
-                    source: '黄帝',
-                    target: '蚩尤',
-                    value: '战胜'
-                },
-                {
-                    source: '黄帝',
-                    target: '伏羲',
-                    value: '?'
-                },
-                {
-                    source: '帝喾',
-                    target: '契',
-                    value: '父子'
-                },
-                {
-                    source: '契',
-                    target: '商汤',
-                    value: '14世孙'
                 },
             ],
             lineStyle: {
