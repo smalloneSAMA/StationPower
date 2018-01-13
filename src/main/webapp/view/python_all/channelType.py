@@ -20,14 +20,17 @@ print(name)
 database =name
 province =name
 
-
+pro6=['anhui','chongqing','gansu','henan','hubei','hunan','jiangsu','liaoning','ningxia','shan1xi','shandong','sichuan','xinjiang']
 
 # province = 'jiangxi'
 # path = 'E:/yeal/JXResult/' + province + '_'
 # conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db='jiangxi_before170619', port=3306, charset='utf8')
 #province = 'jiangxi'
 path = 'E:/' + province + '_'
-conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db='jiangxi_before170619', port=3306, charset='utf8')
+if database in pro6:
+    conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+else:
+    conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
 
 cur = conn.cursor()
 cur.execute("select obj_id,name,CHANNEL_TYPE from t_channel_base WHERE (CHANNEL_TYPE is not  null AND CHANNEL_TYPE<>'')")
@@ -60,7 +63,7 @@ print(x.shape)
 x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=33)
 # 朴素贝叶斯分类
 # clf = BernoulliNB()
-clf = MultinomialNB()
+clf = MultinomialNB(alpha=1)
 # 训练
 print(province)
 print(x_train.shape)
@@ -94,13 +97,14 @@ probablity = clf.predict_proba(x)
 
 fl=np.float64(1.0)
 list_pro = []
+p=[]
+pp=0
 for i in range(probablity.shape[0]):
     pro = max(list(probablity[i]))
 
     if  abs(pro-1.0)<1e-6:
         pro=0.99
     list_pro.append(pro)
-
 
 
 # 输出结果

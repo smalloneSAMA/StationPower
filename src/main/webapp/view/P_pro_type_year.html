@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <title>厂家、设备型号、使用年限与故障率关系挖掘</title>
     <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
     <script src="js/bootstrap.min.js?v=3.3.5"></script>
     <script src="S_js/echarts.js"></script>
     <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="layer/layer.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
     <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
+
+
 </head>
 <body>
 <div class="row  border-bottom white-bg dashboard-header">
@@ -23,6 +30,43 @@
         </div>
 
 </div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">设备故障信息表</h4>
+            </div>
+            <div class="modal-body">
+                <table id="dataTable02" class="display dataTable table-hover" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <!--<th>设备ID</th>-->
+                        <th>设备名称</th>
+                        <th>生产厂家</th>
+                        <th>故障日期</th>
+                        <th>故障时间</th>
+                        <th>故障恢复时间</th>
+                        <th>故障类型</th>
+                        <th>设备类型</th>
+                        <th>工作年限</th>
+                        <th>省份</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <!--<button type="button" class="btn btn-primary">提交更改</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
 <div  class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
@@ -47,6 +91,63 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
+                <div id = "tag01" class="ibox-title">
+                <h5>故障类型分析:点击柱状图可查看厂家的具体故障分析</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+                <div id = "tag02" class="ibox-title">
+                    <h5>该厂家设备的故障次数前150统计表：</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" id='type_alarm' style="display: none">
+                    <table id="dataTable01" class="display dataTable table-hover" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>厂家名称</th>
+                            <th>设备名称</th>
+                            <th>设备类型</th>
+                            <th>工作年限</th>
+                            <th>故障次数</th>
+                            <th>省份</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+                <div class="ibox-content">
+                    <div id='type_failure' style='width: 90%;height: 700px; display: none;' ></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--隐藏为弹窗传入参数-->
+    <input id ="producer_name_value" style="display:none"/>
+    <input id ="ne_name_value" style="display:none"/>
+    <input id ="province_value" style="display:none"/>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>各厂家设备故障率与使用年限关系</h5>
                     <div class="ibox-tools">
@@ -67,11 +168,15 @@
 </div>
 <script type='text/javascript'>
     $(document).ready(function(){
-
         equip();
         Relation();
+        $('#dataTable01 tbody').on('click', 'td.details-control', function (){
+            var tr = $(this).closest('tr');
+            var row = table01.row(tr);
+            acquiredetail(row)
+            //console.log(row)
 
-
+        } );
     });
 
     function equip() {
@@ -94,7 +199,6 @@
         });
 
     }
-
 
     function Average(obj) {
         var AverageData = new Array();
@@ -172,8 +276,218 @@
     };
 
     myChart.setOption(option);
+
+        //echarts图表点击跳转
+        myChart.on('click', function (param){
+
+            var name=param.name;
+            window.location.hash = "#tag01";
+            acquire(name);
+            acquireall(name);
+        });
+        myChart.on('click');
+
+    }
+
+</script>
+
+<script type='text/javascript'>
+    function acquire(producer) {
+        //获取故障类型数据
+        var producer = producer;
+        $.ajax({
+            url: "../../AverageFailureRate/alarm_cause",
+            type: "post",
+            dataType: "json",
+            data:"producer="+producer,
+            async: false,
+            success: function (data) {
+
+                Analyse(data,producer);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+    function Analyse(obj,producer) {
+        var alarm_cause = new Array();
+        var num = new Array();
+        var legendData = [];
+        var seriesData = [];
+
+        //
+        $.each(obj, function (i, item) {
+            num[i] = item.num;
+            alarm_cause[i] = item.alarm_cause;
+            legendData.push(alarm_cause[i]);
+            seriesData.push({
+                name:alarm_cause[i],
+                value:num[i]
+            })
+
+        });
+        document.getElementById("type_failure").style.display="";
+        var myChart = echarts.init(document.getElementById('type_failure'));
+        option = {
+            title : {
+                text: '故障类型分析饼状图',
+                subtext: producer,
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                right: 10,
+                top: 20,
+                bottom: 20,
+                data: legendData
+            },
+            series : [
+                {
+                    name: '故障类型',
+                    type: 'pie',
+                    radius : '55%',
+                    center: ['40%', '50%'],
+                    data: seriesData,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+
+</script>
+
+<script type="text/javascript">
+   /* function acquiredetail(row) {
+        //获取所有故障数据
+        var producer = row.node().cells[0].innerText
+        var ne_name = row.node().cells[1].innerText
+        var province = row.node().cells[5].innerText
+
+        $("#producer_name_value").val(producer)
+        $("#ne_name_value").val(ne_name)
+        $("#province_value").val(province)
+
+        var page="P_alarm_list.html";
+        var mypage = window.open (page, "detail", "height=500, width=1300, top=100, left=100, channelmode=yes, fullscreen=yes, location=no, titlebar=no, resizable=no, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no");
+    }*/
+
+   function acquiredetail(row){
+       var producer = row.node().cells[0].innerText
+       var ne_name = row.node().cells[1].innerText
+       var province = row.node().cells[5].innerText
+
+       var index = layer.load(0, {
+           shade: [0.3, '#ddd']//0.1透明度的白色背景
+       });
+       var data = producer+","+ne_name+","+province
+       //alert(data)
+       data = data.replace(/\+/g, "%2B");
+       data = data.replace(/\&/g, "%26");
+       table02 = $('#dataTable02').DataTable( {
+           "ajax" : "../../AverageFailureRate/alarm_combine?data="+data,
+           "columns": [
+               //{ "data": "NE_OBJ_ID" },
+               { "data": "NE_NAME" },
+               { "data": "PRODUCER_NAME" },
+               { "data": "ALARM_EMS_TIME_DAY" },
+               { "data": "ALARM_EMS_TIME" },
+               { "data": "ALARM_EMS_RESUME_TIME" },
+               { "data": "ALARM_CAUSE" },
+               { "data": "DEV_TYPE_NAME" },
+               //{ "data": "PRODUCER_ID" },
+               { "data": "WORK_YEAR" },
+               //{ "data": "DEV_TYPE" },
+               { "data": "PROVINCE" }
+           ],
+           "destroy":true, //Cannot reinitialise DataTable,解决重新加载表格内容问题
+          // "processing" : true
+
+           "initComplete": function() {
+               layer.close(index);
+           },
+           "iDisplayLength" : 5//默认每页数量
+           /*
+                     //"bPaginate": true, //翻页功能
+                     "bLengthChange" : false, //改变每页显示数据数量
+                     //"bFilter" : true, //过滤功能
+                     "ordering" : false,
+                     "bSort" : false, //排序功能
+                     //"bInfo" : true,//页脚信息
+                     //"bAutoWidth" : true,//自动宽度
+                     "stateSave" : true,
+                     "retrieve" : true,
+                     "processing" : true,
+                     "serverSide" : true,*/
+       } );
+   }
+</script>
+
+<script type="text/javascript">
+    /*$(function () { $('#myModal').modal({
+        keyboard: true
+    })});*/
+    function acquireall(producer){
+        document.getElementById("type_alarm").style.display="";
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+        table01 = $('#dataTable01').DataTable( {
+            "ajax" : "../../AverageFailureRate/ne_name_alarm?producer="+producer,
+            "columns": [
+                { "data": "producer_name" },
+                { "data": "ne_name" },
+                { "data": "dev_type_name" },
+                { "data": "work_year" },
+                { "data": "num" },
+                { "data": "province" },
+                {
+                    "className":      'details-control',
+                    "orderable":      false,
+                    "data":           null,
+                   /* "defaultContent": "<button class='edit-btn info' type='button' data-toggle='modal' data-target='#myModal'>查询</button>"*/
+                    "defaultContent": "<button class='btn btn-white' type='button' style='color:#ffffff;background-color: #1ab394;' data-toggle='modal' data-target='#myModal'>详情</button>"
+                }
+            ],
+            "destroy":true, //Cannot reinitialise DataTable,解决重新加载表格内容问题
+            //"processing" : true
+            "initComplete": function() {
+                layer.close(index);
+            }
+
+  /*          "iDisplayLength" : 10,//默认每页数量
+            //"bPaginate": true, //翻页功能
+            "bLengthChange" : false, //改变每页显示数据数量
+            //"bFilter" : true, //过滤功能
+            "ordering" : false,
+            "bSort" : false, //排序功能
+            //"bInfo" : true,//页脚信息
+            //"bAutoWidth" : true,//自动宽度
+            "stateSave" : true,
+            "retrieve" : true,
+
+            "serverSide" : true,*/
+        } );
     }
 </script>
+
 <script type='text/javascript'>
 
     function Relation() {
@@ -184,7 +498,6 @@
             dataType: "json",
             async: false,
             success: function (data) {
-
                 relationData(data);
 
             },

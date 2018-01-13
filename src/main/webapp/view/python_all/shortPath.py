@@ -68,8 +68,8 @@ def ray_casting(p, poly):
 
 #  获取需要查询的省份 start
 # 中文
-# province_gbk = sys.argv[1]
-province_gbk = '江西'
+province_gbk = sys.argv[1]
+# province_gbk = '江西'
 # 中文省份对应数据库名
 dict_provinces = {
                 '江西': 'jiangxi_before170619', '安徽': 'anhui', '重庆': 'chongqing', '甘肃': 'gansu', '河南': 'henan',

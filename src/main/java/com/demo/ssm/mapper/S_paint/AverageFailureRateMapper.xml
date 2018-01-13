@@ -3,10 +3,43 @@
 <mapper namespace="com.demo.ssm.mapper.S_paint.AverageFailureRateMapper" >
     <!--属性映射-->
     <resultMap id="AverageFailureMap" type="com.demo.ssm.po.S_paint.AverageFailureRate">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="company" property="company" jdbcType="VARCHAR"/>
-        <result column="AverageFailureRate" property="failureRate"/>
+    <id column="ID" property="id" jdbcType="INTEGER"/>
+    <result column="company" property="company" jdbcType="VARCHAR"/>
+    <result column="AverageFailureRate" property="failureRate"/>
 
+</resultMap>
+
+    <resultMap id="AlarmCauseMap" type="com.demo.ssm.po.S_paint.AlarmCause">
+
+        <result column="producer" property="producer" jdbcType="VARCHAR"/>
+        <result column="alarm_cause" property="alarm_cause" jdbcType="VARCHAR"/>
+        <result column="num" property="num" />
+    </resultMap>
+
+    <resultMap id="AlarmCombineMap" type="com.demo.ssm.po.S_paint.AlarmCombine">
+
+        <result column="NE_OBJ_ID" property="NE_OBJ_ID" jdbcType="VARCHAR"/>
+        <result column="ALARM_EMS_TIME_DAY" property="ALARM_EMS_TIME_DAY" jdbcType="VARCHAR"/>
+        <result column="ALARM_EMS_TIME" property="ALARM_EMS_TIME" jdbcType="VARCHAR"/>
+        <result column="ALARM_EMS_RESUME_TIME" property="ALARM_EMS_RESUME_TIME" jdbcType="VARCHAR"/>
+        <result column="ALARM_CAUSE" property="ALARM_CAUSE" jdbcType="VARCHAR"/>
+        <result column="NE_NAME" property="NE_NAME" jdbcType="VARCHAR"/>
+        <result column="DEV_TYPE_NAME" property="DEV_TYPE_NAME" jdbcType="VARCHAR"/>
+        <result column="PRODUCER_NAME" property="PRODUCER_NAME" jdbcType="VARCHAR"/>
+        <result column="PRODUCER_ID" property="PRODUCER_ID" jdbcType="VARCHAR"/>
+        <result column="WORK_YEAR" property="WORK_YEAR" jdbcType="VARCHAR"/>
+        <result column="DEV_TYPE" property="DEV_TYPE" />
+        <result column="PROVINCE" property="PROVINCE" />
+    </resultMap>
+
+    <resultMap id="neNameAlarmMap" type="com.demo.ssm.po.S_paint.NeNameAlarm">
+
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="producer_name" property="producer_name" jdbcType="VARCHAR"/>
+        <result column="ne_name" property="ne_name" jdbcType="VARCHAR"/>
+        <result column="dev_type_name" property="dev_type_name" jdbcType="VARCHAR"/>
+        <result column="num" property="num" />
+        <result column="work_year" property="work_year" />
     </resultMap>
 
 
@@ -23,6 +56,30 @@
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)
         FROM CompanyAverageFailurerate_8_years
+
+    </select>
+
+    <select id="findTypeAlarmCause" parameterType="String" resultMap="AlarmCauseMap">
+        SELECT producer,alarm_cause,SUM(num) as num
+        FROM alarm_cause
+        WHERE Producer=#{producer}
+        GROUP BY Producer,alarm_cause
+        ORDER BY num DESC
+
+    </select>
+
+    <select id="findAlarmCombine" parameterType="String" resultMap="AlarmCombineMap">
+    SELECT *
+    FROM alarm_combine
+    WHERE PRODUCER_NAME=#{producer} AND NE_NAME=#{ne_name} AND PROVINCE=#{province}
+
+</select>
+
+    <select id="neNameAlarm" parameterType="String" resultMap="neNameAlarmMap">
+        SELECT *
+        FROM ne_name_alarm
+        WHERE PRODUCER_NAME=#{producer}
+        ORDER BY num DESC
 
     </select>
     

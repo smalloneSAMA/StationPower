@@ -31,12 +31,14 @@ print(sys.argv)
 print(sys.argv[1])
 dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing','福建':'fujian','甘肃':'gansu','河北':'hebei','黑龙江':'heilongjang',
       '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
-      '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sichuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
+      '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sicuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
 name=dict[sys.argv[1]]
 print(name)
 
 database =name
 province =name
+
+pro6=['anhui','chongqing','gansu','henan','hubei','hunan','jiangsu','liaoning','ningxia','shan1xi','shandong','sicuan','xinjiang']
 
 ##################################################################################################################
 
@@ -44,8 +46,10 @@ province =name
 # database = 'xizang'
 # province = 'xizang'
 path = 'F:/' + province + '_'
-#conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
-conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
+if database in pro6:
+    conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+else:
+    conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
 cur = conn.cursor()
 cur.execute("select DISTINCT obj_id,name,buz_type from t_buz")
 result = cur.fetchall()
