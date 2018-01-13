@@ -14,13 +14,13 @@ public class t_business_channelServiceImpl implements t_business_channelService 
     private t_business_channelMapper t;
 
     @Override
-    public List<t_business_channel> selectByPrimaryKey(String buz_id,String province) throws IOException {
-        return t.selectByPrimaryKey(buz_id,province);
+    public List<t_business_channel> selectByPrimaryKey(String buz_id) throws IOException {
+        return t.selectByPrimaryKey(buz_id);
     }
 
     @Override
-    public int count(String buz_id,String province) throws IOException {
-        int i = t.count(buz_id,province);
+    public int count(String buz_id) throws IOException {
+        int i = t.count(buz_id);
         return i;
     }
 }

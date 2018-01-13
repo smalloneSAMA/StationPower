@@ -5,8 +5,6 @@ public class t_business_channel {
 
     private String OBJ_ID;
 
-    private String province;
-
     private String OBJ_DISPIDX;
 
     private String BUSINESS_ID;
@@ -37,14 +35,6 @@ public class t_business_channel {
 
     public void setOBJ_ID(String OBJ_ID) {
         this.OBJ_ID = OBJ_ID;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
     }
 
     public String getOBJ_DISPIDX() {

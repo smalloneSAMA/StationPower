@@ -22,13 +22,13 @@
     <select id="selectByPrimaryKey" parameterType="com.demo.ssm.po.S_reliability.t_buz" resultMap="t_buzMap" >
         SELECT *
         FROM t_buz
-        WHERE BUZ_TYPE =#{BUZ_TYPE} AND OBJ_ID =#{OBJ_ID} AND province =#{province}
+        WHERE BUZ_TYPE =#{BUZ_TYPE} AND OBJ_ID =#{OBJ_ID}
     </select>
 
     <select id="count" parameterType="com.demo.ssm.po.S_reliability.t_buz" resultType="java.lang.Integer">
         SELECT COUNT(_id)
         FROM t_buz
-        WHERE BUZ_TYPE =#{BUZ_TYPE} AND OBJ_ID =#{OBJ_ID} AND province =#{province}
+        WHERE BUZ_TYPE =#{BUZ_TYPE} AND OBJ_ID =#{OBJ_ID}
     </select>
 
 </mapper>

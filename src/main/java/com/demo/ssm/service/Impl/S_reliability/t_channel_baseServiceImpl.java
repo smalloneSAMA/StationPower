@@ -14,12 +14,12 @@ public class t_channel_baseServiceImpl implements t_channel_baseService {
     private t_channel_baseMapper t ;
 
     @Override
-    public List<t_channel_base> selectByPrimaryKey(String CHANNEL_ID,String province) throws IOException {
-        return t.selectByPrimaryKey(CHANNEL_ID,province);
+    public List<t_channel_base> selectByPrimaryKey(String CHANNEL_ID) throws IOException {
+        return t.selectByPrimaryKey(CHANNEL_ID);
     }
 
     @Override
-    public int count(String CHANNEL_ID,String province) throws IOException {
-        return t.count(CHANNEL_ID,province);
+    public int count(String CHANNEL_ID) throws IOException {
+        return t.count(CHANNEL_ID);
     }
 }

@@ -116,14 +116,7 @@ public class t_fiber_seg {
     private String SYN_TIME;
 
     private float core_occ;
-    private String province;
-    public String getProvince() {
-        return province;
-    }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
     public String getOBJ_ID() {
         return OBJ_ID;
     }

@@ -37,14 +37,7 @@ public class t_sdh_cc {
     private String TMS_UPDATE_TIME;
 
     private String ARTIFICIAL;
-    private String province;
-    public String getProvince() {
-        return province;
-    }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
     public String getOBJ_ID() {
         return OBJ_ID;
     }

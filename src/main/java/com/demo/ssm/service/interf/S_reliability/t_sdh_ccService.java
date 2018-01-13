@@ -9,11 +9,11 @@ import java.util.List;
 @Service
 public interface t_sdh_ccService {
 
-    List<t_sdh_cc> select1(String A_PTP, String Z_PTP,String province) throws IOException;
+    List<t_sdh_cc> select1(String A_PTP, String Z_PTP) throws IOException;
 
     t_sdh_cc select(String A_CTP, String A_PTP,
-                          String Z_CTP, String Z_PTP,String province) throws IOException;
+                          String Z_CTP, String Z_PTP) throws IOException;
 
     int count(String A_CTP, String A_PTP,
-              String Z_CTP, String Z_PTP,String province) throws IOException;
+              String Z_CTP, String Z_PTP) throws IOException;
 }

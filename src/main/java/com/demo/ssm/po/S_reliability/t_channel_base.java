@@ -46,14 +46,7 @@ public class t_channel_base {
     private String SOURCE_OBJ_ID;
     private String TMS_UPDATE_TIME;
     private String UN_COMP_REASON;
-    private String province;
-    public String getProvince() {
-        return province;
-    }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
     public String get_Id() {
         return _id;
     }

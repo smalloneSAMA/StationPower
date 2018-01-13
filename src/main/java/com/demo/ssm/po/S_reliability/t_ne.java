@@ -141,14 +141,7 @@ public class t_ne {
     private Integer BUSINESS_AMOUNT;
 
     private Integer inTopo;
-    private String province;
-    public String getProvince() {
-        return province;
-    }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
     public String getOBJ_ID() {
         return OBJ_ID;
     }

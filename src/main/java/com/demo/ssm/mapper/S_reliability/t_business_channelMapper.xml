@@ -19,13 +19,13 @@
     <select id="selectByPrimaryKey" parameterType="String" resultMap="business_channelMap" >
         SELECT *
         FROM t_business_channel
-        WHERE BUSINESS_ID =#{buz_id} AND province =#{province}
+        WHERE BUSINESS_ID =#{buz_id}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(_id)
         FROM t_business_channel
-        WHERE BUSINESS_ID =#{buz_id} AND province =#{province}
+        WHERE BUSINESS_ID =#{buz_id}
     </select>
 
 </mapper>

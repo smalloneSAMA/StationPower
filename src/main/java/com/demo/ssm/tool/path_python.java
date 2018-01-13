@@ -32,9 +32,6 @@ public class path_python {
     public static String getRe(){
         return "E:\\360Downloads\\StationPower_zh\\src\\main\\webapp\\view\\python_all\\Fiberreliability.py";
     }
-    public static String getBuz(){
-        return "E:\\py\\new\\getBuzReliabilty.py";
-    }
 
 
 
