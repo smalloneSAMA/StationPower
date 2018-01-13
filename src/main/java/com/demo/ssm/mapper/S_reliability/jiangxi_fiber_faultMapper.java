@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface jiangxi_fiber_faultMapper {
 
-    List<jiangxi_fiber_fault> select(@Param("A_RESOBJID")String A_RESOBJID, @Param("Z_RESOBJID")String Z_RESOBJID)throws IOException;
+    List<jiangxi_fiber_fault> select(@Param("A_RESOBJID") String A_RESOBJID, @Param("Z_RESOBJID") String Z_RESOBJID)throws IOException;
 }
 

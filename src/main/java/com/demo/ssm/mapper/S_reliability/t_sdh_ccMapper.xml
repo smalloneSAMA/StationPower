@@ -30,20 +30,20 @@
     <select id="select1" parameterType="String" resultMap="sdh_ccMap1" >
         SELECT *
         FROM t_sdh_cc
-        WHERE A_PTP =#{A_PTP} OR Z_PTP =#{Z_PTP}
+        WHERE (A_PTP =#{A_PTP} OR Z_PTP =#{Z_PTP}) AND province =#{province}
     </select>
 
     <!--按照好多条件查询-->
     <select id="select" parameterType="String" resultMap="sdh_ccMap" >
         SELECT *
         FROM t_sdh_cc
-        WHERE ((A_CTP =#{A_CTP} AND A_PTP =#{A_PTP}) OR (Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP})) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0')
+        WHERE ((A_CTP =#{A_CTP} AND A_PTP =#{A_PTP}) OR (Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP})) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0') AND province =#{province}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(_id)
         FROM t_sdh_cc
-        WHERE (A_CTP =#{A_CTP} AND A_PTP =#{A_PTP} OR Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP}) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0')
+        WHERE (A_CTP =#{A_CTP} AND A_PTP =#{A_PTP} OR Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP}) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0') AND province =#{province}
     </select>
 
 </mapper>

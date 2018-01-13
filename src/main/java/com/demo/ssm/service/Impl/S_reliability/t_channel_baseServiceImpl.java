@@ -8,18 +8,19 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+
 @Service
 public class t_channel_baseServiceImpl implements t_channel_baseService {
     @Autowired
     private t_channel_baseMapper t ;
 
     @Override
-    public List<t_channel_base> selectByPrimaryKey(String CHANNEL_ID) throws IOException {
-        return t.selectByPrimaryKey(CHANNEL_ID);
+    public List<t_channel_base> selectByPrimaryKey(String CHANNEL_ID, String province) throws IOException {
+        return t.selectByPrimaryKey(CHANNEL_ID,province);
     }
 
     @Override
-    public int count(String CHANNEL_ID) throws IOException {
-        return t.count(CHANNEL_ID);
+    public int count(String CHANNEL_ID,String province) throws IOException {
+        return t.count(CHANNEL_ID,province);
     }
 }

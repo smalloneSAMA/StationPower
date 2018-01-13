@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+
 @Service
 public class t_buzServiceImpl implements t_buzService {
     @Autowired
@@ -15,7 +16,7 @@ public class t_buzServiceImpl implements t_buzService {
 
     @Override
     public List<t_buz> selectByPrimaryKey(t_buz t_buz) throws IOException {
-        List<t_buz> list=  t.selectByPrimaryKey(t_buz);
+        List<com.demo.ssm.po.S_reliability.t_buz> list=  t.selectByPrimaryKey(t_buz);
         return list;
     }
 

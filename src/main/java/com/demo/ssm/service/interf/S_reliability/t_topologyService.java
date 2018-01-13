@@ -9,7 +9,7 @@ import java.io.IOException;
 @Service
 public interface t_topologyService {
 
-    t_topology select(String A_PORT, String Z_PORT) throws IOException;
+    t_topology select(String A_PORT, String Z_PORT, String province) throws IOException;
 
-    int count(String A_PORT, String Z_PORT) throws IOException;
+    int count(String A_PORT, String Z_PORT, String province) throws IOException;
 }

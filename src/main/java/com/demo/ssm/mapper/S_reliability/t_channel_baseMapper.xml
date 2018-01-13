@@ -24,13 +24,13 @@
     <select id="selectByPrimaryKey" parameterType="String" resultMap="channel_baseMap" >
         SELECT *
         FROM t_channel_base
-        WHERE OBJ_ID =#{CHANNEL_ID}
+        WHERE OBJ_ID =#{CHANNEL_ID} AND province =#{province}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(_id)
         FROM t_channel_base
-        WHERE OBJ_ID =#{CHANNEL_ID}
+        WHERE OBJ_ID =#{CHANNEL_ID} AND province =#{province}
     </select>
 
 </mapper>

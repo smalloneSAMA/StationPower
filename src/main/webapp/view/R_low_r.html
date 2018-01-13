@@ -67,7 +67,7 @@
                 <option value="蒙东">蒙东</option>
                 <option value="宁夏">宁夏</option>
                 <option value="青海">青海</option>
-                <option value="山西">山西</option>
+                <option value="陕西">陕西</option>
                 <option value="天津">天津</option>
                 <option value="西藏">西藏</option>
                 <option value="浙江">浙江</option>
@@ -107,7 +107,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" id="lalala">
                     <table class="table table-hover">
                         <tr>
                             <th>序号</th>
@@ -146,4 +146,25 @@
     </div>
 </div>
 </body>
+<script>
+    $(function() {
+        var Str = '';
+        $.ajax({
+            url: "../../t/buz",
+            type: "post",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                Str = Str + '<table class="table table-hover"><tr><th>光缆类型</th><th>总长度</th><th>单位长度可靠性</th></tr>';
+                for(var i=0;i<data.length;i++) {
+                    Str = Str+'<tr><td>'+data[i]['序号']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+'</td><tr>';
+                }
+//                $("#lalala").html(Str);
+            },
+            error: function (data) {
+                alert("输入的id错误");
+            }
+        });
+    });
+</script>
 </html>
