@@ -49,9 +49,9 @@ public class t_channel_baseController {
 
     @RequestMapping("/tu")
     @ResponseBody
-    public ArrayList<String> tu(String buz_id){
-        String buz_type = "1";
-//        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
+    public ArrayList<String> tu(){
+        String buz_type = "3";
+        String buz_id = "EA7CDA62-946B-44AE-8D8A-E8AF8CD5266C-25066";
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         ArrayList<String> list = new ArrayList<String>();
@@ -184,7 +184,7 @@ public class t_channel_baseController {
         String buz_id = request.getSession().getAttribute("buz_id").toString();
 
         //调用tu方法获得设备id集合
-        List<String> list = tu(buz_id);
+        List<String> list = tu();
 
         //集合去重复
         LinkedHashSet<String> lhs = new LinkedHashSet<>();
@@ -229,7 +229,7 @@ public class t_channel_baseController {
 //        String buz_id = request.getSession().getAttribute("buz_id").toString();
 
         //调用tu方法获得设备id集合
-        List<String> list = tu(buz_id);
+        List<String> list = tu();
 
         int len = list.size();
         JSONArray jsonArray = new JSONArray();
