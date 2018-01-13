@@ -32,6 +32,9 @@ public class path_python {
     public static String getRe(){
         return "E:\\py\\receive\\Fiberreliability.py";
     }
+    public static String getBuz(){
+        return "E:\\py\\new\\getBuzReliabilty.py";
+    }
 
 
 

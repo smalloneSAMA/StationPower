@@ -15,7 +15,7 @@ public class t_alarm_cleanServiceImpl implements t_alarm_cleanService {
     private t_alarm_cleanMapper t;
 
     @Override
-    public List<t_alarm_clean> select(String OBJ_ID) throws IOException {
-        return t.select(OBJ_ID);
+    public List<t_alarm_clean> select(String OBJ_ID,String province) throws IOException {
+        return t.select(OBJ_ID,province);
     }
 }

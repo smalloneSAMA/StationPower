@@ -4,7 +4,7 @@ public class t_buz {
     private String _id;
 
     private String OBJ_ID;
-
+    private String province;
     private String OBJ_DISPIDX;
 
     private String NAME;
@@ -33,6 +33,13 @@ public class t_buz {
     private String CHANNEL_CAPACITY;
     private String BUZ_RATE;
     private String MANAGEMENT_NAME;
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
     public String get_id() {
         return _id;

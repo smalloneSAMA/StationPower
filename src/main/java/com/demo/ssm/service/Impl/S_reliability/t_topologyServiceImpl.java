@@ -16,12 +16,12 @@ public class t_topologyServiceImpl implements t_topologyService {
     private t_topologyMapper t;
 
     @Override
-    public t_topology select(String A_PORT, String Z_PORT) throws IOException {
-        return t.select(A_PORT,Z_PORT);
+    public t_topology select(String A_PORT, String Z_PORT,String province) throws IOException {
+        return t.select(A_PORT,Z_PORT,province);
     }
 
     @Override
-    public int count(String A_PORT, String Z_PORT) throws IOException {
-        return t.count(A_PORT,Z_PORT);
+    public int count(String A_PORT, String Z_PORT,String province) throws IOException {
+        return t.count(A_PORT,Z_PORT,province);
     }
 }

@@ -15,7 +15,7 @@
     <select id="select" parameterType="String" resultMap="weibullMap" >
         SELECT *
         FROM t_weibull
-        WHERE NE_OBJ_ID=#{NE_OBJ_ID}
+        WHERE NE_OBJ_ID=#{NE_OBJ_ID} AND province =#{province}
     </select>
 
 </mapper>

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.demo.ssm.mapper.S_reliability.t_fuber_faultMapper" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.jiangxi_fiber_faultMapper" >
 
     <!--结果映射-->
-    <resultMap id="fuber_faultMap" type="com.demo.ssm.po.S_reliability.t_fuber_fault">
+    <resultMap id="fuber_faultMap" type="com.demo.ssm.po.S_reliability.jiangxi_fiber_fault">
         <id column="OBJ_ID" property="OBJ_ID" jdbcType="VARCHAR"/>
         <result column="LENGTH" property="LENGTH" jdbcType="VARCHAR"/>
         <result column="LINE_NUMBER" property="LINE_NUMBER" jdbcType="VARCHAR"/>
+        <result column="FIBER_TYPE" property="FIBER_TYPE" jdbcType="VARCHAR"/>
 
     </resultMap>
 
     <!--按照好多条件查询-->
     <select id="select" parameterType="String" resultMap="fuber_faultMap" >
         SELECT *
-        FROM t_fuber_fault
-        WHERE A_RESOBJID=#{A_RESOBJID} AND Z_RESOBJID=#{Z_RESOBJID}
+        FROM jiangxi_fiber_fault
+        WHERE A_RESOBJID=#{A_RESOBJID} AND Z_RESOBJID=#{Z_RESOBJID} OR Z_RESOBJID=#{A_RESOBJID} AND A_RESOBJID=#{Z_RESOBJID}
     </select>
 
 </mapper>

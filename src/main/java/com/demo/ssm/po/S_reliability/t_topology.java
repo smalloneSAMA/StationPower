@@ -24,7 +24,14 @@ public class t_topology {
     private String TMS_UPDATE_TIME;
     private String ABBR;
     private String ARTIFICIAL;
+    private String province;
+    public String getProvince() {
+        return province;
+    }
 
+    public void setProvince(String province) {
+        this.province = province;
+    }
     public String get_id() {
         return _id;
     }

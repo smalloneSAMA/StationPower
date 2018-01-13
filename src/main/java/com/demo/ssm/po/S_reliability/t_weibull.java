@@ -17,7 +17,14 @@ public class t_weibull {
     private String P;
 
     private String ERROR;
+    private String province;
+    public String getProvince() {
+        return province;
+    }
 
+    public void setProvince(String province) {
+        this.province = province;
+    }
     public String getNE_OBJ_ID() {
         return NE_OBJ_ID;
     }

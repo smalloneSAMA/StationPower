@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_reliability.jiangxi_ne_reMapper" >
+
+    <!--结果映射-->
+    <resultMap id="jiangxi_ne_reMap" type="com.demo.ssm.po.S_reliability.jiangxi_ne_re">
+        <id column="OBJ_ID" property="OBJ_ID" jdbcType="VARCHAR"/>
+        <result column="BEG_TIME" property="BEG_TIME" jdbcType="VARCHAR"/>
+        <result column="PRODUCER_ID" property="PRODUCER_ID" jdbcType="VARCHAR"/>
+        <result column="DEV_TYPE" property="DEV_TYPE" jdbcType="VARCHAR"/>
+        <result column="WORK_YEAR" property="WORK_YEAR" jdbcType="VARCHAR"/>
+        <result column="Reliability" property="Reliability" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--按照好多条件查询-->
+    <select id="select" parameterType="String" resultMap="jiangxi_ne_reMap" >
+        SELECT *
+        FROM jiangxi_ne_re
+        WHERE OBJ_ID=#{OBJ_ID}
+    </select>
+
+</mapper>

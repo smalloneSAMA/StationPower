@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface t_business_channelService {
-    List<t_business_channel> selectByPrimaryKey(String buz_id) throws IOException;
+    List<t_business_channel> selectByPrimaryKey(String buz_id, String province) throws IOException;
 
-    int count(String buz_id) throws IOException;
+    int count(String buz_id, String province) throws IOException;
 }

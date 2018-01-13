@@ -15,8 +15,8 @@ public class t_weibullServiceImpl implements t_weibullService {
     private t_weibullMapper t;
 
     @Override
-    public t_weibull select(String id) throws IOException{
-        return t.select(id);
+    public t_weibull select(String id,String province) throws IOException{
+        return t.select(id,province);
 
     }
 }

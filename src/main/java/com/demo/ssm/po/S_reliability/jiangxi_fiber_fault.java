@@ -1,6 +1,6 @@
 package com.demo.ssm.po.S_reliability;
 
-public class t_fuber_fault {
+public class jiangxi_fiber_fault {
 
     private String OBJ_ID;
 
@@ -23,6 +23,12 @@ public class t_fuber_fault {
     private String ALARM_TIME;
 
     private String ALARM_TIME_NEW;
+    private String province;
+    private String NAME;
+
+    private String FIBER_TYPE;
+
+    private String LINE_NUMBER_USED;
 
     public String getOBJ_ID() {
         return OBJ_ID;
@@ -110,5 +116,37 @@ public class t_fuber_fault {
 
     public void setALARM_TIME_NEW(String ALARM_TIME_NEW) {
         this.ALARM_TIME_NEW = ALARM_TIME_NEW;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
+    }
+
+    public String getFIBER_TYPE() {
+        return FIBER_TYPE;
+    }
+
+    public void setFIBER_TYPE(String FIBER_TYPE) {
+        this.FIBER_TYPE = FIBER_TYPE;
+    }
+
+    public String getLINE_NUMBER_USED() {
+        return LINE_NUMBER_USED;
+    }
+
+    public void setLINE_NUMBER_USED(String LINE_NUMBER_USED) {
+        this.LINE_NUMBER_USED = LINE_NUMBER_USED;
     }
 }

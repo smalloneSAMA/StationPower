@@ -6,6 +6,8 @@ public class t_alarm_clean {
 
     private String NE_NAME;
 
+    private String province;
+
     private String DEV_TYPE_NAME;
 
     private String PRODUCER_NAME;
@@ -19,6 +21,14 @@ public class t_alarm_clean {
     private String ALARM_NUM;
 
     private String ALARM_TIME;
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
     public String getNE_OBJ_ID() {
         return NE_OBJ_ID;

@@ -21,13 +21,13 @@
     <select id="select" parameterType="String" resultMap="topologyMap" >
         SELECT *
         FROM t_topology
-        WHERE A_PORT =#{A_PORT} OR Z_PORT =#{Z_PORT}
+        WHERE (A_PORT =#{A_PORT} OR Z_PORT =#{Z_PORT}) AND province =#{province}
     </select>
 
     <select id="count" parameterType="String" resultType="java.lang.Integer">
         SELECT COUNT(_id)
         FROM t_topology
-        WHERE A_PORT =#{A_PORT} OR Z_PORT =#{Z_PORT}
+        WHERE (A_PORT =#{A_PORT} OR Z_PORT =#{Z_PORT}) AND province =#{province}
     </select>
 
 </mapper>
