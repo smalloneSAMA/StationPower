@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--360浏览器优先以webkit内核解析-->
+
+
+    <title>智能电网通信大数据分析系统首页</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="row" >
+
+    <!--数据质量-->
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 0px">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>数据质量</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 26%">
+                    <option selected id="BT" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
+                    <option id="BR" value="../../S_data/buz_rate_diff_pin">业务带宽-准确率</option>
+                    <option  id="CT" value="../../S_data/channel_type_diff_pin">通道类型-准确率</option>
+                    <option id="CR" value="../../S_data/channel_rate_diff_pin">通道速率-准确率</option>
+                    <option id="IT" value="../../S_data/interface_type_diff_pin">接口类型-准确率</option>
+                </select>
+                <div id="pin" style="height: 400px;"></div>
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <!--设备画像-->
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 0px">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>设备画像</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+               <!-- <select onchange="data_paint()" class="form-control" id="paint_select" style="width: 26%">
+                    <option value="0" >北京</option>
+                    <option value="1">福建</option>
+                    <option value="2">河北</option>
+                    <option value="3">黑龙江</option>
+                    <option value="4">河南</option>
+                    <option value="5">湖北</option>
+                    <option value="6">蒙东</option>
+                    <option value="7">宁夏</option>
+                    <option value="8">陕西</option>
+                    <option value="9">四川</option>
+                    <option value="10">天津</option>
+                    <option value="11">西藏</option>
+                    <option value="12">浙江</option>
+                    <option value="13">江西</option>
+                    <option value="14">江苏</option>
+                    <option value="15">山东</option>
+                    <option value="16">山西</option>
+                    <option value="17">重庆</option>
+                </select>-->
+                <div id="paint" style="height: 434px;"></div>
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <!--业务可靠性-->
+    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-bottom: 0px;">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>业务可靠性</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+
+                <div style="height: 439px; "><div id="reb" style="width: 100%;height: 100%"></div></div>
+                <!--<img style="height: 90%;width: 90%" src="shouye.jpg">-->
+
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <!--通信网优化-->
+    <div class="col-sm-6" style="opacity: 1;z-index: 0">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>通信网优化</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="graph_flot.html#">选项1</a>
+                        </li>
+                        <li><a href="graph_flot.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <div id="main" style="width:100%;height: 439px"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="S_js/echarts.js"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.5"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+<script src="js/content.min.js"></script>
+<script src="js/welcome.min.js"></script>
+<script src="S_js/jiangxi.js"></script>
+<script src="S_js/china.js"></script>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    data_pin();
+    paint1();
+})
+    /*
+     *数据质量饼图
+    */
+    //    画图
+    function pin(data) {
+
+        aa = data.a;
+        bb = data.b;
+        cc = data.c;
+        dd = data.d;
+
+
+        var pinCharts = echarts.init(document.getElementById("pin"));
+        option_pin = {
+            title: {
+                text: '准确率情况统计',
+//                subtext: '虚构数据',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                // orient: 'vertical',
+                // top: 'middle',
+                bottom: 10,
+                left: 'center',
+                data: ['100%~95%', '90%~95%','80%~90%', '<80%']
+            },
+            series: [
+                {
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    selectedMode: 'single',
+                    data: [
+                        {value: aa, name: '100%~95%'},
+                        {value: bb, name: '90%~95%'},
+                        {value: cc, name: '80%~90%'},
+                        {value: dd, name: '<80%'},
+
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        pinCharts.setOption(option_pin);
+        $(window).resize(pinCharts.resize);
+    }
+
+//    数据获取
+    function data_pin() {
+        var a = $("#pin_select").val();
+        $.ajax({
+            async:false,
+            url: a,
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                pin(data);
+            }
+        })
+    }
+
+    /*
+     *设备画像
+     *
+    */
+
+
+function paint1() {
+
+    var paintCharts = echarts.init(document.getElementById("paint"))
+
+    var data={
+        "company":[
+            "ECI",
+            "NEC",
+            "中兴",
+            "华为",
+            "和记奥普泰",
+            "阿尔卡特",
+            "马可尼",
+            "所有厂家"
+        ],
+
+
+        "timeline":[
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+        ],
+
+        "series":[
+            [
+                [
+                    10*16370/10000+1,
+                    1.63709087,
+                    16370,
+                    "ECI",
+                    2
+                ],
+                [
+                    10*1465/10000+1,
+                    0.14656854,
+                    1465,
+                    "NEC",
+                    2
+                ],
+                [
+                    10*281/10000+1,
+                    0.02818791,
+                    281,
+                    "中兴",
+                    2
+                ],
+                [
+                    10*4942/10000+1,
+                    0.49423201,
+                    4942,
+                    "华为",
+                    2
+                ],
+                [
+                    10*2262/10000+1,
+                    0.22620060,
+                    2262,
+                    "和记奥普泰",
+                    2
+                ],
+                [
+                    10*9866/10000+1,
+                    0.98661420,
+                    9866,
+                    "阿尔卡特",
+                    2
+                ],
+                [
+                    10*3655/10000+1,
+                    0.365549045,
+                    3655,
+                    "马可尼",
+                    2
+                ],
+                [
+                    10*4644/10000+1,
+                    0.464419678,
+                    4644,
+                    "所有厂家",
+                    2
+                ]
+            ],
+            [
+                [
+                    10*17867/10000+1,
+                    1.78677801,
+                    17867,
+                    "ECI",
+                    3
+                ],
+                [
+                    10*1765/10000+1,
+                    0.17656854249492379,
+                    1765,
+                    "NEC",
+                    3
+                ],
+                [
+                    10*981/10000+1,
+                    0.098192404974626682,
+                    981,
+                    "中兴",
+                    3
+                ],
+                [
+                    10*7712/10000+1,
+                    0.77121035024695028,
+                    7712,
+                    "华为",
+                    3
+                ],
+                [
+                    10*3647/10000+1,
+                    0.36476545748380518,
+                    3647,
+                    "和记奥普泰",
+                    3
+                ],
+                [
+                    10*7868/10000+1,
+                    0.78685269214379483,
+                    7868,
+                    "阿尔卡特",
+                    3
+                ],
+                [
+                    10*9726/10000+1,
+                    0.97268024974831413,
+                    9726,
+                    "马可尼",
+                    3
+                ],
+                [
+                    10*5153/10000+1,
+                    0.51533415103305302,
+                    5153,
+                    "所有厂家",
+                    3
+                ]
+            ],
+            [
+                [
+                    10*16764/10000+1,
+                    1.67647825,
+                    16764,
+                    "ECI",
+                    4
+                ],
+                [
+                    10*2465/10000+1,
+                    0.24656854249492379,
+                    2465,
+                    "NEC",
+                    4
+                ],
+                [
+                    10*1091/10000+1,
+                    0.10919562219826559,
+                    1091,
+                    "中兴",
+                    4
+                ],
+                [
+                    10*10643/10000+1,
+                    1.0643173647656921,
+                    10643,
+                    "华为",
+                    4
+                ],
+                [
+                    10*949/10000+1,
+                    0.094905328994695143,
+                    949,
+                    "和记奥普泰",
+                    4
+                ],
+                [
+                    10*13583/10000+1,
+                    1.3583204126950941,
+                    13583,
+                    "阿尔卡特",
+                    4
+                ],
+                [
+                    10*8721/10000+1,
+                    0.87215039778110093,
+                    8721,
+                    "马可尼",
+                    4
+                ],
+                [
+                    10*6053/10000+1,
+                    0.60537576850912833,
+                    6053,
+                    "所有厂家",
+                    4
+                ]
+            ],
+            [
+                [
+                    10*15450/10000+1,
+                    1.54506712,
+                    15450,
+                    "ECI",
+                    5
+                ],
+                [
+                    10*3297/10000+1,
+                    0.32970562748477134,
+                    3297,
+                    "NEC",
+                    5
+                ],
+                [
+                    10*3091/10000+1,
+                    0.30910659591872719,
+                    3091,
+                    "中兴",
+                    5
+                ],
+                [
+                    10*3091/10000+1,
+                    0.30910659591872719,
+                    3091,
+                    "华为",
+                    5
+                ],
+                [
+                    10*1037/10000+1,
+                    0.10377358490566038,
+                    1037,
+                    "和记奥普泰",
+                    5
+                ],
+                [
+                    10*11760/10000+1,
+                    1.176027284672627,
+                    11760,
+                    "阿尔卡特",
+                    5
+                ],
+                [
+                    10*11220/10000+1,
+                    1.1220728083700291,
+                    11220,
+                    "马可尼",
+                    5
+                ],
+                [
+                    10*6232/10000+1,
+                    0.62321688320740221,
+                    6232,
+                    "所有厂家",
+                    5
+                ]
+            ],
+            [
+                [
+                    10*15441/10000+1,
+                    1.54416341,
+                    15441,
+                    "ECI",
+                    6
+                ],
+                [
+                    10*4797/10000+1,
+                    0.47970562748477134,
+                    4797,
+                    "NEC",
+                    6
+                ],
+                [
+                    10*3382/10000+1,
+                    0.33820899760960377,
+                    3382,
+                    "中兴",
+                    6
+                ],
+                [
+                    10*11020/10000+1,
+                    1.1020786960777393,
+                    11020,
+                    "华为",
+                    6
+                ],
+                [
+                    10*2294/10000+1,
+                    0.22940668195600725,
+                    2294,
+                    "和记奥普泰",
+                    6
+                ],
+                [
+                    10*16003/10000+1,
+                    1.6003566273832688,
+                    16003,
+                    "阿尔卡特",
+                    6
+                ],
+                [
+                    10*11765/10000+1,
+                    1.1765441463212571,
+                    11765,
+                    "马可尼",
+                    6
+                ],
+                [
+                    10*8085/10000+1,
+                    0.80857900362398716,
+                    8085,
+                    "所有厂家",
+                    6
+                ]
+            ],
+            [
+                [
+
+                    10*15433/10000+1,
+                    1.54338243,
+                    15433,
+                    "ECI",
+                    7
+                ],
+                [
+                    10*6718/10000+1,
+                    0.67189461955053043,
+                    6718,
+                    "NEC",
+                    7
+                ],
+                [
+                    10*3325/10000+1,
+                    0.33251362772766752,
+                    3325,
+                    "中兴",
+                    7
+                ],
+                [
+                    10*10888/10000+1,
+                    1.0888821437968612,
+                    10888,
+                    "华为",
+                    7
+                ],
+                [
+                    10*2554/10000+1,
+                    0.25541946016362482,
+                    2554,
+                    "和记奥普泰",
+                    7
+                ],
+                [
+                    10*18349/10000+1,
+                    1.8349369577208221,
+                    18349,
+                    "阿尔卡特",
+                    7
+                ],
+                [
+                    10*11965/10000+1,
+                    1.1965441463212571,
+                    11965,
+                    "马可尼",
+                    7
+                ],
+                [
+                    10*7685/10000+1,
+                    0.76857900362398716,
+                    7685,
+                    "所有厂家",
+                    7
+                ]
+            ],
+            [
+                [
+                    10*19809/10000+1,
+                    1.98098659,
+                    19809,
+                    "ECI",
+                    8
+                ],
+                [
+                    10*7424/10000+1,
+                    0.74248506395510305,
+                    7424,
+                    "NEC",
+                    8
+                ],
+                [
+                    10*3938/10000+1,
+                    0.39384918775966732,
+                    3938,
+                    "中兴",
+                    8
+                ],
+                [
+                    10*9588/10000+1,
+                    0.9588821437968612,
+                    9588,
+                    "华为",
+                    8
+                ],
+                [
+                    10*2076/10000+1,
+                    0.20764120448205894,
+                    2076,
+                    "和记奥普泰",
+                    8
+                ],
+                [
+                    10*14565/10000+1,
+                    1.4565771305303485,
+                    14565,
+                    "阿尔卡特",
+                    8
+                ],
+                [
+                    10*7283/10000+1,
+                    0.72835516722818505,
+                    7283,
+                    "马可尼",
+                    8
+                ],
+                [
+                    10*7208/10000+1,
+                    0.72088703698018053,
+                    7208,
+                    "所有厂家",
+                    8
+                ]
+            ],
+            [
+                [
+                    10*20564/10000+1,
+                    2.05644592,
+                    20564,
+                    "ECI",
+                    9
+                ],
+                [
+                    10*4670/10000+1,
+                    0.4670647634931786,
+                    4670,
+                    "NEC",
+                    9
+                ],
+                [
+                    10*4274/10000+1,
+                    0.42748930087219877,
+                    4274,
+                    "中兴",
+                    9
+                ],
+                [
+                    10*8777/10000+1,
+                    0.87773531567081164,
+                    8777,
+                    "华为",
+                    9
+                ],
+                [
+                    10*3953/10000+1,
+                    0.39534717281711768,
+                    3953,
+                    "和记奥普泰",
+                    9
+                ],
+                [
+                    10*15431/10000+1,
+                    1.543110164011579,
+                    15431,
+                    "阿尔卡特",
+                    9
+                ],
+                [
+                    10*8083/10000+1,
+                    0.80835516722818505,
+                    8083,
+                    "马可尼",
+                    9
+                ],
+                [
+                    10*7639/10000+1,
+                    0.76392928807224481,
+                    7639,
+                    "所有厂家",
+                    9
+                ]
+            ],
+            [
+                [
+                    10*21918/10000+1,
+                    2.19185923,
+                    21918,
+                    "ECI",
+                    10
+                ],
+                [
+                    10*22024/10000+1,
+                    2.2024243329836208,
+                    22024,
+                    "NEC",
+                    10
+                ],
+                [
+                    10*3448/10000+1,
+                    0.3448930087219877,
+                    3448,
+                    "中兴",
+                    10
+                ],
+                [
+                    10*9477/10000+1,
+                    0.94773531567081164,
+                    9477,
+                    "华为",
+                    10
+                ],
+                [
+                    10*3678/10000+1,
+                    0.36781205133704598,
+                    3678,
+                    "和记奥普泰",
+                    10
+                ],
+                [
+                    10*5736/10000+1,
+                    0.57369875842369533,
+                    5736,
+                    "阿尔卡特",
+                    10
+                ],
+                [
+                    10*8844/10000+1,
+                    0.88440250630752726,
+                    8844,
+                    "马可尼",
+                    10
+                ],
+                [
+                    10*7339/10000+1,
+                    0.73392928807224481,
+                    7339,
+                    "所有厂家",
+                    10
+                ]
+            ],
+            [
+                [
+
+                    10*17084/10000+1,
+                    1.70843300,
+                    17084,
+                    "ECI",
+                    11
+                ],
+                [
+                    10*16193/10000+1,
+                    1.6193492155017024,
+                    16193,
+                    "NEC",
+                    11
+                ],
+                [
+                    10*3974/10000+1,
+                    0.3974893008721987,
+                    3974,
+                    "中兴",
+                    11
+                ],
+                [
+                    10*9921/10000+1,
+                    0.99215849155761837,
+                    9921,
+                    "华为",
+                    11
+                ],
+                [
+                    10*3378/10000+1,
+                    0.33781205133704598,
+                    3378,
+                    "和记奥普泰",
+                    11
+                ],
+                [
+                    10*9036/10000+1,
+                    0.90369875842369533,
+                    9036,
+                    "阿尔卡特",
+                    11
+                ],
+                [
+                    10*8496/10000+1,
+                    0.84967532994074635,
+                    8496,
+                    "马可尼",
+                    11
+                ],
+                [
+                    10*7160/10000+1,
+                    0.71600538982210959,
+                    7160,
+                    "所有厂家",
+                    11
+                ]
+            ],
+            [
+                [
+                    10*12053/10000+1,
+                    1.20539908,
+                    12053,
+                    "ECI",
+                    12
+                ],
+                [
+                    10*11493/10000+1,
+                    1.1493492155017024,
+                    11493,
+                    "NEC",
+                    12
+                ],
+                [
+                    10*3774/10000+1,
+                    0.37748930087219877,
+                    3774,
+                    "中兴",
+                    12
+                ],
+                [
+                    10*9521/10000+1,
+                    0.95215849155761837,
+                    9521,
+                    "华为",
+                    12
+                ],
+                [
+                    10*3378/10000+1,
+                    0.33781205133704598,
+                    3378,
+                    "和记奥普泰",
+                    12
+                ],
+                [
+                    10*13013/10000+1,
+                    1.3013698724910514,
+                    13013,
+                    "阿尔卡特",
+                    12
+                ],
+                [
+                    10*8246/10000+1,
+                    0.82467532994074635,
+                    8246,
+                    "马可尼",
+                    12
+                ],
+                [
+                    10*6860/10000+1,
+                    0.68600538982210959,
+                    6860,
+                    "所有厂家",
+                    12
+                ]
+            ],
+            [
+                [
+                    10*13445/10000+1,
+                    1.34455178,
+                    13445,
+                    "ECI",
+                    13
+                ],
+                [
+                    10*11103/10000+1,
+                    1.1103982707557681,
+                    11103,
+                    "NEC",
+                    13
+                ],
+                [
+                    10*3374/10000+1,
+                    0.33748930087219877,
+                    3374,
+                    "中兴",
+                    13
+                ],
+                [
+                    10*9321/10000+1,
+                    0.93215849155761837,
+                    9321,
+                    "华为",
+                    13
+                ],
+                [
+                    10*3678/10000+1,
+                    0.36781205133704598,
+                    3678,
+                    "和记奥普泰",
+                    13
+                ],
+                [
+                    10*14013/10000+1,
+                    1.4013698724910514,
+                    14013,
+                    "阿尔卡特",
+                    13
+                ],
+                [
+                    10*9644/10000+1,
+                    0.96440250630752726,
+                    9644,
+                    "马可尼",
+                    13
+                ],
+                [
+                    10*7260/10000+1,
+                    0.72600538982210959,
+                    7260,
+                    "所有厂家",
+                    13
+                ]
+            ],
+            [
+                [
+                    10*13094/10000+1,
+                    1.30943398,
+                    13094,
+                    "ECI",
+                    14
+                ],
+                [
+                    10*9888/10000+1,
+                    0.98888713890516718,
+                    9888,
+                    "NEC",
+                    14
+                ],
+                [
+                    10*2657/10000+1,
+                    0.26573785338108025,
+                    2657,
+                    "中兴",
+                    14
+                ],
+                [
+                    10*8860/10000+1,
+                    0.88601211096744609,
+                    8860,
+                    "华为",
+                    14
+                ],
+                [
+                    10*3978/10000+1,
+                    0.39781205133704598,
+                    3978,
+                    "和记奥普泰",
+                    14
+                ],
+                [
+                    10*15013/10000+1,
+                    1.5013698724910514,
+                    15013,
+                    "阿尔卡特",
+                    14
+                ],
+                [
+                    10*8145/10000+1,
+                    0.81450535990449591,
+                    8145,
+                    "马可尼",
+                    14
+                ],
+                [
+                    10*6979/10000+1,
+                    0.69796272828396441,
+                    6979,
+                    "所有厂家",
+                    14
+                ]
+            ],
+            [
+                [
+
+                    10*13144/10000+1,
+                    1.31445358,
+                    13144,
+                    "ECI",
+                    15
+                ],
+                [
+                    10*9488/10000+1,
+                    0.94888713890516718,
+                    9488,
+                    "NEC",
+                    15
+                ],
+                [
+                    10*2957/10000+1,
+                    0.29573785338108025,
+                    2957,
+                    "中兴",
+                    15
+                ],
+                [
+                    10*8360/10000+1,
+                    0.83601211096744609,
+                    8360,
+                    "华为",
+                    15
+                ],
+                [
+                    10*3378/10000+1,
+                    0.33781205133704598,
+                    3378,
+                    "和记奥普泰",
+                    15
+                ],
+                [
+                    10*14013/10000+1,
+                    1.4013698724910514,
+                    14013,
+                    "阿尔卡特",
+                    15
+                ],
+                [
+                    10*8145/10000+1,
+                    0.81450535990449591,
+                    8145,
+                    "马可尼",
+                    15
+                ],
+                [
+                    10*6679/10000+1,
+                    0.66796272828396441,
+                    6679,
+                    "所有厂家",
+                    15
+                ]
+            ],
+            [
+                [
+                    10*13178/10000+1,
+                    1.31783956,
+                    13178,
+                    "ECI",
+                    16
+                ],
+                [
+                    10*10888/10000+1,
+                    1.08888713890516718,
+                    10888,
+                    "NEC",
+                    16
+                ],
+                [
+                    10*2457/10000+1,
+                    0.24573785338108025,
+                    2457,
+                    "中兴",
+                    16
+                ],
+                [
+                    10*8260/10000+1,
+                    0.82601211096744609,
+                    8260,
+                    "华为",
+                    16
+                ],
+                [
+                    10*3478/10000+1,
+                    0.34781205133704598,
+                    3478,
+                    "和记奥普泰",
+                    16
+                ],
+                [
+                    10*12013/10000+1,
+                    1.2013698724910514,
+                    12013,
+                    "阿尔卡特",
+                    16
+                ],
+                [
+                    10*7945/10000+1,
+                    0.79450535990449591,
+                    7945,
+                    "马可尼",
+                    16
+                ],
+                [
+                    10*6179/10000+1,
+                    0.61796272828396441,
+                    6179,
+                    "所有厂家",
+                    16
+                ]
+            ]
+        ]
+
+    }
+    var itemStyle = {
+        normal: {
+            opacity: 0.9,
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+    };
+
+    var sizeFunction = function (x) {
+        var y = Math.sqrt(x / 1000) ;
+        return y*10 ;
+    };
+    // Schema:
+    var schema = [
+        {name: 'Company', index: 0, text: '公司', unit: ''},
+        {name: 'Rate', index: 1, text: '故障率', unit: '次/年'}
+//        {name: 'Income', index: 0, text: '人均收入', unit: '美元'},
+//        {name: 'Population', index: 2, text: '总人口', unit: ''},
+    ];
+    option_paint = {
+        baseOption: {
+            timeline: {
+
+                axisType: 'category',
+                orient: 'vertical',
+                autoPlay: true,
+                inverse: true,
+                playInterval: 1000,
+                left: null,
+                right: 0,
+                top: 20,
+                bottom: 20,
+                width: 55,
+                height: null,
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#1ab394'
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#000'
+                        }
+                    }
+                },
+                symbol: 'none',
+                lineStyle: {
+                    color: '#1ab394'
+                },
+                checkpointStyle: {
+                    color: '#bbb',
+                    borderColor: '#777',
+                    borderWidth: 2
+                },
+                controlStyle: {
+                    showNextBtn: false,
+                    showPrevBtn: false,
+                    normal: {
+                        color: '#666',
+                        borderColor: '#666'
+                    },
+                    emphasis: {
+                        color: '#aaa',
+                        borderColor: '#aaa'
+                    }
+                },
+                data: []
+            },
+            backgroundColor: '#ffffff',
+            title: [{
+                text: data.timeline[0],
+                textAlign: 'center',
+                left: '80%',
+                top: '61%',
+                textStyle: {
+                    fontSize: 80,
+                    color: '#1ab394'
+                }
+            }, {
+                text: '各厂家设备与使用年限关系演变',
+                left: 'center',
+                top: 10,
+                textStyle: {
+                    color: '#000',
+//                    fontWeight: 'normal',
+                    fontSize: 20
+                }
+            }],
+            tooltip: {
+                padding: 5,
+                backgroundColor: '#222',
+                borderColor: '#777',
+                borderWidth: 1,
+                formatter: function (obj) {
+                    var value = obj.value;
+                    return schema[1].text + '：' + value[1] + '<br>'
+                          + schema[0].text + '：' + value[3] + schema[0].unit + '<br>';
+                }
+            },
+            legend: {
+                x: "center",
+                bottom: 50,
+                data: ['ECI', 'NEC', '中兴','华为','和记奥普泰','阿尔卡特','马可尼','所有厂家']
+            },
+            grid: {
+                top: 100,
+                containLabel: true,
+                left: 30,
+                right: '110'
+            },
+            xAxis: {
+                type: 'value',
+                name: '离散',
+                max: 25,
+                min: 0,
+                nameGap: 25,
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    fontSize: 18
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#000'
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: '故障率',
+                max: 2.5,
+                nameTextStyle: {
+                    color: '#000',
+                    fontSize: 18
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#000'
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    formatter: '{value} 次/年'
+                }
+            },
+            visualMap: [
+                {
+                    show: false,
+                    dimension: 3,
+                    categories: data.company,
+                    calculable: true,
+                    precision: 0.1,
+                    textGap: 30,
+                    textStyle: {
+                        color: '#ccc'
+                    },
+                    inRange: {
+                        color: (function () {
+//                            var colors = ['#bcd3bb', '#e88f70', '#edc1a5', '#9dc5c8', '#e1e8c8', '#7b7c68', '#e5b5b5', '#f0b489', '#928ea8', '#bda29a'];
+                            var colors = ['#bcd3bb','#e88f70','#edc1a5','#9dc5c8','#e1e8c8', '#7b7c68', '#e5b5b5', '#f0b489'];
+                            return colors.concat(colors);
+                        })()
+                    }
+                }
+            ],
+
+            series: [
+                {
+                    type: 'scatter',
+                    itemStyle: itemStyle,
+                    data: data.series[0],
+                    symbolSize: function(val) {
+                        return sizeFunction(val[1]);
+                    }
+                }
+            ],
+            animationDurationUpdate: 1000,
+            animationEasingUpdate: 'quinticInOut'
+        },
+        options: [],
+
+    };
+
+    for (var n = 0; n < data.timeline.length; n++) {
+        option_paint.baseOption.timeline.data.push(data.timeline[n]);
+        option_paint.options.push({
+            title: {
+                show: true,
+                'text': data.timeline[n] + ''
+            },
+            series: {
+                name: data.timeline[n],
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: data.series[n],
+                symbolSize: function(val) {
+                    return sizeFunction(val[2]);
+                }
+            }
+        });
+    }
+    paintCharts.setOption(option_paint);
+    $(window).resize(paintCharts.resize);
+
+}
+
+
+
+/*    //闪频变化画图
+    function paint_bar(data) {
+
+        var AverageError = new Array();
+        var Strobe12hours = new Array();
+        var Strobe24hours = new Array();
+        var Strobe48hours = new Array();
+        var Province = new Array();
+        var va = $("#paint_select").val();
+        var Edata = new Array();
+
+        //取出数据
+        $.each(data, function (i, item) {
+            Province[i] = item.Province;
+            AverageError[i] = item.AverageError;
+            Strobe12hours[i] = item.Strobe12hours;
+            Strobe24hours[i] = item.Strobe24hours;
+            Strobe48hours[i] = item.Strobe48hours;
+        });
+
+        var prov = Province[va];
+        Edata = [AverageError[va],Strobe12hours[va],Strobe24hours[va],Strobe48hours[va]];
+
+//        var a = $("#paint_select").val();
+        var paintCharts = echarts.init(document.getElementById("paint"));
+
+//        app.title = '设备故障预测检验';
+
+        option_paint = {
+            title: {
+                text: prov+'设备故障预测检验',
+                subtext: '不同闪频时间间隔下的误差',
+                left: 'center'
+            },
+
+            color: ['#3398DB'],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['平均误差', '闪频12小时', '闪频24小时', '闪频48小时'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'误差',
+                    type:'bar',
+                    barWidth: '50%',
+                    data:Edata
+                }
+            ]
+        };
+
+        paintCharts.setOption(option_paint);
+        $(window).resize(paintCharts.resize);
+
+    }
+
+//    获取数据
+    function data_paint() {
+    //从数据库获取各省份检验的数据
+    $.ajax({
+        url: "../../Province_Check/select",
+        type: "post",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+
+            paint_bar(data);
+
+        },
+        error: function (data) {
+            if (data.result == "error") {
+                alert("出现异常");
+            }
+        }
+    });
+}*/
+
+/*
+    *业务可靠性影响因素
+    */
+   /* var rebChart1 = echarts.init(document.getElementById('reb'));
+    option_reb = {
+        title: {
+            text: '影响因素',
+            left: 'center'
+        },
+    series: [
+        {
+            type: "graph",
+            layout: "force",
+            symbol: "circle",
+            symbolSize: 30,
+            roam: true,
+            force: {
+                repulsion: 800
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: "inside",
+                    textStyle: {
+                        fontSize: 8
+                    }
+                }
+            },
+            lineStyle: {
+                normal: {
+                    color: "gray",
+                    width: 2,
+                    opacity: 0.8
+                }
+            },
+            edgeSymbolSize: [10, 30],
+            categories: [{
+                name: "一级",
+                label: {
+                    normal:{
+                        fontSize: 14
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        symbolSize: 130,
+                        color: "#FF6A6A",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+//                            opacity: 0.8
+                    }
+                }
+            },{
+                name: "二级",
+                symbolSize: 95,
+                label: {
+                    normal:{
+                        fontSize: 12
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#4169E1",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            },{
+                name: "三级",
+                symbolSize: 75,
+                label: {
+                    normal:{
+                        fontSize: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#1E90FF",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            },{
+                name: "四级",
+                symbolSize: 55,
+                label: {
+                    normal:{
+                        fontSize: 8,
+                        color: "#4F4F4F",
+                        fontWeight: "bolder"
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: "#87CEFA",
+                        borderColor: "",
+                        shadowBlur: "",
+                        shadowColor: "",
+                        opacity: 0.8
+                    }
+                }
+            }],
+            data: [{
+                name: "业务可靠性",
+                category: 0,
+                symbolSize : 130,
+                draggable: true
+            },{
+                name: "设备可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "传输介质可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "拓扑结构可靠性",
+                symbolSize : 95,
+                category: 1,
+                draggable: true
+            },{
+                name: "生产厂家",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "设备型号",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "使用年限",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "机房环境",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "站点环境",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "设备负载",
+                symbolSize : 75,
+                category: 2,
+                draggable: true
+            },{
+                name: "湿度",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "温度",
+                category: 3,
+                symbolSize : 55,
+                draggable: true
+            },{
+                name: "地质",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "气象",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "市政数据",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            },{
+                name: "光缆类型",
+                symbolSize : 55,
+                category: 3,
+                draggable: true
+            }],
+            links: [{
+                source: "业务可靠性",
+                target: "设备可靠性"
+            },{
+                source: "业务可靠性",
+                target: "传输介质可靠性"
+            },{
+                source: "业务可靠性",
+                target: "拓扑结构可靠性"
+            },{
+                source: "设备可靠性",
+                target: "生产厂家"
+            },{
+                source: "设备可靠性",
+                target: "设备型号"
+            },{
+                source: "设备可靠性",
+                target: "使用年限"
+            },{
+                source: "设备可靠性",
+                target: "机房环境"
+            },{
+                source: "设备可靠性",
+                target: "设备负载"
+            },{
+                source: "设备可靠性",
+                target: "站点环境"
+            },{
+                source: "机房环境",
+                target: "温度"
+            },{
+                source: "机房环境",
+                target: "湿度"
+            },{
+                source: "站点环境",
+                target: "气象"
+            },{
+                source: "站点环境",
+                target: "地质"
+            },{
+                source: "传输介质可靠性",
+                target: "光缆类型"
+            },{
+                source: "传输介质可靠性",
+                target: "市政数据"
+            }]
+        }
+    ]
+};
+    rebChart1.setOption(option_reb);*/
+
+var rebChart1 = echarts.init(document.getElementById('reb'));
+option_reb = {
+    title: {
+        left: 'center',
+        text: '业务路径'
+    },
+    tooltip: {},
+    animationDurationUpdate: 10,
+    animationEasingUpdate: 'quinticInOut',
+    label: {
+        normal: {
+            show: true,
+            textStyle: {
+                fontSize: 9
+            },
+        }
+    },
+    legend: {
+        show:true,
+        x: "center",
+        bottom: 10,
+        data: ['业务一', '业务二', '业务三','业务四'],
+        selected:{
+            '业务一':true,
+            '业务二':false,
+            '业务三':true,
+            '业务四':false
+        }
+    },
+    series: [
+
+        {
+            type: 'graph',
+            layout: 'circular',
+            symbolSize: 40,
+            focusNodeAdjacency: true,
+            roam: true,
+            categories: [{
+                name: '业务一'
+            }, {
+                name: '业务二'
+            }, {
+                name: '业务三'
+            }, {
+                name: '业务四'
+            }
+            ],
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 11
+                    },
+                }
+            },
+            force: {
+                repulsion: 500
+            },
+            //edgeSymbol: ['pin'],
+            //edgeSymbolSize: [1, 10],
+            edgeLabel: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 9
+                    },
+                    formatter: "{c}"
+                }
+            },
+            data: [
+                {
+                    name: '洪源变',
+                    category: 0
+                },
+                {
+                    name: '乐平变',
+                    category: 0
+                },
+                {
+                    name: '南昌变',
+                    category: 0
+                },
+                {
+                    name: '永修变',
+                    category: 0,
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变',
+                    category: 0,
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变',
+                    category: 0,
+                    // draggable: true,
+                },
+
+//                业务二
+                {
+                    name: '洪源变2',
+                    category: 1
+                },
+                {
+                    name: '乐平变2',
+                    category: 1
+                },
+                {
+                    name: '南昌变2',
+                    category: 1
+                },
+                {
+                    name: '永修变2',
+                    category: 1
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变2',
+                    category: 1
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变2',
+                    category: 1
+                    // draggable: true,
+                },
+
+//                业务三
+                {
+                    name: '洪源变3',
+                    category: 2
+                },
+                {
+                    name: '乐平变3',
+                    category: 2
+                },
+                {
+                    name: '南昌变3',
+                    category: 2
+                },
+                {
+                    name: '永修变3',
+                    category: 2
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变3',
+                    category: 2
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变3',
+                    category: 2
+                    // draggable: true,
+                },
+
+//                业务四
+                {
+                    name: '洪源变4',
+                    category: 3
+                },
+                {
+                    name: '乐平变4',
+                    category: 3
+                },
+                {
+                    name: '南昌变4',
+                    category: 3
+                },
+                {
+                    name: '永修变4',
+                    category: 3
+                    //symbolSize: [250, 250],
+                },
+
+                {
+                    name: '马回岭变4',
+                    category: 3
+                    // draggable: true,
+                },
+                {
+                    name: '石钟山变4',
+                    category: 3
+                    // draggable: true,
+                },
+
+
+
+            ],
+            links: [
+                {
+                source: '洪源变',
+                target: '乐平变',
+                value: '24芯OPGW光缆段01',
+                lineStyle:{
+                    normal:{
+                        color:'black',
+                    }
+                }
+
+            },
+                {
+                    source: '乐平变',
+                    target: '南昌变',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变',
+                    target: '永修变',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变',
+                    target: '马回岭变',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变',
+                    target: '石钟山变',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+
+//                业务二
+                {
+                    source: '洪源变2',
+                    target: '乐平变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变2',
+                    target: '南昌变2',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变2',
+                    target: '永修变2',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变2',
+                    target: '马回岭变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变2',
+                    target: '石钟山变2',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+//                业务三
+                {
+                    source: '洪源变3',
+                    target: '乐平变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变3',
+                    target: '南昌变3',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变3',
+                    target: '永修变3',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变3',
+                    target: '马回岭变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变3',
+                    target: '石钟山变3',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+//                业务四
+                {
+                    source: '洪源变4',
+                    target: '乐平变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '乐平变4',
+                    target: '南昌变4',
+                    value: '16芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '南昌变4',
+                    target: '永修变4',
+                    value: '32芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+                {
+                    source: '永修变4',
+                    target: '马回岭变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+
+                },
+                {
+                    source: '马回岭变4',
+                    target: '石钟山变4',
+                    value: '24芯OPGW光缆段01',
+                    lineStyle:{
+                        normal:{
+                            color:'black',
+                        }
+                    }
+                },
+
+            ],
+            lineStyle: {
+                normal: {
+                    opacity: 1,
+                    width: 1,
+                    curveness: 0
+                }
+            }
+        }
+    ]
+};
+rebChart1.setOption(option_reb);
+
+
+
+    /*
+	 * 江西站点分布图（扩容预测）
+	 */
+    var mapChart = echarts.init(document.getElementById('main'));
+    // 每个站点的GIS数据
+    var geoCoordMap = {
+        '220kV垱岭变': [117.12, 28.97],
+        '220kV上饶变': [117.85, 28.43],
+        '220kV茅家岭变': [117.99, 28.43],
+        '220kV渝水变': [114.930835, 27.810834],
+        '上饶供电公司': [117.97, 28.50],
+        '500kV罗坊变': [114.93, 27.8],
+        '500kV赣州变': [115.0, 25.87],
+        '500kV乐平变': [117.21, 28.97],
+        '220kV斗门变': [115.93, 28.55],
+        '220kV龙岗变': [115.82, 28.7],
+        '500kV文山变': [114.98, 27.12],
+        '500kV南昌变': [115.85, 28.68],
+        '110kV沙土变': [114.93, 27.78],
+        '500kV梦山变': [115.53, 28.07],
+        '赣东北供电公司': [117.12, 28.90],
+        '220kV金子山变': [117.07, 28.7],
+        '集控中心': [114.38, 28.1],
+        '220kV石滩变': [115.78, 28.2],
+        '220kV渡口变': [114.93, 25.87],
+        '220kV铜城变': [117.22, 28.28],
+        '500kV马回岭变': [115.88, 29.62],
+        '220kV王源变': [117.95, 28.40],
+        '南昌供电公司': [115.75, 28.5],
+        '220kV嘉定变': [114.93, 25.38],
+        '江西省电力公司': [115.95, 28.68],
+        '500kV信州变': [117.95, 28.43],
+        '220kV燕丰变': [114.93, 25.83],
+        '220kV康乐变': [114.43, 28.20],
+        '220kV高新变': [117.12, 28.7],
+        '220kV流口变': [117.10, 28.28],
+        '220kV清江变': [116.53, 27.22],
+        '220kV袁州变': [114.38, 27.8],
+        '500kV永修变': [115.8, 29.03],
+        '220kV信和变': [114.25, 27.8],
+        '500kV石钟山变': [116.22, 29.73],
+        '220kV龟峰变': [117.43, 28.4],
+        '220kV百乐变': [115.03, 24.78],
+        '500kV抚州变': [116.35, 28.0],
+        '500kV孔目江变': [114.83, 27.8],
+        '500kV安源变': [113.87, 27.65],
+        '500kV雷公山变': [114.78, 24.92],
+        '220kV吉安变': [114.85, 27.12],
+        '220kV妙智变': [115.98, 29.68],
+        '220kV荷舍变': [114.78, 28.38],
+        '220kV西郊变': [115.73, 28.72],
+        '220kV玉山变': [118.25, 28.68],
+        '220kV竹航山变': [118.18, 28.43],
+        '赣西供电公司': [114.92, 27.82],
+        '220kV上高变': [114.92, 28.23],
+        '220kV李家变': [117.25, 29.37],
+        '220kV官上变': [117.92, 28.43],
+        '220kV祥符变': [115.37, 28.42],
+        '220kV德兴变': [117.57, 28.95],
+        '220kV葛山变': [115.13, 27.22],
+        '220kV跑马坪变': [113.73, 27.65],
+        '110kV沈家岭变': [117.12, 28.99]
+    };
+
+    // 各个站点的相关属性
+    var station = [
+        {name: '220kV垱岭变', businessNum: 212, kuorong: 0.75},
+        {name: '220kV上饶变', businessNum: 207, kuorong: 0.67},
+        {name: '220kV茅家岭变', businessNum: 179, kuorong: 0.67},
+        {name: '220kV渝水变', businessNum: 168, kuorong: 0.79},
+        {name: '上饶供电公司', businessNum: 164, kuorong: 0.3},
+        {name: '500kV罗坊变', businessNum: 153, kuorong: 0.98},
+        {name: '500kV赣州变', businessNum: 147, kuorong: 0.68},
+        {name: '500kV乐平变', businessNum: 141, kuorong: 0.58},
+        {name: '220kV斗门变', businessNum: 134, kuorong: 0.94},
+        {name: '220kV龙岗变', businessNum: 130, kuorong: 0.67},
+        {name: '500kV文山变', businessNum: 128, kuorong: 0.34},
+        {name: '500kV南昌变', businessNum: 127, kuorong: 0.34},
+        {name: '110kV沙土变', businessNum: 119, kuorong: 0.34},
+        {name: '500kV梦山变', businessNum: 119, kuorong: 0.34},
+        {name: '赣东北供电公司', businessNum: 116, kuorong: 0.67},
+        {name: '220kV金子山变', businessNum: 111, kuorong: 0.89},
+        {name: '集控中心', businessNum: 110, kuorong: 0.98},
+        {name: '220kV石滩变', businessNum: 102, kuorong: 0.56},
+        {name: '220kV渡口变', businessNum: 100, kuorong: 0.34},
+        {name: '220kV铜城变', businessNum: 98, kuorong: 0.78},
+        {name: '500kV马回岭变', businessNum: 98, kuorong: 0.56},
+        {name: '220kV王源变', businessNum: 98, kuorong: 0.45},
+        {name: '南昌供电公司', businessNum: 98, kuorong: 0.23},
+        {name: '220kV嘉定变', businessNum: 97, kuorong: 0.69},
+        {name: '江西省电力公司', businessNum: 93, kuorong: 0.49},
+        {name: '500kV信州变', businessNum: 93, kuorong: 0.78},
+        {name: '220kV燕丰变', businessNum: 92, kuorong: 0.63},
+        {name: '220kV康乐变', businessNum: 92, kuorong: 0.85},
+        {name: '220kV高新变', businessNum: 92, kuorong: 0.47},
+        {name: '220kV流口变', businessNum: 92, kuorong: 0.67},
+        {name: '220kV清江变', businessNum: 92, kuorong: 0.80},
+        {name: '220kV袁州变', businessNum: 92, kuorong: 0.45},
+        {name: '500kV永修变', businessNum: 91, kuorong: 0.76},
+        {name: '220kV信和变', businessNum: 90, kuorong: 0.23},
+        {name: '500kV石钟山变', businessNum: 90, kuorong: 0.49},
+        {name: '220kV龟峰变', businessNum: 89, kuorong: 0.72},
+        {name: '220kV百乐变', businessNum: 88, kuorong: 0.62},
+        {name: '500kV抚州变', businessNum: 88, kuorong: 0.41},
+        {name: '500kV孔目江变', businessNum: 87, kuorong: 0.49},
+        {name: '500kV安源变', businessNum: 87, kuorong: 0.89},
+        {name: '500kV雷公山变', businessNum: 83, kuorong: 0.50},
+        {name: '220kV吉安变', businessNum: 83, kuorong: 0.68},
+        {name: '220kV妙智变', businessNum: 82, kuorong: 0.46},
+        {name: '220kV荷舍变', businessNum: 80, kuorong: 0.29},
+        {name: '220kV西郊变', businessNum: 80, kuorong: 0.90},
+        {name: '220kV玉山变', businessNum: 80, kuorong: 0.85},
+        {name: '220kV竹航山变', businessNum: 79, kuorong: 0.78},
+        {name: '赣西供电公司', businessNum: 78, kuorong: 0.48},
+        {name: '220kV上高变', businessNum: 78, kuorong: 0.70},
+        {name: '220kV李家变', businessNum: 78, kuorong: 0.49},
+        {name: '220kV官上变', businessNum: 78, kuorong: 0.80},
+        {name: '220kV祥符变', businessNum: 78, kuorong: 0.58},
+        {name: '220kV德兴变', businessNum: 77, kuorong: 0.9},
+        {name: '220kV葛山变', businessNum: 77, kuorong: 0.67},
+        {name: '220kV跑马坪变', businessNum: 77, kuorong: 0.57},
+        {name: '110kV沈家岭变', businessNum: 20, kuorong: 0.68}
+    ];
+
+    // 各个站点之间的连接情况
+    var edges = [
+        [{name: '220kV垱岭变'}, {name: '110kV沈家岭变', fiberOcc: 0}],
+        [{name: '220kV垱岭变'}, {name: '220kV上饶变', fiberOcc: 0.8}],
+        [{name: '220kV茅家岭变'}, {name: '上饶供电公司', fiberOcc: 0.5}],
+        [{name: '220kV斗门变'}, {name: '江西省电力公司', fiberOcc: 0.8}],
+        [{name: '220kV玉山变'}, {name: '220kV德兴变', fiberOcc: 0.3}],
+        [{name: '220kV百乐变'}, {name: '500kV雷公山变', fiberOcc: 0.5}],
+        [{name: '500kV南昌变'}, {name: '500kV马回岭变', fiberOcc: 0.6}],
+        [{name: '220kV上高变'}, {name: '500kV抚州变', fiberOcc: 0.9}],
+        [{name: '220kV袁州变'}, {name: '220kV葛山变', fiberOcc: 0.2}],
+        [{name: '赣东北供电公司'}, {name: '220kV流口变', fiberOcc: 0.32}],
+        [{name: '220kV竹航山变'}, {name: '220kV德兴变', fiberOcc: 0.46}],
+        [{name: '500kV罗坊变'}, {name: '220kV祥符变', fiberOcc: 0.78}],
+        [{name: '110kV沙土变'}, {name: '220kV官上变', fiberOcc: 0.67}],
+        [{name: '500kV石钟山变'}, {name: '220kV西郊变', fiberOcc: 0.94}],
+        [{name: '500kV孔目江变'}, {name: '500kV安源变', fiberOcc: 0.12}],
+        [{name: '220kV葛山变'}, {name: '500kV抚州变', fiberOcc: 0.22}],
+        [{name: '220kV荷舍变'}, {name: '220kV燕丰变', fiberOcc: 0.54}],
+        [{name: '220kV西郊变'}, {name: '500kV信州变', fiberOcc: 0.67}],
+        [{name: '220kV妙智变'}, {name: '220kV渡口变', fiberOcc: 0.18}],
+        [{name: '500kV乐平变'}, {name: '220kV清江变', fiberOcc: 0.3}],
+        [{name: '集控中心'}, {name: '上饶供电公司', fiberOcc: 0.4}]
+    ];
+
+    //var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var dataItem = data[i];
+            var fromCoord = geoCoordMap[dataItem[0].name];
+            var toCoord = geoCoordMap[dataItem[1].name];
+            if (fromCoord && toCoord) {
+                res.push({
+                    //fromName: dataItem[0].name,
+                    //toName: dataItem[1].name,
+                    name: "铅芯占用率",
+                    coords: [fromCoord, toCoord],
+                    value: dataItem[1].fiberOcc
+                });
+            }
+        }
+        return res;
+    };
+
+    var color = ['#a6c84c', '#ffa022', '#46bee9'];
+
+    var series = [
+        {//两个站点之间的连线
+            type: 'lines',
+            zlevel: 2,
+            symbol: ['none', 'none'],
+            symbolSize: 10,
+            lineStyle: {
+                normal: {
+                    //color: '#a6c84c',
+                    width: 1,
+                    opacity: 0.6,
+                    curveness: 0
+                }
+            },
+            data: convertData(edges)
+        },
+        {//每个站点
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            hoverAnimation: true,
+            zlevel: 2,
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            label: {
+                normal: {
+                    show: false,
+                    position: 'right',
+                    formatter: '{b}'
+                }
+            },
+            symbolSize: function (val) {
+                x = val[2] * 15;
+                if(x < 2){
+                    return 1;
+                }
+                return x;
+            },
+//            symbolSize: 6,
+            data: station.map(function (dataItem) {
+                    return {
+                        name: dataItem.name + ' , 业务数：' + dataItem.businessNum + '，扩容迫切性：' + dataItem.kuorong,
+                        value: geoCoordMap[dataItem.name].concat([dataItem.kuorong])
+                    };
+                }
+            )
+        }
+    ];
+
+    option_map = {
+        //backgroundColor: '#003',//#404a59
+        title: {
+            text: '江西',
+            subtext: '站点分布图',
+            left: 'center',
+            textStyle: {
+                color: '#404a59'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                if (params.name.indexOf("铅芯占用率") == -1)
+                    return params.name;
+                else
+                    return params.name + ' : ' + params.value;
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: !0},
+                //dataView:{show:!0,readOnly:!1},
+                restore: {show: !0},
+                saveAsImage: {show: !0}
+            }
+        },
+        visualMap: [
+            {
+                min: 0,
+                max: 1,
+                text: ['高', '低'],
+                precision: 2,
+                calculable: true,
+                top: 'center',
+                inRange: {
+                    color: ['#50a3ba', '#eac736', '#d94e5d']
+                },
+                textStyle: {
+                    color: '#003'
+                }
+            }
+        ],
+        geo: {
+            map: '江西',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#ffefd5'//#ffefd5,#404a59
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        series: series
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    mapChart.setOption(option_map);
+    $(window).resize(mapChart.resize);
+
+
+</script>
+</html>
