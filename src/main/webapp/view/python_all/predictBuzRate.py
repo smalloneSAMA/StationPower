@@ -87,7 +87,7 @@ def predict_buz_rate(province):
     length = data.shape[0]
     result = pd.DataFrame(np.column_stack((data2[:, 0:2], y_all, np.array(h).reshape((-1, 1)), np.array(list_pro).reshape((-1, 1)))),
                           columns=['obj_id', 'name', 'buz_rate', 'predict', 'probablity'])
-    result.to_csv(path+"buz_rate_all.csv", index=False, header=True, encoding='gbk')
+   # result.to_csv(path+"buz_rate_all.csv", index=False, header=True, encoding='gbk')
 
     # 找出错误的业务速率,包括空值和错误值
     boarr_diff = []
@@ -97,10 +97,10 @@ def predict_buz_rate(province):
         boarr_null.append(result['buz_rate'][i] != result['predict'][i] and result['buz_rate'][i] == '')
     # 错误值导出
     result_diff = result[boarr_diff].sort_values(by='probablity', ascending=False)  # 排序
-    result_diff.to_csv(path+"buz_rate_diff.csv", index=False, header=True, encoding='gbk')
+  #  result_diff.to_csv(path+"buz_rate_diff.csv", index=False, header=True, encoding='gbk')
     # 空值导出
     result_null = result[boarr_null].sort_values(by='probablity', ascending=False)  # 排序
-    result_null.to_csv(path+"buz_rate_null.csv", index=False, header=True, encoding='gbk')
+  #  result_null.to_csv(path+"buz_rate_null.csv", index=False, header=True, encoding='gbk')
 
     ########## 输出到数据库中########################################################################################################
     connect = db.connect(host="172.16.135.19", user="root", passwd="hadoop", db="jiangxi_power", port=3306, charset='utf8')

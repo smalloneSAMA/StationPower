@@ -168,7 +168,7 @@ for i in range(probablity.shape[0]):
 # 输出结果
 result = pd.DataFrame(np.column_stack((data[:, 0:2], data[:, -1], np.array(h).reshape((-1, 1)), np.array(list_pro).reshape((-1, 1)))),
                       columns=['obj_id', 'name', 'buz_type', 'predict', 'probablity'])
-result.to_csv(path+"buz_type_all.csv", index=False, header=True, encoding='gbk')
+#result.to_csv(path+"buz_type_all.csv", index=False, header=True, encoding='gbk')
 # 找出错误业务类型,包括错误值和空值
 boarr_diff = []
 boarr_null = []
@@ -177,10 +177,10 @@ for i in range(result.shape[0]):
     boarr_null.append(result['buz_type'][i] != result['predict'][i] and result['buz_type'][i] == '')
 # 错误值导出
 result_diff = result[boarr_diff].sort_values(by='probablity', ascending=False)  # 排序
-result_diff.to_csv(path+"buz_type_diff.csv", index=False, header=True, encoding='gbk')
+#result_diff.to_csv(path+"buz_type_diff.csv", index=False, header=True, encoding='gbk')
 # 空值导出
 result_null = result[boarr_null].sort_values(by='probablity', ascending=False)  # 排序
-result_null.to_csv(path+"buz_type_null.csv", index=False, header=True, encoding='gbk')
+#result_null.to_csv(path+"buz_type_null.csv", index=False, header=True, encoding='gbk')
 
 #conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
 #输出到数据库中########################################################################################################

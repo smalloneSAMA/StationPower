@@ -113,13 +113,13 @@ result = pd.DataFrame(np.column_stack((data[:, 0:2], data[:, -1], np.array(h).re
                       columns=['obj_id','NAMW', 'CHANNEL_TYPE', 'predict', 'probablity'])
 
 
-result.to_csv(path+"channel_type_all.csv", index=True, header=True, encoding='gbk')
+#result.to_csv(path+"channel_type_all.csv", index=True, header=True, encoding='gbk')
 # 找出错误通道类型
 boarr = []
 for i in range(result.shape[0]):
     boarr.append(result['CHANNEL_TYPE'][i] != result['predict'][i])
 result_diff = result[boarr].sort_values(by='probablity', ascending=False)  # 排序
-result_diff.to_csv(path + "channel_type_diff.csv", index=False, header=True, encoding='gbk')
+#result_diff.to_csv(path + "channel_type_diff.csv", index=False, header=True, encoding='gbk')
 
 # result[boarr].to_csv(path+"channel_type_diff.csv", index=True, header=True, encoding='gbk')
 
@@ -143,7 +143,7 @@ if len(data__null) > 0:
 
     result_null = pd.DataFrame(np.column_stack((data__null[:, 0:2], data__null[:, -1], np.array(h_null).reshape((-1, 1))[0:length, 0:1],np.array(list_pro_null).reshape((-1,1)))),
                           columns=['obj_id','NAMW', 'CHANNEL_TYPE', 'predict', 'probablity'])
-    result_null.to_csv(path+"channel_type_null.csv", index=True, header=True, encoding='gbk')
+#    result_null.to_csv(path+"channel_type_null.csv", index=True, header=True, encoding='gbk')
 
 
 #########输出到数据库中########################################################################################################

@@ -24,6 +24,60 @@
 
 <div class="row" >
 
+    <!--设备画像-->
+    <div class="col-sm-12" style="opacity: 0.9;z-index: 0;margin-top: 0px">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>设备画像</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_data_tables.html#">选项1</a>
+                        </li>
+                        <li><a href="table_data_tables.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <!-- <select onchange="data_paint()" class="form-control" id="paint_select" style="width: 26%">
+                     <option value="0" >北京</option>
+                     <option value="1">福建</option>
+                     <option value="2">河北</option>
+                     <option value="3">黑龙江</option>
+                     <option value="4">河南</option>
+                     <option value="5">湖北</option>
+                     <option value="6">蒙东</option>
+                     <option value="7">宁夏</option>
+                     <option value="8">陕西</option>
+                     <option value="9">四川</option>
+                     <option value="10">天津</option>
+                     <option value="11">西藏</option>
+                     <option value="12">浙江</option>
+                     <option value="13">江西</option>
+                     <option value="14">江苏</option>
+                     <option value="15">山东</option>
+                     <option value="16">山西</option>
+                     <option value="17">重庆</option>
+                 </select>-->
+                <!--<div id="paint" style="height: 434px;"></div>-->
+                <div id='ey_failure2' style='height: 700px;'></div>
+                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+            </div>
+
+        </div>
+    </div>
+
+
     <!--数据质量-->
     <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 0px">
         <div class="ibox float-e-margins">
@@ -64,22 +118,22 @@
         </div>
     </div>
 
-    <!--设备画像-->
-    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-top: 0px">
+    <!--通信网优化-->
+    <div class="col-sm-6" style="opacity: 1;z-index: 0">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>设备画像</h5>
+                <h5>通信网优化</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
                     </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="table_data_tables.html#">选项1</a>
+                        <li><a href="graph_flot.html#">选项1</a>
                         </li>
-                        <li><a href="table_data_tables.html#">选项2</a>
+                        <li><a href="graph_flot.html#">选项2</a>
                         </li>
                     </ul>
                     <a class="close-link">
@@ -89,36 +143,14 @@
             </div>
             <div class="ibox-content">
 
-               <!-- <select onchange="data_paint()" class="form-control" id="paint_select" style="width: 26%">
-                    <option value="0" >北京</option>
-                    <option value="1">福建</option>
-                    <option value="2">河北</option>
-                    <option value="3">黑龙江</option>
-                    <option value="4">河南</option>
-                    <option value="5">湖北</option>
-                    <option value="6">蒙东</option>
-                    <option value="7">宁夏</option>
-                    <option value="8">陕西</option>
-                    <option value="9">四川</option>
-                    <option value="10">天津</option>
-                    <option value="11">西藏</option>
-                    <option value="12">浙江</option>
-                    <option value="13">江西</option>
-                    <option value="14">江苏</option>
-                    <option value="15">山东</option>
-                    <option value="16">山西</option>
-                    <option value="17">重庆</option>
-                </select>-->
-                <div id="paint" style="height: 434px;"></div>
-
-                <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
+                <div id="main" style="width:100%;height: 439px"></div>
             </div>
-
         </div>
     </div>
 
+
     <!--业务可靠性-->
-    <div class="col-sm-6" style="opacity: 0.9;z-index: 0;margin-bottom: 0px;">
+    <div class="col-sm-12" style="opacity: 0.9;z-index: 0;margin-bottom: 0px;">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>业务可靠性</h5>
@@ -152,35 +184,7 @@
         </div>
     </div>
 
-    <!--通信网优化-->
-    <div class="col-sm-6" style="opacity: 1;z-index: 0">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>通信网优化</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="graph_flot.html#">选项1</a>
-                        </li>
-                        <li><a href="graph_flot.html#">选项2</a>
-                        </li>
-                    </ul>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ibox-content">
 
-                <div id="main" style="width:100%;height: 439px"></div>
-            </div>
-        </div>
-    </div>
 
 </div>
 
@@ -198,8 +202,9 @@
 <script type="text/javascript">
 $(document).ready(function () {
     data_pin();
-    paint1();
-})
+//    paint1();
+    Relation();
+});
     /*
      *数据质量饼图
     */
@@ -275,9 +280,571 @@ $(document).ready(function () {
      *设备画像
      *
     */
+function Relation() {
+    //获取故障率与使用时间的关系的数据
+    $.ajax({
+        url: "../../Relationship_Failure_Year/select",
+        type: "post",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            relationData(data);
+
+        },
+        error: function (data) {
+            if (data.result == "error") {
+                alert("出现异常");
+            }
+        }
+    });
+
+}
 
 
-function paint1() {
+function relationData(obj) {
+
+    var companyName = new Array();
+    var datasub = new Array();
+    var failureRate= new Array();
+
+    var data_eci = new Array();
+    var data_nec = new Array();
+    var data_zx = new Array();
+    var data_hw = new Array();
+    var data_hjapt = new Array();
+    var data_aekt = new Array();
+    var data_mkn = new Array();
+    var data_all = new Array();
+
+    var eci_x = new Array();
+    var nec_x = new Array();
+    var zx_x = new Array();
+    var hw_x = new Array();
+    var hjapt_x = new Array();
+    var aekt_x = new Array();
+    var mkn_x = new Array();
+    var all_x = new Array();
+
+    var eci_y = new Array();
+    var nec_y = new Array();
+    var zx_y = new Array();
+    var hw_y = new Array();
+    var hjapt_y = new Array();
+    var aekt_y = new Array();
+    var mkn_y = new Array();
+    var all_y = new Array();
+
+    var eci = new Array();
+    var nec = new Array();
+    var zx = new Array();
+    var hw = new Array();
+    var hjapt = new Array();
+    var aekt = new Array();
+    var mkn = new Array();
+    var all = new Array();
+
+
+
+    var length1=0,length2=0,length3=0,length4=0,length5=0,length6=0,length7=0,length8=0;
+
+    //取出数据
+    $.each(obj, function (i, item) {
+        companyName[i] = item.Company;
+        datasub[i] = item.UseTime;
+        failureRate[i]= item.FailureRate;
+        if ('ECI'==item.Company) {
+            eci[length1]=item;
+            length1++;
+
+        }
+        else if ('NEC'==item.Company) {
+            nec[length2]=item;
+            length2++;
+
+        }
+        else if ('中兴'==item.Company){
+            zx[length3]=item;
+            length3++;
+
+        }
+        else if ('华为'==item.Company) {
+            hw[length4]=item;
+            length4++;
+
+        }
+        else if ('和记奥普泰'==item.Company) {
+            hjapt[length5]=item;
+            length5++;
+
+        }
+        else if ('阿尔卡特'==item.Company) {
+            aekt[length6]=item;
+            length6++;
+
+        }
+        else if ('马可尼'==item.Company) {
+            mkn[length7]=item;
+            length7++;
+
+        }
+        else {
+            all[length8]=item;
+            length8++;
+
+        }
+    });
+
+    //按照使用时间排序
+    function sortbyTemp(a,b) {
+        return a.UseTime-b.UseTime;
+    }
+    eci.sort(sortbyTemp);
+    nec.sort(sortbyTemp);
+    zx.sort(sortbyTemp);
+    hw.sort(sortbyTemp);
+    hjapt.sort(sortbyTemp);
+    aekt.sort(sortbyTemp);
+    mkn.sort(sortbyTemp);
+    all.sort(sortbyTemp);
+
+    //分离数据
+    for(var i=0;i<eci.length;i++){
+        eci_x[i] = eci[i].UseTime;
+        eci_y[i] = eci[i].FailureRate;
+        data_eci[i]=[eci_x[i], eci_y[i]];
+    }
+    for(var i=0;i<nec.length;i++){
+        nec_x[i] = nec[i].UseTime;
+        nec_y[i] = nec[i].FailureRate;
+        data_nec[i]=[nec_x[i], nec_y[i]];
+    }
+    for(var i=0;i<zx.length;i++){
+        zx_x[i] = zx[i].UseTime;
+        zx_y[i] = zx[i].FailureRate;
+        data_zx.push([zx_x[i], zx_y[i]]);
+    }
+    for(var i=0;i<hw.length;i++){
+        hw_x[i] = hw[i].UseTime;
+        hw_y[i] = hw[i].FailureRate;
+        data_hw.push([hw_x[i], hw_y[i]]);
+    }
+    for(var i=0;i<hjapt.length;i++){
+        hjapt_x[i] = hjapt[i].UseTime;
+        hjapt_y[i] = hjapt[i].FailureRate;
+        data_hjapt.push([hjapt_x[i], hjapt_y[i]]);
+    }
+    for(var i=0;i<aekt.length;i++){
+        aekt_x[i] = aekt[i].UseTime;
+        aekt_y[i] = aekt[i].FailureRate;
+        data_aekt.push([aekt_x[i], aekt_y[i]]);
+    }
+    for(var i=0;i<mkn.length;i++){
+        mkn_x[i] = mkn[i].UseTime;
+        mkn_y[i] = mkn[i].FailureRate;
+        data_mkn.push([mkn_x[i], mkn_y[i]]);
+    }
+    for(var i=0;i<all.length;i++){
+        all_x[i] = all[i].UseTime;
+        all_y[i] = all[i].FailureRate;
+        data_all.push([all_x[i], all_y[i]]);
+    }
+
+
+    var myChart2 = echarts.init(document.getElementById('ey_failure2'));
+
+    option2 = {
+        backgroundColor: '#394056',
+        title: {
+            text: '各厂家设备故障率与使用年限的关系',
+            left: 'center',
+            textStyle: {
+                fontWeight: 'bolder',
+                fontSize: 24,
+                color: '#F1F1F3'
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            }
+        },
+        legend: {
+            icon: 'rect',
+            itemWidth: 30,
+            itemHeight: 3,
+            itemGap: 13,
+            right: '5%',
+            top: 40,
+            orient: 'vartical',
+            data: companyName,
+            right: '4%',
+            textStyle: {
+                fontSize: 14,
+                color: '#F1F1F3'
+            }
+        },
+        grid: {
+            left: '4%',
+            right: '4%',
+            bottom: '5%',
+            containLabel: true
+        },
+        xAxis: [{
+            name: '使用年限',
+            nameLocation: 'middle',
+            nameGap:30,
+            nameTextStyle: {
+                color: '#F1F1F3',
+                fontSize: 16
+            },
+            splitNumber: 9,
+            splitLine: {
+                lineStyle: {
+                    color: '#57617B',
+                    type: 'dashed'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            },
+            axisLabel: {
+                margin: 10,
+                textStyle: {
+                    fontSize: 16
+                }
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '故障率（次/年）',
+            nameTextStyle: {
+                color: '#F1F1F3',
+                fontSize: 16
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#57617B'
+                }
+            },
+            axisLabel: {
+                margin: 10,
+                textStyle: {
+                    fontSize: 16
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed',
+                    color: '#57617B'
+                }
+            }
+        }],
+        series: [{
+            // pink
+            name: 'ECI',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(238, 130, 238)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(238, 130, 238, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(238, 130, 238, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(238, 130, 238)',
+                    borderColor: 'rgba(238, 130, 238,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_eci
+        },{
+            // yellow
+            name: 'NEC',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(255, 185, 15)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 185, 15, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(255, 185, 15, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(255, 185, 15)',
+                    borderColor: 'rgba(255, 185, 15,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_nec
+        },{
+            // white
+            name: '中兴',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(245, 245, 245)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(245, 245, 245, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(245, 245, 245, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(245, 245, 245)',
+                    borderColor: 'rgba(245, 245, 245,0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_zx
+        },{
+            // salmon
+            name: '华为',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(250, 128, 114)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(250, 128, 114, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(250, 128, 114, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(250, 128, 114)',
+                    borderColor: 'rgba(250, 128, 114, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_hw
+        },{
+            // purple
+            name: '和记奥普泰',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(147, 112, 219)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(147, 112, 219, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(147, 112, 219, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(147, 112, 219)',
+                    borderColor: 'rgba(147, 112, 219, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_hjapt
+        },{
+            // green
+            name: '阿尔卡特',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(46, 139, 87)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(46, 139, 87, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(46, 139, 87, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(46, 139, 87)',
+                    borderColor: 'rgba(46, 139, 87, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_aekt
+        },{
+            // skyblue
+            name: '马可尼',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    color: 'rgb(0, 191, 255)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 191, 255, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(0, 191, 255, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(0, 191, 255)',
+                    borderColor: 'rgba(0, 191, 255, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_mkn
+        },{
+            // red
+            name: '所有厂家',
+            type: 'line',
+            connectNulls: true,
+            symbol: 'rect',
+            symbolSize: 6,
+            showSymbol: true,
+            lineStyle: {
+                normal: {
+                    type: 'dashed',
+                    color: 'rgb(255, 0, 0)',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 0, 0, 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(255, 0, 0, 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 12
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'rgb(255, 0, 0)',
+                    borderColor: 'rgba(255, 0, 0, 0.27)',
+                    borderWidth: 12
+
+                }
+            },
+            data: data_all
+
+        }
+        ]
+    };
+
+    myChart2.setOption(option2);
+}
+
+/*function paint1() {
 
     var paintCharts = echarts.init(document.getElementById("paint"))
 
@@ -1403,7 +1970,7 @@ function paint1() {
     paintCharts.setOption(option_paint);
     $(window).resize(paintCharts.resize);
 
-}
+}*/
 
 
 
