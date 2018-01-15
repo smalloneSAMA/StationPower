@@ -518,7 +518,7 @@ public class dataController {
         //将select选中的省份传递给python
         System.out.printf(Province);
         List<String> processList = new ArrayList<>();
-        String url = "python "+ path_python.getCT()+","+ Province;
+        String[] url = new String[]{ "python ", path_python.getCT(), Province};
         String line = "";
         try {
             System.out.printf("\npython Jpchanneltype程序准备执行\n");
@@ -547,7 +547,7 @@ public class dataController {
         System.out.printf(Province);
         String line = "";
         List<String> processList = new ArrayList<>();
-        String url = "python "+ path_python.getBT()+","+ Province;
+        String[] url =new String[]{ "python ", path_python.getBT(), Province};
         try {
             System.out.printf("\npython程序准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
@@ -575,7 +575,7 @@ public class dataController {
         System.out.printf(Province);
         String line = "";
         List<String> processList = new ArrayList<>();
-        String url = "python "+path_python.getBR()+","+ Province;
+        String[] url =new String[]{ "python ",path_python.getBR(), Province};
         try {
             System.out.printf("\npython  buzrate程序准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
@@ -605,10 +605,11 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String url = "python "+ path_python.getCR()+","+ Province;
+        String[] arg = new String[] {"python", path_python.getCR(),Province};
+
         try {
             System.out.printf("\npython程序准备执行\n");
-            Process pr = Runtime.getRuntime().exec(url);
+            Process pr = Runtime.getRuntime().exec(arg);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {
                 processList.add(line);
@@ -638,7 +639,8 @@ public class dataController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         System.out.printf(Province);
-        String url = "python "+path_python.getIT()+","+Province;
+        String[] url = new String[]{"python ",path_python.getIT(),Province};
+
         try {
             System.out.printf("\npython程序predictInterfaceType准备执行\n");
             Process pr = Runtime.getRuntime().exec(url);
