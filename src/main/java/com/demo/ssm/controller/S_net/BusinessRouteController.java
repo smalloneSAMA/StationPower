@@ -3,7 +3,9 @@ package com.demo.ssm.controller.S_net;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_net.BusinessRoute;
+import com.demo.ssm.po.S_net.LowReliability;
 import com.demo.ssm.service.interf.S_net.BusinessRouteService;
+import com.demo.ssm.service.interf.S_net.LowReliabilityService;
 import com.demo.ssm.service.interf.S_net.StationLink_JiangXiService;
 import com.demo.ssm.service.interf.S_net.StationPropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/BusinessRoute")
@@ -24,6 +29,8 @@ public class BusinessRouteController {
     private StationLink_JiangXiService stationLink_JiangXiService;
     @Autowired
     private StationPropertyService stationPropertyService;
+    @Autowired
+    private LowReliabilityService lowReliabilityService;
 
     //查询异常对象数据
     @RequestMapping("/select")
@@ -112,6 +119,25 @@ public class BusinessRouteController {
             jsonArray.add(jsonObjecterror);
             return jsonArray;
         }
+
+    }
+
+    @RequestMapping("/LowReliability")
+    @ResponseBody
+    public Map<String, Object> LowReliability(HttpServletRequest request, String Province){
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+
+            List<LowReliability> lowReliabilityList = lowReliabilityService.lowReliabilityByProvince(Province);
+            map.put("LowReliability",lowReliabilityList);
+            map.put("result",true);
+
+        }catch (Exception e){
+            map.put("result",false);
+        }
+
+        return map;
 
     }
 
