@@ -39,7 +39,7 @@ public class dealProvinceDataController {
             Boolean deleteStatics = provinceService.deleteProvinceData(Province);
             //python脚本文件及其命令
 //            String a=;
-            String[] arg = new String[] {"python3", path_python.getSR(),Province};
+            String[] arg = new String[] {"python", path_python.getSR(),Province};
             //执行python脚本
             Process proc = Runtime.getRuntime().exec(arg);
             //proc.waitFor();
