@@ -54,14 +54,17 @@ public class Abnormal_top10Controller {
 //
 //            return jsonArray;
             int i=0;
-            int k=abnormal_top10Service.count();
+//            int k=abnormal_top10Service.count();
+            int k=11;
             List<Abnormal_top10> list = abnormal_top10Service.selectByPrimaryKey();
+            System.out.print(list.size());
             while (i<k) {
                 JSONObject jsonObject = new JSONObject() ;
-                jsonObject.put("ID", (list.get(i)).getId());
-                jsonObject.put("StationName", (list.get(i)).getStationName());
-                jsonObject.put("NumberRecords", (list.get(i)).getNumberRecords());
-                jsonObject.put("NumberForecast", (list.get(i)).getNumberForecast());
+                jsonObject.put("ID", (list.get(list.size()-1-i)).getId());
+                jsonObject.put("StationName", (list.get(list.size()-1-i)).getStationName());
+                jsonObject.put("NumberRecords", (list.get(list.size()-1-i)).getNumberRecords());
+                jsonObject.put("NumberForecast", (list.get(list.size()-1-i)).getNumberForecast());
+               // jsonObject.put("Score1",(list.get(list.size()-1-i)).getScore());
                 jsonArray.add(jsonObject);
                 i++;
             }

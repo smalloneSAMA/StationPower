@@ -7,6 +7,12 @@ public class Abnormal_top10 {
 
     private double numberRecords;
 
+    private double Score1;
+
+    public void setScore(double score){this.Score1=score;}
+
+    public double getScore(){return Score1;}
+
     public void setId(Integer id) {
         this.id = id;
     }

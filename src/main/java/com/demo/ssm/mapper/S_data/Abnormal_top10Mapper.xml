@@ -8,20 +8,26 @@
         <result column="TransformSubstation" property="stationName" jdbcType="VARCHAR"/>
         <result column="BusinessNumRecords" property="numberRecords" jdbcType="VARCHAR"/>
         <result column="BusinessNumForecast" property="numberForecast" jdbcType="VARCHAR"/>
-
+        <result column="Score" property="Score1" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--字段片段-->
     <sql id="Abnormal">
-        ID,TransformSubstation,BusinessNumRecords,BusinessNumForecast
+        ID,TransformSubstation,BusinessNumRecords,BusinessNumForecast,Score
     </sql>
 
     <!--按照ID查询-->
     <select id="selectByPrimaryKey" resultMap="AbnormalMap" >
       SELECT *
-      FROM AbnormalStation_top10
+      FROM Station_top10 WHERE BusinessNumRecords>=20
     </select>
-    
+
+    <!--&lt;!&ndash;按照ID查询&ndash;&gt;-->
+    <!--<select id="selectByPrimaryKey" resultMap="AbnormalMap" >-->
+        <!--SELECT *-->
+        <!--FROM AbnormalStation_top10-->
+    <!--</select>-->
+
     <!-- 查询表的数据个数-->
     <select id="count" resultType="java.lang.Integer">
         SELECT COUNT(id)

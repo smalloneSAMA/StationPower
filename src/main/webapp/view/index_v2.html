@@ -103,14 +103,14 @@
             </div>
             <div class="ibox-content">
 
-                <select onchange="data_pin()" class="form-control" id="pin_select" style="width: 26%">
+                <!--<select onchange="data_pin()" class="form-control" id="pin_select" style="width: 26%">
                     <option selected id="BT" value="../../S_data/buz_type_diff_pin">业务类型-准确率</option>
                     <option id="BR" value="../../S_data/buz_rate_diff_pin">业务带宽-准确率</option>
                     <option  id="CT" value="../../S_data/channel_type_diff_pin">通道类型-准确率</option>
                     <option id="CR" value="../../S_data/channel_rate_diff_pin">通道速率-准确率</option>
                     <option id="IT" value="../../S_data/interface_type_diff_pin">接口类型-准确率</option>
-                </select>
-                <div id="pin" style="height: 400px;"></div>
+                </select>-->
+                <div style="height:439px" id="dataFlow"></div>
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
             </div>
@@ -175,7 +175,38 @@
             <div class="ibox-content">
 
 
-                <div style="height: 439px; "><div id="reb" style="width: 100%;height: 100%"></div></div>
+               <div id="reb" style="float:left;margin-left:10px; width: 50%;height: 433px"></div>
+                <div id="reb1" style="float:left;padding-top: 5%;margin-left:5%; width: 40%;height: 433px">
+                    <tr>
+                        <th><b>业务ID:</b></th>
+                        <td>B6464B0A-B0FB-41C5-951A-FE17E41B7263-00250</td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <th><b>业务名称:</b></th>
+                        <td>（500kV洪源变～220kV石钟山变）安全自动装置业务01A</td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <th><b>业务全名:</b></th>
+                        <td>赣/（500kV洪源变～220kV石钟山变）安全自动装置业务01A</td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <th><b>业务类型:</b></th>
+                        <td>安全自动装置</td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <th><b>业务服务状态:</b></th>
+                        <td>在役</td>
+                    </tr>
+                </div>
+                <div style="clear: both"></div>
                 <!--<img style="height: 90%;width: 90%" src="shouye.jpg">-->
 
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
@@ -201,14 +232,97 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-    data_pin();
+//    data_pin();
 //    paint1();
     Relation();
 });
     /*
      *数据质量饼图
     */
-    //    画图
+
+var myChart2 = echarts.init(document.getElementById('dataFlow'));
+option2 = {
+    title: {
+        text: '数据质量分析流程'
+    },
+    tooltip: {},
+    animationDurationUpdate: 1500,
+    animationEasingUpdate: 'quinticInOut',
+    series : [
+        {
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 60,
+            //roam: true,
+            label: {
+                normal: {
+                    show: true
+                }
+            },
+            edgeSymbol: ['circle', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            edgeLabel: {
+                normal: {
+                    textStyle: {
+                        fontSize: 13
+                    }
+                }
+            },
+            data: [
+//                {name: 'TMS大数据'},
+//                {name: '数据预处理',value:'实现去重、去噪、不一致性、时效性'},
+//                {name: '特征提取',value:'利用PCA、MDS和SVD等技术将所需特征提取出来'},
+//                {name: '模型训练',value:'采用交叉验证，进行模型选择和参数调优训练'},
+//                {name: '最终模型'}
+                {name: '数据',x: 0,y: 200},
+                {name: '文本',x: 200,y: 100},
+                {name: '属性',x: 200,y: 200},
+                {name: '数值',x: 200,y: 300},
+                {name: 'NLP',x: 300,y: 100},
+                {name: 'One Hot',x: 300,y: 200},
+                {name: '标准化',x: 300,y: 300},
+                {name: '字段相关性',x: 500,y: 200},
+                {name: '异常标记',x: 500,y: 400},
+                {name: '专家检验',x: 300,y: 400}
+            ],
+            // links: [],
+            links: [
+//                {source: 'TMS大数据',target: '数据预处理'},
+//                {source: '数据预处理',target: '特征提取'},
+//                {source: '特征提取',target: '模型训练'},
+//                {source: '模型训练',target: '最终模型'}
+
+                {source: '数据',target: '文本',label: {normal: {show: true,formatter: '去重'}}},
+                {source: '数据',target: '属性',label: {normal: {show: true,formatter: '消除不一致'}}},
+                {source: '数据',target: '数值',label: {normal: {show: true,formatter: '去噪'}}},
+                {source: '文本',target: 'NLP'},
+                {source: '属性',target: 'One Hot'},
+                {source: '数值',target: '标准化'},
+                {source: 'NLP',target: '字段相关性',label: {normal: {show: true,formatter: 'PCA技术提取'}}},
+                {source: 'One Hot',target: '字段相关性',label: {normal: {show: true,formatter: 'MDS技术提取'}}},
+                {source: '标准化',target: '字段相关性',label: {normal: {show: true,formatter: 'SVD技术提取'}}},
+                {source: '字段相关性',target: '异常标记',label: {normal: {show: true,formatter: '采用交叉验证训练'}}},
+                {source: '异常标记',target: '专家检验',label: {normal: {show: true,formatter: '模型验证'}},lineStyle: {normal: { curveness: 0.2 }}},
+                {source: '专家检验',target: '异常数据标记',label: {normal: {show: true,formatter: '反馈优化'}},lineStyle: {normal: { curveness: 0.2 }}},
+                {source: '专家检验',target: '字段相关性',label: {normal: {show: true,formatter: '专家推荐特征'}}}
+
+                ],
+            lineStyle: {
+                normal: {
+                    opacity: 0.9,
+                    width: 2,
+                    curveness: 0
+                }
+            }
+        }
+    ]
+};
+myChart2.setOption(option2);
+$(window).resize(myChart2.resize);
+
+
+
+//    画图
     function pin(data) {
 
         aa = data.a;
@@ -2325,10 +2439,10 @@ option_reb = {
             show: true,
             textStyle: {
                 fontSize: 9
-            },
+            }
         }
     },
-    legend: {
+    /*legend: {
         show:true,
         x: "center",
         bottom: 10,
@@ -2339,13 +2453,14 @@ option_reb = {
             '业务三':true,
             '业务四':false
         }
-    },
+    },*/
     series: [
 
         {
             type: 'graph',
             layout: 'circular',
             symbolSize: 40,
+            edgeSymbol: ['arrow'],
             focusNodeAdjacency: true,
             roam: true,
             categories: [{
@@ -2411,7 +2526,7 @@ option_reb = {
                 },
 
 //                业务二
-                {
+               /* {
                     name: '洪源变2',
                     category: 1
                 },
@@ -2498,15 +2613,15 @@ option_reb = {
                     name: '石钟山变4',
                     category: 3
                     // draggable: true,
-                },
+                },*/
 
 
 
             ],
             links: [
                 {
-                source: '洪源变',
-                target: '乐平变',
+                source: '乐平变',
+                target: '洪源变',
                 value: '24芯OPGW光缆段01',
                 lineStyle:{
                     normal:{
@@ -2516,8 +2631,8 @@ option_reb = {
 
             },
                 {
-                    source: '乐平变',
-                    target: '南昌变',
+                    source: '南昌变',
+                    target: '乐平变',
                     value: '16芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
@@ -2526,8 +2641,8 @@ option_reb = {
                     }
                 },
                 {
-                    source: '南昌变',
-                    target: '永修变',
+                    source: '永修变',
+                    target: '南昌变',
                     value: '32芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
@@ -2536,8 +2651,8 @@ option_reb = {
                     }
                 },
                 {
-                    source: '永修变',
-                    target: '马回岭变',
+                    source: '马回岭变',
+                    target: '永修变',
                     value: '24芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
@@ -2547,8 +2662,8 @@ option_reb = {
 
                 },
                 {
-                    source: '马回岭变',
-                    target: '石钟山变',
+                    source: '石钟山变',
+                    target: '马回岭变',
                     value: '24芯OPGW光缆段01',
                     lineStyle:{
                         normal:{
@@ -2558,7 +2673,7 @@ option_reb = {
                 },
 
 //                业务二
-                {
+                /*{
                     source: '洪源变2',
                     target: '乐平变2',
                     value: '24芯OPGW光缆段01',
@@ -2715,7 +2830,7 @@ option_reb = {
                             color:'black',
                         }
                     }
-                },
+                },*/
 
             ],
             lineStyle: {
@@ -2729,6 +2844,257 @@ option_reb = {
     ]
 };
 rebChart1.setOption(option_reb);
+
+
+
+//赋值
+/*var equipLst = new Array();
+equipLst[0] = {
+    id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-52028',
+    name:'洪源变Metro5000',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 11,
+    devtype : '10015',
+    alarmTimeLst : [171.88083333333333, 613.02462472222226, 1577.7369444444444],
+    beta:0.8682,
+    eta:932.6369
+};
+equipLst[1] = {
+    id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-42722',
+    name:'乐平变Metro5000',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 11,
+    devtype : '10015',
+    alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+    beta:0.8697,
+    eta:897.8741
+};
+equipLst[2] = {
+    id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-53570',
+    name:'南昌变Metro5000',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 11,
+    devtype : '10015',
+    alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+    beta:0.8697,
+    eta:897.8741
+};
+equipLst[3] = {
+    id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-55509',
+    name:'永修变Metro5000',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 11,
+    devtype : '10015',
+    alarmTimeLst : [171.88083333333333, 548.45361111111106, 1577.7369444444444],
+    beta:0.8697,
+    eta:897.8741
+};
+equipLst[4] = {
+    id:'7109571B-DCC4-4CD3-BBD4-4EFDC2D8F49F-00057',
+    name:'马回岭变OptiX OSN 7500',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 8,
+    devtype : '10010',
+    alarmTimeLst : [172.0389, 485.8572, 548.4536, 841.7092],
+    beta:1.449755372167,
+    eta:616.211169411713
+};
+equipLst[5] = {
+    id:'227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-56280',
+    name:'石钟山变Metro5000',
+    type_name : '光传输设备',
+    proname : '华为',
+    workyear : 11,
+    devtype : '10015',
+    alarmTimeLst : [171.88083333333333, 613.02473805555553, 1577.7369444444444],
+    beta:0.8682,
+    eta:932.6370
+};
+//                document.write(equipLst[3].proname);
+var e = Math.E;
+var r_arr = new Array();
+for (var i = 0; i <= 200; i++) {
+    var r = 1;
+    for (var k = 0; k < 5; k++) {
+        var ETA = equipLst[k].eta;
+        var BETA= equipLst[k].beta;
+        r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+    }
+    r_arr.push([i, r]);
+}
+
+var rebChart1 = echarts.init(document.getElementById('reb'));
+option_reb = {
+    title:{
+    text: "案例分析",
+    left: "center",
+    subtext: "(500kV石钟山变～500kV洪源变)石洪线\n继电保护业务01B",
+    subtextStyle: {
+        fontSize: 16,
+        align: "center",
+        color: "gray"
+    }
+
+},
+    tooltip: {
+        show: true,
+        trigger: "item",
+        triggerOn: "mousemove",
+//                enterable: true,
+        confine: true,
+        hideDelay: "200"
+    },
+    series: [{
+        name: "设备",
+        type: "graph",
+        layout: "circular",
+        top: '40',
+        width: "70%",
+        symbolSize: 50,
+        roam: true,
+        label: {
+            normal: {
+                show: true
+            }
+        },
+        lineStyle: {
+            normal: {
+                width: 5,
+                curveness: -0.1
+            }
+        },
+        data: [{
+            name: equipLst[0].name.substr(0,3),
+            symbolSize: 55,
+            tooltip: {
+                formatter: "设备名称："+equipLst[0].name
+                +"<br>设备类型："+equipLst[0].type_name
+                +"<br>生产厂家："+equipLst[0].proname
+                +"<br>设备型号："+equipLst[0].devtype
+                +"<br>使用年限："+equipLst[0].workyear
+            }
+//                    x: 300,
+//                    y: 300
+        }, {
+            name: equipLst[1].name.substr(0,3),
+            tooltip: {
+                formatter: "设备名称："+equipLst[1].name
+                +"<br>设备类型："+equipLst[1].type_name
+                +"<br>生产厂家："+equipLst[1].proname
+                +"<br>设备型号："+equipLst[1].devtype
+                +"<br>使用年限："+equipLst[1].workyear
+            }
+//                    x: 800,
+//                    y: 300
+        }, {
+            name: equipLst[2].name.substr(0,3),
+            tooltip: {
+                formatter: "设备名称："+equipLst[2].name
+                +"<br>设备类型："+equipLst[2].type_name
+                +"<br>生产厂家："+equipLst[2].proname
+                +"<br>设备型号："+equipLst[2].devtype
+                +"<br>使用年限："+equipLst[2].workyear
+            }
+//                    x: 550,
+//                    y: 100
+        }, {
+            name: equipLst[3].name.substr(0,3),
+            tooltip: {
+                formatter: "设备名称："+"永修变Metro5000"
+                +"<br>设备类型："+"光传输设备"
+                +"<br>生产厂家："+"华为"
+                +"<br>设备型号："+'11'
+                +"<br>使用年限："+'10015'
+            }
+//                    x: 550,
+//                    y: 500
+        }, {
+            name: equipLst[4].name.substr(0,4),
+            tooltip: {
+                formatter: "设备名称："+equipLst[4].name
+                +"<br>设备类型："+equipLst[4].type_name
+                +"<br>生产厂家："+equipLst[4].proname
+                +"<br>设备型号："+equipLst[4].devtype
+                +"<br>使用年限："+equipLst[4].workyear
+            }
+//                    x: 800,
+//                    y: 300
+        }, {
+            name: equipLst[5].name.substr(0,4),
+            symbolSize: 55,
+            tooltip: {
+                formatter: "设备名称："+equipLst[5].name
+                +"<br>设备类型："+equipLst[5].type_name
+                +"<br>生产厂家："+equipLst[5].proname
+                +"<br>设备型号："+equipLst[5].devtype
+                +"<br>使用年限："+equipLst[5].workyear
+            }
+//                    x: 800,
+//                    y: 300
+        }],
+        edgeLabel: {
+            normal: {
+                show: true,
+                textStyle: {
+                    fontSize: 12,
+                    color: "#363636"
+                },
+                formatter:  "{c}",
+//                            '{a|{c}}',
+//                            '{b|这段文本采用样式b}'
+//                        ].join('\n'),
+//
+//                        rich: {
+//                            a: {
+//                                color: "#363636",
+//                                lineHeight: 10
+//                            },
+//                            b: {
+//                                fontSize: 18,
+//                                fontFamily: 'Microsoft YaHei',
+//                                borderColor: '#449933'
+//                            }
+//                        }
+            }
+        },
+        links: [{
+            source: 0,
+            target: 1,
+            value: '(500kV洪源变～500kV乐平变)\n\n24芯OPGW光缆段01',
+            symbolSize: [5, 20]
+        },{
+            source: 1,
+            target: 2,
+            value: '(500kV南昌变～500kV乐平变)\n\n16芯OPGW光缆段01',
+            symbolSize: [5, 20]
+        },{
+            source: 2,
+            target: 3,
+            value:'(500kV南昌变～500kV永修变)\n\n32芯OPGW光缆段01',
+            symbolSize: [5, 20]
+        },{
+            source: 3,
+            target: 4,
+            value: '(500kV马回岭变～500kV永修变)\n\n24芯OPGW光缆段01',
+            symbolSize: [5, 20]
+        },{
+            source: 4,
+            target: 5,
+            value: '(500kV马回岭变～500kV石钟山变)\n\n24芯OPGW光缆段01',
+            symbolSize: [5, 20]
+        },{
+            source: 5,
+            target: 6,
+            symbolSize: [5, 20]
+        }]
+    }]
+};
+rebChart1.setOption(option_reb);*/
 
 
 

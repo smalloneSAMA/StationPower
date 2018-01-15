@@ -2,8 +2,8 @@ package com.demo.ssm.controller.S_data;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.demo.ssm.po.S_data.Accurate_top10;
-import com.demo.ssm.service.interf.S_data.Accurate_top10Service;
+import com.demo.ssm.po.S_data.Abnormal_top10;
+import com.demo.ssm.service.interf.S_data.Abnormal_top10Service;
 import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +21,9 @@ import java.util.List;
 @RequestMapping("/Accurate_top10")
 public class Accurate_top10Controller {
     @Autowired
-    private Accurate_top10Service accurate_top10Service;
+    private Abnormal_top10Service abnormal_top10Service;
 
+//    private Accurate_top10Service accurate_top10Service;
 
     @RequestMapping("/Jpac10")
     @ResponseBody
@@ -87,14 +88,15 @@ public class Accurate_top10Controller {
 //
 //            return jsonArray;
             int i=0;
-            int k=accurate_top10Service.count();
-            List<Accurate_top10> list = accurate_top10Service.selectByPrimaryKey();
+            int k=11;
+            List<Abnormal_top10> list = abnormal_top10Service.selectByPrimaryKey();//都用abnormal了，accurate没用
             while (i<k) {
                 JSONObject jsonObject = new JSONObject() ;
                 jsonObject.put("ID", (list.get(i)).getId());
                 jsonObject.put("StationName", (list.get(i)).getStationName());
-                jsonObject.put("NumberRecords", (list.get(i)).getNumRecords());
-                jsonObject.put("NumberForecast", (list.get(i)).getNumForecast());
+                jsonObject.put("NumberRecords", (list.get(i)).getNumberRecords());
+                jsonObject.put("NumberForecast", (list.get(i)).getNumberForecast());
+               // jsonObject.put("Score1",(list.get(i)).getScore());
                 jsonArray.add(jsonObject);
                 i++;
             }
