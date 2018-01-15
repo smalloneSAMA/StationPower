@@ -29,14 +29,21 @@
 
 <body class="gray-bg">
 <div class="row  border-bottom white-bg dashboard-header">
-
+    <div class="col-sm-12">
+        <p>（1）对不同类型的数据使用不同的预处理方案。对文本类型数据使用自然语言处理（NLP）提取其关键字；对属性类型数据使用One-Hot编码将其转化为数字类型；对数字类型数据，根据其分布不同考虑是否需要归一化或标准化。
+        </p>
+        <p>（2）通过相关性分析，信息增益计算等方法从全量的字段中选取特征。
+        </p>
+        <p>（3）初步训练模型，在后期再通过专家推荐特征对模型进行优化。
+        </p>
+    </div>
 
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox">
                 <div class="white-bg dashboard-header">
                     <h4>PS.算法简介</h4>
-                    <p>使用多项式朴素贝叶斯分类，该算法是机器学习中的经典分类算法之一，有着坚实的数学基础和稳定的分类效率，能个处理多分类任务，对缺失数据不太敏感，算法简洁实用，常用于文本分类。</p>
+                    <p>使用多项式朴素贝叶斯分类，该算法是机器学习中的经典分类算法之一，预测结果很直观，计算量也不大，在很多领域有广泛的应用。它有着坚实的数学理论基础和稳定的分类效率；能够处理多分类任务，适合增量式训练，尤其是数据量超出内存时，我们可以一批批的去增量训练；对缺失数据不太敏感，算法简洁实用，常用于文本分类。针对本次数据集的特征特点，朴素贝叶斯算法相较于其它算法在结果预测的效率上表现优秀，符合预期效果。</p>
                 </div>
             </div>
         </div>
@@ -44,6 +51,40 @@
 
 
 </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>算法流程简介图</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="graph_flot.html#">选项1</a>
+                        </li>
+                        <li><a href="graph_flot.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div style="height:340px" id="brief"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <!--插入选择-->
 <div class="row" style="padding: 10px 9px">
     <div class="col-xs-2">
@@ -196,6 +237,74 @@
 
 </body>
 <script type="text/javascript">
+
+    /*
+* 算法简介图
+* */
+    var myChart2 = echarts.init(document.getElementById('brief'));
+    option2 = {
+        title: {
+            text: '算法流程简介图'
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                type: 'graph',
+                layout: 'none',
+                symbolSize: 95,
+                //roam: true,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [4, 10],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                data: [
+                    {name: '样本抽取',x: 0,y: 105},
+                    {name: '分词确认特征属性',x: 25,y: 105},
+                    {name: '训练阶段',x: 50,y: 105},
+                    {name: '计算先验概率',x: 25,y: 120},
+                    {name: '对特征计算条件概率',x: 75,y: 120},
+                    {name: '对类别计算后验概率',x: 75,y: 105},
+                    {name: '选择后验概率最大分类',x: 100,y: 105},
+                    {name: '输出分类结果',x: 125,y: 105}
+                ],
+                // links: [],
+                links: [
+                    {source: '样本抽取',target: '分词确认特征属性'},
+                    {source: '分词确认特征属性',target: '训练阶段'},
+                    {source: '训练阶段',target: '计算先验概率'},
+                    {source: '训练阶段',target: '对特征计算条件概率'},
+                    {source: '训练阶段',target: '对类别计算后验概率'},
+                    {source: '对类别计算后验概率',target: '选择后验概率最大分类'},
+                    {source: '选择后验概率最大分类',target: '输出分类结果'}
+                ],
+                lineStyle: {
+                    normal: {
+                        opacity: 0.9,
+                        width: 2,
+                        curveness: 0
+                    }
+                }
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+    $(window).resize(myChart2.resize);
+
+
+
+
 
     $(document).ready(function(){
 

@@ -39,7 +39,37 @@
         <div class="ibox">
             <div class="white-bg dashboard-header">
                 <h4>PS.算法简介</h4>
-                <p>使用SVM支持向量机回归算法，该算法是机器学习中的经典算法，封装完整，应用成熟。充分利用该算法在文本分类上的高效率高准确率的优点。</p>
+                <p>使用SVM支持向量机回归算法，该算法是机器学习中的经典算法，封装完整，应用成熟，它提供了一种基于结构化风险最小的算法，避免了过学习问题，对高维度数据集有着良好的分类效果，具有比神经网络较好的泛化推广能力，也是目前神经网络算法后又一个火热的研究对象，发展迅速成熟。此处分类纠错中主要是充分利用该算法在文本分类上对高维度数据集的高效率高准确率，分类速度快，结果易解释的优点。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>算法流程简介图</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="graph_flot.html#">选项1</a>
+                        </li>
+                        <li><a href="graph_flot.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div style="height:340px" id="brief"></div>
             </div>
         </div>
     </div>
@@ -235,6 +265,73 @@
 
 </body>
 <script type="text/javascript">
+
+/*
+* 算法简介图
+* */
+var myChart2 = echarts.init(document.getElementById('brief'));
+option2 = {
+    title: {
+        text: '算法流程简介图'
+    },
+    tooltip: {},
+    animationDurationUpdate: 1500,
+    animationEasingUpdate: 'quinticInOut',
+    series : [
+        {
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 95,
+            //roam: true,
+            label: {
+                normal: {
+                    show: true
+                }
+            },
+            edgeSymbol: ['circle', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            edgeLabel: {
+                normal: {
+                    textStyle: {
+                        fontSize: 20
+                    }
+                }
+            },
+            data: [
+                {name: '抽取样本',x: 0,y: 100},
+                {name: '求解最优平面',x: 35,y: 100},
+                {name: '构建拉格朗日函数',x: 70,y: 100},
+                {name: '选择核函数对偶化',x: 105,y: 100},
+                {name: '求解凸优化问题',x: 105,y: 120},
+                {name: '得到分类决策函数',x: 70,y: 120},
+                {name: '可信度评估',x: 35,y: 120},
+                {name: '输出SVM模型',x: 0,y: 120}
+            ],
+            // links: [],
+            links: [
+                {source: '抽取样本',target: '求解最优平面'},
+                {source: '求解最优平面',target: '构建拉格朗日函数'},
+                {source: '构建拉格朗日函数',target: '选择核函数对偶化'},
+                {source: '选择核函数对偶化',target: '求解凸优化问题'},
+                {source: '求解凸优化问题',target: '得到分类决策函数'},
+                {source: '得到分类决策函数',target: '可信度评估'},
+                {source: '可信度评估',target: '输出SVM模型'}
+            ],
+            lineStyle: {
+                normal: {
+                    opacity: 0.9,
+                    width: 2,
+                    curveness: 0
+                }
+            }
+        }
+    ]
+};
+myChart2.setOption(option2);
+$(window).resize(myChart2.resize);
+
+
+
 
     $(document).ready(function(){
 

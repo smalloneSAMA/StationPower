@@ -31,9 +31,10 @@ public class Accurate_top10Controller {
         //java调用python程序更新数据库数据
         String line="";
         List<String> processList = new ArrayList<>();
-        String[] url=new String[]{"python", path_python.getBN()};
+        String url="python "+path_python.getBN();
         try {
             System.out.printf("\npython  predictBuzNum程序准备执行\n");
+            //Process pr=Runtime.getRuntime().exec("python E:\\Git\\workspace\\StationPower\\src\\main\\webapp\\view\\python_all\\predictBuzNum.py");
             Process pr=Runtime.getRuntime().exec(url);
             BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             while ((line = input.readLine()) != null) {

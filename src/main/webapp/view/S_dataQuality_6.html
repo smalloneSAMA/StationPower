@@ -29,13 +29,21 @@
 
 <body class="gray-bg">
 <div class="row  border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <p>（1）对不同类型的数据使用不同的预处理方案。对文本类型数据使用自然语言处理（NLP）提取其关键字；对属性类型数据使用One-Hot编码将其转化为数字类型；对数字类型数据，根据其分布不同考虑是否需要归一化或标准化。
+        </p>
+        <p>（2）通过相关性分析，信息增益计算等方法从全量的字段中选取特征。
+        </p>
+        <p>（3）初步训练模型，在后期再通过专家推荐特征对模型进行优化。
+        </p>
+    </div>
 
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox">
                 <div class="white-bg dashboard-header">
                     <h4>PS.算法简介</h4>
-                    <p>使用决策树分类模型，该算法是机器学习中的经典分类算法之一，在相对短的时间内能够对大型数据源做出可行且效果良好的结果，逻辑清晰，易于理解和解释，数据的准备往往是简单或者是不必要的。</p>
+                    <p>使用决策树分类模型，该算法是机器学习中的经典分类算法之一，在相对短的时间内能够对大型数据源做出可行且效果良好的结果，逻辑清晰，易于理解和解释；其对数据的准备往往是简单或者是不必要的，其他的技术往往要求先把数据一般化，比如去掉多余的或者空白的属性；能够同时处理数据型和常规型属性。其他的技术往往要求数据属性的单一。此处分类纠错利用了它对缺失值不敏感， 效率高，决策树只需要一次构建，反复使用，每一次预测的最大计算次数不超过决策树的深度等特点，得到了符合预期的结果。</p>
                 </div>
             </div>
         </div>
@@ -43,7 +51,42 @@
 
 
 </div>
-        <!--插入选择-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>算法流程简介图</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="graph_flot.html#">选项1</a>
+                        </li>
+                        <li><a href="graph_flot.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div style="height:340px" id="brief"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--插入选择-->
         <div class="row" style="padding: 10px 9px">
             <div class="col-xs-2">
                 <select class="form-control" id="province" name="cars" >
@@ -79,7 +122,7 @@
                 <button class="btn btn-white " type="button" onclick="buz_type()" value="查询" style="width: 15%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
             <!--</div>-->
             <!--<div class="col-xs-8 no-margins no-padding">-->
-                <button class="btn btn-white " type="button" onclick="re_buz_type()" value="数据更新" style="width: 15%;color:#ffffff;background-color: #1ab394;">数据更新</button>
+                <button class="btn btn-white " type="button" onclick="re_buz_type()" value="刷新" style="width: 15%;color:#ffffff;background-color: #1ab394;">刷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新</button>
             </div>
         </div>
 
@@ -195,6 +238,77 @@
     
 </body>
 <script type="text/javascript">
+
+    /*
+* 算法简介图
+* */
+    var myChart2 = echarts.init(document.getElementById('brief'));
+    option2 = {
+        title: {
+            text: '算法流程简介图'
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                type: 'graph',
+                layout: 'none',
+                symbolSize: 95,
+                //roam: true,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [4, 10],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                data: [
+                    {name: '样本抽取',x: 0,y: 100},
+                    {name: '特征属性确认',x: 25,y: 100},
+                    {name: '选择最优划分属性',x: 50,y: 100},
+                    {name: '创建节点',x: 75,y: 100},
+                    {name: '递归创建分支',x: 75,y: 115},
+                    {name: '得到决策树',x: 50,y: 115},
+                    {name: '可信度计算',x: 25,y: 115},
+                    {name: '输出结果',x: 0,y: 115}
+                ],
+                // links: [],
+                links: [
+                    {source: '样本抽取',target: '特征属性确认'},
+                    {source: '特征属性确认',target: '选择最优划分属性',label: {normal: {show: true,formatter: '计算基尼指数'}}},
+                    {source: '选择最优划分属性',target: '创建节点'},
+                    {source: '创建节点',target: '递归创建分支'},
+                    {source: '递归创建分支',target: '得到决策树',label: {normal: {show: true,formatter: '剪枝'}}},
+                    {source: '得到决策树',target: '可信度计算'},
+                    {source: '可信度计算',target: '输出结果'}
+                ],
+                lineStyle: {
+                    normal: {
+                        opacity: 0.9,
+                        width: 2,
+                        curveness: 0
+                    }
+                }
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+    $(window).resize(myChart2.resize);
+
+
+
+
+
+
+
 
     $(document).ready(function(){
 
