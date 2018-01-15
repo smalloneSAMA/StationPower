@@ -350,6 +350,7 @@
     }
 
     function Line(obj) {
+
         var time = obj.time;
         time=time.replace("[","").replace("]","");
 //        alert(time);
@@ -382,11 +383,17 @@
 
         }
         var e = Math.E;
-        for (var i = 0; i <= 1200; i++) {
+        var m=timeData[timeData.length-1];
+        m = parseFloat(m)+200.00001;
+//        var m=alarm_time_d[n-1]+100;
+
+        for (var i = 0; i <= m; i++) {
             var r = 1 - Math.pow(e, -Math.pow((i / eta), beta));
             // var r = i+3;
             data.push([i, r]);
+
         }
+
         option = {
             title: {
                 text: '设备故障率预测',

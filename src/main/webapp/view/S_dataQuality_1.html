@@ -23,22 +23,46 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
-            <div class="ibox-content text-center">
-                <h2 class="m-b-xxs"><b>站点业务数分析</b></h2>
-            </div>
             <div class="white-bg dashboard-header">
                 <h2>1.特征工程</h2>
                 <p>通过专家推荐和相关性分析的方法，找到了与站点业务数量相关的一些特征，包括站点类型、电压等级、调度等级、站点建成年限、站点在拓扑图中的中心度、站点中光传输设备数量、站点所属系统以及一些组合特征。分析发现，站点类型与业务数量相关性最强，不同类型站点业务数量相差显著。</p>
+            </div>
+
+            <div class="white-bg dashboard-header">
+                <h2>2.模型选择</h2>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>模型</th>
+                        <th>优点</th>
+                        <th>缺点</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Ridge回归</td>
+                        <td>可以得出每个特征对最终结果的权重大小，训练时收敛速度快</td>
+                        <td>只能拟合线性关系，对异常点敏感</td>
+                    </tr>
+                    <tr>
+                        <td>SVR模型</td>
+                        <td>通过引入核函数可以拟合任意关系，对异常点敏感度低，不易过拟合</td>
+                        <td>涉及到二次规划问题，计算开销较大，无法得到特征权重</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
+
+
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
             <div class="white-bg dashboard-header">
-                <h4>PS.算法简介</h4>
+                <h4>算法简介</h4>
                 <p>使用SVM支持向量机回归算法，该算法是机器学习中的经典算法，封装完整，应用成熟，它提供了一种基于结构化风险最小的算法，避免了过学习问题，对高维度数据集有着良好的分类效果，具有比神经网络较好的泛化推广能力，也是目前神经网络算法后又一个火热的研究对象，发展迅速成熟。此处分类纠错中主要是充分利用该算法在文本分类上对高维度数据集的高效率高准确率，分类速度快，结果易解释的优点。</p>
             </div>
         </div>
