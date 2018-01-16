@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>业务可靠性预测</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <meta charset="utf-8">
+    <style>
+        .box1 {
+            width: auto;
+            height: 500px;
+        }
+        .box2 {
+            margin: 20px 0;
+            width: auto;
+            height: 600px;
+        }
+        .imgbox {
+            height: 500px;
+            width: auto;
+            /*background-color: rgba(12,12,12,0.5);*/
+            background-color: #2b303a;
+        }
+        img {
+            height: 100%;
+            width: auto;
+        }
+        .dev_name {
+            background-color: rgba(255,85,0,0.6);
+        }
+        .dev_percent {
+            background-color: rgba(0,105,255,0.6);
+            font-size: 16px;
+            font-family: "Adobe 楷体 Std R";
+        }
+        /*.titlebox {*/
+            /*background-color: rgba(0,105,255,0.4);*/
+            /*width: auto;*/
+            /*height: 100px;*/
+        /*}*/
+        .description {
+            clear: both;
+            width: auto;
+            height: 25px;
+            font-family: "Adobe 楷体 Std R";
+            font-size: 12px;
+            color: #2A2E36;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!--业务可靠性-->
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title titlebox">
+                    <h5>业务拓扑结构图</h5>
+                    <br>
+                    <div class="description">
+                    设备节点颜色偏红表示可靠性偏高，颜色偏蓝表示可靠性偏低，参照右侧颜色变换柱进行分析比较。
+                    </div>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="imgbox"><img src="1.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>各设备故障占比分析</h5>
+                    <div class="description">分析对业务可靠性影响最大的设备</div>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="reason_box1" class="box1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <!--<div class="col-sm-5">-->
+        <!--<div id="radar" class="box2"></div>-->
+    <!--</div>-->
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>业务低可靠性原因分析</h5>
+                    </p>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id="reason_box2" class="box2"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</div>
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="../js/bootstrap.min.js?v=3.3.5"></script>
+<script src="../S_js/echarts.js"></script>
+<script src="../js/content.min.js?v=1.0.0"></script>
+<!--柱状图-->
+<script>
+    var dataAll = [9246.08, 6079.17, 2808.54, 2784.53, 48.01, 48.01, 48.01, 1.19, 1.19, 1.07];
+    var yAxisData = ['设备S--'+'RDI','设备3--'+'RDI','设备4--'+'RDI','设备5--'+'RDI','设备E--'+'Signal Degrade','设备5--'+'Signal Degrade',
+        '设备6--'+'Signal Degrade','设备E--'+'ME loss of communication','设备6--'+'ME loss of communication','设备4--'+'ME loss of communication'];
+    var option = {
+        backgroundColor:'rgba(15, 55, 95, 0.8)',
+        title:{
+            text:"低可靠性的原因TOP10",
+            subtext:"\n",
+//            textStyle: {
+//                fontStyle: 'normal',
+//                fontWeight: 'bold',
+//                fontSize: 20
+//            },
+            x: '2%', y: '2%',
+            textStyle:{color:"#fff",fontSize:"20"},
+            x: '40%'
+        },
+        grid: [
+            {x: '20%', y: '7%', width: '75%', height: '90%'}
+        ],
+        tooltip: {
+            formatter: "{b}类型告警:<br/> 时间： ({c}h)"
+        },
+        xAxis: [
+            {textStyle:{
+                fontSize: 20
+            },
+                gridIndex: 0, axisTick: {show:false},axisLabel: {show:false},splitLine: {show:false},axisLine: {show:false }},
+        ],
+        yAxis: [
+            {  gridIndex: 0, interval:0,data:yAxisData.reverse(),
+                axisTick: {show:false}, axisLabel: {show:true},splitLine: {show:false},
+//                axisLine: {show:true,lineStyle:{color:"#1E90FF"}}
+                axisLine: {show:true,lineStyle:{color:"#fff"}},
+                axisLabel: {
+                    show:true,
+                    fontFamily: 'sans-serif',
+                    fontSize: 14
+                }
+            }
+        ],
+        dataZoom: [
+            {
+                show: true,
+                start:0,
+                end: 100
+            },
+            {
+                type: 'slider',
+//                type: 'inside',
+                start: 0,
+                end: 100,
+//                startValue:
+//                endValue:
+                backgroundColor:'rgba(15,55,95,0.6)',
+                fillerColor: 'rgba(167,183,204,0.4)',
+                handleSize: '100%',
+                handleStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'red' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'blue' // 100% 处的颜色
+                        }],
+                        globalCoord: false // 缺省为 false
+                    }
+                },
+                textStyle: {
+                    color: '#fff',
+                    fontStyle: 'italic'
+                }
+
+            }
+        ],
+        series: [
+            {
+                name: '告警原因TOP10',
+                type: 'bar',xAxisIndex: 0,yAxisIndex: 0,barWidth:'45%',
+                center: ['50%', '50%'],
+                itemStyle:{normal:{color:'#86c9f4'}},
+                label:{
+                    normal:
+                        {
+                            show:true,
+                            position:"right",
+                            textStyle:
+                                {color:"#ffffff"}
+                        }
+                        },
+                data: dataAll.reverse()
+            }
+
+        ]
+    };
+    var reason = document.getElementById("reason_box2");
+    var mychart2 = echarts.init(reason);
+    mychart2.setOption(option);
+</script>
+
+<!--饼图-->
+<script>
+    option1 = {
+        backgroundColor:'#ccc',
+//        backgroundColor:'#2b303a',
+        title : {
+            text: '各设备历史故障占比',
+            textStyle: {
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: '#000'
+            },
+            subtext: '（220kV东新变～220kV斗门变）\n继电保护斗东线纵联距离业务',
+            subtextStyle: {
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontSize: 14,
+                color: '#333'
+            },
+            x:'center',
+            y: '6%'
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: function(params){
+                var data1 = params.data;
+                var res='<div>' +
+                        '<span>设备标识： '+ data1.name + '</span><br>' +
+                        '<span class="dev_name">设备名称： '+ data1.ne_name + '</span><br>'+
+                        '<span>告警时间： '+ data1.value + '小时</span><br>'+
+                        '<span class="dev_percent">故障占比： '+ params.percent + '%</span><br>'+
+                        '</div>';
+//                for(var i=0;i<params.length;i++){
+//                    res+='<p>'+params[i].seriesName+':'+params[i].data+'</p>'
+//                }
+                return res;
+            }
+
+        },
+        legend: {
+            orient: 'vertical',
+            top: '10%',
+            left: '5%',
+//            data: ['设备S','设备2','设备3','设备4','设备5','设备6','设备E']
+            data: ['设备S','设备3','设备4','设备5','其他设备']
+        },
+        label: {
+          normal: {
+              fontSize: 16
+          }
+        },
+        series : [
+            {
+                name: '设备名称',
+                type: 'pie',
+//                radius : '55%',
+                center: ['50%', '60%'],
+//                radius : [30, 110],
+                radius : ['15%', '60%'],
+                roseType : 'area',
+//                roseType : 'radius',
+                itemStyle: {
+                    normal: {
+                        color: {
+                            type: 'radial',
+                            x: 0.5,
+                            y: 0.5,
+                            r: 0.5,
+                            colorStops: [{
+                                offset: 0, color: 'red' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: 'blue' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    }
+                },
+                data:[
+                    {value:1992.01, name:'设备S',ne_name:'斗门变Edge 6500',fullname:'省主干北电光传输系统/斗门变Edge 6500'},
+//                    {value:1992.01, name:'设备S',ne_name:{'斗门变Edge 6500','省主干北电光传输系统/斗门变Edge 6500'},
+//                    {value:0, name:'设备1'},
+//                    {value:0, name:'设备2'},
+                    {value:1513.07, name:'设备3', ne_name:'南昌变 Edge 6500',fullname:'省主干北电光传输系统/南昌变 Edge 6500'},
+                    {value:913.10, name:'设备4' ,ne_name:'永修变Edge 6500',fullname:'省主干北电光传输系统/永修变Edge 6500'},
+                    {value:913.01, name:'设备5', ne_name:'梦山变 Edge 6500-01',fullname:'省主干北电光传输系统/梦山变 Edge 6500-01'},
+                    {value:100.52, name:'其他设备', ne_name:'其他设备'}
+//                    {value:0, name:'设备6'},
+//                    {value:0, name:'设备E'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    var reason1 = document.getElementById("reason_box1");
+    var mychart1 = echarts.init(reason1);
+    mychart1.setOption(option1);
+</script>
+</body>
+</html>

@@ -33,6 +33,16 @@ public class t_buz {
     private String CHANNEL_CAPACITY;
     private String BUZ_RATE;
     private String MANAGEMENT_NAME;
+    private String NE_LIST;
+
+    public String getNE_LIST() {
+        return NE_LIST;
+    }
+
+    public void setNE_LIST(String NE_LIST) {
+        this.NE_LIST = NE_LIST;
+    }
+
     public String getProvince() {
         return province;
     }

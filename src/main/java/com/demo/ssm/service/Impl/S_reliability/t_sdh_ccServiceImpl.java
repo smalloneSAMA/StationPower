@@ -23,7 +23,5 @@ public class t_sdh_ccServiceImpl implements t_sdh_ccService {
         return t.select(A_CTP,A_PTP,Z_CTP,Z_PTP,province);
     }
 
-    public int count(String A_CTP, String A_PTP, String Z_CTP, String Z_PTP,String province) throws IOException{
-        return t.count(A_CTP,A_PTP,Z_CTP,Z_PTP,province);
-    }
+
 }

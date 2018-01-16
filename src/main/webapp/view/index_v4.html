@@ -66,7 +66,7 @@
                 <div id="content" >
                     <div class="container">
                         <div class="row">
-                            <div class="span12" style="margin-left: 10px">
+                            <div class="span12">
                                 <ul class="list1 row">
                                     <li class="span3">
                                         <a><figure class="img-polaroid"><img src="img/topo.png" alt=""></figure>
@@ -250,8 +250,8 @@
                      <option value="16">山西</option>
                      <option value="17">重庆</option>
                  </select>-->
-                <!--<div id="paint" style="height: 434px;"></div>-->
-                <div id='ey_failure2' style='height: 700px;'></div>
+                <div id="paint" style="height: 470px;"></div>
+                <!--<div id='ey_failure2' style='height: 700px;'></div>-->
                 <!--<div  id="main2" style="width: 500px;height: 400px;"></div>-->
             </div>
 
@@ -273,7 +273,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
 //    data_pin();
-//    paint1();
+    paint1();
     Relation();
 });
     /*
@@ -628,7 +628,7 @@ function relationData(obj) {
         legend: {
             icon: 'rect',
             itemWidth: 30,
-            itemHeight: 10,
+            itemHeight: 3,
             itemGap: 13,
             right: '5%',
             top: 40,
@@ -998,7 +998,7 @@ function relationData(obj) {
     myChart2.setOption(option2);
 }
 
-/*function paint1() {
+function paint1() {
 
     var paintCharts = echarts.init(document.getElementById("paint"))
 
@@ -2124,7 +2124,7 @@ function relationData(obj) {
     paintCharts.setOption(option_paint);
     $(window).resize(paintCharts.resize);
 
-}*/
+}
 
 
 

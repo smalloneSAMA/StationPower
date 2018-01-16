@@ -12,38 +12,36 @@
 
     </resultMap>
 
-    <resultMap id="sdh_ccMap1" type="com.demo.ssm.po.S_reliability.t_sdh_cc">
-        <id column="_id" property="_id" jdbcType="VARCHAR"/>
-        <result column="A_CTP" property="A_CTP" jdbcType="VARCHAR"/>
-        <result column="Z_CTP" property="Z_CTP" jdbcType="VARCHAR"/>
-        <result column="A_PTP" property="A_PTP" jdbcType="VARCHAR"/>
-        <result column="Z_PTP" property="Z_PTP" jdbcType="VARCHAR"/>
+    <!--<resultMap id="sdh_ccMap1" type="com.demo.ssm.po.S_reliability.t_sdh_cc">-->
+        <!--<id column="_id" property="_id" jdbcType="VARCHAR"/>-->
+        <!--<result column="A_CTP" property="A_CTP" jdbcType="VARCHAR"/>-->
+        <!--<result column="Z_CTP" property="Z_CTP" jdbcType="VARCHAR"/>-->
+        <!--<result column="A_PTP" property="A_PTP" jdbcType="VARCHAR"/>-->
+        <!--<result column="Z_PTP" property="Z_PTP" jdbcType="VARCHAR"/>-->
 
-    </resultMap>
+    <!--</resultMap>-->
 
     <!--字段片段-->
     <!--<sql id="Analysis">-->
     <!--ID,TransformSubstation,UseTime,beta,eta-->
-    <!--</sql>-->
+    <!--&lt;!&ndash;</sql>&ndash;&gt;AND province =#{province}-->
 
     <!--按照a_ptp和z_ptp查询-->
-    <select id="select1" parameterType="String" resultMap="sdh_ccMap1" >
+    <select id="select1" parameterType="String" resultMap="sdh_ccMap" >
         SELECT *
-        FROM t_sdh_cc
-        WHERE (A_PTP =#{A_PTP} OR Z_PTP =#{Z_PTP}) AND province =#{province}
+        FROM ${province}
+        WHERE A_PTP =#{A_PTP} OR Z_PTP =#{Z_PTP}
     </select>
 
     <!--按照好多条件查询-->
     <select id="select" parameterType="String" resultMap="sdh_ccMap" >
         SELECT *
-        FROM t_sdh_cc
-        WHERE ((A_CTP =#{A_CTP} AND A_PTP =#{A_PTP}) OR (Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP})) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0') AND province =#{province}
+        FROM ${province}
+        WHERE ((A_CTP =#{A_CTP} AND A_PTP =#{A_PTP}) OR (Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP})) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0')
     </select>
 
-    <select id="count" parameterType="String" resultType="java.lang.Integer">
-        SELECT COUNT(_id)
-        FROM t_sdh_cc
-        WHERE (A_CTP =#{A_CTP} AND A_PTP =#{A_PTP} OR Z_CTP =#{Z_CTP} AND Z_PTP =#{Z_PTP}) AND (DELETE_FLAG IS NULL OR DELETE_FLAG ='0') AND province =#{province}
-    </select>
+
+
+
 
 </mapper>

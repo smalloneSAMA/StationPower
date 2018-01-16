@@ -18,43 +18,6 @@
 </head>
 
 <body class="gray-bg">
-<!--<div class="row  border-bottom white-bg dashboard-header">
-    <div class="col-sm-12">
-        <form>
-            <label>省份选择:</label>
-            <select name="cars" id="province">
-                <option value="安徽">安徽</option>
-                <option value="北京">北京</option>
-                <option value="福建">福建</option>
-                <option value="甘肃">甘肃</option>
-                <option value="河北">河北</option>
-                <option value="河南">河南</option>
-                <option value="黑龙江">黑龙江</option>
-                <option value="吉林">吉林</option>
-                <option value="江苏">江苏</option>
-                <option value="江西" selected="selected">江西</option>
-                <option value="蒙东">蒙东</option>
-                <option value="宁夏">宁夏</option>
-                <option value="青海">青海</option>
-                <option value="山西">山西</option>
-                <option value="天津">天津</option>
-                <option value="西藏">西藏</option>
-                <option value="浙江">浙江</option>
-                <option value="重庆">重庆</option>
-            </select>
-            <label  style="margin-left: 30px;">业务类型选择：</label>
-            <select id="buz_type">
-                <option value="1" selected="selected">继电保护</option>
-                <option value="2">安全自动装置</option>
-                <option value="3">调度自动化</option>
-            </select>
-            <br><br>
-            <input id="buz_id" type="text" name="设备ID" value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250" />
-            <input id="btn" type="button" value="查询" onclick="zx()"/>
-        </form>
-    </div>
-</div>-->
-
 <div class="row" style="padding: 13px 0px">
     <div class="col-xs-2">
         <select class="form-control" id="Province" name="cars" >
@@ -80,24 +43,43 @@
 
     </div>
     <div class="col-xs-2">
-        <select class="form-control" id="buz_type"  >
+        <select class="form-control" id="buz_type"  onchange="trans()">
             <option value="1">继电保护</option>
             <option value="2">安全自动装置</option>
             <option value="3">调度自动化</option>
         </select>
     </div>
 
-    <div class="col-xs-2" style="padding-left: 0px">
-        <input id="buz_id" type="text" name="设备ID" placeholder="请输入设备ID" value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250"  class="form-control">
+    <!--<div class="col-xs-4" style="padding-left: 0px">-->
+        <!--<input id="buz_id" type="text" name="设备ID" placeholder="请输入设备ID" value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250"  class="form-control">-->
 
+    <!--</div>-->
+    <div class="col-xs-4" >  
+        <span style="margin-left:100px;width:18px;overflow:hidden;">  
+        <select  id="buz_id"  style="width:235px;margin-left:-86px;height:31px;" onchange="danwei()" >
+            <option value="">请选择以下id</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+
+        </select>
+        </span>
+        <input type="text" id="units" name="units" style="width: 215px;margin-left: -239px;height: 31px;color:#000;" placeholder="  请输入设备ID">
     </div>
+
     <div class="col-xs-1 ">
-        <button id="btn"  class="btn btn-white " type="button" onclick="zx()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+        <button id="btn"  class="btn btn-white " type="button" onclick="zx()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;询</button>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>业务基本信息</h5>
@@ -124,8 +106,34 @@
             </div>
         </div>
     </div>
-
-
+    <div class="col-sm-6">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>业务拓扑图</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_basic.html#">选项1</a>
+                        </li>
+                        <li><a href="table_basic.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id="img">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.5"></script>
@@ -136,9 +144,60 @@
 
 </body>
 <script type="text/javascript">
+
+    function danwei(){  
+          var text=$("#buz_id").val();  
+          $("#units").val(text);  
+     }
+
+     function trans() {
+        var option='';
+        var buz_type = $('#buz_type').val();
+        if (buz_type=='1'){
+            option = option+'<option value="">请选择以下id</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+
+        }else if(buz_type=='2'){
+            option = option+'<option value="">请选择以下id</option>\n' +
+                '            <option value="2">2</option>\n' +
+                '            <option value="2">2</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+        }else {
+            option = option+'<option value="">请选择以下id</option>\n' +
+                '            <option value="3">3</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+
+        }
+         $("#buz_id").html(option);
+         $("#units").val("");
+         $("#buz_id").val("");
+
+     }
+
     $(function() {
         $('#btn').click(function () {
-//            alert("lalala");
+//            alert("lalalaaaaaa");
             var province = $("#Province").val();
             var buz_type = $('#buz_type').val();
             var buz_id = $('#buz_id').val();
@@ -221,7 +280,27 @@
                     }
                 }
             });
+//            alert('lalala');
+            $.ajax({
+                url: "../../t/topo",
+                type: "post",
+                dataType: "json",
+                async: false,
+//                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
+                success: function (data) {
+                    alert('lalala');
+                    //如果返回的map值为true则显示图片，如果返回的map值为false则不显示图片
+                    $('#img').html("<img src='img/a1.jpg' />")
+
+                },
+                error: function (data) {
+                    if (data.result == "error") {
+                        alert("输入的id错误");
+                    }
+                }
+            });
         });
+
     });
 </script>
 </html>
