@@ -5,13 +5,15 @@
     <script src="js/bootstrap.min.js?v=3.3.5"></script>
     <script src="S_js/echarts.js"></script>
     <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="layer/layer.js"></script>
     <title>业务可靠性预测</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.jpg">
     <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
     <meta charset="utf-8">
     <!--赋值START-->
     <script type="text/javascript">
@@ -125,52 +127,52 @@
 </head>
 <div class="wrapper wrapper-content animated fadeInRight">
 
-        <!--<div class="row" style="padding: 13px 0px">-->
-            <!--<div class="col-xs-2">-->
-                <!--<select class="form-control" id="Province" name="cars" >-->
-                    <!--<option value="安徽">安徽</option>-->
-                    <!--<option value="北京">北京</option>-->
-                    <!--<option value="福建">福建</option>-->
-                    <!--<option value="甘肃">甘肃</option>-->
-                    <!--<option value="河北">河北</option>-->
-                    <!--<option value="河南">河南</option>-->
-                    <!--<option value="黑龙江">黑龙江</option>-->
-                    <!--<option value="吉林">吉林</option>-->
-                    <!--<option value="江苏">江苏</option>-->
-                    <!--<option value="江西">江西</option>-->
-                    <!--<option value="蒙东">蒙东</option>-->
-                    <!--<option value="宁夏">宁夏</option>-->
-                    <!--<option value="青海">青海</option>-->
-                    <!--<option value="陕西">陕西</option>-->
-                    <!--<option value="天津">天津</option>-->
-                    <!--<option value="西藏">西藏</option>-->
-                    <!--<option value="浙江">浙江</option>-->
-                    <!--<option value="重庆">重庆</option>-->
-                <!--</select>-->
+        <!--<div class="row" style="padding: 13px 0px">
+            <div class="col-xs-2">
+                <select class="form-control" id="Province" name="cars" >
+                    <option value="安徽">安徽</option>
+                    <option value="北京">北京</option>
+                    <option value="福建">福建</option>
+                    <option value="甘肃">甘肃</option>
+                    <option value="河北">河北</option>
+                    <option value="河南">河南</option>
+                    <option value="黑龙江">黑龙江</option>
+                    <option value="吉林">吉林</option>
+                    <option value="江苏">江苏</option>
+                    <option value="江西">江西</option>
+                    <option value="蒙东">蒙东</option>
+                    <option value="宁夏">宁夏</option>
+                    <option value="青海">青海</option>
+                    <option value="陕西">陕西</option>
+                    <option value="天津">天津</option>
+                    <option value="西藏">西藏</option>
+                    <option value="浙江">浙江</option>
+                    <option value="重庆">重庆</option>
+                </select>
 
-            <!--</div>-->
-            <!--<div class="col-xs-2">-->
-                <!--<select class="form-control" id="type" name="cars" >-->
-                    <!--<option value="继电保护">继电保护</option>-->
-                    <!--<option value="安全自动装置">安全自动装置</option>-->
-                    <!--<option value="调度自动化">调度自动化</option>-->
-                <!--</select>-->
-            <!--</div>-->
+            </div>
+            <div class="col-xs-2">
+                <select class="form-control" id="type" name="cars" >
+                    <option value="继电保护">继电保护</option>
+                    <option value="安全自动装置">安全自动装置</option>
+                    <option value="调度自动化">调度自动化</option>
+                </select>
+            </div>
 
-            <!--<div class="col-xs-2" style="padding-left: 0px">-->
-                <!--<input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">-->
+            <div class="col-xs-2" style="padding-left: 0px">
+                <input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">
 
-            <!--</div>-->
-            <!--<div class="col-xs-1 ">-->
-                <!--<button  id="btn" class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>-->
-            <!--</div>-->
-        <!--</div>-->
+            </div>
+            <div class="col-xs-1 ">
+                <button  id="btn" class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+            </div>
+        </div>-->
 
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>拓扑图</h5>
+                    <h5>该业务的可靠性评估</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -181,8 +183,9 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div id="img">
+                    <div>
 
+                        <img id="img" style="height: 100%;width: 100%"/>
                     </div>
                 </div>
             </div>
@@ -222,11 +225,17 @@
 
 
     $(function(){
+
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+
         var province = $("#Province").val();
         var buz_type = $('#buz_type').val();
         var buz_id = $('#buz_id').val();
         var equipLst = new Array();
         var buz_re = "";
+        var buz_name = "";
         var str = '';
         $.ajax({
             url: "../../t/buz_pre",
@@ -242,7 +251,7 @@
                 }
             },
             error: function (data) {
-                alert("输入的id错误");
+                alert("输入的id错误！");
             }
         });
 
@@ -257,13 +266,15 @@
                 if (buz_re=='1'){
                     buz_re = '0.999'
                 }
+                buz_name = data[0]['业务名称'];
                 str = str+buz_re;
+
                 $("#buz_re").html(str);
 
             },
             error: function (data) {
                 if (data.result == "error") {
-                    alert("输入的id错误");
+                    alert("输入的id错误！！");
                 }
             }
         });
@@ -275,15 +286,17 @@
             async: false,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
-                alert('lalala');
-                //如果返回的map值为true则显示图片，如果返回的map值为false则不显示图片
-                $('#img').html("<img src='img/a1.jpg' />")
+//                alert('lalala');
 
+                var buz_id = data[0]['业务id'];
+//                alert(buz_id);
+//                $('#img').html("<img src='topo_img/'+buz_id+'.png' />");
+                $('#img').attr('src',"history_img/" + buz_id + ".png");
             },
             error: function (data) {
-//                if (data.result == "error") {
-//                    alert("输入的id错误");
-//                }
+                if (data.result == "error") {
+                    alert("业务拓扑图有误！！！");
+                }
             }
         });
 
@@ -349,7 +362,7 @@
                     fontsize: 18,
                     color: '#FF3030'
                 },
-                subtext: "(500kV石钟山变～500kV洪源变)石洪线\n继电保护业务01B",
+                subtext: buz_name,
                 subtextStyle: {
                     color: "#1E90FF",
                     fontSize: 16
@@ -625,6 +638,8 @@
         ////        document.write(d_r+"\n" + d_d);
         //        option = getOption(d_r, d_f, d_d);
         //        mc.setOption(option);
+//        layer.close(index);
+
     });
 
 </script>

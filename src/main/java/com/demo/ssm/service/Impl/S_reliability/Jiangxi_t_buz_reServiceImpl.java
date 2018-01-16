@@ -21,7 +21,7 @@ public class Jiangxi_t_buz_reServiceImpl implements Jiangxi_t_buz_reService {
     }
 
     @Override
-    public List<jiangxi_t_buz_re> select1(String BUZ_TYPE,String province) throws IOException {
+    public List<jiangxi_t_buz_re> select1(String BUZ_TYPE, String province) throws IOException {
         return j.select1(BUZ_TYPE,province);
     }
 }

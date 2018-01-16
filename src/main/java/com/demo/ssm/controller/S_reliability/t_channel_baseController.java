@@ -3,9 +3,9 @@ package com.demo.ssm.controller.S_reliability;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.ssm.po.S_reliability.*;
-import com.demo.ssm.service.interf.S_reliability.Jiangxi_fiber_faultService;
-import com.demo.ssm.service.interf.S_reliability.Jiangxi_t_buz_reService;
+import com.demo.ssm.service.interf.S_reliability.*;
 import com.demo.ssm.tool.path_python;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -23,27 +24,27 @@ import java.util.*;
 public class t_channel_baseController {
 
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_channel_baseService t_channel_baseService;
+    private t_channel_baseService t_channel_baseService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_buzService t_buzService;
+    private t_buzService t_buzService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_business_channelService t_business_channelService;
+    private t_business_channelService t_business_channelService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_sdh_ccService t_sdh_ccService;
+    private t_sdh_ccService t_sdh_ccService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_topologyService t_topologyService;
+    private t_topologyService t_topologyService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_neService t_neService;
+    private t_neService t_neService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_alarm_cleanService t_alarm_cleanService;
+    private t_alarm_cleanService t_alarm_cleanService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_weibullService t_weibullService;
+    private t_weibullService t_weibullService;
     @Autowired
     private Jiangxi_fiber_faultService jiangxi_fiber_faultService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.jiangxi_ne_reService jiangxi_ne_reService;
+    private jiangxi_ne_reService jiangxi_ne_reService;
     @Autowired
-    private com.demo.ssm.service.interf.S_reliability.t_fiber_reService t_fiber_reService;
+    private t_fiber_reService t_fiber_reService;
     @Autowired
     private Jiangxi_t_buz_reService jiangxi_t_buz_reService;
 
@@ -430,6 +431,86 @@ public class t_channel_baseController {
     }
 
 
+    @RequestMapping("/list")
+    @ResponseBody
+    public List<String> list(String buz_id, String province){
+        try{
+            List<String> list = new ArrayList<String>();
+            jiangxi_t_buz_re jiangxi_t_buz_re = jiangxi_t_buz_reService.select(buz_id,province);
+            String nestr = jiangxi_t_buz_re.getNE_LIST();
+            String[] arr = nestr.split("],");
+
+
+            for (int i=0;i<arr.length;i++){
+                String onestr = "";
+                if(i == arr.length-1){
+                    onestr = arr[i].substring(2,arr[i].length()-2);
+                }else{
+                    onestr = arr[i].substring(2,arr[i].length());
+                }
+                String[] arr1 = onestr.split(",");
+                for (int j = 0;j<arr1.length;j++){
+                    String ne = "";
+                    if (j == 0){
+                        ne = arr1[j].substring(1,arr1[j].length()-1);
+                    }else{
+                        ne = arr1[j].substring(2,arr1[j].length()-1);
+                    }
+                    list.add(ne);
+                }
+
+            }
+            return list;
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
+
+
+    @RequestMapping("/nlist")
+    @ResponseBody
+    public List<List<String>> nlist(String buz_id, String province){
+        try{
+            List<List<String>> list = new ArrayList<List<String>>();
+            jiangxi_t_buz_re jiangxi_t_buz_re = jiangxi_t_buz_reService.select(buz_id,province);
+            String nestr = jiangxi_t_buz_re.getNE_LIST();
+            String[] arr = nestr.split("],");
+
+
+            for (int i=0;i<arr.length;i++){
+                String onestr = "";
+                if(i == arr.length-1){
+                    onestr = arr[i].substring(2,arr[i].length()-2);
+                }else{
+                    onestr = arr[i].substring(2,arr[i].length());
+                }
+                String[] arr1 = onestr.split(",");
+                List<String> onelist = new ArrayList();
+                for (int j = 0;j<arr1.length;j++){
+                    String ne = "";
+                    if (j == 0){
+                        ne = arr1[j].substring(1,arr1[j].length()-1);
+                    }else{
+                        ne = arr1[j].substring(2,arr1[j].length()-1);
+                    }
+                    onelist.add(ne);
+                }
+                list.add(onelist);
+
+            }
+            return list;
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+
+        }
+
+    }
+
     //设备那个页面请求的
     @RequestMapping("/tt")
     @ResponseBody
@@ -444,8 +525,14 @@ public class t_channel_baseController {
 
 //        t_buz t_buz = new t_buz();
 //        t_buz.setOBJ_ID(buz_id);
-        //调用tu方法获得设备id集合
-        List<String> list = tu(buz_id,"江西"); //buz_id,province
+        //调用上面的方法获得设备id集合
+        List<String> list = new ArrayList<>();
+        if (province.equals("江西")){
+            list = list(buz_id,province);
+        }else{
+            list = tu(buz_id,province);
+        }
+         //buz_id,province
 
         //集合去重复
         LinkedHashSet<String> lhs = new LinkedHashSet<>();
@@ -456,15 +543,16 @@ public class t_channel_baseController {
         //根据设备id查询各种信息展示到前台页面
         JSONObject jsonObjecterror = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        try {
+
 
             int len = list.size();
 
-            for(int i=0;i<len;i++){
-                List<t_alarm_clean> list1 = t_alarm_cleanService.select(list.get(i),province);
-                t_weibull t_weibull = t_weibullService.select(list.get(i),province);
+        for(int i=0;i<len;i++){
+            try {
+                List<t_alarm_clean> list1 = t_alarm_cleanService.select(list.get(i), province);
+                t_weibull t_weibull = t_weibullService.select(list.get(i), province);
                 JSONObject jsonObject1 = new JSONObject();
-                jsonObject1.put("index", (i+1));
+                jsonObject1.put("index", (i + 1));
                 jsonObject1.put("id", (list1.get(0).getNE_OBJ_ID()));
                 jsonObject1.put("name", (list1.get(0).getNE_NAME()));
                 jsonObject1.put("type_name", (list1.get(0).getDEV_TYPE_NAME()));
@@ -475,14 +563,12 @@ public class t_channel_baseController {
                 jsonObject1.put("beta", (t_weibull.getBETA()));
                 jsonObject1.put("eta", (t_weibull.getETA()));
                 jsonArray.add(jsonObject1);
+            }catch (Exception e) {
+                continue;
             }
-            return jsonArray;
-        }catch (Exception e) {
-            e.printStackTrace();
-            jsonObjecterror.put("result","result");
-            jsonArray.add(jsonObjecterror);
-            return jsonArray;
         }
+            return jsonArray;
+
     }
 
 
@@ -501,12 +587,13 @@ public class t_channel_baseController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         try {
-            //查省份五个业务可靠性最低的业务
+            //查一条业务
             jiangxi_t_buz_re jiangxi_t_buz_re = jiangxi_t_buz_reService.select(buz_id,province);
 
 //            double buz_re = jiangxi_t_buz_re.getBuzRe();
             JSONObject jsonObject = new JSONObject() ;
             jsonObject.put("业务id", jiangxi_t_buz_re.getOBJ_ID());
+            jsonObject.put("业务名称", jiangxi_t_buz_re.getNAME());
             jsonObject.put("业务可靠性", jiangxi_t_buz_re.getBuzRe());
             jsonArray.add(jsonObject);
 
@@ -530,30 +617,15 @@ public class t_channel_baseController {
 //        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
 //        String buz_type = "2";
 //        String province = "江西";
-        //调用tu方法获得设备id集合
+        //调用上面方法获得设备id集合
         String buz_id = request.getSession().getAttribute("buz_id").toString();
         String province = request.getSession().getAttribute("province").toString();
-        List<List<String>> list = ntu(buz_id,province);
-
-//        List<List<String>> list = new ArrayList<List<String>>();
-//
-//        List<String> list_one = new ArrayList<String>();
-//        list_one.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-29574");
-//        list_one.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-56892");
-//        list_one.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-57839");
-//
-//        List<String> list_two = new ArrayList<String>();
-//        list_two.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-29574");
-//        list_two.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-36646");
-//        list_two.add("76A0F534-5725-4418-BA33-5B7A7844C55D-00940");
-//        list_two.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-57369");
-//        list_two.add("227DF4CE-7EDD-4C17-B72F-17E5C8C3F5C5-57839");
-//
-//        list.add(list_one);
-//        list.add(list_two);
-
-
-
+        List<List<String>> list = new ArrayList<List<String>>();
+        if(province.equals("江西")){
+            list = nlist(buz_id,province);
+        }else {
+            list = ntu(buz_id,province);
+        }
 
         JSONArray jsonArrayAall = new JSONArray();
 
@@ -562,44 +634,45 @@ public class t_channel_baseController {
         //大集合长度
         int len = list.size();
 
-        try {
-            for(int i=0;i<len;i++){
 
-                //小集合长度
-                int len1 = list.get(i).size();
-                JSONArray jsonArray = new JSONArray();
-                for(int j=0;j<len1;j++){
+        for(int i=0;i<len;i++){
+
+            //小集合长度
+            int len1 = list.get(i).size();
+            JSONArray jsonArray = new JSONArray();
+            for(int j=0;j<len1;j++){
+                try {
                     JSONObject jsonObject = new JSONObject();
 
                     //查询设备信息
-                    List<t_alarm_clean> list1 = t_alarm_cleanService.select(list.get(i).get(j),province);
-                    t_weibull t_weibull = t_weibullService.select(list.get(i).get(j),province);
+                    List<t_alarm_clean> list1 = t_alarm_cleanService.select(list.get(i).get(j), province);
+                    t_weibull t_weibull = t_weibullService.select(list.get(i).get(j), province);
 
                     //设备可靠性
                     String ne_re = "";
-                    String a=list.get(i).get(j);
+                    String a = list.get(i).get(j);
 
                     jiangxi_ne_re jnr = jiangxi_ne_reService.select(a);
                     System.out.println(jnr);
-                    ne_re =  jnr.getReliability();
+                    ne_re = jnr.getReliability();
 
                     //光缆可靠性
                     Double fiber_re = 1.0;
-                    if (j!=len1-1){
+                    if (j != len1 - 1) {
                         t_ne t_ne1 = t_neService.select(list.get(i).get(j));
-                        t_ne t_ne2 = t_neService.select(list.get(i).get(j+1));
+                        t_ne t_ne2 = t_neService.select(list.get(i).get(j + 1));
                         String PAR_STATION1 = t_ne1.getPAR_STATION();
                         String PAR_STATION2 = t_ne2.getPAR_STATION();
 
-                        List<jiangxi_fiber_fault> list_fiber = jiangxi_fiber_faultService.select(PAR_STATION1,PAR_STATION2);
+                        List<jiangxi_fiber_fault> list_fiber = jiangxi_fiber_faultService.select(PAR_STATION1, PAR_STATION2);
                         String type = list_fiber.get(0).getFIBER_TYPE();
                         String length = list_fiber.get(0).getLENGTH();
-                        if (type == "1"){
-                            fiber_re = Math.pow(Double.parseDouble("0.999998"),Double.parseDouble(length));
-                        }else if (type == "2"){
-                            fiber_re = Math.pow(Double.parseDouble("0.999999"),Double.parseDouble(length));
-                        }else {
-                            fiber_re = Math.pow(Double.parseDouble("0.998390"),Double.parseDouble(length));
+                        if (type == "1") {
+                            fiber_re = Math.pow(Double.parseDouble("0.999998"), Double.parseDouble(length));
+                        } else if (type == "2") {
+                            fiber_re = Math.pow(Double.parseDouble("0.999999"), Double.parseDouble(length));
+                        } else {
+                            fiber_re = Math.pow(Double.parseDouble("0.998390"), Double.parseDouble(length));
                         }
                     }
 
@@ -620,19 +693,17 @@ public class t_channel_baseController {
                     jsonObject.put("fiber_re", String.valueOf(fiber_re));  //Double.toString(fiber_re))
 
                     jsonArray.add(jsonObject);
-
+                }catch (Exception e){
+                    continue;
                 }
-                jsonArrayAall.add(jsonArray);
-                //把每个小列表添加到大列表然后返回到前台页面
 
             }
-            return jsonArrayAall;
-        }catch (Exception e){
-            e.printStackTrace();
-            jsonObjecterror.put("result","result");
-            jsonArrayAall.add(jsonObjecterror);
-            return jsonArrayAall;
+            jsonArrayAall.add(jsonArray);
+                //把每个小列表添加到大列表然后返回到前台页面
+
         }
+        return jsonArrayAall;
+
 
 
     }
@@ -641,21 +712,23 @@ public class t_channel_baseController {
     //调python代码做图再展示出来
     @RequestMapping("/history")
     @ResponseBody
-    public Map<Object,Boolean> history(HttpServletRequest request) {
-        String province = "江西";
-        String buz_type="2";
-        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
+    public JSONArray history(HttpServletRequest request) {
+//        String province = "江西";
+//        String buz_type="2";
+//        String buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250";
 
-//        String buz_type = request.getSession().getAttribute("buz_type").toString();
-//        String buz_id = request.getSession().getAttribute("buz_id").toString();
-//        String province = request.getSession().getAttribute("province").toString();
+        String buz_type = request.getSession().getAttribute("buz_type").toString();
+        String buz_id = request.getSession().getAttribute("buz_id").toString();
+        String province = request.getSession().getAttribute("province").toString();
 
 //        String buz_id = request.getSession().getAttribute("buz_id").toString();
 //        String buz_type = request.getSession().getAttribute("buz_type").toString();
 
         List<String> processList = new ArrayList<>();
         String line = "";
-        Map<Object, Boolean> map = new HashMap<>();
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObjecterror = new JSONObject();
+
         try {
             //python脚本文件和命令
             String[] arg = new String[] {"python", path_python.getLS(),buz_id,buz_type};  //,province
@@ -673,20 +746,26 @@ public class t_channel_baseController {
             for (String out : processList) {
                 System.out.println(out);
             }
-            map.put("result", true);
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("业务id", buz_id);
+            jsonArray.add(jsonObject);
+
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            map.put("result", false);
+            jsonObjecterror.put("result","result");
+            jsonArray.add(jsonObjecterror);
+            return jsonArray;
 
         }
-        return map;
+        return jsonArray;
     }
 
 
     //调python代码做图再展示出来
     @RequestMapping("/topo")
+    @ResponseBody
     public Map<Object,Boolean> topo(HttpServletRequest request) {
         String buz_type = request.getSession().getAttribute("buz_type").toString();
         String buz_id = request.getSession().getAttribute("buz_id").toString();
@@ -780,7 +859,7 @@ public class t_channel_baseController {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         try{
-            List<com.demo.ssm.po.S_reliability.t_buz> list1 = t_buzService.selectByPrimaryKey(t_buz);
+            List<t_buz> list1 = t_buzService.selectByPrimaryKey(t_buz);
             JSONObject jsonObject1 = new JSONObject();
             jsonObject1.put("业务ID", (list1.get(0)).getOBJ_ID());
             jsonObject1.put("业务全名", (list1.get(0)).getFULL_NAME());

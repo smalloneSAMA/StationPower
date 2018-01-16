@@ -14,6 +14,7 @@
 
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
 
 </head>
 
@@ -58,15 +59,12 @@
         <span style="margin-left:100px;width:18px;overflow:hidden;">  
         <select  id="buz_id"  style="width:235px;margin-left:-86px;height:31px;" onchange="danwei()" >
             <option value="">请选择以下id</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
-            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>
+            <option value="07EED32B-8284-4AC1-BECB-38E06708FADE-33924">07EED32B-8284-4AC1-BECB-38E06708FADE-33924</option>
+            <option value="07EED32B-8284-4AC1-BECB-38E06708FADE-34788">07EED32B-8284-4AC1-BECB-38E06708FADE-34788</option>
+            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04642">029CF020-34CD-4F6F-A6E8-223B16FC696E-04642</option>
+            <option value="050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06527">050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06527</option>
+            <option value="050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06575">050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06575</option>
+
 
         </select>
         </span>
@@ -74,7 +72,7 @@
     </div>
 
     <div class="col-xs-1 ">
-        <button id="btn"  class="btn btn-white " type="button" onclick="zx()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;询</button>
+        <button id="btn"  class="btn btn-white " type="button" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;询</button>
     </div>
 </div>
 
@@ -129,7 +127,9 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <div id="img">
+                <div>
+
+                    <img id="img" height="100%" width="100%"/>
                 </div>
             </div>
         </div>
@@ -140,6 +140,7 @@
 <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
 <script src="S_js/echarts.js"></script>
 <script src="js/content.min.js?v=1.0.0"></script>
+<script src="layer/layer.js"></script>
 <!--<script src="js/demo/echarts-demo.min.js"></script>-->
 
 </body>
@@ -155,38 +156,33 @@
         var buz_type = $('#buz_type').val();
         if (buz_type=='1'){
             option = option+'<option value="">请选择以下id</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+                '            <option value="07EED32B-8284-4AC1-BECB-38E06708FADE-33924">07EED32B-8284-4AC1-BECB-38E06708FADE-33924</option>\n' +
+                '            <option value="07EED32B-8284-4AC1-BECB-38E06708FADE-34788">07EED32B-8284-4AC1-BECB-38E06708FADE-34788</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04642">029CF020-34CD-4F6F-A6E8-223B16FC696E-04642</option>\n' +
+                '            <option value="050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06527">050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06527</option>\n' +
+                '            <option value="050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06575">050CE870-29F5-47AD-9AD7-DB9DE6CDCAFF-06575</option>'
 
         }else if(buz_type=='2'){
             option = option+'<option value="">请选择以下id</option>\n' +
-                '            <option value="2">2</option>\n' +
-                '            <option value="2">2</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+                '            <option value="F5A181DC-38F1-4805-A801-3B433198658F-03617">F5A181DC-38F1-4805-A801-3B433198658F-03617</option>\n' +
+                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00188">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00188</option>\n' +
+                '            <option value="64609D0C-F054-472D-A057-430C4635C634-06698">64609D0C-F054-472D-A057-430C4635C634-06698</option>\n' +
+                '            <option value="F5A181DC-38F1-4805-A801-3B433198658F-19941">F5A181DC-38F1-4805-A801-3B433198658F-19941</option>\n' +
+                '            <option value="F5A181DC-38F1-4805-A801-3B433198658F-08116">F5A181DC-38F1-4805-A801-3B433198658F-08116</option>\n' +
+                '            <option value="3251AD5B-1A04-4042-A149-D5663F1C6889-00870">3251AD5B-1A04-4042-A149-D5663F1C6889-00870</option>\n' +
+                '            <option value="F5A181DC-38F1-4805-A801-3B433198658F-19998">F5A181DC-38F1-4805-A801-3B433198658F-19998</option>\n' +
+                '            <option value="3251AD5B-1A04-4042-A149-D5663F1C6889-00998">3251AD5B-1A04-4042-A149-D5663F1C6889-00998</option>\n' +
+                '            <option value="64609D0C-F054-472D-A057-430C4635C634-06639">64609D0C-F054-472D-A057-430C4635C634-06639</option>'
         }else {
             option = option+'<option value="">请选择以下id</option>\n' +
-                '            <option value="3">3</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>\n' +
-                '            <option value="A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250">A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250</option>'
+                '            <option value="027C39B6-5069-473A-8CF1-513268B6DBD3-08361">027C39B6-5069-473A-8CF1-513268B6DBD3-08361</option>\n' +
+                '            <option value="027C39B6-5069-473A-8CF1-513268B6DBD3-08509">027C39B6-5069-473A-8CF1-513268B6DBD3-08509</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-01893">029CF020-34CD-4F6F-A6E8-223B16FC696E-01893</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04034">029CF020-34CD-4F6F-A6E8-223B16FC696E-04034</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04050">029CF020-34CD-4F6F-A6E8-223B16FC696E-04050</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04302">029CF020-34CD-4F6F-A6E8-223B16FC696E-04302</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-05479">029CF020-34CD-4F6F-A6E8-223B16FC696E-05479</option>\n' +
+                '            <option value="029CF020-34CD-4F6F-A6E8-223B16FC696E-04528">029CF020-34CD-4F6F-A6E8-223B16FC696E-04528</option>'
 
         }
          $("#buz_id").html(option);
@@ -197,7 +193,12 @@
 
     $(function() {
         $('#btn').click(function () {
-//            alert("lalalaaaaaa");
+            var index = layer.load(0, {
+                shade: [0.3, '#ddd']//0.1透明度的白色背景
+            });
+
+            alert("lalalaaaaaa");
+            layer.close(index);
             var province = $("#Province").val();
             var buz_type = $('#buz_type').val();
             var buz_id = $('#buz_id').val();
@@ -209,6 +210,9 @@
                 async: false,
                 data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
                 success: function (data) {
+
+
+
                     for(var i=0;i<data.length;i++){
                         Str = Str + '<table class="table table-hover">';
                         if(i==0){
@@ -272,11 +276,12 @@
                     }
 
                     $("#lalala").html(Str);
+//                    layer.close(index);
 
                 },
                 error: function (data) {
                     if (data.result == "error") {
-                        alert("输入的id错误");
+                        alert("输入的id错误!!!");
                     }
                 }
             });
@@ -288,14 +293,17 @@
                 async: false,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
                 success: function (data) {
-                    alert('lalala');
+//                    alert('lalala');
+//                    var lujing = 'topo_img/' + buz_id + '.png';
                     //如果返回的map值为true则显示图片，如果返回的map值为false则不显示图片
-                    $('#img').html("<img src='img/a1.jpg' />")
+//                    $('#img').html("<img src='topo_img/'" + buz_id + "'.png' />");
+//                    alert("aaaa");
+                    $('#img').attr('src',"topo_img/" + buz_id + ".png");
 
                 },
                 error: function (data) {
                     if (data.result == "error") {
-                        alert("输入的id错误");
+                        alert("业务拓扑图有误");
                     }
                 }
             });

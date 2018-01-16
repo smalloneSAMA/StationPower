@@ -5,6 +5,7 @@
     <title>设备可靠性评估与预测</title>
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="layer/layer.js"></script>
     <script src="S_js/echarts.js"></script>
     <script src="js/content.min.js?v=1.0.0"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,8 @@
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
+
     <style>
         .conn{
             width: 700px;
@@ -97,6 +100,14 @@
 </script>
 <script type="text/javascript">
     $(function(){
+
+        var index = layer.load(0, {
+            shade: [0.3, '#ddd']//0.1透明度的白色背景
+        });
+
+
+
+
         var equipLst = new Array();
         var str = '';
         $.ajax({
@@ -106,6 +117,7 @@
             async: false,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id,
             success: function (data) {
+
                 for(var i=0;i<data.length;i++){
                     equipLst[i] = data[i];
 //                    alert(i);
@@ -435,6 +447,7 @@
             option = getOption(d_r, d_f, d_d, i);
             mc.setOption(option);
         }
+        layer.close(index);
     });
 
 </script>
