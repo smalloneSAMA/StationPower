@@ -22,10 +22,10 @@
             float: left
         }
         .curve{
-            width: 480px;
-            height: 400px;
+            width: 100%;
+            height: 450px;
             margin: 20px 30px;
-            padding: 10px 10px
+            padding: 10px 10px;
             /*display: inline;*/
         }
         .fl{
@@ -52,7 +52,44 @@
 </head>
 <body>
 <div class="wrapper wrapper-content animated fadeInRight" id="lalala">
-
+    <!--<div class="row" >-->
+        <!--<div class="col-sm-6">-->
+            <!--<div class="ibox float-e-margins">-->
+                <!--<div class="ibox-title">-->
+                    <!--<h5>洪源变设备可靠性预测</h5>-->
+                    <!--<div class="ibox-tools">-->
+                        <!--<a class="collapse-link">-->
+                            <!--<i class="fa fa-chevron-up"></i>-->
+                        <!--</a>-->
+                        <!--<a class="close-link">-->
+                            <!--<i class="fa fa-times"></i>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="ibox-content">-->
+                    <!--<div name="eq" class="curve fl"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-sm-6">-->
+            <!--<div class="ibox float-e-margins">-->
+                <!--<div class="ibox-title">-->
+                    <!--<h5>洪源变设备信息</h5>-->
+                    <!--<div class="ibox-tools">-->
+                        <!--<a class="collapse-link">-->
+                            <!--<i class="fa fa-chevron-up"></i>-->
+                        <!--</a>-->
+                        <!--<a class="close-link">-->
+                            <!--<i class="fa fa-times"></i>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="ibox-content">-->
+                    <!--<div name="eq"  class="curve fl"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 
 <script>
@@ -72,11 +109,53 @@
                 for(var i=0;i<data.length;i++){
                     equipLst[i] = data[i];
 //                    alert(i);
-                    if (i%2==0) {
-                        str = str + '<div class="row"><div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5>'+'<div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq0" class="curve fl"></div></div></div></div>'
-                    }else{
-                        str = str + '<div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5><div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq1" class="curve fl"></div></div></div></div></div>'
-                    }
+//                    if (i%2==0) {
+//                        str = str + '<div class="row"><div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5>'+'<div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq0" class="curve fl"></div></div></div></div>'
+//                    }else{
+//                        str = str + '<div class="col-sm-6"><div class="ibox float-e-margins"><div class="ibox-title"><h5>'+equipLst[i].name+'设备可靠性预测</h5><div class="ibox-tools"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="close-link"><i class="fa fa-times"></i></a></div></div><div class="ibox-content"><div name="eq" id="eq1" class="curve fl"></div></div></div></div></div>'
+//                    }
+                    str = str + '<div class="row">' +
+                        '<div class="col-sm-8">' +
+                        '<div class="ibox float-e-margins">' +
+                        '<div class="ibox-title">' +
+                        '<h5>'+equipLst[i].name+'设备可靠性预测</h5>'+
+                        '<div class="ibox-tools">' +
+                        '<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>' +
+                        '<a class="close-link"><i class="fa fa-times"></i></a>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="ibox-content">' +
+                        '<div name="eq" id="eq0" class="curve fl">' +
+                        '</div>' +
+                        '</div>' +
+                        '</div></div>'
+                    str = str + '<div class="col-sm-4">' +
+                        '<div class="ibox float-e-margins">' +
+                        '<div class="ibox-title">' +
+                        '<h5>'+equipLst[i].name+'设备信息</h5>'+
+                        '<div class="ibox-tools">' +
+                        '<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>' +
+                        '<a class="close-link"><i class="fa fa-times"></i></a>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="ibox-content">' +
+                        '<table class="table table-hover">' +
+                        '<tr>' +
+                        '<th>'+'设备ID'+'</th>' +
+                        '<td>'+ data[i]['id'] +'</td><tr>'+'<tr>' +
+                        '<th>'+'设备名称'+'</th>' +
+                        '<td>'+ data[i]['name'] +'</td><tr>'+'<tr>' +
+                        '<th>'+'设备类型'+'</th>' +
+                        '<td>'+ data[i]['type_name'] +'</td><tr>'+'<tr>' +
+                        '<th>'+'工作年限'+'</th>' +
+                        '<td>'+ data[i]['workyear'] +'</td><tr>'+'<tr>' +
+                        '<th>'+'生产厂家'+'</th>' +
+                        '<td>'+ data[i]['proname'] +'</td><tr>'+
+                        '</table>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
                 }
                 if (data.length%2==1){
                     str = str+'</div>'
@@ -88,19 +167,6 @@
             }
         });
 
-
-        var e = Math.E;
-        var r_arr = new Array();
-        for (var i = 0; i <= 200; i++) {
-            var r = 1;
-            for (var k = 0; k < 5; k++) {
-                var ETA = equipLst[k].eta;
-//                    alert(ETA);
-                var BETA= equipLst[k].beta;
-                r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
-            }
-            r_arr.push([i, r]);
-        }
 
         function getCurve(ALARMDARRAY,ETA,BETA){
             var rArray = [];
@@ -132,22 +198,35 @@
         function getOption(data_r, data_f, dots,num) {
             var subname = equipLst[num].name;
             var option_1 = {
+                backgroundColor: '#394056',
                 title: {
                     text: "设备可靠性预测",
+                    textStyle: {
+                        fontWeight: 'bolder',
+                        fontSize: 20,
+                        color: '#F1F1F3'
+                    },
                     subtext: "——" + subname,
                     subtextStyle: {
-                        color: "#1E90FF",
+                        color: '#F1F1F3',
                         fontSize: 16
                     },
                     left: 'center'
                 },
-                grid:{
-                    x:50,
-                    y:100,
+                grid: {
+                    left: '4%',
+                    right: '4%',
+                    top: '25%',
+    //                bottom: '5%',
+                    containLabel: true
                 },
 
                 legend: {
                     type: 'plain',
+                    textStyle: {
+                        fontSize: 14,
+                        color: '#F1F1F3'
+                    },
                     // orient: 'vertical',
                     top: 60,
                     right: 60,
@@ -155,7 +234,7 @@
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: '中位秩 <br />{a}：{c0} 次每年',
+                    formatter: '中位秩 <br />{a}{c0} 次',
                     axisPointer: {
                         type: 'cross'
                     }
@@ -164,9 +243,9 @@
                     {
                         name: '工作时长（小时）',
                         nameLocation: 'middle',
-                        nameGap: 40,
+                        nameGap: 20,
                         nameTextStyle: {
-                            fontSize: 18,
+                            fontSize: 14,
                             fontWeight: 'bold'
                         },
                         type: 'value',
@@ -174,13 +253,18 @@
                             alignWithLabel: true
                         },
                         axisLabel: {
-                            margin: 15,
+                            margin: 10,
                             fontSize: 14,
                             fontWeight: 'bolder'
                         },
-
+                        axisLine: {
+                            lineStyle: {
+                                color: '#57617B'
+                            }
+                        },
                         splitLine: {
                             lineStyle: {
+                                color: '#57617B',
                                 type: 'dashed'
                             }
                         },
@@ -191,8 +275,13 @@
                     //            name: '可靠性',
                     type: 'value',
                     nameTextStyle: {
-                        fontSize: 18,
-                        fontWeight: 'bold'
+                        color: '#F1F1F3',
+                        fontSize: 16
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#57617B'
+                        }
                     },
                     axisLabel: {
                         margin: 15,
@@ -201,7 +290,8 @@
                     },
                     splitLine: {
                         lineStyle: {
-                            type: 'dashed'
+                            type: 'dashed',
+                            color: '#57617B'
                         }
                     }
                 },
@@ -212,8 +302,29 @@
                     top: 'center',
                     lineStyle: {
                         normal: {
-                            width: 4,
-                            opacity: 0.8
+                            color: 'rgb(0, 191, 255)',
+                            width: 2
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(0, 191, 255, 0.3)'
+                            }, {
+                                offset: 0.8,
+                                color: 'rgba(0, 191, 255, 0)'
+                            }], false),
+                            shadowColor: 'rgba(0, 0, 0, 0.1)',
+                            shadowBlur: 10
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: 'rgb(0, 191, 255)',
+                            borderColor: 'rgba(0, 191, 255, 0.27)',
+                            borderWidth: 12
+
                         }
                     },
                     symbol: 'none',
@@ -226,38 +337,84 @@
                     type: 'line',
                     lineStyle: {
                         normal: {
-                            width: 2,
-                            opacity: 0.8
+                            type: 'dashed',
+                            color: 'rgb(255, 0, 0)',
+                            width: 2
                         }
                     },
-                    color: ["#8B3A3A"],
+    //                color: ["#8B3A3A"],
                     symbol: 'none',
                     smooth: 'true',
-                    data: data_f
-                }, {
-                    name: '数据点',
-                    type: 'scatter',
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(255, 0, 0, 0.3)'
+                            }, {
+                                offset: 0.8,
+                                color: 'rgba(255, 0, 0, 0)'
+                            }], false),
+                            shadowColor: 'rgba(0, 0, 0, 0.1)',
+                            shadowBlur: 12
+                        }
+                    },
                     itemStyle: {
                         normal: {
-                            color: 'red',
-                            opacity: 0.7
+                            color: 'rgb(255, 0, 0)',
+                            borderColor: 'rgba(255, 0, 0, 0.27)',
+                            borderWidth: 12
+
                         }
                     },
-                    symbolSize: 15,
-                    label: {
-                        emphasis: {
-                            show: true,
-                            position: 'left',
-                            textStyle: {
-                                fontSize: 18
-                            }
-                        }
-                    },
-                    color: 'red',
-                    data: dots
+                    data: data_f
                 }
+                    , {
+                        name: '数据点',
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                color: 'red',
+                                opacity: 0.7
+                            }
+                        },
+                        symbol: 'circle',
+                        symbolSize: 8,
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: 'rgba(250, 128, 114, 0.3)'
+                                }, {
+                                    offset: 0.8,
+                                    color: 'rgba(250, 128, 114, 0)'
+                                }], false),
+                                shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                shadowBlur: 10
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: 'rgb(250, 128, 114)',
+                                borderColor: 'rgba(250, 128, 114, 0.27)',
+                                borderWidth: 12
+
+                            }
+                        },
+                        label: {
+                            emphasis: {
+                                show: true,
+                                position: 'left',
+                                textStyle: {
+                                    fontSize: 18
+                                }
+                            }
+                        },
+                        color: 'red',
+                        data: dots
+                    }
                 ]
             };
+        
             return option_1;
         }
 

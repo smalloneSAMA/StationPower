@@ -14,6 +14,5 @@ public interface t_sdh_ccService {
     t_sdh_cc select(String A_CTP, String A_PTP,
                     String Z_CTP, String Z_PTP, String province) throws IOException;
 
-    int count(String A_CTP, String A_PTP,
-              String Z_CTP, String Z_PTP, String province) throws IOException;
+
 }

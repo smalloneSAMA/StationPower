@@ -10,6 +10,7 @@
         <result column="FULL_NAME" property="FULL_NAME" jdbcType="VARCHAR"/>
         <result column="BUZ_TYPE" property="BUZ_TYPE" jdbcType="VARCHAR"/>
         <result column="SERVICE_STATE" property="SERVICE_STATE" jdbcType="VARCHAR"/>
+        <result column="NE_LIST" property="NE_LIST" jdbcType="VARCHAR"/>
 
     </resultMap>
 

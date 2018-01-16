@@ -124,66 +124,70 @@
     </style>
 </head>
 <div class="wrapper wrapper-content animated fadeInRight">
-    <!--业务可靠性-->
 
-        <!--<div class="col-sm-12">
-            <form>
-                <label>省份选择:</label>
-                <select name="cars" >
+        <!--<div class="row" style="padding: 13px 0px">-->
+            <!--<div class="col-xs-2">-->
+                <!--<select class="form-control" id="Province" name="cars" >-->
+                    <!--<option value="安徽">安徽</option>-->
+                    <!--<option value="北京">北京</option>-->
+                    <!--<option value="福建">福建</option>-->
+                    <!--<option value="甘肃">甘肃</option>-->
+                    <!--<option value="河北">河北</option>-->
+                    <!--<option value="河南">河南</option>-->
+                    <!--<option value="黑龙江">黑龙江</option>-->
+                    <!--<option value="吉林">吉林</option>-->
+                    <!--<option value="江苏">江苏</option>-->
+                    <!--<option value="江西">江西</option>-->
+                    <!--<option value="蒙东">蒙东</option>-->
+                    <!--<option value="宁夏">宁夏</option>-->
+                    <!--<option value="青海">青海</option>-->
+                    <!--<option value="陕西">陕西</option>-->
+                    <!--<option value="天津">天津</option>-->
+                    <!--<option value="西藏">西藏</option>-->
+                    <!--<option value="浙江">浙江</option>-->
+                    <!--<option value="重庆">重庆</option>-->
+                <!--</select>-->
 
-                </select>
-                <label  style="margin-left: 30px;">业务类型选择：</label>
-                <select id="buz_type">
+            <!--</div>-->
+            <!--<div class="col-xs-2">-->
+                <!--<select class="form-control" id="type" name="cars" >-->
+                    <!--<option value="继电保护">继电保护</option>-->
+                    <!--<option value="安全自动装置">安全自动装置</option>-->
+                    <!--<option value="调度自动化">调度自动化</option>-->
+                <!--</select>-->
+            <!--</div>-->
 
-                </select>
-                <br><br>
-                <input placeholder="请输入业务ID">
-                <input type="button" value="查询" onclick="zx()" >
-                <br>
-                <br>
-            </form>
-        </div>-->
-        <div class="row" style="padding: 13px 0px">
-            <div class="col-xs-2">
-                <select class="form-control" id="Province" name="cars" >
-                    <option value="安徽">安徽</option>
-                    <option value="北京">北京</option>
-                    <option value="福建">福建</option>
-                    <option value="甘肃">甘肃</option>
-                    <option value="河北">河北</option>
-                    <option value="河南">河南</option>
-                    <option value="黑龙江">黑龙江</option>
-                    <option value="吉林">吉林</option>
-                    <option value="江苏">江苏</option>
-                    <option value="江西">江西</option>
-                    <option value="蒙东">蒙东</option>
-                    <option value="宁夏">宁夏</option>
-                    <option value="青海">青海</option>
-                    <option value="陕西">陕西</option>
-                    <option value="天津">天津</option>
-                    <option value="西藏">西藏</option>
-                    <option value="浙江">浙江</option>
-                    <option value="重庆">重庆</option>
-                </select>
+            <!--<div class="col-xs-2" style="padding-left: 0px">-->
+                <!--<input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">-->
 
-            </div>
-            <div class="col-xs-2">
-                <select class="form-control" id="type" name="cars" >
-                    <option value="继电保护">继电保护</option>
-                    <option value="安全自动装置">安全自动装置</option>
-                    <option value="调度自动化">调度自动化</option>
-                </select>
-            </div>
+            <!--</div>-->
+            <!--<div class="col-xs-1 ">-->
+                <!--<button  id="btn" class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>-->
+            <!--</div>-->
+        <!--</div>-->
 
-            <div class="col-xs-2" style="padding-left: 0px">
-                <input id="buz_id" type="text" name="业务ID" placeholder="请输入业务ID"  class="form-control">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>拓扑图</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="img">
 
-            </div>
-            <div class="col-xs-1 ">
-                <button  class="btn btn-white " type="button" onclick="loadPath()" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+                    </div>
+                </div>
             </div>
         </div>
-
+    </div>
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
@@ -204,6 +208,14 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+            该业务24小时的业务可靠性为<span id="buz_re"></span>
+        </div>
+    </div>
 
 </div>
 <script>
@@ -214,6 +226,7 @@
         var buz_type = $('#buz_type').val();
         var buz_id = $('#buz_id').val();
         var equipLst = new Array();
+        var buz_re = "";
         var str = '';
         $.ajax({
             url: "../../t/buz_pre",
@@ -226,57 +239,94 @@
                 for(var i=0;i<data.length;i++){
                     equipLst[i] = data[i];
 
-//                    alert(equipLst[i]);
                 }
-
-
             },
             error: function (data) {
                 alert("输入的id错误");
             }
         });
 
+        $.ajax({
+            url: "../../t/buz_re",
+            type: "post",
+            dataType: "json",
+            async: false,
+//                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
+            success: function (data) {
+                buz_re = data[0]['业务可靠性'];
+                if (buz_re=='1'){
+                    buz_re = '0.999'
+                }
+                str = str+buz_re;
+                $("#buz_re").html(str);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("输入的id错误");
+                }
+            }
+        });
+
+        $.ajax({
+            url: "../../t/history",
+            type: "post",
+            dataType: "json",
+            async: false,
+//                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
+            success: function (data) {
+                alert('lalala');
+                //如果返回的map值为true则显示图片，如果返回的map值为false则不显示图片
+                $('#img').html("<img src='img/a1.jpg' />")
+
+            },
+            error: function (data) {
+//                if (data.result == "error") {
+//                    alert("输入的id错误");
+//                }
+            }
+        });
+
         var e = Math.E;
         var r_arr = new Array();
-        for (var i = 0; i <= 1200; i++) {
-            var r = 1;
-            var buz_re = 1;
-            if (equipLst.length==1){
+        if (equipLst.length==1){
+            for (var i = 0; i <= 1200; i++) {
+                var r = 1;
+                var buz_re = 1;
                 for (var k = 0; k < equipLst[0].length; k++) {
                     var ETA = equipLst[0][k].eta;
-                    var BETA= equipLst[0][k].beta;
-                    r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+                    var BETA = equipLst[0][k].beta;
+                    r *= Math.pow(e, -Math.pow((i / ETA), BETA));
                     r *= equipLst[0][k].ne_re;
                     r *= equipLst[0][k].fiber_re;
                 }
                 buz_re = r;
                 r_arr.push([i, buz_re]);
-
-
-            }else if(equipLst.length>1){
+            }
+        }else if(equipLst.length>1){
+            for (var i = 0; i <= 1200; i++) {
+                var r = 1;
+                var buz_re = 1;
                 var f = 1;
-                for (var j = 0; j < 2; j++){
+                for (var j = 0; j < 2; j++) {
                     for (var k = 0; k < equipLst[j].length; k++) {
                         var ETA = equipLst[j][k].eta;
-                        var BETA= equipLst[j][k].beta;
-                        r *=  Math.pow(e, -Math.pow((i / ETA), BETA));
+                        var BETA = equipLst[j][k].beta;
+                        r *= Math.pow(e, -Math.pow((i / ETA), BETA));
                         r *= equipLst[j][k].ne_re;
                         r *= equipLst[j][k].fiber_re;
-                        f *= (1-r);
+                        f *= (1 - r);
                     }
-//                    if (j==0){
-//                        buz_re1 = 1-r;
-//                    }else {
-//                        buz_re2 = 1-r;
-//                    }
                 }
-                buz_re = 1-f;
+                buz_re = 1 - f;
                 r_arr.push([i, buz_re]);
-            }else{
-                alert("错误");
             }
-
+        }else{
+            var lalalalalala=''
+//            alert("错误");
         }
+
+
 //        alert(r_arr);
 //
 

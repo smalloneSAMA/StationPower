@@ -15,6 +15,5 @@ public interface t_sdh_ccMapper {
     t_sdh_cc select(@Param("A_CTP") String A_CTP, @Param("A_PTP") String A_PTP,
                     @Param("Z_CTP") String Z_CTP, @Param("Z_PTP") String Z_PTP, @Param("province") String province) throws IOException;
 
-    int count(@Param("A_CTP") String A_CTP, @Param("A_PTP") String A_PTP,
-              @Param("Z_CTP") String Z_CTP, @Param("Z_PTP") String Z_PTP, @Param("province") String province) throws IOException;
+
 }

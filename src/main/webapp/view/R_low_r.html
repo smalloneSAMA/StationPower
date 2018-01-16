@@ -13,43 +13,134 @@
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <style>
+        /* Border styles */
+        #table-1 thead, #table-1 tr {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: rgb(230, 189, 189);
+        }
+        #table-1 {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: rgb(230, 189, 189);
+        }
+
+        /* Padding and font style */
+        #table-1 td, #table-1 th {
+            padding: 5px 20px;
+            font-size: 16px;
+            font-family: Verdana;
+            color: rgb(177, 106, 104);
+        }
+
+        /* Alternating background colors */
+        #table-1 tr:nth-child(even) {
+            background: rgb(238, 211, 210)
+        }
+        #table-1 tr:nth-child(odd) {
+            background: #FFF
+        }
+
+    </style>
+    <style type="text/css">
+        .button
+        {
+            position: relative;
+            width: 80px;
+            height: 30px;
+            line-height: 20px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+            background: -moz-linear-gradient(270deg,
+            transparent,
+            transparent 50%,
+            rgba(0, 0, 0, .3) 50%
+            );
+            background: -webkit-gradient(linear,
+            left top,
+            left bottom,
+            from(transparent),
+            to(rgba(0, 0, 0, .3)),
+            color-stop(.5 ,transparent),
+            color-stop(.5 ,rgba(0, 0, 0, .3))
+            );
+        }
+        .mask
+        {
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            position: absolute;
+            text-align: center;
+            color: #FFF;
+            text-decoration: none;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            background: -moz-linear-gradient(270deg,
+            rgba(117, 117, 117, .4),
+            rgba(94, 94, 94, .4) 50%,
+            transparent 50%
+            );
+            background: -webkit-gradient(linear,
+            left top,
+            left bottom,
+            from(rgba(117, 117, 117, .4)),
+            to(transparent),
+            color-stop(.5 ,rgba(94, 94, 94, .4)),
+            color-stop(.5, transparent)
+            );
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-bottom-color: rgba(255, 255, 255, .1);
+        }
+        .button
+        {
+            margin: 5px 0;
+            background-color:rgba(242,0,59,0.79);/*这里替换掉颜色*/
+        }
+    </style>
+    <!--<script type="text/javascript">-->
+
+        <!--console.log("2222");-->
+        <!--var zx = function () {-->
+            <!--console.log("11111111");-->
+            <!--alert('1');-->
+            <!--var Str = '';-->
+            <!--var province = $("#Province").val();-->
+            <!--var buz_type = $('#buz_type').val();-->
+            <!--$.ajax({-->
+                <!--url: "../../t/buz_low",-->
+                <!--type: "post",-->
+                <!--dataType: "json",-->
+                <!--async: false,-->
+                <!--data: "buz_type="+buz_type+"&province="+province,-->
+                <!--success: function (data) {-->
+<!--//                    alert('lll');-->
+                    <!--Str = Str + '<table class="table table-hover" id="table-1"><tr><th>序号</th><th>业务名称</th><th>可靠性预测</th><th>操作</th></tr>';-->
+                    <!--for(var i=0;i<data.length;i++) {-->
+                        <!--Str = Str+'<tr><td>'+data[i]['序号']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+<td><button class="button">-->
+                            <!--<a href="#"class="mask">路径优化</a></button></td>+'</td><tr>';-->
+                    <!--}-->
+                    <!--$("#lalala").html(Str);-->
+                <!--},-->
+                <!--error: function (data) {-->
+                    <!--alert("输入的id错误");-->
+                <!--}-->
+            <!--});-->
+        <!--};-->
+        <!--$('#btn').click(function(){-->
+            <!--zx();-->
+        <!--});-->
+    <!--</script>-->
 </head>
 <body>
 <div class="wrapper wrapper-content animated fadeInRight">
-   <!-- <div class="row">
-        <div class="col-sm-12">
-            <form>
-                <label>省份选择:</label>
-                <select name="cars" >
-                    <option value="安徽">安徽</option>
-                    <option value="北京">北京</option>
-                    <option value="福建">福建</option>
-                    <option value="甘肃">甘肃</option>
-                    <option value="河北">河北</option>
-                    <option value="河南">河南</option>
-                    <option value="黑龙江">黑龙江</option>
-                    <option value="吉林">吉林</option>
-                    <option value="江苏">江苏</option>
-                    <option value="江西" selected = "selected">江西</option>
-                    <option value="蒙东">蒙东</option>
-                    <option value="宁夏">宁夏</option>
-                    <option value="青海">青海</option>
-                    <option value="山西">山西</option>
-                    <option value="天津">天津</option>
-                    <option value="西藏">西藏</option>
-                    <option value="浙江">浙江</option>
-                    <option value="重庆">重庆</option>
-                </select>
-                <label  style="margin-left: 30px;">业务类型选择：</label>
-                <select id="buz_type">
-                    <option value="继电保护" selected = "selected">继电保护</option>
-                    <option value="安全自动装置">安全自动装置</option>
-                    <option value="调度自动化">调度自动化</option>
-                </select>
-                <br><br>
-            </form>
-        </div>
-    </div>-->
 
     <div class="row" style="padding: 13px 0px">
         <div class="col-xs-2">
@@ -63,7 +154,7 @@
                 <option value="黑龙江">黑龙江</option>
                 <option value="吉林">吉林</option>
                 <option value="江苏">江苏</option>
-                <option value="江西">江西</option>
+                <option value="江西" selected="selected">江西</option>
                 <option value="蒙东">蒙东</option>
                 <option value="宁夏">宁夏</option>
                 <option value="青海">青海</option>
@@ -76,11 +167,14 @@
 
         </div>
         <div class="col-xs-2">
-            <select class="form-control" id="type" name="cars" >
-                <option value="继电保护">继电保护</option>
-                <option value="安全自动装置">安全自动装置</option>
-                <option value="调度自动化">调度自动化</option>
+            <select class="form-control" id="buz_type" name="cars" >
+                <option value="1">继电保护</option>
+                <option value="2">安全自动装置</option>
+                <option value="3">调度自动化</option>
             </select>
+        </div>
+        <div class="col-xs-1 ">
+            <button id="btn"  class="btn btn-white " type="button" value="查询" style="width: 100%;color:#ffffff;background-color: #1ab394;">查询</button>
         </div>
 
     </div>
@@ -108,36 +202,47 @@
                     </div>
                 </div>
                 <div class="ibox-content" id="lalala">
-                    <table class="table table-hover">
+                    <table class="table" id="table-1">
                         <tr>
                             <th>序号</th>
                             <th>业务名称</th>
                             <th>业务可靠性</th>
+                            <th>操作</th>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>（220kV吉安变~500kV文山变）继电保护文吉II线继电保护II业务</td>
                             <td> 0.333</td>
+                            <td><button class="button">
+                                <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>（220kV盘龙山变~220kV双港变）继电保护业务03</td>
                             <td> 0.379</td>
+                            <td><button class="button">
+                                <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>（500kV石钟山变~500kV洪源变）石洪线WXH-803A/B6继电保护业务01B</td>
                             <td> 0.420</td>
+                            <td><button class="button">
+                                <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>（500kV信州变~220kV上饶变）继电保护业务01</td>
                             <td> 0.531</td>
+                            <td><button class="button">
+                                <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>（220kV虹桥变~220kV流口变）继电保护流桥线业务</td>
                             <td> 0.533</td>
+                            <td><button class="button">
+                                <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                     </table>
                 </div>
@@ -145,26 +250,41 @@
         </div>
     </div>
 </div>
-</body>
+
 <script>
     $(function() {
-        var Str = '';
-        $.ajax({
-            url: "../../t/buz",
-            type: "post",
-            dataType: "json",
-            async: false,
-            success: function (data) {
-                Str = Str + '<table class="table table-hover"><tr><th>光缆类型</th><th>总长度</th><th>单位长度可靠性</th></tr>';
-                for(var i=0;i<data.length;i++) {
-                    Str = Str+'<tr><td>'+data[i]['序号']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+'</td><tr>';
+//        alert('1');
+        $('#btn').click(function () {
+//            alert('1');
+            var Str = '';
+            var province = $("#Province").val();
+            var buz_type = $('#buz_type').val();
+            $.ajax({
+                url: "../../t/buz_low",
+                type: "post",
+                dataType: "json",
+                async: false,
+                data: "buz_type="+buz_type+"&province="+province,
+                success: function (data) {
+//                    alert('lll');
+                    Str = Str + '<table class="table table-hover" id="table-1"><tr><th>序号</th><th>业务名称</th><th>可靠性预测</th><th>操作</th></tr>';
+                    for(var i=0;i<data.length;i++) {
+//                        alert(i);
+                        Str = Str+'<tr><td>'+data[i]['序号']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+'</td><td>'+
+                            '<button class="button">' +
+                            '<a href="#" class="mask">路径优化</a>' +
+                            '</button></td></td><tr>';
+                    }
+                    $("#lalala").html(Str);
+                },
+                error: function (data) {
+                    alert("输入的id错误");
                 }
-//                $("#lalala").html(Str);
-            },
-            error: function (data) {
-                alert("输入的id错误");
-            }
+            });
         });
+
     });
 </script>
+</body>
+
 </html>
