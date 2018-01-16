@@ -12,7 +12,7 @@
     <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet">
     <style>
         /* Border styles */
         #table-1 thead, #table-1 tr {
@@ -211,37 +211,42 @@
                         </tr>
                         <tr>
                             <td>1</td>
+                            <td style="display:none">029CF020-34CD-4F6F-A6E8-223B16FC696E-04485</td>
                             <td>（220kV吉安变~500kV文山变）继电保护文吉II线继电保护II业务</td>
                             <td> 0.333</td>
-                            <td><button class="button">
+                            <td><button class="button" onclick="loadPath(this)">
                                 <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>2</td>
+                            <td style="display:none">029CF020-34CD-4F6F-A6E8-223B16FC696E-04491</td>
                             <td>（220kV盘龙山变~220kV双港变）继电保护业务03</td>
                             <td> 0.379</td>
-                            <td><button class="button">
+                            <td><button class="button" onclick="loadPath(this)">
                                 <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>3</td>
+                            <td style="display:none">0353B776-1116-433D-AD78-9B644E1DA252-20377</td>
                             <td>（500kV石钟山变~500kV洪源变）石洪线WXH-803A/B6继电保护业务01B</td>
                             <td> 0.420</td>
-                            <td><button class="button">
+                            <td><button class="button" onclick="loadPath(this)">
                                 <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>4</td>
+                            <td style="display:none">0353B776-1116-433D-AD78-9B644E1DA252-20382</td>
                             <td>（500kV信州变~220kV上饶变）继电保护业务01</td>
                             <td> 0.531</td>
-                            <td><button class="button">
+                            <td><button class="button" onclick="loadPath(this)">
                                 <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                         <tr>
                             <td>5</td>
+                            <td style="display:none">07EED32B-8284-4AC1-BECB-38E06708FADE-33707</td>
                             <td>（220kV虹桥变~220kV流口变）继电保护流桥线业务</td>
                             <td> 0.533</td>
-                            <td><button class="button">
+                            <td><button class="button" onclick="loadPath(this)">
                                 <a href="#" class="mask">路径优化</a></button></td>
                         </tr>
                     </table>
@@ -249,11 +254,61 @@
             </div>
         </div>
     </div>
+    <div class="row" id="path" style="display: none">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>路径分配图</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="table_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="table_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" >
+                    <div id="distribute" style="width:100%;height:1000px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="S_js/echarts.js"></script>
+<script src="S_js/anhui.js"></script>
+<script src="S_js/beijing.js"></script>
+<script src="S_js/fujian.js"></script>
+<script src="S_js/gansu.js"></script>
+<script src="S_js/hebei.js"></script>
+<script src="S_js/henan.js"></script>
+<script src="S_js/heilongjiang.js"></script>
+<script src="S_js/jilin.js"></script>
+<script src="S_js/jiangsu.js"></script>
+<script src="S_js/jiangxi.js"></script>
+<script src="S_js/neimenggu.js"></script>
+<script src="S_js/ningxia.js"></script>
+<script src="S_js/qinghai.js"></script>
+<script src="S_js/shanxi1.js"></script>
+<script src="S_js/tianjin.js"></script>
+<script src="S_js/xizang.js"></script>
+<script src="S_js/zhejiang.js"></script>
+<script src="S_js/chongqing.js"></script>
+<script src="S_js/china.js"></script>
+<script src="layer/layer.js"></script>
 
 <script>
     $(function() {
-//        alert('1');
         $('#btn').click(function () {
 //            alert('1');
             var Str = '';
@@ -270,8 +325,8 @@
                     Str = Str + '<table class="table table-hover" id="table-1"><tr><th>序号</th><th>业务名称</th><th>可靠性预测</th><th>操作</th></tr>';
                     for(var i=0;i<data.length;i++) {
 //                        alert(i);
-                        Str = Str+'<tr><td>'+data[i]['序号']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+'</td><td>'+
-                            '<button class="button">' +
+                        Str = Str+'<tr><td>'+data[i]['序号']+'</td><td style="display:none">'+data[i]['业务id']+'</td><td>'+data[i]['业务名称']+'</td><td>'+data[i]['业务可靠性']+'</td><td>'+
+                            '<button class="button" onclick="loadPath(this)">' +
                             '<a href="#" class="mask">路径优化</a>' +
                             '</button></td></td><tr>';
                     }
@@ -284,6 +339,373 @@
         });
 
     });
+
+
+    /*
+     * 路由分配
+     */
+
+
+    function loadPath(obj){
+
+        var obj_id = $(obj).parent().parent().find("td:eq(1)").text();
+
+        $("#path").show();
+
+        $("html,body").animate({scrollTop:$("#distribute").offset().top},2000);
+
+        var Province = '江西';
+
+        //获取站点数据
+        $.ajax({
+            url: "../../StationProperty/StationFilterForRote",
+            type: "post",
+            dataType: "json",
+            async: false,
+            data:"Province="+Province,
+            success: function (data) {
+
+
+                Line(data,obj_id);
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+    }
+
+
+
+    function Line(obj,obj_id) {
+
+        var geoCoordMap1 = new Array();
+        var station1 = new Array();
+        var example1 ;
+        var Province = $("#Province").val();
+        var buz_id = obj_id;
+//        var buz_id = '34388FE8-3DD7-4417-91FF-B1E19A527063-24825';
+//        var obj_id2 = $("#obj_id2").val();
+
+        $.each(obj,function (i,item) {
+//            站点GIS坐标
+            geoCoordMap1[item.Name] = [item.xAxis,item.yAxis];
+//            站点属性
+            example1={
+                name : item.Name,
+                businessNum : item.BusinessNum,
+                kuorong : item.KuoRong,
+                portOcc:item.portOcc,
+                buzNumRate:item.buzNumRate,
+                increaseRate:item.increaseRate
+
+            };
+//            每个站点的数据
+            station1[i]= example1;
+//            alert(station[i]);
+        });
+
+
+
+        var myChart1 = echarts.init(document.getElementById('distribute'));
+
+        myChart1.clear();
+
+        // 每个站点的GIS数据
+//	var geoCoordMap1 = {
+//		'220kV垱岭变':[117.12,28.97],
+//		'220kV上饶变':[117.85,28.43],
+//		'220kV茅家岭变':[117.99,28.43],
+//		'上饶供电公司':[117.97,28.50]
+//		//'220kV向塘变':[115.93,28.55],
+//		//'220kV梧岗变':[115.80,28.55]
+//	};
+
+        // 各个站点的相关属性
+//	var station1 = [
+//		{name:'220kV垱岭变',businessNum:212,kuorong:0.75},
+//		{name:'220kV上饶变',businessNum:207,kuorong:0.67},
+//		{name:'220kV茅家岭变',businessNum:179,kuorong:0.67},
+//		{name:'上饶供电公司',businessNum:164,kuorong:0.3}
+//		//{name:'220kV向塘变',businessNum:25,kuorong:0.67},
+//		//{name:'220kV梧岗变',businessNum:74,kuorong:0.43}
+//	];
+        //获取路由
+        $.ajax({
+            url: "../../BusinessRoute/select",
+            type: "post",
+            dataType: "json",
+            async: false,
+            data:"Province="+Province+"&buz_id="+buz_id,
+            success: function (data) {
+
+                if(data[0].result!=false) {
+                    StationPath(data);
+                }else {
+                    alert("无法查询到该省的此路由ID，请确认省份与ID");
+                }
+
+            },
+            error: function (data) {
+                if (data.result == "error") {
+                    alert("出现异常");
+                }
+            }
+        });
+
+
+        function StationPath(obj){
+            var edges1 = new Array();
+            var name11;
+            var name22;
+            var result;
+            var startName = obj[0].start;
+            var endName = obj[0].end;
+            //取出路由信息
+            $.each(obj,function (i,item) {
+//                result=item.result;
+                name11={
+                    name:item.name1
+                };
+                name22={
+                    name:item.name2,
+                    fiberOcc: item.FiberOcc,
+                    route:item.route
+                };
+                edges1[i]=[name11,name22];
+
+            });
+//            if(result.equals("error")){
+//                alert("无法查询到该省的此路由ID，请确认省份与ID");
+//            }
+
+
+
+            // 各个站点之间的连接情况
+//	var edges1 = [
+//		[{name:'220kV垱岭变'}, {name:'220kV上饶变',fiberOcc:0.56}],
+//		[{name:'220kV上饶变'}, {name:'220kV茅家岭变',fiberOcc:0.3}],
+//		[{name:'220kV茅家岭变'}, {name:'上饶供电公司',fiberOcc:0.3}]
+//		//[{name:'220kV向塘变'}, {name:'220kV梧岗变',fiberOcc:0.3}]
+//	];
+
+            var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+            var convertData1 = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var dataItem = data[i];
+                    var fromCoord = geoCoordMap1[dataItem[0].name];
+                    var toCoord = geoCoordMap1[dataItem[1].name];
+                    if (fromCoord && toCoord) {
+                        res.push({
+                            //fromName: dataItem[0].name,
+                            //toName: dataItem[1].name,
+                            name: "铅芯占用率",
+                            coords: [fromCoord, toCoord],
+                            value: dataItem[1].fiberOcc,
+                            route: dataItem[1].route
+                        });
+                    }
+                }
+                return res;
+            };
+
+
+            var color1 = ['#a6c84c', '#ffa022', '#46bee9'];
+
+            var series1 = [
+                {
+                    type: 'lines',
+                    zlevel: 10,
+                    large: true,
+                    coordinateSystem: 'geo',
+                    symbol: ['none', 'none'],
+                    symbolSize: 10,
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0,
+                        symbol: 'pin',
+//				symbol: planePath,
+                        symbolSize: 15
+                    },
+                    lineStyle: {
+                        normal: {
+                            color:'#ffffff',
+                            opacity: 0.6,
+                            curveness: 0.1,
+                            width: 2
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'middle',
+                            formatter: function (val) {
+                                var route = val.data.route;
+                                if( route == 2){
+                                    return '备用线路'
+                                }
+                                return '主线路'
+                            }
+                        }
+                    },
+                    data: convertData1(edges1)
+                },
+                {//每个站点
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    hoverAnimation: true,
+                    showEffectOn: 'render',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'right',
+                            formatter: function (val) {
+                                var name = val.data.name;
+                                if( RegExp(startName).test(name)){
+                                    return '开始站点'
+                                }else if(RegExp(endName).test(name)){
+                                    return '终止站点'
+                                }else{
+                                    return ''
+                                }
+
+                            }
+                        }
+                    },
+                    //symbolSize: function (val) {
+                    //return val[2] / 8;
+                    //},
+                    symbolSize: function (val) {
+                        x = val[2] * 20;
+                        if(x < 2){
+                            return 1;
+                        }
+                        return x;
+                    },
+                    data: station1.map(function (dataItem) {
+                            return {
+                                name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,
+                                value: geoCoordMap1[dataItem.name].concat([dataItem.kuorong]),
+                                portOcc:dataItem.portOcc,
+                                buzNumRate:dataItem.buzNumRate,
+                                increaseRate:dataItem.increaseRate
+                            };
+                        }
+                    )
+                }
+            ];
+            var Province = $("#Province").val();
+            option1 = {
+//		backgroundColor: '#404a59',//#404a59
+                title : {
+                    text: Province,
+                    subtext: '路径分配图',
+                    left: 'center',
+                    textStyle : {
+                        color: '#404a59'
+                    }
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: function (params) {
+                        if(params.name.indexOf("铅芯占用率") == -1)
+                            return params.name;
+                        else
+                            return params.name+ ' : ' + params.value;
+                    }
+                },
+                toolbox:{
+                    show:true,
+                    feature:{
+                        mark:{show:!0},
+                        //dataView:{show:!0,readOnly:!1},
+                        restore:{show:!0},
+                        saveAsImage:{show:!0}
+                    }
+                },
+                visualMap: [
+                    {
+                        min: 0,
+                        max: 1,
+                        text:['高','低'],
+                        precision:2,
+                        calculable: false,
+                        hoverLink:true,
+                        top:'center',
+                        inRange: {
+                            color: ['#50a3ba', '#eac736', '#d94e5d']
+                        },
+                        textStyle: {
+                            color: '#003'
+                        }
+                    }
+                ],
+                geo: {
+                    map: Province,
+                    label: {
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#323c48',
+                            borderColor: '#ffefd5'//#ffefd5,#404a59
+                        },
+                        emphasis: {
+                            areaColor: '#2a333d',
+                            opacity:0
+                        }
+                    }
+                },
+                series: series1
+            };
+
+            myChart1.on('click', function (params) {
+                var node = params.name;
+                var if_exist = RegExp("扩容").test(node);
+                if(if_exist){
+                    var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
+                    var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
+                    var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
+
+                    layer.config({
+                        extend: 'routeSkin/style.css', //同样需要加载新皮肤
+                        skin:'layer-ext-yi'
+                    });
+
+                    layer.msg("端口占用率："+portOcc+" <br> 承载业务的级别和重要性："+buzNumRate+" <br> 业务数增长率：" +increaseRate, {
+                        time: 90000, //5s后自动关闭,
+                        btnAlign: 'c',
+                        skin:'layer-ext-yi',
+//                    btn: ['新增下级问题'],
+                        closeBtn: 1,
+                        tipsMore:false,
+                        yes:function (index, layero) {
+                            layer.close(index);
+                        }
+                    });
+                }
+            });
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart1.setOption(option1);
+            $(window).resize(myChart1.resize);
+        }
+
+    }
+
 </script>
 </body>
 
