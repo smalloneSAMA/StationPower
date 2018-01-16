@@ -5,8 +5,11 @@
 
 
     <select id="selectByProvince" parameterType="String" resultType="com.demo.ssm.po.S_net.LowReliability">
-        SELECT province,OBJ_ID,NAME,BUZ_TYPE From t_buz
-        where province = #{province,jdbcType=VARCHAR}
+        SELECT province,OBJ_ID,NAME,BuzRe
+        From jiangxi_t_buz_re
+        where province = #{province,jdbcType=VARCHAR} and  BuzRe <![CDATA[>= ]]> 0.4
+        ORDER BY BuzRe ASC
+        limit 10,5
     </select>
 
 

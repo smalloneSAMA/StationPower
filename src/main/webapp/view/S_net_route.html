@@ -41,7 +41,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>低可靠性业务Top10</h5>
+                        <h5>低可靠性业务Top5</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -174,8 +174,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-        loadPath();
-
         LowReliability();
 
     });
@@ -195,15 +193,16 @@
             success: function (data){
                 $.each(data.LowReliability,function (i,item) {
                     html+=" <tr class=\"gradeA\" >"+
-                        "<td style='text-align: center ;width:10%;' >"+i+"</td>"+
-                        "<td style='text-align: center;width: 25%'>"+item.name+"</td>"+
-                        "<td style='text-align: center;width: 35%'>"+item.obj_ID+"</td>"+
-                        "<td class=\"center\" style='text-align: center;width: 15%'>"+item.buz_TYPE+"</td>"+
+                        "<td style='text-align: center ;width:10%;' >"+(i+1)+"</td>"+
+                        "<td style='text-align: center;width: 30%'>"+item.name+"</td>"+
+                        "<td style='text-align: center;width: 30%'>"+item.obj_ID+"</td>"+
+                        "<td class=\"center\" style='text-align: center;width: 15%'>"+item.buzRe+"</td>"+
                         "<td class=\"center\" style='text-align: center;width: 15%'><span class='label label-info' style='cursor:pointer' onclick='refresh(this)'>查询</span></td>"+
                         "</tr>";
                     if(i>9){return false;}
                 } );
                 $("#LowReliability").html(html);
+                loadPath();
             }
         });
         
@@ -335,6 +334,8 @@
             var name11;
             var name22;
             var result;
+            var startName = obj[0].start;
+            var endName = obj[0].end;
             //取出路由信息
             $.each(obj,function (i,item) {
 //                result=item.result;
@@ -438,9 +439,19 @@
 			},
 			label: {
 				normal: {
-					show: false,
+					show: true,
 					position: 'right',
-					formatter: '{b}'
+                    formatter: function (val) {
+                        var name = val.data.name;
+                        if( RegExp(startName).test(name)){
+                            return '开始站点'
+                        }else if(RegExp(endName).test(name)){
+                            return '终止站点'
+                        }else{
+                            return ''
+                        }
+
+                    }
 				}
 			},
 			//symbolSize: function (val) {
@@ -535,18 +546,18 @@
 
             myChart1.on('click', function (params) {
                 var node = params.name;
-                var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
-                var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
-                var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
                 var if_exist = RegExp("扩容").test(node);
                 if(if_exist){
+                    var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
+                    var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
+                    var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
 
                     layer.config({
                         extend: 'routeSkin/style.css', //同样需要加载新皮肤
                         skin:'layer-ext-yi'
                     });
 
-                    layer.msg("端口占用率："+portOcc+" <br> 站点承载的重要业务数："+buzNumRate+" <br> 站点业务数增长率：" +increaseRate, {
+                    layer.msg("端口占用率："+portOcc+" <br> 承载业务的级别和重要性："+buzNumRate+" <br> 业务数增长率：" +increaseRate, {
                         time: 90000, //5s后自动关闭,
                         btnAlign: 'c',
                         skin:'layer-ext-yi',

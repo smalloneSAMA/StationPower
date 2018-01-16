@@ -79,6 +79,8 @@ public class BusinessRouteController {
 
                     }
                     jsonObject.put("route", 1);
+                    jsonObject.put("start", stationPropertyService.selectByID(Province,ids[0]));
+                    jsonObject.put("end", stationPropertyService.selectByID(Province,ids[len-1]));
                     jsonArray.add(jsonObject);
                 }
 
