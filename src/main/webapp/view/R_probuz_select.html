@@ -197,8 +197,8 @@
                 shade: [0.3, '#ddd']//0.1透明度的白色背景
             });
 
-            alert("lalalaaaaaa");
-            layer.close(index);
+//            alert("lalalaaaaaa");
+
             var province = $("#Province").val();
             var buz_type = $('#buz_type').val();
             var buz_id = $('#buz_id').val();
@@ -207,7 +207,7 @@
                 url: "../../t/chaxun",
                 type: "post",
                 dataType: "json",
-                async: false,
+                async: true,
                 data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
                 success: function (data) {
 
@@ -276,7 +276,7 @@
                     }
 
                     $("#lalala").html(Str);
-//                    layer.close(index);
+                    layer.close(index);
 
                 },
                 error: function (data) {
@@ -290,7 +290,7 @@
                 url: "../../t/topo",
                 type: "post",
                 dataType: "json",
-                async: false,
+                async: true,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
                 success: function (data) {
 //                    alert('lalala');

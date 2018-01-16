@@ -4,20 +4,19 @@ import datetime
 import calendar
 from dateutil import rrule
 
-path1 = "E:/work/csv/t_alarm_clean/"
-path2 = "E:/work/jx_date/"
+path = "E:/"  #找文件路径
 province = "jiangxi"
 class FailureselectByMonth(object):
 
     def __init__(self):
-        self.df = pd.read_csv(path1 + province + "_electric_alarm_clean.csv", encoding='gbk', sep=',')
+        self.df = pd.read_csv(path + province + "_electric_alarm_clean.csv", encoding='gbk', sep=',')
         self.k = self.df.shape[0]
         self.dict3 = {}
         for i in range(self.k):
             id = self.df.loc[i,'NE_OBJ_ID']
             # self.dict3[id] = self.df.loc[i, 'ALARM_TIME_NEW']
             self.dict3[id] = self.df.loc[i, 'ALARM_TIME']
-        df1 = pd.read_csv(path2 + province + "_electric_ne_work_year.csv", encoding='gbk', sep=',')
+        df1 = pd.read_csv(path + province + "_electric_ne_work_year.csv", encoding='gbk', sep=',')
         h = df1.shape[0]
         self.dict1 = {}
         self.dict2 = {}

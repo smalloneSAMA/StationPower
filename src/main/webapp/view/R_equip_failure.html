@@ -100,24 +100,22 @@
 </script>
 <script type="text/javascript">
     $(function(){
-
-        var index = layer.load(0, {
-            shade: [0.3, '#ddd']//0.1透明度的白色背景
-        });
-
-
-
-
         var equipLst = new Array();
         var str = '';
+        var index = null;
         $.ajax({
             url: "../../t/tt",
             type: "post",
             dataType: "json",
             async: false,
+            beforeSend: function (request) {
+                index = layer.load(0, {
+                    shade: [0.3, '#ddd']//0.1透明度的白色背景
+                });
+            },
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id,
             success: function (data) {
-
+                layer.close(index);
                 for(var i=0;i<data.length;i++){
                     equipLst[i] = data[i];
 //                    alert(i);
@@ -173,6 +171,7 @@
                     str = str+'</div>'
                 }
                 $("#lalala").html(str);
+
             },
             error: function (data) {
                 alert("输入的id错误");
@@ -447,7 +446,6 @@
             option = getOption(d_r, d_f, d_d, i);
             mc.setOption(option);
         }
-        layer.close(index);
     });
 
 </script>

@@ -9,10 +9,10 @@ province = "jiangxi"
 path = 'E:/'
 
 config = {
-    'host': '172.16.135.19',
+    'host': 'localhost',
     'port': 3306,
     'user': 'root',
-    'password': 'hadoop',
+    'password': 'admin',
     'db': 'jiangxi_power',
     'charset':'utf8',
     'cursorclass':pymysql.cursors.DictCursor,

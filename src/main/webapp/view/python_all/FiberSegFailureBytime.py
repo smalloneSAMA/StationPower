@@ -5,7 +5,7 @@ import datetime
 import calendar
 from dateutil import rrule
 
-province = "jiangxi"
+province = "jiangxi"  #找文件路径
 path = 'E:/'
 
 '''

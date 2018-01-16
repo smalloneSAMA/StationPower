@@ -241,7 +241,7 @@
             url: "../../t/buz_pre",
             type: "post",
             dataType: "json",
-            async: false,
+            async: true,
 //            data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
 //                alert('1111111');
@@ -259,9 +259,10 @@
             url: "../../t/buz_re",
             type: "post",
             dataType: "json",
-            async: false,
+            async: true,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
+                layer.close(index);
                 buz_re = data[0]['业务可靠性'];
                 if (buz_re=='1'){
                     buz_re = '0.999'
@@ -283,7 +284,7 @@
             url: "../../t/history",
             type: "post",
             dataType: "json",
-            async: false,
+            async: true,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
 //                alert('lalala');

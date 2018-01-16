@@ -12,11 +12,11 @@ import sys
 
 
 config = {
-    'host':"172.16.135.6",
+    'host':"172.16.135.19",
     'port':3306,
     'user':'root',
-    'password':'10086',
-    'db':'electric',
+    'password':'hadoop',
+    'db':'jiangxi_power',
     'charset':'utf8',
     'cursorclass':pymysql.cursors.DictCursor,
 }
@@ -27,12 +27,12 @@ myfont = matplotlib.font_manager.FontProperties(fname=r"c:\windows\fonts\simhei.
 
 
 province = 'jiangxi'
-buz_type = '2'
 graphPath = 'E:/new_graph/'
-path = graphPath + 'history/'
+path = graphPath + 'history/type3/'    #保存图片路径
 
 def resolvebusz(buz_id,buz_lst):
     r = getReliability()
+    s = FailureselectByMonth()
     businessid = buz_id  # 业务id
     print("b_id:" + businessid)
     if (len(buz_lst) <= 1):
@@ -168,6 +168,7 @@ def resolvebusz(buz_id,buz_lst):
     plt.close('all')  # 关闭图s
 
 def getEqpAvgRel(equip):
+    s = FailureselectByMonth()
     monthlist = ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06', '2016-07', '2016-08',
                  '2016-09', '2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03']
     efailure = float(0)
@@ -180,161 +181,57 @@ def getEqpAvgRel(equip):
     return ereliable
 
 
-def getbuz_base(buz_id, buz_type):
-    sql2 = "select b.obj_id as business_id, b.buz_type, bc.channel_id from " \
-    "t_business_channel bc, t_buz b where (b.OBJ_ID = '%s' and  bc.BUSINESS_ID = '%s' and b.BUZ_TYPE = '%s' AND b.service_state='1')" %(buz_id, buz_id, buz_type)
-    df_buz_channel = pd.read_sql(sql2, connection)
+def to_list(str):
+    nelist = []
+    list1 = str.split("], [")
+    # print(list1)
+    for i in range(len(list1)):
+        if (i == 0):
+            list1[i] = list1[i][2:]
+        if (i == len(list1) - 1):
+            list1[i] = list1[i][0:-2]
+        # print(list1[i])
+        # print(type(list1[i]))
+        str1 = list1[i]
+        # print(str1)
+        list3 = []
+        list2 = str1.split(", ")
+        # print(list2)
 
-    print(len(df_buz_channel))
+        for j in range(len(list2)):
+            # if (j == 0):
+            #     list2[j] = list2[j][1:]
+            # if (i == len(list2) - 1):
+            #     list2[j] = list2[j][:-1]
+            list2[j] = list2[j][1:-1]
+            # print(list2[j])
 
-    if(len(df_buz_channel) > 1):
-        clist = list()
-        for index in df_buz_channel['channel_id']:
-            if index not in clist:
-                clist.append(index)
-            else:
-                continue
-        ctuple = str(tuple(clist))
-        sql3 = "select obj_id AS channel_id, channel_type, service_state, a_res_type, z_res_type, a_res_id," \
-            "z_res_id, a_ne, z_ne, delete_flag from t_channel_base WHERE (delete_flag IS NULL OR delete_flag ='0') AND obj_id IN %s" %ctuple
-    else:
-        cid = df_buz_channel['channel_id'][0]
-        print(cid)
-        sql3 = "select obj_id AS channel_id, channel_type, service_state, a_res_type, z_res_type, a_res_id," \
-            "z_res_id, a_ne, z_ne, delete_flag from t_channel_base WHERE (delete_flag IS NULL OR delete_flag ='0') AND obj_id = '%s'"  %cid
-    df_cbase = pd.read_sql(sql3, connection)
-    df_buzbase = pd.merge(df_buz_channel, df_cbase, how='left', on='channel_id')
-    return df_buzbase
+            list3.append(list2[j])
 
-
-def getne(buz_id, buz_type):
-    global df_buzbase
-    global df_cc
-    global df_top
-
-    with connection.cursor() as cursor:
-        df_buzbase = getbuz_base(buz_id, buz_type)
-
-        sql1 = "select a_ptp,a_ctp, z_ptp ,z_ctp ,delete_flag from t_sdh_cc WHERE DELETE_FLAG IS NULL OR delete_flag ='0'"
-        df_cc = pd.read_sql(sql1, connection)
-        df_cc['flag'] = 0
-
-        sql2 = "select obj_id as topo_id, a_ne, a_port, z_ne, z_port from t_topology where DELETE_FLAG IS NULL OR delete_flag ='0'"
-        df_top = pd.read_sql(sql2, connection)
-        df_top['flag'] = 0
+        nelist.append(list3)
+    # print(nelist)
+    # print(type(nelist))
+    return nelist
 
 
-    print('buz_id:' + df_buzbase['business_id'][0])
-    index_lst = df_buzbase.index
-    AllList = []
-    for j in index_lst:
-        base = df_buzbase.ix[j]
-        print('c_id' + base.channel_id + "\n")
-        a_res_id = base.a_res_id
-        z_res_id = base.z_res_id
-        if(a_res_id == ''):
-            print("该通道a_res_id为空")
-            continue
-        if(z_res_id == ''):
-            print("该通道z_res_id为空")
-            continue
-        z_ne = base.z_ne
-
-        df_cc_a = df_cc[(df_cc['a_ptp'] == a_res_id) & (df_cc['flag'] != 1)]
-        df_cc_z = df_cc[(df_cc['z_ptp'] == a_res_id) & (df_cc['flag'] != 1)]
-        alst = df_cc_a.index
-        print(len(alst))
-        print('--------------------------------------------------------------------------------------------------------------------------------------')
-        zlst = df_cc_z.index
-        print(len(zlst))
-        if (len(alst) > 0):
-            for k in alst:
-                cc = df_cc.ix[k]
-                ptp_id = cc.z_ptp
-                ctp = cc.z_ctp
-                OneList = []
-                list=[]
-                OneList = cc_topo(z_res_id, ptp_id, ctp, z_ne,list)
-                print('---------------------------------------onelistz:', OneList)
-                AllList.append(OneList)
-                cc.flag = 1
-        if (len(zlst) > 0):
-            for j in zlst:
-                cc = df_cc.ix[j]
-                ptp_id = cc.a_ptp
-                ctp = cc.a_ctp
-                OneList = []
-                list = []
-                OneList = cc_topo(z_res_id, ptp_id, ctp, z_ne,list)
-                print('---------------------------------------onelistz:', OneList)
-                AllList.append(OneList)
-                cc.flag = 1
-                print("结束分支")
-
-        print("CHANNEL END\n")
-    print("BUSINESS END\n")
-    return AllList
-
-def cc_topo(res_id, ptp_id, ctp,z_ne,list):
-    len_top = len(df_top)
-    for k in range(0, len_top):
-        top = df_top.ix[k]
-        if (top.a_port == ptp_id):
-            list.append(top.a_ne)
-            port = top.z_port
-            ne = topo_sdh(res_id, port, ctp, z_ne,list)
-            if ne != '':
-                list.append(ne)
-        elif (top.z_port == ptp_id):
-            list.append(top.z_ne)
-            port = top.a_port
-            ne = topo_sdh(res_id, port, ctp, z_ne,list)
-            if ne != '':
-                list.append(ne)
-    return list
 
 
-def topo_sdh(res_id, port, ctp,z_ne,list):
-    df_cc_a = df_cc[(df_cc['a_ptp'] == port) & (df_cc['a_ctp'] == ctp) & (df_cc['flag'] != 1)]
-    df_cc_z = df_cc[(df_cc['z_ptp'] == port) & (df_cc['z_ctp'] == ctp) & (df_cc['flag'] != 1)]
-    ccindex_alst = df_cc_a.index
-    ccindex_zlst = df_cc_z.index
-    ne=''
-    if (len(ccindex_alst) > 0):
-        for i in ccindex_alst:
-            cc = df_cc_a.ix[i]
-            ptp_id = cc.z_ptp
-            ctp = cc.z_ctp
-            cc.flag = 1
-            if (ptp_id == res_id):
-                ne = z_ne
-            else:
-                cc_topo(res_id, ptp_id, ctp, z_ne,list)
-            continue
 
-    if (len(ccindex_zlst) > 0):
-        for i in ccindex_zlst:
-            cc = df_cc_z.ix[i]
-            ptp_id = cc.a_ptp
-            ctp = cc.a_ctp
-            cc.flag = 1
-            if (ptp_id == res_id):
-                ne = z_ne
-            else:
-                cc_topo(res_id, ptp_id, ctp, z_ne,list)
-            continue
-    return ne
+    # buz_id = sys.argv[1]
+    # buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250"
 
 
 if __name__ == '__main__':
-    s = FailureselectByMonth()
-    list_buz_id = []
-    # buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250"
-    # buz_type='2'
+
     buz_id = sys.argv[1]
     buz_type = sys.argv[2]
-    lists = getne(buz_id,buz_type)
+    # buz_id = "A7464B0A-B0FB-41C5-951A-FE17E41B7263-00250"
+    sql = "select OBJ_ID,BUZ_TYPE,NE_LIST from jiangxi_t_buz_re WHERE OBJ_ID = '%s' "%buz_id
+    results = pd.read_sql(sql, connection)
+    lists = []
+    nestr = results.ix[0].NE_LIST
+    lists = to_list(nestr)
+    resolvebusz(buz_id, lists)
 
-    if (len(lists) > 1):
-        resolvebusz(buz_id, lists)
     connection.close()
+
