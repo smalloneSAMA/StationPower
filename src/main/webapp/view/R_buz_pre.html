@@ -225,7 +225,6 @@
 
 
     $(function(){
-
         var index = layer.load(0, {
             shade: [0.3, '#ddd']//0.1透明度的白色背景
         });
@@ -241,9 +240,10 @@
             url: "../../t/buz_pre",
             type: "post",
             dataType: "json",
-            async: true,
+            async: false,
 //            data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
+
 //                alert('1111111');
                 for(var i=0;i<data.length;i++){
                     equipLst[i] = data[i];
@@ -259,10 +259,10 @@
             url: "../../t/buz_re",
             type: "post",
             dataType: "json",
-            async: true,
+            async: false,
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
-                layer.close(index);
+
                 buz_re = data[0]['业务可靠性'];
                 if (buz_re=='1'){
                     buz_re = '0.999'
@@ -288,7 +288,7 @@
 //                data: "buz_type="+buz_type+"&buz_id="+buz_id+"&province="+province,
             success: function (data) {
 //                alert('lalala');
-
+                layer.close(index);
                 var buz_id = data[0]['业务id'];
 //                alert(buz_id);
 //                $('#img').html("<img src='topo_img/'+buz_id+'.png' />");

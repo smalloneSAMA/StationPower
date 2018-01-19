@@ -283,7 +283,7 @@
                     res.push({
                         //fromName: dataItem[0].name,
                         //toName: dataItem[1].name,
-                        name: "铅芯占用率",
+                        name: "纤芯占用率",
                         coords: [fromCoord, toCoord],
                         value: dataItem[1].fiberOcc
                     });
@@ -370,7 +370,7 @@
             tooltip : {
                 trigger: 'item',
                 formatter: function (params) {
-                    if(params.name.indexOf("铅芯占用率") == -1)
+                    if(params.name.indexOf("纤芯占用率") == -1)
                         return params.name;
                     else
                         return params.name+ ' : ' + params.value;
