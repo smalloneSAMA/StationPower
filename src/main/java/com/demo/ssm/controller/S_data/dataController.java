@@ -3,7 +3,9 @@ package com.demo.ssm.controller.S_data;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.demo.ssm.po.S_data.TypeCodeName;
 import com.demo.ssm.po.S_data.data;
+import com.demo.ssm.service.interf.S_data.TypeCodeNameService;
 import com.demo.ssm.service.interf.S_data.dataService;
 import com.demo.ssm.tool.path_python;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,14 @@ public class dataController {
 
     @Autowired
     dataService dataService;
+    @Autowired
+    TypeCodeNameService typeCodeNameService;
 
+    TypeCodeName typeCodeName;
+
+    private String name1;
+    private String type;
+    private String code;
     //查询异常channel_type
     @RequestMapping("/channel_type")
     @ResponseBody
@@ -34,7 +43,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "CHANNEL_TYPE";
         try {
             Integer s = dataService.channel_type_Count(Province);
             List<data> list = dataService.channel_typeQ(Province);
@@ -43,10 +52,15 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getVal());
-                jsonObject.put("NumberRecords", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("ChannelType", (list.get(i)).getVal());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("Name",(list.get(i)).getName());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -68,7 +82,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "CHANNEL_TYPE";
         try {
             Integer s = dataService.channel_type_null_Count(Province);
             List<data> list = dataService.channel_type_null(Province);
@@ -77,9 +91,13 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -101,19 +119,27 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
+        type = "RATE";
 
         try {
+
             Integer s = dataService.channel_rateQ_Count(Province);
             List<data> list = dataService.channel_rateQ(Province);
             if (s < 10) {
                 k = s;
             }
             while (i < k) {
+
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getVal());
-                jsonObject.put("NumberRecords", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("ChannelRate", (list.get(i)).getVal());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("Name",(list.get(i)).getName());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -135,7 +161,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "RATE";
         try {
             Integer s = dataService.channel_rate_null_Count(Province);
             List<data> list = dataService.channel_rate_null(Province);
@@ -144,9 +170,13 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -169,7 +199,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "BUSINESS_TYPE";
         try {
             Integer s = dataService.buz_typeQ_Count(Province);
             List<data> list = dataService.buz_typeQ(Province);
@@ -178,10 +208,15 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getVal());
-                jsonObject.put("NumberRecords", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Buz_Type", (list.get(i)).getVal());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("Name",(list.get(i)).getName());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -203,7 +238,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "BUSINESS_TYPE";
         try {
             Integer s = dataService.buz_type_null_Count(Province);
             List<data> list = dataService.buz_type_null(Province);
@@ -212,9 +247,13 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -241,15 +280,18 @@ public class dataController {
         try {
             Integer s = dataService.buz_rateQ_Count(Province);
             List<data> list = dataService.buz_rateQ(Province);
+
             if (s < 10) {
                 k = s;
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getVal());
-                jsonObject.put("NumberRecords", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Buz_Rate", (list.get(i)).getVal());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("Name",(list.get(i)).getName());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -281,8 +323,9 @@ public class dataController {
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -305,7 +348,7 @@ public class dataController {
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "INTERFACE_TYPE";
         try {
             Integer s = dataService.interface_typeQ_Count(Province);
             List<data> list = dataService.interface_typeQ(Province);
@@ -314,10 +357,15 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getVal());
-                jsonObject.put("NumberRecords", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("InterfaceType", (list.get(i)).getVal());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("Name",(list.get(i)).getName());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -334,12 +382,12 @@ public class dataController {
     //查询异常interface_type_null
     @RequestMapping("/interface_type_null")
     @ResponseBody
-    public JSONArray interface_type_null(HttpServletRequest request, String Province) {
+    public JSONArray interface_type_null(String Province) {
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
         Integer i = 0;
         Integer k = 10;
-
+        type = "INTERFACE_TYPE";
         try {
             Integer s = dataService.interface_type_null_Count(Province);
             List<data> list = dataService.interface_type_null(Province);
@@ -348,9 +396,13 @@ public class dataController {
             }
             while (i < k) {
                 JSONObject jsonObject = new JSONObject();
+                code = (list.get(i)).getPredict();
+                name1 = typeCodeNameService.queryName(code,type).getName();
                 jsonObject.put("ID", (list.get(i)).getObj_id());
-                jsonObject.put("StationName", (list.get(i)).getPredict());
-                jsonObject.put("NumberForecast", (list.get(i)).getProbablity());
+                jsonObject.put("Predict", (list.get(i)).getPredict());
+                jsonObject.put("Possibility", (list.get(i)).getProbablity());
+                jsonObject.put("name_name",(list.get(i)).getName_name());
+                jsonObject.put("Name1",name1);
                 jsonArray.add(jsonObject);
                 i++;
             }
@@ -367,7 +419,6 @@ public class dataController {
 
 
 
-
 //    饼状图各概率区间记录个数
     //buz_type
     @RequestMapping("/buz_type_diff_pin")
@@ -379,13 +430,14 @@ public class dataController {
         Integer b = dataService.Count_pin_BT(0.55);
         Integer c = dataService.Count_pin_BT(0.5);
         Integer d = dataService.Count_pin_BT(-0.1);
-
-
+//        Integer a = dataService.Count_pin_BT(0.95);
+//        Integer b = dataService.Count_pin_BT(0.9);
+//        Integer c = dataService.Count_pin_BT(0.8);
+//        Integer d = dataService.Count_pin_BT(-0.1);
         a=a;
         d=d-c;
         c=c-b;
         b=b-a;
-
         jsonObject.put("a",a);
         jsonObject.put("b",b);
         jsonObject.put("c",c);

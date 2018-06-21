@@ -151,6 +151,7 @@
                     <thead>
                     <tr>
                         <th style="text-align: center">业务ID</th>
+                        <th style="text-align: center">业务名称</th>
                         <th style="text-align: center">业务类型</th>
                         <th style="text-align: center">业务类型预测</th>
                         <th style="text-align: center">准确率</th>
@@ -195,6 +196,7 @@
                     <thead>
                     <tr>
                         <th style="text-align: center">业务ID</th>
+                        <th style="text-align: center">业务名称</th>
                         <th style="text-align: center">业务类型</th>
                         <th style="text-align: center">业务类型预测</th>
                         <th style="text-align: center">准确率</th>
@@ -348,10 +350,11 @@
             success: function (data) {
                 $.each(data, function (i, item) {
                     html1 += " <tr class=\"gradeA\">" +
-                        "<td style='text-align: left;width: 30%'>" + item.ID + "</td>" +
-                        "<td style='text-align: center;width: 20%'>" + item.StationName + "</td>" +
-                        "<td style='text-align: center;width: 20%'>" + item.NumberRecords + "</td>" +
-                        "<td class=\"center\" style='text-align: center;width: 30%'>" + item.NumberForecast + "</td>" +
+                        "<td style='text-align: left;width: 25%'>" + item.ID + "</td>" +
+                        "<td style='text-align: center;width: 30%'>" + item.name_name + "</td>" +
+                        "<td style='text-align: center;width: 15%'>" +"<b>"+ item.Buz_Type +"("+item.Name+")"+"</b>"+ "</td>" +
+                        "<td style='text-align: center;width: 15%'>" +"<b>"+ item.Predict +"("+item.Name1+")"+"</b>"+ "</td>" +
+                        "<td class=\"center\" style='text-align: center;width: 15%'>" + item.Possibility + "</td>" +
                         "</tr>";
 
 
@@ -396,10 +399,11 @@
             success: function (data) {
                 $.each(data, function (i, item) {
                     html2 += " <tr class=\"gradeA\" >" +
-                        "<td style='text-align: left ;width:30%;' >" + item.ID + "</td>" +
-                        "<td style='text-align: center;width: 20%'>空</td>" +
-                        "<td style='text-align: center;width: 20%'>" + item.StationName + "</td>" +
-                        "<td class=\"center\" style='text-align: center;width: 30%'>" + item.NumberForecast + "</td>" +
+                        "<td style='text-align: left ;width:25%;' >" + item.ID + "</td>" +
+                        "<td style='text-align: center ;width:30%;' >" + item.name_name + "</td>" +
+                        "<td style='text-align: center;width: 15%'>空</td>" +
+                        "<td style='text-align: center;width: 15%'>" +"<b>"+ item.Predict +"("+item.Name1+")"+"</b>"+ "</td>" +
+                        "<td class=\"center\" style='text-align: center;width: 15%'>" + item.Possibility + "</td>" +
                         "</tr>";
 
 

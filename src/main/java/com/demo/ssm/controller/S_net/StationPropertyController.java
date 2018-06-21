@@ -94,9 +94,6 @@ public class StationPropertyController {
     public JSONArray S_dataQualityFilter(HttpServletRequest request,String Province){
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
-
-
-
         try{
             int i=0;
             int k=stationPropertyService.count(Province);

@@ -12,6 +12,9 @@
         <result column="INTERFACE_TYPE" property="Val" jdbcType="VARCHAR"/>
         <result column="predict" property="predict" jdbcType="VARCHAR"/>
         <result column="probablity" property="probablity" jdbcType="DOUBLE"/>
+        <result column="name_name" property="name_name" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+
     </resultMap>
 
     <!--饼状图查询各个准确率区间的记录个数-->

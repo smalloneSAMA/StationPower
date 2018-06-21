@@ -21,10 +21,7 @@ public class AverageFailureRateServiceImpl implements AverageFailureRateService 
 
     @Override
     public List<AverageFailureRate> selectByPrimaryKey() throws IOException{
-
         return averageFailureRateMapper.selectByPrimaryKey();
-
-
     }
 
     @Override

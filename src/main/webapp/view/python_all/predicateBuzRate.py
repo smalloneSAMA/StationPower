@@ -15,12 +15,12 @@ def predict_buz_rate(province):
     # conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=province, port=3306, charset='utf8')
     if province in pro6:
         if province=='jiangxi':
-            database='jiangxi_before170619'
+            database='jiangxi_before'
         else:
             database=province
         conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
     else:
-        database=province
+        database = province
         conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
     # 业务带宽不为空
     cur = conn.cursor()
@@ -80,8 +80,10 @@ def predict_buz_rate(province):
     list_pro = []
     for i in range(probablity.shape[0]):
         pro = max(list(probablity[i]))
-        if abs(pro - 1.0) < 1e-6:
-            pro = 0.99
+        if abs(pro - 1.0) < 1e-4:
+            pro = 0.9985
+        pro = ("%.4f" % pro)
+        pro = eval(pro)
         list_pro.append(pro)
     # 输出结果
     length = data.shape[0]
@@ -123,25 +125,25 @@ def predict_buz_rate(province):
     data1 = list(data2[:,0])  ##############odj_id
     datap = []  ###############province
     data3 = list(data2[:, -1])  ###########buzType
-    data6 = list(data2[:,1])
+    data6 = list(data2[:,1])   ########## 业务的名称
 
     for i in range(len(data1)):
-        datap.append(sys.argv[1])
+        datap.append(proArgv)
     ############异常的值（）diff
     for i in range(len(data1)):
         if data3[i] != data4[i] and data3[i]!= '':
-            values.append([datap[i], data1[i],data6[i], data3[i], data4[i], data5[i]])
+            values.append([datap[i], data1[i], data3[i], data4[i], data5[i],data6[i]])
 
     #cursor.execute('delete from BuzRate_diff ')
-    cursor.execute('delete from buz_rate_diff WHERE province=%s', sys.argv[1])
+    cursor.execute('delete from buz_rate_diff WHERE province=%s', proArgv)
     for i in range(len(values)):
         cursor.execute('insert into buz_rate_diff VALUES(%s,%s,%s,%s,%s,%s)', values[i])
     ##空值
     values=[]
     for i in range(len(data1)):
         if data3[i] != data4[i] and data3[i] == '':
-            values.append([datap[i], data1[i], data6[i], data4[i], data5[i]])
-    cursor.execute('delete from buz_rate_null WHERE province=%s', sys.argv[1])
+            values.append([datap[i], data1[i], data4[i], data5[i],data6[i]])
+    cursor.execute('delete from buz_rate_null WHERE province=%s', proArgv)
     for i in range(len(values)):
         cursor.execute('insert into buz_rate_null VALUES(%s,%s,%s,%s,%s)', values[i])
 
@@ -164,11 +166,12 @@ def predict_buz_rate(province):
 ##命令行参数##############################################################################
 print("**************")
 print(sys.argv)
-print(sys.argv[1])
+proArgv=sys.argv[1]
+print(proArgv)
 dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing','福建':'fujian','甘肃':'gansu','河北':'hebei','黑龙江':'heilongjang',
       '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
       '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sichuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
-name=dict[sys.argv[1]]
+name=dict[proArgv]
 print(name)
 
 #database =name

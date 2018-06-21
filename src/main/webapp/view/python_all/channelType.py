@@ -10,9 +10,11 @@ import math
 ##命令行参数##############################################################################
 print("**************")
 print(sys.argv)
+# proArgv='江西'
+# print(proArgv)
 print(sys.argv[1])
 dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing','福建':'fujian','甘肃':'gansu','河北':'hebei','黑龙江':'heilongjang',
-      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
+      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi_before170619','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
       '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sichuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
 name=dict[sys.argv[1]]
 print(name)
@@ -20,7 +22,7 @@ print(name)
 database =name
 province =name
 
-pro6=['anhui','chongqing','gansu','henan','hubei','hunan','jiangsu','liaoning','ningxia','shan1xi','shandong','sichuan','xinjiang']
+pro6=['anhui','jiangxi_before170619','chongqing','gansu','henan','hubei','hunan','jiangsu','liaoning','ningxia','shan1xi','shandong','sichuan','xinjiang']
 
 # province = 'jiangxi'
 # path = 'E:/yeal/JXResult/' + province + '_'
@@ -33,9 +35,28 @@ else:
     conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
 
 cur = conn.cursor()
+cur_type = conn.cursor()
+cur_name = conn.cursor()
+
 cur.execute("select obj_id,name,CHANNEL_TYPE from t_channel_base WHERE (CHANNEL_TYPE is not  null AND CHANNEL_TYPE<>'')")
+cur_type.execute("select CHANNEL_TYPE from t_channel_base WHERE CHANNEL_TYPE!=''")
+
 result = cur.fetchall()
+result_type = cur_type.fetchall()
 data = np.array(result)
+data_type = np.array(result_type)[:,0]
+
+#去t_pub_code提取name
+data_name=[]
+for i in range(len(data_type)):
+    cur_name.execute("select NAME from t_pub_code WHERE (TYPE='CHANNEL_TYPE' AND CODE=%s)",data_type[i])
+    result_name = cur_name.fetchall()
+    if(len(result_name)==0):
+        data_name.append('无法查找到名字')
+    else:
+        data_name.append(np.array(result_name)[0][0])
+
+
 
 # word_list = ['E_2M', 'E_155M', 'E_45M',#type=1
 #              '光路', '光纤通道', '主用传输段',#type=2
@@ -100,10 +121,13 @@ list_pro = []
 p=[]
 pp=0
 for i in range(probablity.shape[0]):
+
     pro = max(list(probablity[i]))
 
-    if  abs(pro-1.0)<1e-6:
-        pro=0.99
+    if abs(pro - 1.0) < 1e-4:
+        pro = 0.9985
+    pro = ("%.4f" % pro)
+    pro = eval(pro)
     list_pro.append(pro)
 
 
@@ -137,8 +161,10 @@ if len(data__null) > 0:
     list_pro_null = []
     for i in range(probablity_null.shape[0]):
         pro = max(list(probablity_null[i]))
-        if abs(pro - 1.0) < 1e-6:
-            pro = 0.99
+        if abs(pro - 1.0) < 1e-4:
+            pro = 0.9985
+        pro = ("%.4f" % pro)
+        pro = eval(pro)
         list_pro_null.append(pro)
 
     result_null = pd.DataFrame(np.column_stack((data__null[:, 0:2], data__null[:, -1], np.array(h_null).reshape((-1, 1))[0:length, 0:1],np.array(list_pro_null).reshape((-1,1)))),
@@ -151,7 +177,7 @@ connect=db.connect(host="172.16.135.19",user="root",passwd="hadoop",db="jiangxi_
 cursor=connect.cursor()
 sql="create table if not exists channel_type_diff" \
     "(province varchar(255) DEFAULT NULL,obj_id varchar(255) DEFAULT NULL,channel_type varchar(255) DEFAULT NULL," \
-    "predict varchar(255) DEFAULT NULL,probablity varchar(255) DEFAULT NULL);"
+    "predict varchar(255) DEFAULT NULL,probablity varchar(255) DEFAULT NULL,name varchar(255) DEFAULT NULL);"
 cursor.execute(sql)
 
 h=np.array(h).reshape((-1, 1))
@@ -168,26 +194,29 @@ for j in list_pro:
 data1=list(data[:,0])##############odj_id
 data2=[]###############province
 data3=list(data[:,-1])###########Type
+datan=data_name##########name
+data6=data[:,1]##########name_name
+
 
 for i in range(len(data1)):
     data2.append(sys.argv[1])
 ############异常的值（）diff
 for i in range(len(data1)):
     if data3[i]!=data4[i] and data3[i]!='':
-        values.append([data2[i],data1[i],data3[i],data4[i],data5[i]])
+        values.append([data2[i],data1[i],data3[i],data4[i],data5[i],datan[i],data6[i]])
 
 # cursor.execute('delete from buztype_diff ')
 cursor.execute('delete from channel_type_diff WHERE province=%s',sys.argv[1])
 for i in range(len(values)):
-    cursor.execute('insert into channel_type_diff VALUES(%s,%s,%s,%s,%s)',values[i])
+    cursor.execute('insert into channel_type_diff VALUES(%s,%s,%s,%s,%s,%s,%s)',values[i])
 
 ##空值################3
 for i in range(len(data1)):
     if data3[i] != data4[i] and data3[i] == '':
-        values1.append([data2[i],data1[i],data4[i],data5[i]])
+        values1.append([data2[i],data1[i],data4[i],data5[i],data6[i]])
 cursor.execute('delete from channel_type_null WHERE province=%s',sys.argv[1])
 for i in range(len(values1)):
-    cursor.execute('insert into channel_type_null VALUES(%s,%s,%s,%s)', values1[i])
+    cursor.execute('insert into channel_type_null VALUES(%s,%s,%s,%s,%s)', values1[i])
 
 
 connect.commit()

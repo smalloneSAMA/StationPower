@@ -27,7 +27,7 @@ if __name__ == "__main__":
     mpl.rcParams['axes.unicode_minus'] = False#解决保存图像是负号'-'显示为方块的问题
 
     #connJiangxi = db.connect(host='127.0.0.1', user='root', passwd='liujie', db='StateGrid', port=3306, charset='utf8')
-    connJiangxi = db.connect(host='172.16.135.6', user='root', passwd='10086', db='jiangxi_before170619', port=3306, charset='utf8')
+    connJiangxi = db.connect(host='172.16.135.6', user='root', passwd='10086', db='jiangxi_before', port=3306, charset='utf8')
     #connJiangxi = db.connect(host='localhost', user='root', passwd='', db='233', port=3306,charset='utf8')
     curJiangxi = connJiangxi.cursor()
 
@@ -151,9 +151,9 @@ if __name__ == "__main__":
     score = delta ** (ratio )
     result['delta'] = delta
     result['score'] = score
-    result = result.sort_values(by='score',ascending=True)
+    result = result.sort_values(by='score',ascending=True)##############依据SCORE字段排序升序
     result = result.reset_index(drop=True)
-    result.to_csv("buz_num.csv", index=False, header=True, encoding='gbk')
+    # result.to_csv("buz_num.csv", index=False, header=True, encoding='gbk')
     boarr=[]
     for i in range(result.shape[0]):
         boarr.append(result['name'][i].find('供电公司')>=0)##############找到结果result中名称name包含供电公司的数据
@@ -164,49 +164,50 @@ if __name__ == "__main__":
 
 
 
-    print("\n********************************\n")
-    num=result.iloc[:,0].size
-    result1=result.ix[:9,:'predict']
-    result2=result.ix[num-10:num,:'predict']
-    result1.to_csv("buz_num1.csv", index=False, header=True, encoding='gbk')
-    result2.to_csv("buz_num2.csv", index=False, header=True, encoding='gbk')
-    result1n=np.array(result1)
-    result1n=result1n.tolist()
-    result2n = np.array(result2)
-    result2n = result2n.tolist()
-    print(result1n[1][0])
+    # print("\n********************************\n")
+    # num=result.iloc[:,0].size
+    # result1=result.ix[:9,:'predict']
+    # result2=result.ix[num-10:num,:'predict']
+    # result1.to_csv("buz_num1.csv", index=False, header=True, encoding='gbk')
+    # result2.to_csv("buz_num2.csv", index=False, header=True, encoding='gbk')
+    resultfull=np.array(result)
+    # result1n=np.array(result1)
+    # result1n=result1n.tolist()
+    # result2n = np.array(result2)
+    # result2n = result2n.tolist()
+    # print(result1n[1][0])
 
 
  ########## 输出到数据库中########################################################################################################
     connect = db.connect(host="172.16.135.19", user="root", passwd="hadoop", db="jiangxi_power", port=3306, charset='utf8')
     cursor = connect.cursor()
-    sql = "create table if not exists AbnormalStation_top10" \
-          "(ID INTEGER NOT NULL AUTO_INCREMENT,TransformSubstation varchar(255) DEFAULT NULL,BusinessNumRecords varchar(255) DEFAULT NULL,BusinessNumForecast varchar(255) DEFAULT NULL," \
+    sql = "create table if not exists Station_top10" \
+          "(ID INTEGER NOT NULL AUTO_INCREMENT,TransformSubstation varchar(255) DEFAULT NULL,BusinessNumRecords varchar(255) DEFAULT NULL,BusinessNumForecast varchar(255) DEFAULT NULL,Score VARCHAR (255) DEFAULT NULL," \
           "PRIMARY KEY (`ID`));"
     cursor.execute(sql)
-    sql1 = "create table if not exists AccuratePrediction_top10" \
-          "(ID INTEGER NOT NULL AUTO_INCREMENT,TransformSubstation varchar(255) DEFAULT NULL,BusinessNumRecords varchar(255) DEFAULT NULL,BusinessNumForecast varchar(255) DEFAULT NULL," \
-           "PRIMARY KEY (`ID`));"
-    cursor.execute(sql1)
+    # sql1 = "create table if not exists AccuratePrediction_top10" \
+    #       "(ID INTEGER NOT NULL AUTO_INCREMENT,TransformSubstation varchar(255) DEFAULT NULL,BusinessNumRecords varchar(255) DEFAULT NULL,BusinessNumForecast varchar(255) DEFAULT NULL," \
+    #        "PRIMARY KEY (`ID`));"
+    # cursor.execute(sql1)
 
     values=[]
     values1=[]
-    ############正确值
+    ############所有值
 
-    for i in range(10):
-        values.append([i+1,result1n[i][0],result1n[i][1],result1n[i][2]])
+    for i in range(resultfull.shape[0]):
+        values.append([i+1,resultfull[i][0],resultfull[i][1],resultfull[i][2],resultfull[i][5]])
         #values.extend(result1n[i])
 
-    cursor.execute('delete from AccuratePrediction_top10 ')
+    cursor.execute('delete from Station_top10 ')
     #cursor.execute('delete from buz_rate_diff WHERE province=%s', sys.argv[1])
     for i in range(len(values)):
-        cursor.execute('insert into AccuratePrediction_top10 VALUES(%s,%s,%s,%s)', values[i])
-    ##差的值
-    for i in range(10):
-        values1.append([i+1, result2n[9-i][0], result2n[9-i][1], result2n[9-i][2]])
-    cursor.execute('delete from AbnormalStation_top10 ')
-    for i in range(len(values)):
-        cursor.execute('insert into AbnormalStation_top10 VALUES(%s,%s,%s,%s)', values1[i])
+        cursor.execute('insert into Station_top10 VALUES(%s,%s,%s,%s,%s)', values[i])
+    # ##差的值
+    # for i in range(10):
+    #     values1.append([i+1, result2n[9-i][0], result2n[9-i][1], result2n[9-i][2]])
+    # cursor.execute('delete from AbnormalStation_top10 ')
+    # for i in range(len(values)):
+    #     cursor.execute('insert into AbnormalStation_top10 VALUES(%s,%s,%s,%s)', values1[i])
 
     connect.commit()
     cursor.close()

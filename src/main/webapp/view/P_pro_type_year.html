@@ -145,6 +145,30 @@
     <input id ="ne_name_value" style="display:none"/>
     <input id ="province_value" style="display:none"/>
 
+
+    <!--同一厂家不同省份的故障率与使用年限关系图-->
+    <!--<div class="row">-->
+        <!--<div class="col-sm-12">-->
+            <!--<div class="ibox float-e-margins">-->
+                <!--<div class="ibox-title">-->
+                    <!--<h5>各厂家不同省份设备故障率与使用年限关系</h5>-->
+                    <!--<div class="ibox-tools">-->
+                        <!--<a class="collapse-link">-->
+                            <!--<i class="fa fa-chevron-up"></i>-->
+                        <!--</a>-->
+                        <!--<a class="close-link">-->
+                            <!--<i class="fa fa-times"></i>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="ibox-content">-->
+                    <!--<div id='ey_failure3' style='height: 700px;'></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
@@ -516,6 +540,7 @@
     function relationData(obj) {
 
         var companyName = new Array();
+        var provinceName = new Array();
         var datasub = new Array();
         var failureRate= new Array();
 
@@ -560,6 +585,7 @@
         var length1=0,length2=0,length3=0,length4=0,length5=0,length6=0,length7=0,length8=0;
 
         //取出数据
+
         $.each(obj, function (i, item) {
             companyName[i] = item.Company;
             datasub[i] = item.UseTime;
@@ -1054,6 +1080,400 @@
     };
 
     myChart2.setOption(option2);
+
+       /* var myChart3 = echarts.init(document.getElementById('ey_failure3'));
+
+        option3 = {
+            backgroundColor: '#394056',
+            title: {
+                text: '各厂家不同省份设备故障率与使用年限的关系',
+                left: 'center',
+                textStyle: {
+                    fontWeight: 'bolder',
+                    fontSize: 24,
+                    color: '#F1F1F3'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    lineStyle: {
+                        color: '#57617B'
+                    }
+                }
+            },
+            legend: {
+                icon: 'rect',
+                itemWidth: 30,
+                itemHeight: 3,
+                itemGap: 13,
+                right: '5%',
+                top: 40,
+                orient: 'vartical',
+                data: companyName,
+                right: '4%',
+                textStyle: {
+                    fontSize: 14,
+                    color: '#F1F1F3'
+                }
+            },
+            grid: {
+                left: '4%',
+                right: '4%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis: [{
+                name: '使用年限',
+                nameLocation: 'middle',
+                nameGap:30,
+                nameTextStyle: {
+                    color: '#F1F1F3',
+                    fontSize: 16
+                },
+                splitNumber: 9,
+                splitLine: {
+                    lineStyle: {
+                        color: '#57617B',
+                        type: 'dashed'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#57617B'
+                    }
+                },
+                axisLabel: {
+                    margin: 10,
+                    textStyle: {
+                        fontSize: 16
+                    }
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '故障率（次/年）',
+                nameTextStyle: {
+                    color: '#F1F1F3',
+                    fontSize: 16
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#57617B'
+                    }
+                },
+                axisLabel: {
+                    margin: 10,
+                    textStyle: {
+                        fontSize: 16
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed',
+                        color: '#57617B'
+                    }
+                }
+            }],
+            series: [{
+                // pink
+                name: 'ECI',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(238, 130, 238)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(238, 130, 238, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(238, 130, 238, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(238, 130, 238)',
+                        borderColor: 'rgba(238, 130, 238,0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_eci
+            },{
+                // yellow
+                name: 'NEC',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(255, 185, 15)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(255, 185, 15, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(255, 185, 15, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(255, 185, 15)',
+                        borderColor: 'rgba(255, 185, 15,0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_nec
+            },{
+                // white
+                name: '中兴',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(245, 245, 245)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(245, 245, 245, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(245, 245, 245, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(245, 245, 245)',
+                        borderColor: 'rgba(245, 245, 245,0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_zx
+            },{
+                // salmon
+                name: '华为',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(250, 128, 114)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(250, 128, 114, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(250, 128, 114, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(250, 128, 114)',
+                        borderColor: 'rgba(250, 128, 114, 0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_hw
+            },{
+                // purple
+                name: '和记奥普泰',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(147, 112, 219)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(147, 112, 219, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(147, 112, 219, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(147, 112, 219)',
+                        borderColor: 'rgba(147, 112, 219, 0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_hjapt
+            },{
+                // green
+                name: '阿尔卡特',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(46, 139, 87)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(46, 139, 87, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(46, 139, 87, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(46, 139, 87)',
+                        borderColor: 'rgba(46, 139, 87, 0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_aekt
+            },{
+                // skyblue
+                name: '马可尼',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        color: 'rgb(0, 191, 255)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(0, 191, 255, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(0, 191, 255, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(0, 191, 255)',
+                        borderColor: 'rgba(0, 191, 255, 0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_mkn
+            },{
+                // red
+                name: '所有厂家',
+                type: 'line',
+                connectNulls: true,
+                symbol: 'rect',
+                symbolSize: 6,
+                showSymbol: true,
+                lineStyle: {
+                    normal: {
+                        type: 'dashed',
+                        color: 'rgb(255, 0, 0)',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(255, 0, 0, 0.3)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(255, 0, 0, 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 12
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgb(255, 0, 0)',
+                        borderColor: 'rgba(255, 0, 0, 0.27)',
+                        borderWidth: 12
+
+                    }
+                },
+                data: data_all
+
+            }
+            ]
+        };
+
+        myChart3.setOption(option3);*/
+
     }
 </script>
 </body>

@@ -27,8 +27,8 @@ myfont = matplotlib.font_manager.FontProperties(fname=r"c:\windows\fonts\simhei.
 
 
 province = 'jiangxi'
-graphPath = 'E:/new_graph/'
-path = graphPath + 'history/type3/'    #保存图片路径
+graphPath = 'E:/360Downloads/StationPower/src/main/webapp/view/history_img'
+path = graphPath     #保存图片路径
 
 def resolvebusz(buz_id,buz_lst):
     r = getReliability()

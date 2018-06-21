@@ -8,15 +8,16 @@ import sys
 # province = 'jiangxi'
 # path = 'E:/yeal/JXResult/' + province + '_'
 # conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db='jiangxi_before170619', port=3306, charset='utf8')
-
+# host='172.16.135.6'
 ##命令行参数##############################################################################
 print("**************")
 print(sys.argv)
-print(sys.argv[1])
+proArgv=sys.argv[1]
+print(proArgv)
 dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing','福建':'fujian','甘肃':'gansu','河北':'hebei','黑龙江':'heilongjang',
-      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
+      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi_before','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
       '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sichuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
-name=dict[sys.argv[1]]
+name=dict[proArgv]
 print(name)
 
 database =name
@@ -36,6 +37,23 @@ cur.execute("select obj_id,name,RATE from t_channel_base WHERE (RATE is not  nul
 result = cur.fetchall()
 data = np.array(result)
 
+#提取name
+cur_type = conn.cursor()
+cur_name = conn.cursor()
+cur_type.execute("select RATE from t_channel_base WHERE (RATE is not  null AND RATE<>'')")
+data_name=[]
+result_type = cur_type.fetchall()
+data_type = np.array(result_type)[:,0]
+for i in range(len(data_type)):
+    cur_name.execute("select NAME from t_pub_code WHERE (TYPE='RATE' AND CODE=%s)",data_type[i])
+    result_name = cur_name.fetchall()
+    data_name.append(np.array(result_name)[0][0])
+    # values.append([data1[i], data2[i], datan[i], data3[i], data4[i], data5[i]])
+    # cursor.execute('insert into channel_rate_diff VALUES(%s,%s,%s,%s,%s,%s)', values[i])
+# result_name = cur_name.fetchall()
+# data_name=np.array(result_name)[:,0]
+
+
 #词特征
 # word_list = ['E_2M', 'E_155M', 'E_45M',#type=1
 #              '光路', '光纤通道', '主用传输段',#type=2
@@ -44,6 +62,7 @@ data = np.array(result)
 # x = np.zeros((data.shape[0], len(word_list)), dtype=np.float)
 # 获得类别
 y_tmp = data[:, -1]
+
 y = []
 #y值处理
 for i in range(y_tmp.shape[0]):
@@ -76,8 +95,11 @@ probablity = clf.predict_proba(x)
 list_pro = []
 for i in range(probablity.shape[0]):
     pro = max(list(probablity[i]))
-    if abs(pro - 1.0) < 1e-6:
-        pro = 0.99
+
+    if abs(pro - 1.0) < 1e-4:
+        pro = 0.9985
+    pro = ("%.4f" % pro)
+    pro = eval(pro)
     list_pro.append(pro)
 
 # 输出结果
@@ -93,6 +115,8 @@ data3 = list(data[:, -1])  ###########CHANNEL_TYPE
 data2 = list(data[:, 0])  ##############odj_id
 data4 = []  ###################predict
 data5 = []  ###################probablity
+datan = data_name ##############name
+data6 = data[:,1]###############name_name
 values = []
 values1 = []
 for i in h:
@@ -100,14 +124,14 @@ for i in h:
 for j in list_pro:
     data5.append(str(j).replace('[', '').replace("]", ""))
 for i in range(len(data2)):
-    data1.append(sys.argv[1])
+    data1.append(proArgv)
 ############异常的值（）diff
 for i in range(len(data2)):
     if data3[i] != data4[i]:
-        values.append([data1[i], data2[i], data3[i], data4[i], data5[i]])
-cursor.execute('delete from channel_rate_diff WHERE province=%s', sys.argv[1])
+        values.append([data1[i], data2[i], data3[i], data4[i], data5[i],datan[i],data6[i]])
+cursor.execute('delete from channel_rate_diff WHERE province=%s', proArgv)
 for i in range(len(values)):
-    cursor.execute('insert into channel_rate_diff VALUES(%s,%s,%s,%s,%s)', values[i])
+    cursor.execute('insert into channel_rate_diff VALUES(%s,%s,%s,%s,%s,%s,%s)', values[i])
 
 # 找出错误通道类型
 # boarr = []
@@ -120,7 +144,7 @@ for i in range(len(values)):
 
 #空值处理
 
-cur.execute("select obj_id,name,RATE from t_channel_base WHERE (RATE is null or RATE='')")
+cur.execute("select obj_id,RATE,NAME from t_channel_base WHERE (RATE is null or RATE='')")
 result_null = cur.fetchall()
 data__null = np.array(result_null)
 
@@ -134,8 +158,10 @@ if len(data__null) > 0:
     list_pro_null = []
     for i in range(probablity_null.shape[0]):
         pro = max(list(probablity_null[i]))
-        if abs(pro - 1.0) < 1e-6:
-            pro = 0.99
+        if abs(pro - 1.0) < 1e-4:
+            pro = 0.9985
+        pro = ("%.4f" % pro)
+        pro = eval(pro)
         list_pro_null.append(pro)
 
     h_null = np.array(h_null).reshape((-1, 1))
@@ -144,6 +170,7 @@ if len(data__null) > 0:
     data2 = list(data__null[:, 0])  ##############odj_id
     data4 = []  ###################predict
     data5 = []  ###################probablity
+    data6 = data__null[:, 2]  ###############name_name
     values = []
     values1 = []
     for i in h_null:
@@ -151,13 +178,13 @@ if len(data__null) > 0:
     for j in list_pro_null:
         data5.append(str(j).replace('[', '').replace("]", ""))
     for i in range(len(data2)):
-        data1.append(sys.argv[1])
+        data1.append(proArgv)
     ############空的值（）null
     for i in range(len(data2)):
-            values1.append([data1[i], data2[i], data4[i], data5[i]])
-    cursor.execute('delete from channel_rate_null WHERE province=%s', sys.argv[1])
+            values1.append([data1[i], data2[i], data4[i], data5[i],data6[i]])
+    cursor.execute('delete from channel_rate_null WHERE province=%s', proArgv)
     for i in range(len(values1)):
-        cursor.execute('insert into channel_rate_null VALUES(%s,%s,%s,%s)', values1[i])
+        cursor.execute('insert into channel_rate_null VALUES(%s,%s,%s,%s,%s)', values1[i])
 
 conn1.commit()
 cursor.close()

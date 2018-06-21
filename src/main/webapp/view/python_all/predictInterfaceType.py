@@ -14,7 +14,7 @@ def predict_interface_type(province):
         conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
     else:
         conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=database, port=3306, charset='utf8')
-    conn1 = db.connect(host='172.16.135.19', user='root', passwd='hadoop', db='jiangxi_power', port=3306, charset='utf8')
+    conn1 = db.connect(host='172.16.135.19', user='hadoop', passwd='admin', db='jiangxi_power', port=3306, charset='utf8')
     # 业务表，接口类型不为空
     cur = conn.cursor()
     cursor = conn1.cursor()
@@ -31,6 +31,27 @@ def predict_interface_type(province):
     cur1.execute("select obj_id,OBJ_DISPIDX from t_spc_site")
     result1 = cur1.fetchall()
     data1 = np.array(result1)
+
+    ###############取出name ########
+    # cur_type = conn.cursor()
+    cur_name = conn.cursor()
+
+    # cur_type.execute("select INTERFACE_TYPE from t_buz ")
+
+    # result_type = cur_type.fetchall()
+    data_type = data2[:, 8]
+
+    # 去t_pub_code提取name
+    data_name = []
+    for i in range(len(data_type)):
+        cur_name.execute("select NAME from t_pub_code WHERE (TYPE='INTERFACE_TYPE' AND CODE=%s)", data_type[i])
+        result_name = cur_name.fetchall()
+        if (len(result_name) == 0):
+            data_name.append('无法查找到名字')
+        else:
+            data_name.append(np.array(result_name)[0][0])
+
+
     # 站点id和显示序号字典
     site_dic = {}
     for i in range(data1.shape[0]):
@@ -74,8 +95,10 @@ def predict_interface_type(province):
     list_pro = []
     for i in range(probablity.shape[0]):
         pro = max(list(probablity[i]))
-        if abs(pro - 1.0) < 1e-6:
-            pro = 0.99
+        if abs(pro - 1.0) < 1e-4:
+            pro = 0.9985
+        pro = ("%.4f" % pro)
+        pro = eval(pro)
         list_pro.append(pro)
     # 输出结果
     # length = data.shape[0]
@@ -101,10 +124,12 @@ def predict_interface_type(province):
     h = np.array(h).reshape((-1, 1))
     list_pro = np.array(list_pro).reshape((-1, 1))
     data1 = []   ###############province
+    data6 = data2[:,1] ##############接口业务的名称
     data3 = list(data2[:, -1])  ###########interface_type
     data2 = list(data2[:,0])  ##############odj_id
     data4 = [] ###################predict
     data5 = [] ###################probablity
+    datan = data_name ##############name 这是接口类型编号对应的中文名
     values = []
     values1 = []
     for i in h:
@@ -112,24 +137,24 @@ def predict_interface_type(province):
     for j in list_pro:
         data5.append(str(j).replace('[', '').replace("]", ""))
     for i in range(len(data2)):
-        data1.append(sys.argv[1])
+        data1.append(proArgv)
     ############异常的值（）diff
     for i in range(len(data2)):
-        if data3[i] != data4[i]:
-            values.append([data1[i], data2[i], data3[i], data4[i], data5[i]])
+        if (data3[i] != data4[i])and(data3[i]!=''):
+            values.append([data1[i], data2[i], data3[i], data4[i], data5[i], datan[i],data6[i]])
 
     ############空的值（）null
     for i in range(len(data2)):
         if data3[i] == '':
-            values1.append([data1[i], data2[i], data4[i], data5[i]])
+            values1.append([data1[i], data2[i], data4[i], data5[i],data6[i]])
 
-    cursor.execute('delete from interface_type_diff WHERE province=%s', sys.argv[1])
+    cursor.execute('delete from interface_type_diff WHERE province=%s', proArgv)
     for i in range(len(values)):
-        cursor.execute('insert into interface_type_diff VALUES(%s,%s,%s,%s,%s)', values[i])
+        cursor.execute('insert into interface_type_diff VALUES(%s,%s,%s,%s,%s,%s,%s)', values[i])
 
-    cursor.execute('delete from interface_type_null WHERE province=%s', sys.argv[1])
+    cursor.execute('delete from interface_type_null WHERE province=%s', proArgv)
     for i in range(len(values1)):
-        cursor.execute('insert into interface_type_null VALUES(%s,%s,%s,%s)', values1[i])
+        cursor.execute('insert into interface_type_null VALUES(%s,%s,%s,%s,%s)', values1[i])
 
     conn1.commit()
     cursor.close()
@@ -139,11 +164,12 @@ def predict_interface_type(province):
 ##命令行参数##############################################################################
 print("**************")
 print(sys.argv)
-print(sys.argv[1])
+proArgv=sys.argv[1]
+print(proArgv)
 dict={'安徽':'anhui','北京':'beijing','成都':'chengdu','重庆':'chongqing','福建':'fujian','甘肃':'gansu','河北':'hebei','黑龙江':'heilongjang',
-      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
+      '河南':'henan','湖北':'hubei','湖南':'hunan','江苏':'jiangsu','江西':'jiangxi_before','冀北':'jibei','吉林':'jilin','辽宁':'liaoning','蒙东':'mengdong',
       '宁夏':'ningxia','青海':'qinghai','山东':'shandong','山西':'shanxi','四川':'sichuan','新疆':'xinjiang','西藏':'xizang','浙江':'zhejiang'}
-name=dict[sys.argv[1]]
+name=dict[proArgv]
 print(name)
 
 database =name

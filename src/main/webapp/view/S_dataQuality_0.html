@@ -146,6 +146,8 @@
                 },
                 data: [
                     {name: '数据',x: 0,y: 200},
+                    {name: '非结构化',x: 100,y: 150},
+                    {name: '结构化',x: 100,y: 250},
                     {name: '文本',x: 200,y: 100},
                     {name: '属性',x: 200,y: 200},
                     {name: '数值',x: 200,y: 300},
@@ -158,9 +160,11 @@
                 ],
                 // links: [],
                 links: [
-                    {source: '数据',target: '文本'},
-                    {source: '数据',target: '属性'},
-                    {source: '数据',target: '数值'},
+                    {source: '数据',target: '非结构化'},
+                    {source: '数据',target: '结构化'},
+                    {source: '非结构化',target: '文本'},
+                    {source: '结构化',target: '属性'},
+                    {source: '结构化',target: '数值'},
                     {source: '文本',target: 'NLP'},
                     {source: '属性',target: 'One Hot'},
                     {source: '数值',target: '标准化'},

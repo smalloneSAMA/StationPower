@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.ssm.mapper.S_data.TypeCodeNameMapper" >
+
+    <resultMap id="Map" type="com.demo.ssm.po.S_data.TypeCodeName">
+        <result column="TYPE" property="type" jdbcType="VARCHAR"/>
+        <result column="CODE" property="code" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryName"  resultMap="Map" >
+      SELECT * FROM type_code_name WHERE CODE=#{code} AND TYPE = #{type}
+    </select>
+
+</mapper>

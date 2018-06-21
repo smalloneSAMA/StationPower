@@ -7,32 +7,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d62446d9-6e2e-478a-860b-2886bf72f7a8" name="Default" comment="合并数据质量">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/TypeCodeNameController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Operation/Message.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/TypeCodeName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/TypeCodeNameServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/TypeCodeNameService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBuzRate.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzRate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/a9.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big1.jpg" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big2.jpg" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big3.jpg" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/p_big3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/profile_big.jpg" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/img/profile_big.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/MavenFirst_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/MavenFirst_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MavenFirst.iml" afterPath="$PROJECT_DIR$/MavenFirst.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationPropertyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationPropertyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Login/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Login/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/data.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/data.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/AverageFailureRateServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/AverageFailureRateServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/db.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/db.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_net_main.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_net_main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/view/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/EquipFailureBytime.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/EquipFailureBytime.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/FiberSegFailureBytime.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/FiberSegFailureBytime.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/Fiberreliability.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/Fiberreliability.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/channelType.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/channelType.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/history.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/history.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzNum.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzNum.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzRate.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzRate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictInterfaceType.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/predictInterfaceType.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/shortPath.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/shortPath.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/python_all/topo.py" afterPath="$PROJECT_DIR$/src/main/webapp/view/python_all/topo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/db.properties" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/db.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/spring/springmvc.xml" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/WEB-INF/classes/config/spring/springmvc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_dataQuality_0.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/S_net_expand.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/login.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/register.html" afterPath="$PROJECT_DIR$/target/MavenFirst-1.0-SNAPSHOT/view/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/db.properties" afterPath="$PROJECT_DIR$/target/classes/config/db.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/spring/springmvc.xml" afterPath="$PROJECT_DIR$/target/classes/config/spring/springmvc.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,13 +90,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="S_dataQuality_0.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html">
+      <file leaf-file-name="dataMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2112">
-              <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+            <state relative-caret-position="190">
+              <caret line="195" column="23" lean-forward="false" selection-start-line="195" selection-start-column="23" selection-end-line="195" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1525101468798" expanded="true" signature="1178:1265" ph="SELECT COUNT... buz_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="1400:1487" ph="SELECT COUNT... buz_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="1626:1717" ph="SELECT COUNT... channel_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="1856:1947" ph="SELECT COUNT... channel_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="2088:2181" ph="SELECT COUNT... interface_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="2317:2448" ph="SELECT * FRO... channel_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="2562:2652" ph="SELECT COUNT... channel_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="2762:2870" ph="SELECT * FRO... channel_type_null" />
+                <marker date="1525101468798" expanded="true" signature="2989:3079" ph="SELECT COUNT... channel_type_null" />
+                <marker date="1525101468798" expanded="true" signature="3185:3316" ph="SELECT * FRO... channel_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="3431:3521" ph="SELECT COUNT... channel_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="3631:3739" ph="SELECT * FRO... channel_rate_null" />
+                <marker date="1525101468798" expanded="true" signature="3858:3948" ph="SELECT COUNT... channel_rate_null" />
+                <marker date="1525101468798" expanded="true" signature="4046:4169" ph="SELECT * FRO... buz_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="4280:4366" ph="SELECT COUNT... buz_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="4468:4572" ph="SELECT * FRO... buz_type_null" />
+                <marker date="1525101468798" expanded="true" signature="4687:4773" ph="SELECT COUNT... buz_type_null" />
+                <marker date="1525101468798" expanded="true" signature="4871:4994" ph="SELECT * FRO... buz_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="5105:5191" ph="SELECT COUNT... buz_rate_diff" />
+                <marker date="1525101468798" expanded="true" signature="5293:5397" ph="SELECT * FRO... buz_rate_null" />
+                <marker date="1525101468798" expanded="true" signature="5512:5598" ph="SELECT COUNT... buz_rate_null" />
+                <marker date="1525101468798" expanded="true" signature="5708:5843" ph="SELECT * FRO... interface_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="5960:6052" ph="SELECT COUNT... interface_type_diff" />
+                <marker date="1525101468798" expanded="true" signature="6166:6276" ph="SELECT * FRO... interface_type_null" />
+                <marker date="1525101468798" expanded="true" signature="6397:6489" ph="SELECT COUNT... interface_type_null" />
               </folding>
             </state>
           </provider>
@@ -62,23 +128,55 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ey_failure2</find>
-      <find>dataFlow</find>
-      <find>buz</find>
-      <find>arg</find>
-      <find>url</find>
-      <find>python3</find>
-      <find>172</find>
-      <find>chann</find>
-      <find>localhost</find>
+      <find>jdbc</find>
+      <find>业务名称</find>
+      <find>特征</find>
+      <find>S_dataQualityFilter</find>
+      <find>Station</find>
+      <find>Spring</find>
+      <find>name1</find>
+      <find>name22</find>
+      <find>edges1</find>
+      <find>fiberOcc</find>
+      <find>contextConfigLocation</find>
+      <find>handlermapping</find>
+      <find>视图</find>
+      <find>anhui</find>
       <find>江西</find>
-      <find>jiangxi</find>
-      <find>PS.</find>
+      <find>jiangxi.js</find>
+      <find>Province</find>
+      <find>interface_typeQ</find>
+      <find>buz_type_diff</find>
+      <find>buz_rate_null</find>
+      <find>val</find>
+      <find>CHANNEL_RATE</find>
+      <find>name_name</find>
+      <find>unit</find>
+      <find>function</find>
+      <find>Name1</find>
+      <find>getElementById</find>
+      <find>loadPath</find>
+      <find>interface_type_diff</find>
+      <find>jq</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>P</replace>
+      <replace>Buz_Type</replace>
+      <replace>Buz_Rate</replace>
+      <replace>Predict</replace>
+      <replace>InterfaceType</replace>
+      <replace>Possibility</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -94,57 +192,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_topologyMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_business_channelMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_channel_baseMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_topologyMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_buzMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_sdh_ccMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_business_channelService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_buzService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_channel_baseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_reliability/t_topologyService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_business_channelServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_buzServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_sdh_ccServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/logincontroller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_reliability/t_topologyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/t_channel_baseController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/R_buz_pre.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/view/R_probuz_select.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/Login/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/Login/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/Login/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/L_login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/L_register.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/register.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/index_v2.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/dealProvinceDataController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/db.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/Fiberreliability.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzNum.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate21.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/channelType.py" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_net_expand.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzRate.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/predictInterfaceType.py" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/shortPath.py" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/view/S_net_main.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/python_all/channelType.py" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Login/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/Operation/Message.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_paint/AverageFailureRateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_paint/AverageFailureRateMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_paint/Relationship_Failure_YearController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/StationPropertyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_net_route.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/data.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/test/testData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeName.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_data/TypeCodeName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/NameCodeType.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/NameCodeType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/NameCodeTypeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/NameCodeTypeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/NameCodeTypeController.java" />
+        <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.1/mybatis-3.2.1.jar!/org/apache/ibatis/binding/MapperMethod.class" />
+        <option value="$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.7.RELEASE/spring-aop-4.3.7.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/TypeCodeNameService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/TypeCodeNameServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/TypeCodeNameController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/demo/DemoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/demo/DemoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/demo/DemoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/po/demo/Demo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/demo/DemoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/demo/DemoMapper.xml" />
       </list>
     </option>
   </component>
@@ -161,11 +259,22 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="MavenFirst Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="372" />
-    <option name="y" value="160" />
-    <option name="width" value="978" />
-    <option name="height" value="674" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -183,10 +292,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,144 +355,54 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="StationPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StationPower" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="python_all" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../StationPower_zh" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="sear&#9;null&#9;null&#10;replace&#9;ACTION&#9;Replace" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\img" />
+      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\css" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.demo.ssm.controller.S_reliability" />
+      <recent name="com.demo.ssm.controller.demo" />
+      <recent name="com.demo.ssm.service.Impl.demo" />
+      <recent name="com.demo.ssm.service.interf.demo" />
+      <recent name="com.demo.ssm.mapper.demo" />
+      <recent name="com.demo.ssm.po.demo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\python_all" />
+      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\mapper\demo" />
+      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\mapper\S_data" />
       <recent name="E:\360Downloads\StationPower\src\main\webapp\view" />
-      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\service\interf" />
-      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\service\Impl" />
-      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\po" />
+      <recent name="E:\360Downloads\StationPower\src\main\java\com\demo\ssm\controller\S_reliability" />
+      <recent name="E:\360Downloads\StationPower\src\main\webapp\view\CSV" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/view/S_net_route.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/LowReliabilityMapper.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/LowReliabilityMapper.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/po/S_net/LowReliability.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/LowReliabilityServiceImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/LowReliabilityService.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -478,10 +493,9 @@
       </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
+      <option name="HEIGHT" value="0" />
       <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -627,6 +641,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d62446d9-6e2e-478a-860b-2886bf72f7a8" name="Default" comment="" />
@@ -769,7 +786,84 @@
       <workItem from="1515991153459" duration="1096000" />
       <workItem from="1515992290694" duration="57000" />
       <workItem from="1515993540705" duration="6083000" />
-      <workItem from="1515999698399" duration="7145000" />
+      <workItem from="1515999698399" duration="17442000" />
+      <workItem from="1516021366800" duration="924000" />
+      <workItem from="1516072918448" duration="7053000" />
+      <workItem from="1516101255939" duration="9765000" />
+      <workItem from="1516151480116" duration="1891000" />
+      <workItem from="1516167097233" duration="808000" />
+      <workItem from="1516339787902" duration="434000" />
+      <workItem from="1516343033190" duration="21000" />
+      <workItem from="1516350410140" duration="429000" />
+      <workItem from="1516350965847" duration="3189000" />
+      <workItem from="1516533933056" duration="292000" />
+      <workItem from="1519536309083" duration="130000" />
+      <workItem from="1519610735857" duration="750000" />
+      <workItem from="1519797018378" duration="8446000" />
+      <workItem from="1519878961306" duration="4608000" />
+      <workItem from="1520211968560" duration="2475000" />
+      <workItem from="1520299196734" duration="1368000" />
+      <workItem from="1520409178853" duration="1596000" />
+      <workItem from="1520494077324" duration="894000" />
+      <workItem from="1520581910976" duration="3518000" />
+      <workItem from="1520828012778" duration="2141000" />
+      <workItem from="1520854777216" duration="920000" />
+      <workItem from="1520856477533" duration="115000" />
+      <workItem from="1522036230401" duration="3617000" />
+      <workItem from="1522049308053" duration="2167000" />
+      <workItem from="1522115539193" duration="589000" />
+      <workItem from="1522224223362" duration="1813000" />
+      <workItem from="1522238508943" duration="597000" />
+      <workItem from="1522307605820" duration="1558000" />
+      <workItem from="1522472196728" duration="594000" />
+      <workItem from="1522627177829" duration="5982000" />
+      <workItem from="1522733183935" duration="40000" />
+      <workItem from="1522802748556" duration="1736000" />
+      <workItem from="1522826058695" duration="2771000" />
+      <workItem from="1522831538066" duration="2579000" />
+      <workItem from="1522896764097" duration="48000" />
+      <workItem from="1523087779591" duration="2041000" />
+      <workItem from="1523107011825" duration="3206000" />
+      <workItem from="1523157971740" duration="1375000" />
+      <workItem from="1523186523892" duration="2691000" />
+      <workItem from="1523234417346" duration="6353000" />
+      <workItem from="1523248564292" duration="10891000" />
+      <workItem from="1523323130051" duration="2626000" />
+      <workItem from="1523352066630" duration="1197000" />
+      <workItem from="1523432313266" duration="2406000" />
+      <workItem from="1523438847379" duration="2129000" />
+      <workItem from="1523516031667" duration="4128000" />
+      <workItem from="1523589569613" duration="1194000" />
+      <workItem from="1523844230243" duration="297000" />
+      <workItem from="1524535620305" duration="627000" />
+      <workItem from="1524725740810" duration="4735000" />
+      <workItem from="1524816414298" duration="1197000" />
+      <workItem from="1524898120387" duration="3569000" />
+      <workItem from="1525083968909" duration="8066000" />
+      <workItem from="1525139142701" duration="2885000" />
+      <workItem from="1525166441080" duration="3412000" />
+      <workItem from="1525170178272" duration="12504000" />
+      <workItem from="1525220911468" duration="5663000" />
+      <workItem from="1525230552053" duration="4906000" />
+      <workItem from="1525917750795" duration="45000" />
+      <workItem from="1525935057625" duration="9000" />
+      <workItem from="1526005947794" duration="966000" />
+      <workItem from="1526130151672" duration="1228000" />
+      <workItem from="1526180444291" duration="5000" />
+      <workItem from="1526299775175" duration="129000" />
+      <workItem from="1526893547334" duration="777000" />
+      <workItem from="1527054055719" duration="2534000" />
+      <workItem from="1527164748204" duration="21000" />
+      <workItem from="1527260905988" duration="36000" />
+      <workItem from="1527486850305" duration="4573000" />
+      <workItem from="1527492227891" duration="1512000" />
+      <workItem from="1527495395854" duration="1699000" />
+      <workItem from="1527556127970" duration="34000" />
+      <workItem from="1527557474504" duration="658000" />
+      <workItem from="1528271474876" duration="806000" />
+      <workItem from="1528697106145" duration="43000" />
+      <workItem from="1528699205960" duration="2499000" />
+      <workItem from="1529550923369" duration="1654000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1511247154782</created>
@@ -876,11 +970,73 @@
       <option name="project" value="LOCAL" />
       <updated>1516004301828</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="修改页面">
+      <created>1516007547267</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1516007547267</updated>
+    </task>
+    <task id="LOCAL-00017" summary="修改设备故障率与时间曲线图">
+      <created>1516013256324</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1516013256324</updated>
+    </task>
+    <task id="LOCAL-00018" summary="合并数据质量">
+      <created>1516073836615</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1516073836615</updated>
+    </task>
+    <task id="LOCAL-00019" summary="合并数据质量">
+      <created>1516104721220</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1516104721220</updated>
+    </task>
+    <task id="LOCAL-00020" summary="修改业务可靠性">
+      <created>1516106750336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1516106750336</updated>
+    </task>
+    <task id="LOCAL-00021" summary="修改。。。">
+      <created>1516351113493</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1516351113493</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TypeCodeNameController_test - 2018.05.01 at 21h 01m 50s.xml">
+      <configuration name="TypeCodeNameController.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCodeNameController_test - 2018.05.01 at 21h 29m 39s.xml">
+      <configuration name="TypeCodeNameController.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeCodeNameController_test - 2018.05.01 at 21h 48m 49s.xml">
+      <configuration name="TypeCodeNameController.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testData_test - 2018.04.30 at 23h 30m 34s.xml">
+      <configuration name="testData.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testData_test - 2018.04.30 at 23h 31m 09s.xml">
+      <configuration name="testData.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testData_test - 2018.04.30 at 23h 32m 25s.xml">
+      <configuration name="testData.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="587994000" />
+    <option name="totallyTimeSpent" value="781475000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -896,75 +1052,75 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="5.2083336E-4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22665147" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26879272" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4168565" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.104166664" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46355352" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7255125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23122318" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.50416666" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32346243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22103004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="5.2083336E-4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5546697" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24789916" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4168565" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.104166664" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54897493" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7255125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22800429" sideWeight="0.49583334" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.50416666" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32346243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30419075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1009,12 +1165,16 @@
     <MESSAGE value="合并，更新主页" />
     <MESSAGE value="备份主页" />
     <MESSAGE value="修改主页" />
+    <MESSAGE value="修改页面" />
+    <MESSAGE value="修改设备故障率与时间曲线图" />
     <MESSAGE value="合并数据质量" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并数据质量" />
+    <MESSAGE value="修改业务可靠性" />
+    <MESSAGE value="修改。。。" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改。。。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="178" />
+      <option name="time" value="262" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1023,63 +1183,224 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_buzMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/Relationship_Centrality_BusinessNumMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        <state relative-caret-position="-330">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_reliability/t_topologyMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/dataService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        <state relative-caret-position="-70">
+          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_buz_pre.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/dataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="1815">
+          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_buz_reliability.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        <state relative-caret-position="-697">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_data_clean.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/BusinessRouteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="165">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/BusinessRouteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1306">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="13" column="53" lean-forward="true" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/BusinessRouteMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="71" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/TypeCodeNameMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_net/StationPropertyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_data/TypeCodeNameServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="374" column="26" lean-forward="false" selection-start-line="374" selection-start-column="26" selection-end-line="374" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1986">
+          <caret line="401" column="71" lean-forward="true" selection-start-line="401" selection-start-column="71" selection-end-line="401" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/dealProvinceDataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="47" column="38" lean-forward="false" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/S_net/StationPropertyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/DealAreaBorderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="59" column="91" lean-forward="false" selection-start-line="59" selection-start-column="91" selection-end-line="59" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/S_data/TypeCodeNameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8085">
+          <caret line="245" column="26" lean-forward="false" selection-start-line="245" selection-start-column="22" selection-end-line="245" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/TypeCodeNameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/index_v1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="395" column="5" lean-forward="true" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10725">
+          <caret line="325" column="47" lean-forward="false" selection-start-line="325" selection-start-column="47" selection-end-line="325" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_route.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="148" column="4" lean-forward="false" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transaction.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_equip_failure.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_fiber_failure.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_low_r.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/mybatis/sqlMapConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1088,366 +1409,242 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/Login/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/Login/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="297">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/P_preFailure.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="793" column="17" lean-forward="true" selection-start-line="793" selection-start-column="17" selection-end-line="793" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/Login/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/Login/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/P_pro_type_year.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6963">
-          <caret line="494" column="3" lean-forward="false" selection-start-line="494" selection-start-column="3" selection-end-line="1056" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_reliability/t_channel_baseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="496" column="28" lean-forward="false" selection-start-line="496" selection-start-column="28" selection-end-line="496" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/index_v1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1729">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/L_register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1749">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="59" column="52" lean-forward="false" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/L_login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_topo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="98" column="4" lean-forward="false" selection-start-line="98" selection-start-column="4" selection-end-line="133" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/R_probuz_select.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5907">
-          <caret line="179" column="46" lean-forward="false" selection-start-line="179" selection-start-column="40" selection-end-line="179" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/index_v2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="196" column="24" lean-forward="true" selection-start-line="196" selection-start-column="24" selection-end-line="196" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/DealAreaBorderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1695">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/channelType.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/dataController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="368" column="28" lean-forward="false" selection-start-line="368" selection-start-column="28" selection-end-line="368" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/interf/demo/DemoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/service/Impl/demo/DemoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Accurate_top10Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_data/Abnormal_top10Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1143">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/Abnormal_top10Mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/po/demo/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/demo/DemoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/demo/DemoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/Login/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/demo/DemoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
-          <caret line="615" column="13" lean-forward="false" selection-start-line="615" selection-start-column="13" selection-end-line="615" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/Fiberreliability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/predicateBTNew.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzNum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="68" column="36" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/predictBuzRate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="168" column="73" lean-forward="false" selection-start-line="168" selection-start-column="66" selection-end-line="168" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/predictInterfaceType.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="143" column="73" lean-forward="false" selection-start-line="143" selection-start-column="66" selection-end-line="143" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/shortPath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/controller/S_net/dealProvinceDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="45" column="64" lean-forward="false" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/tool/path_python.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/img/a6.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/img/a7.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_net/LowReliabilityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <marker date="1516003989603" expanded="true" signature="337:438" ph="SELECT provi... t_buz" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#8854#10781#0" expanded="false" />
-            <marker date="1516006840419" expanded="true" signature="11892:11919" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="11981:12010" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="12081:12110" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="12200:12229" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="13719:13747" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="13810:13839" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="13887:13916" ph="..." />
-            <marker date="1516006840419" expanded="true" signature="14004:14033" ph="..." />
-          </folding>
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <marker date="1516006840447" expanded="true" signature="11871:11898" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="11955:11984" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="12050:12079" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="12164:12193" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="13632:13660" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="13718:13747" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="13794:13823" ph="..." />
-            <marker date="1516006840447" expanded="true" signature="13906:13935" ph="..." />
-          </folding>
+        <state relative-caret-position="454">
+          <caret line="402" column="76" lean-forward="false" selection-start-line="402" selection-start-column="76" selection-end-line="402" selection-end-column="76" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_4.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <marker date="1516006840062" expanded="true" signature="11829:11856" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="11913:11942" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="12008:12037" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="12122:12151" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="13598:13626" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="13684:13713" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="13760:13789" ph="..." />
-            <marker date="1516006840062" expanded="true" signature="13872:13901" ph="..." />
-          </folding>
+        <state relative-caret-position="471">
+          <caret line="353" column="44" lean-forward="false" selection-start-line="353" selection-start-column="44" selection-end-line="353" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_5.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/db.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <marker date="1516006840505" expanded="true" signature="12818:12845" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="12902:12931" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="12997:13026" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="13111:13140" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="14591:14619" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="14677:14706" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="14753:14782" ph="..." />
-            <marker date="1516006840505" expanded="true" signature="14865:14894" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding>
-            <marker date="1516006840477" expanded="true" signature="12869:12896" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="12953:12982" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="13048:13077" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="13162:13191" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="14646:14674" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="14732:14761" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="14808:14837" ph="..." />
-            <marker date="1516006840477" expanded="true" signature="14920:14949" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_net_main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="122" column="34" lean-forward="true" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+        <state relative-caret-position="99">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/S_dataQuality_0.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/view/python_all/channelRate2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2112">
-          <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        <state relative-caret-position="-528">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/ssm/mapper/S_data/dataMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="195" column="23" lean-forward="false" selection-start-line="195" selection-start-column="23" selection-end-line="195" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1525101468798" expanded="true" signature="1178:1265" ph="SELECT COUNT... buz_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="1400:1487" ph="SELECT COUNT... buz_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="1626:1717" ph="SELECT COUNT... channel_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="1856:1947" ph="SELECT COUNT... channel_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="2088:2181" ph="SELECT COUNT... interface_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="2317:2448" ph="SELECT * FRO... channel_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="2562:2652" ph="SELECT COUNT... channel_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="2762:2870" ph="SELECT * FRO... channel_type_null" />
+            <marker date="1525101468798" expanded="true" signature="2989:3079" ph="SELECT COUNT... channel_type_null" />
+            <marker date="1525101468798" expanded="true" signature="3185:3316" ph="SELECT * FRO... channel_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="3431:3521" ph="SELECT COUNT... channel_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="3631:3739" ph="SELECT * FRO... channel_rate_null" />
+            <marker date="1525101468798" expanded="true" signature="3858:3948" ph="SELECT COUNT... channel_rate_null" />
+            <marker date="1525101468798" expanded="true" signature="4046:4169" ph="SELECT * FRO... buz_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="4280:4366" ph="SELECT COUNT... buz_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="4468:4572" ph="SELECT * FRO... buz_type_null" />
+            <marker date="1525101468798" expanded="true" signature="4687:4773" ph="SELECT COUNT... buz_type_null" />
+            <marker date="1525101468798" expanded="true" signature="4871:4994" ph="SELECT * FRO... buz_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="5105:5191" ph="SELECT COUNT... buz_rate_diff" />
+            <marker date="1525101468798" expanded="true" signature="5293:5397" ph="SELECT * FRO... buz_rate_null" />
+            <marker date="1525101468798" expanded="true" signature="5512:5598" ph="SELECT COUNT... buz_rate_null" />
+            <marker date="1525101468798" expanded="true" signature="5708:5843" ph="SELECT * FRO... interface_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="5960:6052" ph="SELECT COUNT... interface_type_diff" />
+            <marker date="1525101468798" expanded="true" signature="6166:6276" ph="SELECT * FRO... interface_type_null" />
+            <marker date="1525101468798" expanded="true" signature="6397:6489" ph="SELECT COUNT... interface_type_null" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>MavenFirst:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MavenFirst</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aspectj:aspectjrt:1.5.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

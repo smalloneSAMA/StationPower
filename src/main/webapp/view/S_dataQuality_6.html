@@ -149,7 +149,8 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align: center">业务ID    </th>
+                                    <th style="text-align: center">接口ID</th>
+                                    <th style="text-align: center">接口名称</th>
                                     <th style="text-align: center">接口类型</th>
                                     <th style="text-align: center">接口类型预测</th>
                                     <th style="text-align: center">准确率</th>
@@ -193,8 +194,9 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example">
                                 <thead>
                                 <tr >
-                                    <th style="text-align: center">业务ID    </th>
-                                    <th style="text-align: center">接口类型    </th>
+                                    <th style="text-align: center">接口ID</th>
+                                    <th style="text-align: center">接口名称</th>
+                                    <th style="text-align: center">接口类型</th>
                                     <th style="text-align: center">接口类型预测</th>
                                     <th style="text-align: center">准确率</th>
                                 </tr>
@@ -211,8 +213,6 @@
 
             </div>
 
-		
-    </div>
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.5"></script>
     <!--<script src="js/plugins/echarts/echarts-all.js"></script>-->
@@ -264,10 +264,10 @@
                     }
                 },
                 data: [
-                    {name: '样本抽取',x: 0,y: 100},
-                    {name: '特征属性确认',x: 25,y: 100},
-                    {name: '选择最优划分属性',x: 50,y: 100},
-                    {name: '创建节点',x: 75,y: 100},
+                    {name: '样本抽取',x: 0,y: 105},
+                    {name: '特征属性确认',x: 25,y: 105},
+                    {name: '选择最优划分属性',x: 50,y: 105},
+                    {name: '创建节点',x: 75,y: 105},
                     {name: '递归创建分支',x: 75,y: 115},
                     {name: '得到决策树',x: 50,y: 115},
                     {name: '可信度计算',x: 25,y: 115},
@@ -316,7 +316,7 @@
     function buz_type() {
         var province = $("#province").val();
 
-        var html1=""
+        var html1="";
         $.ajax({
             url: "../../S_data/interface_type_diff",
             type: "post",
@@ -325,10 +325,11 @@
             success: function (data){
                 $.each(data,function (i,item) {
                     html1+=" <tr class=\"gradeA\">"+
-                        "<td style='text-align: left;width: 30%'>"+item.ID+"</td>"+
-                        "<td style='text-align: center;width: 20%'>"+item.StationName+"</td>"+
-                        "<td style='text-align: center;width: 20%'>"+item.NumberRecords+"</td>"+
-                        "<td class=\"center\" style='text-align: center;width: 30%'>"+item.NumberForecast+"</td>"+
+                        "<td style='text-align: left;width: 25%'>"+item.ID+"</td>"+
+                        "<td style='text-align: center;width: 30%'>"+item.name_name+"</td>"+
+                        "<td style='text-align: center;width: 15%'>"+"<b>"+item.InterfaceType+"("+item.Name+")"+"</b>"+"</td>"+
+                        "<td style='text-align: center;width: 15%'>"+"<b>"+item.Predict+"("+item.Name1+")"+"</b>"+"</td>"+
+                        "<td class=\"center\" style='text-align: center;width: 15%'>"+item.Possibility+"</td>"+
                         "</tr>";
 
 
@@ -373,10 +374,11 @@
             success: function (data){
                 $.each(data,function (i,item) {
                     html2+=" <tr class=\"gradeA\" >"+
-                        "<td style='text-align: left ;width:30%;' >"+item.ID+"</td>"+
-                        "<td style='text-align: center;width: 20%'>空</td>"+
-                        "<td style='text-align: center;width: 20%'>"+item.StationName+"</td>"+
-                        "<td class=\"center\" style='text-align: center;width: 30%'>"+item.NumberForecast+"</td>"+
+                        "<td style='text-align: left ;width:25%;' >"+item.ID+"</td>"+
+                        "<td style='text-align: center ;width:30%;' >"+item.name_name+"</td>"+
+                        "<td style='text-align: center;width: 15%'>空</td>"+
+                        "<td style='text-align: center;width: 15%'>" +"<b>"+ item.Predict +"("+item.Name1+")"+"</b>"+ "</td>" +
+                        "<td class=\"center\" style='text-align: center;width: 15%'>"+item.Possibility+"</td>"+
                         "</tr>";
 
 

@@ -345,6 +345,8 @@
                 name22={
                     name:item.name2,
                     fiberOcc: item.FiberOcc,
+                    from:item.name1,
+                    to:item.name2,
                     route:item.route
                 };
                 edges1[i]=[name11,name22];
@@ -379,7 +381,9 @@
 					name: "铅芯占用率",
 					coords: [fromCoord, toCoord],
 					value: dataItem[1].fiberOcc,
-                    route: dataItem[1].route
+                    route: dataItem[1].route,
+                    fromName: dataItem[1].from,
+                    toName: dataItem[1].to
 				});
 			}
 		}
@@ -420,9 +424,9 @@
                     formatter: function (val) {
                         var route = val.data.route;
                         if( route == 2){
-                            return '备用线路'
+                            return ('备用线路: '+res.fromName+' 到 '+res.toName)
                         }
-                        return '主线路'
+                        return ('主线路: '+res.fromName +' 到 '+res.toName)
                     }
                 }
             },

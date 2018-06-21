@@ -4,7 +4,7 @@ import datetime
 import calendar
 from dateutil import rrule
 
-path = "E:/"  #找文件路径
+path = "E:\360Downloads\StationPower\src\main\webapp\view\CSV"  #找文件路径
 province = "jiangxi"
 class FailureselectByMonth(object):
 

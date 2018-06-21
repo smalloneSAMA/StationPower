@@ -11,6 +11,26 @@ public class data {
 
     private String province;
 
+    private String name; //这是业务对应的编号的名字
+
+    private String name_name;//这是业务的名称
+
+    public String getName_name() {
+        return name_name;
+    }
+
+    public void setName_name(String name_name) {
+        this.name_name = name_name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getObj_id() {
         return obj_id;
     }

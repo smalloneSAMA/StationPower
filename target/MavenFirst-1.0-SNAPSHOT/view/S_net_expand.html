@@ -42,23 +42,23 @@
             <div class="col-xs-2">
                 <select class="form-control" id="Province" name="province" >
                     <option value="安徽">安徽</option>
-                    <option value="北京">北京</option>
-                    <option value="福建">福建</option>
-                    <option value="甘肃">甘肃</option>
-                    <option value="河北">河北</option>
-                    <option value="河南">河南</option>
-                    <option value="黑龙江">黑龙江</option>
-                    <option value="吉林">吉林</option>
-                    <option value="江苏">江苏</option>
+                    <!--<option value="北京">北京</option>-->
+                    <!--<option value="福建">福建</option>-->
+                    <!--<option value="甘肃">甘肃</option>-->
+                    <!--<option value="河北">河北</option>-->
+                    <!--<option value="河南">河南</option>-->
+                    <!--<option value="黑龙江">黑龙江</option>-->
+                    <!--<option value="吉林">吉林</option>-->
+                    <!--<option value="江苏">江苏</option>-->
                     <option value="江西" selected>江西</option>
-                    <option value="蒙东">蒙东</option>
-                    <option value="宁夏">宁夏</option>
-                    <option value="青海">青海</option>
-                    <option value="陕西">陕西</option>
-                    <option value="天津">天津</option>
-                    <option value="西藏">西藏</option>
-                    <option value="浙江">浙江</option>
-                    <option value="重庆">重庆</option>
+                    <!--<option value="蒙东">蒙东</option>-->
+                    <!--<option value="宁夏">宁夏</option>-->
+                    <!--<option value="青海">青海</option>-->
+                    <!--<option value="陕西">陕西</option>-->
+                    <!--<option value="天津">天津</option>-->
+                    <!--<option value="西藏">西藏</option>-->
+                    <!--<option value="浙江">浙江</option>-->
+                    <!--<option value="重庆">重庆</option>-->
                 </select>
             </div>
 
@@ -143,7 +143,7 @@
 
         //获取各站点信息
         $.ajax({
-            url: "../../StationProperty/select",
+            url: "../../StationProperty/S_dataQualityFilter",
             type: "post",
             dataType: "json",
             async: false,
@@ -219,7 +219,9 @@
                 name : item.Name,
                 businessNum : item.BusinessNum,
                 kuorong : item.KuoRong,
-
+                portOcc:item.portOcc,
+                buzNumRate:item.buzNumRate,
+                increaseRate:item.increaseRate
             };
 //            每个站点的数据
             station[i]= example;
@@ -228,9 +230,11 @@
 
     var myChart = echarts.init(document.getElementById('main'));
 
+    myChart.clear();
+
         //获取站点连接信息
         $.ajax({
-            url: "../../StationLink_JiangXi/select",
+            url: "../../StationLink_JiangXi/S_dataQualityLink",
             type: "post",
             dataType: "json",
             async: false,
@@ -279,7 +283,7 @@
                     res.push({
                         //fromName: dataItem[0].name,
                         //toName: dataItem[1].name,
-                        name: "铅芯占用率",
+                        name: "纤芯占用率",
                         coords: [fromCoord, toCoord],
                         value: dataItem[1].fiberOcc
                     });
@@ -293,15 +297,24 @@
         var series = [
             {//两个站点之间的连线
                 type: 'lines',
-                zlevel: 2,
+                coordinateSystem: 'geo',
+                zlevel: 9,
+                large: true,
                 symbol: ['none', 'none'],
                 symbolSize: 10,
+                effect: {
+                    show: true,
+                    constantSpeed: 30,
+                    symbol: 'pin',
+                    symbolSize: 3,
+                    trailLength: 0
+                },
                 lineStyle: {
                     normal: {
                         //color: '#a6c84c',
                         width: 1,
-                        opacity: 0.6,
-                        curveness: 0
+                        opacity: 0.2,
+                        curveness: 0.1
                     }
                 },
                 data: convertData(edges)
@@ -309,7 +322,9 @@
             {//每个站点
                 type: 'effectScatter',
                 coordinateSystem: 'geo',
-                zlevel: 2,
+                hoverAnimation: true,
+                showEffectOn: 'render',
+                zlevel: 9,
                 rippleEffect: {
                     brushType: 'stroke'
                 },
@@ -320,19 +335,27 @@
                         formatter: '{b}'
                     }
                 },
-                //symbolSize: function (val) {
-                //return val[2] / 8;
-                //},
-                symbolSize: 6,
+                symbolSize: function (val) {
+                    x = val[2] * 20;
+                    if(x < 2){
+                        return 1;
+                    }
+                    return x;
+                },
+//                symbolSize: 3,
                 data: station.map(function (dataItem) {
                         return {
                             name: dataItem.name+' , 业务数：'+dataItem.businessNum+'，扩容迫切性：'+dataItem.kuorong,
-                            value: geoCoordMap[dataItem.name].concat([dataItem.kuorong])
+                            value: geoCoordMap[dataItem.name].concat([dataItem.kuorong]),
+                            portOcc:dataItem.portOcc,
+                            buzNumRate:dataItem.buzNumRate,
+                            increaseRate:dataItem.increaseRate
                         };
                     }
                 )
             }
         ];
+
         var Province = $("#Province").val();
         option = {
             //backgroundColor: '#003',//#404a59
@@ -347,7 +370,7 @@
             tooltip : {
                 trigger: 'item',
                 formatter: function (params) {
-                    if(params.name.indexOf("铅芯占用率") == -1)
+                    if(params.name.indexOf("纤芯占用率") == -1)
                         return params.name;
                     else
                         return params.name+ ' : ' + params.value;
@@ -357,7 +380,7 @@
                 show:true,
                 feature:{
                     mark:{show:!0},
-                    //dataView:{show:!0,readOnly:!1},
+//                    dataView:{show:!0,readOnly:!1},
                     restore:{show:!0},
                     saveAsImage:{show:!0}
                 }
@@ -370,8 +393,11 @@
                     precision:2,
                     calculable: true,
                     top:'center',
+                    hoverLink:true,
                     inRange: {
                         color: ['#50a3ba', '#eac736', '#d94e5d']
+//                        color: ['#a4c6fc', '#5c9bfb', '#2374fa','#003583','#003583','#001d47']
+//                        color: ['#efdcd2','#f7bc9a','#f3a376','#f58157', '#f36938','#ef5a0b']
                     },
                     textStyle: {
                         color: '#003'
@@ -389,20 +415,52 @@
                 itemStyle: {
                     normal: {
                         areaColor: '#323c48',
-                        borderColor: '#ffefd5'//#ffefd5,#404a59
+                        borderColor: '#ffefd5'//'#404a59'
                     },
                     emphasis: {
                         areaColor: '#2a333d'
+//                        opacity:0
+//                        zlevel:0
                     }
                 }
             },
             series: series
         };
 
+        myChart.on('click', function (params) {
+            var node = params.name;
+            var portOcc = (params.data.portOcc*100).toFixed(2)  + "%";
+            var buzNumRate =(params.data.buzNumRate*100).toFixed(2) + "%";
+            var increaseRate = (params.data.increaseRate*100).toFixed(2)   + "%";
+            var if_exist = RegExp("扩容").test(node);
+            if(if_exist){
+
+                layer.config({
+                    extend: 'routeSkin/style.css', //同样需要加载新皮肤
+                    skin:'layer-ext-yi'
+                });
+
+                layer.msg("端口占用率："+portOcc+" <br> 承载业务的级别和重要性："+buzNumRate+" <br> 业务数增长率：" +increaseRate, {
+                    time: 90000, //5s后自动关闭,
+                    btnAlign: 'c',
+                    skin:'layer-ext-yi',
+//                    btn: ['新增下级问题'],
+                    closeBtn: 1,
+                    tipsMore:false,
+                    yes:function (index, layero) {
+                        layer.close(index);
+                    }
+                });
+            }
+        });
+
+
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         $(window).resize(myChart.resize);
     }
+
+
 
 }
 </script>

@@ -23,7 +23,7 @@ public class Relationship_Failure_YearController {
     @RequestMapping("/select")
     @ResponseBody
     public JSONArray S_dataQuality(HttpServletRequest request,String user){
-        JSONArray jsonArray=new JSONArray();
+        JSONArray jsonArray = new JSONArray();
         JSONObject jsonObjecterror = new JSONObject();
 
 

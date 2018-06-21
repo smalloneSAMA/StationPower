@@ -59,15 +59,11 @@
             </div>
         </div>
 		
-
-		
-
-		
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="ibox">
 					<div class="white-bg dashboard-header">
-						<h3>2.模型选择</h3>
+						<h3>模型选择</h3>
 						<p>对特征进行离散化、标准化等预处理后，训练模型。实验中模型以随机挑选的70%站点进行训练，剩余30%站点进行测试。训练时以站点的特征为输入，站点的业务数量为输出。模型的好坏通过模型在测试集上的预测业务值与实际业务值的拟合优度R2决定。实验中，使用了线性回归、Ridge回归、SVR等不同的回归模型进行了训练。最终发现SVR模型对该问题的拟合程度最高。</p>
 					</div>
                 </div>
@@ -75,7 +71,7 @@
 		</div>
 		
 		<div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>模型选择相关因素</h5>
@@ -98,59 +94,11 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <div id="modelSel" style="width:100%;height:400px;"></div>
+                        <div id="modelSel" style="width:100%;height:500px;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Ridge回归 VS SVR模型</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="graph_flot.html#">选项1</a>
-                                </li>
-                                <li><a href="graph_flot.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-						 <div style="height:400px;">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>模型</th>
-										<th>优点</th>
-										<th>缺点</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Ridge回归</td>
-										<td>可以得出每个特征对最终结果的权重大小，训练时收敛速度快</td>
-										<td>只能拟合线性关系，对异常点敏感</td>
-									</tr>
-									<tr>
-										<td>SVR模型</td>
-										<td>通过引入核函数可以拟合任意关系，对异常点敏感度低，不易过拟合</td>
-										<td>涉及到二次规划问题，计算开销较大，无法得到特征权重</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 		
@@ -198,6 +146,8 @@
                 },
                 data: [
                     {name: '数据',x: 0,y: 200},
+                    {name: '非结构化',x: 100,y: 150},
+                    {name: '结构化',x: 100,y: 250},
                     {name: '文本',x: 200,y: 100},
                     {name: '属性',x: 200,y: 200},
                     {name: '数值',x: 200,y: 300},
@@ -210,9 +160,11 @@
                 ],
                 // links: [],
                 links: [
-                    {source: '数据',target: '文本'},
-                    {source: '数据',target: '属性'},
-                    {source: '数据',target: '数值'},
+                    {source: '数据',target: '非结构化'},
+                    {source: '数据',target: '结构化'},
+                    {source: '非结构化',target: '文本'},
+                    {source: '结构化',target: '属性'},
+                    {source: '结构化',target: '数值'},
                     {source: '文本',target: 'NLP'},
                     {source: '属性',target: 'One Hot'},
                     {source: '数值',target: '标准化'},

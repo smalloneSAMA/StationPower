@@ -74,6 +74,7 @@ public class BusinessRouteController {
                     if(stationLink_JiangXiService.selectBy2ID(ids[a],ids[b],Province)==null){
 
                         jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids[b],ids[a],Province));
+
                     }else {
                         jsonObject.put("FiberOcc", stationLink_JiangXiService.selectBy2ID(ids[a],ids[b],Province));
 
@@ -130,11 +131,9 @@ public class BusinessRouteController {
         Map<String, Object> map = new HashMap<>();
 
         try {
-
             List<LowReliability> lowReliabilityList = lowReliabilityService.lowReliabilityByProvince(Province);
             map.put("LowReliability",lowReliabilityList);
             map.put("result",true);
-
         }catch (Exception e){
             map.put("result",false);
         }

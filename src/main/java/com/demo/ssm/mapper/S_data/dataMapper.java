@@ -42,6 +42,8 @@ public interface dataMapper {
 
     List<data> interface_type_null(String Province);
 
+
+
     Integer channel_type_Count(String Province) throws IOException;
 
     Integer channel_type_null_Count(String Province) throws IOException;

@@ -84,6 +84,10 @@
           <element id="library" level="project" name="Maven: com.auth0:java-jwt:2.2.0" />
           <element id="library" level="project" name="Maven: com.thetransactioncompany:cors-filter:2.5" />
           <element id="library" level="project" name="Maven: com.thetransactioncompany:java-property-utils:1.9.1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.2.0" />
+          <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.0.0" />
+          <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.1.0" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.2.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

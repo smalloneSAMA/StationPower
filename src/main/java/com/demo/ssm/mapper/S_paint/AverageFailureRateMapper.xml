@@ -10,14 +10,12 @@
 </resultMap>
 
     <resultMap id="AlarmCauseMap" type="com.demo.ssm.po.S_paint.AlarmCause">
-
         <result column="producer" property="producer" jdbcType="VARCHAR"/>
         <result column="alarm_cause" property="alarm_cause" jdbcType="VARCHAR"/>
         <result column="num" property="num" />
     </resultMap>
 
     <resultMap id="AlarmCombineMap" type="com.demo.ssm.po.S_paint.AlarmCombine">
-
         <result column="NE_OBJ_ID" property="NE_OBJ_ID" jdbcType="VARCHAR"/>
         <result column="ALARM_EMS_TIME_DAY" property="ALARM_EMS_TIME_DAY" jdbcType="VARCHAR"/>
         <result column="ALARM_EMS_TIME" property="ALARM_EMS_TIME" jdbcType="VARCHAR"/>
@@ -33,7 +31,6 @@
     </resultMap>
 
     <resultMap id="neNameAlarmMap" type="com.demo.ssm.po.S_paint.NeNameAlarm">
-
         <result column="province" property="province" jdbcType="VARCHAR"/>
         <result column="producer_name" property="producer_name" jdbcType="VARCHAR"/>
         <result column="ne_name" property="ne_name" jdbcType="VARCHAR"/>

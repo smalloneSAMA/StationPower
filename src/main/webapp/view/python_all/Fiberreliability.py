@@ -6,13 +6,13 @@ import calendar
 from dateutil import rrule
 
 province = "jiangxi"
-path = 'E:/'
+path = 'E:\360Downloads\StationPower\src\main\webapp\view\CSV'
 
 config = {
-    'host': 'localhost',
+    'host': '172.16.135.19',
     'port': 3306,
     'user': 'root',
-    'password': 'admin',
+    'password': 'hadoop',
     'db': 'jiangxi_power',
     'charset':'utf8',
     'cursorclass':pymysql.cursors.DictCursor,

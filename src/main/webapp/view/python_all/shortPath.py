@@ -26,14 +26,13 @@ import sys
 # 射线判断函数
 
 def ray_casting(p, poly):
-
     px = p[0]
     py = p[1]
     flag = False
 
     i = 0
     l = len(poly)
-    j = l-1
+    j = l - 1
 
     while i < l:
         sx = float(poly[i][0])
@@ -56,7 +55,7 @@ def ray_casting(p, poly):
             # 射线穿过多边形的边界
             if x > px:
                 flag = not flag
-                
+
         j = i
         i += 1
     # 射线穿过多边形边界的次数为奇数时点在多边形内
@@ -66,28 +65,28 @@ def ray_casting(p, poly):
         return False
 
 
-#  获取需要查询的省份 start
+# 获取需要查询的省份 start
 # 中文
-province_gbk = sys.argv[1]
-# province_gbk = '江西'
+# province_gbk = sys.argv[1]
+province_gbk = '江西'
 # 中文省份对应数据库名
 dict_provinces = {
-                '江西': 'jiangxi_before170619', '安徽': 'anhui', '重庆': 'chongqing', '甘肃': 'gansu', '河南': 'henan',
-                '湖北': 'hubei', '湖南': 'hunan', '江苏': 'jiangsu', '辽宁': 'liaoning', '宁夏': 'ningxia',
-                '山西': 'shan1xi', '山东': 'shandong', '四川': 'sicuan', '新疆': 'xinjiang', '北京': 'beijing',
-                '成都': 'chengdu', '福建': 'fujian', '河北': 'hebei', '黑龙江': 'heilongjiang', '吉林': 'jilin',
-                '内蒙古': 'mengdong', '青海': 'qinghai', '陕西': 'shan3xi', '天津': 'tianjin', '西藏': 'xizang',
-                '浙江': 'zhejiang'
-            }
+    '江西': 'jiangxi_before170619', '安徽': 'anhui', '重庆': 'chongqing', '甘肃': 'gansu', '河南': 'henan',
+    '湖北': 'hubei', '湖南': 'hunan', '江苏': 'jiangsu', '辽宁': 'liaoning', '宁夏': 'ningxia',
+    '山西': 'shan1xi', '山东': 'shandong', '四川': 'sicuan', '新疆': 'xinjiang', '北京': 'beijing',
+    '成都': 'chengdu', '福建': 'fujian', '河北': 'hebei', '黑龙江': 'heilongjiang', '吉林': 'jilin',
+    '内蒙古': 'mengdong', '青海': 'qinghai', '陕西': 'shan3xi', '天津': 'tianjin', '西藏': 'xizang',
+    '浙江': 'zhejiang'
+}
 # 中文省份对应告警文件名
 dict_alarmData = {
-                '江西': 'jiangxi', '安徽': 'anhui', '重庆': 'chongqing', '甘肃': 'gansu', '河南': 'henan',
-                '湖北': 'hubei', '湖南': 'hunan', '江苏': 'jiangsu', '辽宁': 'liaoning', '宁夏': 'ningxia',
-                '山西': 'shan1xi', '山东': 'shandong', '四川': 'sicuan', '新疆': 'xinjiang', '北京': 'beijing',
-                '成都': 'chengdu', '福建': 'fujian', '河北': 'hebei', '黑龙江': 'heilongjiang', '吉林': 'jilin',
-                '内蒙古': 'mengdong', '青海': 'qinghai', '陕西': 'shan3xi', '天津': 'tianjin', '西藏': 'xizang',
-                '浙江': 'zhejiang'
-            }
+    '江西': 'jiangxi', '安徽': 'anhui', '重庆': 'chongqing', '甘肃': 'gansu', '河南': 'henan',
+    '湖北': 'hubei', '湖南': 'hunan', '江苏': 'jiangsu', '辽宁': 'liaoning', '宁夏': 'ningxia',
+    '山西': 'shan1xi', '山东': 'shandong', '四川': 'sicuan', '新疆': 'xinjiang', '北京': 'beijing',
+    '成都': 'chengdu', '福建': 'fujian', '河北': 'hebei', '黑龙江': 'heilongjiang', '吉林': 'jilin',
+    '内蒙古': 'mengdong', '青海': 'qinghai', '陕西': 'shan3xi', '天津': 'tianjin', '西藏': 'xizang',
+    '浙江': 'zhejiang'
+}
 
 # 英文
 province = dict_alarmData[province_gbk]
@@ -105,12 +104,15 @@ mpl.rcParams['axes.unicode_minus'] = False
 
 # 连接数据库
 conn = db.connect(host='172.16.135.6', user='root', passwd='10086', db=database, port=3306, charset='utf8')
+
+
 # conn = db.connect(host='172.16.135.8', user='jiangxi', passwd='456123', db=province, port=3306, charset='utf8')
 
 
 # 获取k条最短路径
 def k_shortest_paths(G, source, target, k, weight=None):
     return list(islice(nx.shortest_simple_paths(G, source, target, weight=weight), k))
+
 
 # 是否寻找最短路径
 is_find_path = False
@@ -196,13 +198,14 @@ print("光缆的平均故障率", fiber_avg_fault)
 fiber_type_1 = 0.999973  # OPGW类型
 fiber_type_2 = 0.999959  # ADSS类型
 fiber_type_3 = 0.999280  # 普通光缆
-fiber_type_4 = 0.99      # OPPC
-fiber_type_5 = 0.99      # 跳纤
+fiber_type_4 = 0.99  # OPPC
+fiber_type_5 = 0.99  # 跳纤
 fiber_type_other = 0.99  # 类型为空的光缆
 
 # 10101-站点 10102-机房，线段
 cur = conn.cursor()
-cur.execute("select OBJ_ID,A_RESTYPE,Z_RESTYPE,A_RESOBJID,Z_RESOBJID,LINE_NUMBER,LINE_NUMBER_USED,LINE_NUMBER_FREE,1,1,FIBER_TYPE,LENGTH from t_fiber_seg")
+cur.execute(
+    "select OBJ_ID,A_RESTYPE,Z_RESTYPE,A_RESOBJID,Z_RESOBJID,LINE_NUMBER,LINE_NUMBER_USED,LINE_NUMBER_FREE,1,1,FIBER_TYPE,LENGTH from t_fiber_seg")
 result = cur.fetchall()
 data = np.array(result)
 # 机房和站点的关系
@@ -293,7 +296,7 @@ for i in range(data.shape[0]):
     # 同样，对b端做同样的处理
     if data[i][2] == '10101':
         data[i][9] = data[i][4]
-        z=True
+        z = True
     if data[i][2] == '10102':
         if dic.__contains__(data[i][4]):
             data[i][9] = dic[data[i][4]]
@@ -323,8 +326,9 @@ for i in range(data.shape[0]):
             fiber_occ = 0
         else:
             fiber_occ = int(data[i][6]) / int(data[i][5])
-        G.add_edge(data[i][8], data[i][9], weight=0.0, used=data[i][6], total=data[i][5], occ=fiber_occ, fiber_good=fiber_good)
-print('miss='+str(miss))
+        G.add_edge(data[i][8], data[i][9], weight=0.0, used=data[i][6], total=data[i][5], occ=fiber_occ,
+                   fiber_good=fiber_good)
+print('miss=' + str(miss))
 # 每个站点承载的业务数量
 buznumdic = {}
 for i in range(data3.shape[0]):
@@ -464,7 +468,9 @@ for edge in G.edges():
     if station_property[edge[0]][0] == 0 or station_property[edge[1]][0] == 0 or G[edge[0]][edge[1]]['fiber_good'] == 0:
         G[edge[0]][edge[1]]['weight'] = 1000
     else:
-        G[edge[0]][edge[1]]['weight'] = -(math.log(station_property[edge[0]][0]) + math.log(station_property[edge[1]][0]) + 2 * math.log(G[edge[0]][edge[1]]['fiber_good']))
+        G[edge[0]][edge[1]]['weight'] = -(
+        math.log(station_property[edge[0]][0]) + math.log(station_property[edge[1]][0]) + 2 * math.log(
+            G[edge[0]][edge[1]]['fiber_good']))
 
 # 输出通信网拓扑结构信息到csv start
 
@@ -487,12 +493,13 @@ for edge in G.edges():
 #             '7FE2FB56-1C56-453F-914F-CDDE8F9C7435-00001': [115.85, 28.68],
 #             '7FE2FB56-1C56-453F-914F-CDDE8F9C7435-00002': [115.85, 28.68],
 #             '7E93D91B-2DC1-4DD5-B730-80C447E704DC-47529': [115.85, 28.68]
-# 
+#
 #             }
 
 
 # 查询每个省的所以分区id  边界   分区中心点 start
-conn_zone_dict = db.connect(host='172.16.135.19', user='root', passwd='hadoop', db="jiangxi_power", port=3306, charset='utf8')
+conn_zone_dict = db.connect(host='172.16.135.19', user='root', passwd='hadoop', db="jiangxi_power", port=3306,
+                            charset='utf8')
 
 cur_zone_dict = conn_zone_dict.cursor()
 
@@ -657,7 +664,8 @@ for node in G.nodes():
             # x_list.append(zone_dic[site_dic[node][1]][0] + np.random.randn() * 0.06)
             # y_list.append(zone_dic[site_dic[node][1]][1] + np.random.randn() * 0.06)
 
-            p_tem = [round(zone_dic[site_dic[node][1]][0] + np.random.randn() * 0.5, 2), round(zone_dic[site_dic[node][1]][1] + np.random.randn() * 0.5, 2)]
+            p_tem = [round(zone_dic[site_dic[node][1]][0] + np.random.randn() * 0.5, 2),
+                     round(zone_dic[site_dic[node][1]][1] + np.random.randn() * 0.5, 2)]
             while not ray_casting(p_tem, zone_border[site_dic[node][1]]):
                 p_tem = [round(zone_dic[site_dic[node][1]][0] + np.random.randn() * 0.5, 2),
                          round(zone_dic[site_dic[node][1]][1] + np.random.randn() * 0.5, 2)]
@@ -678,22 +686,25 @@ list_provence = []
 for i in enumerate(y_list):
     list_provence.append(province_gbk)
 
-
 # 修改start
-result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)), np.array(G.nodes()).reshape((-1, 1)), np.array(name_list).reshape((-1, 1)),
+result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)), np.array(G.nodes()).reshape((-1, 1)),
+                                       np.array(name_list).reshape((-1, 1)),
                                        np.array(x_list).reshape((-1, 1)), np.array(y_list).reshape((-1, 1)),
                                        np.array(buzNum_list).reshape((-1, 1)), np.array(node_color).reshape((-1, 1)),
                                        np.array(a_list).reshape((-1, 1)), np.array(b_list).reshape((-1, 1)),
                                        np.array(c_list).reshape((-1, 1)))),
-                      columns=['Province', 'obj_id', 'name', 'Xaxis', 'Yaxis', 'businessNum', 'kuorong', 'portOcc', 'buzNumRate', 'increaseRate'])
+                      columns=['Province', 'obj_id', 'name', 'Xaxis', 'Yaxis', 'businessNum', 'kuorong', 'portOcc',
+                               'buzNumRate', 'increaseRate'])
 # result.to_csv(save_path+"station_property.csv", index=False, header=True, encoding='gbk')
 # 修改end
 
 
 # 将station_property写入数据库对应的表 start
 try:
-    engine_property = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8", max_overflow=5)
-    pd.io.sql.to_sql(result, name='StationProperty', con=engine_property, if_exists='append', schema='jiangxi_power', index=False, index_label=False, chunksize=10000)
+    engine_property = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8",
+                                    max_overflow=5)
+    pd.io.sql.to_sql(result, name='StationProperty', con=engine_property, if_exists='append', schema='jiangxi_power',
+                     index=False, index_label=False, chunksize=10000)
 
 finally:
     print('station_property insert successfully!')
@@ -720,8 +731,11 @@ list_provence = []
 for i in enumerate(edge_id1_list):
     list_provence.append(province_gbk)
 
-result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)), np.array(edge_id1_list).reshape((-1, 1)), np.array(edge_name1_list).reshape((-1, 1)),
-                                       np.array(edge_id2_list).reshape((-1, 1)), np.array(edge_name2_list).reshape((-1, 1)),
+result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)),
+                                       np.array(edge_id1_list).reshape((-1, 1)),
+                                       np.array(edge_name1_list).reshape((-1, 1)),
+                                       np.array(edge_id2_list).reshape((-1, 1)),
+                                       np.array(edge_name2_list).reshape((-1, 1)),
                                        np.array(edge_occ_list).reshape((-1, 1)))),
                       columns=['Province', 'obj_id1', 'name1', 'obj_id2', 'name2', 'fiberOcc'])
 # result.to_csv(save_path+"station_link.csv", index=False, header=True, encoding='gbk')
@@ -729,8 +743,10 @@ result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)),
 
 # 将station_link写入数据库对应的表 start
 try:
-    engine_link = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8", max_overflow=5)
-    pd.io.sql.to_sql(result, name='StationLink', con=engine_link, if_exists='append', schema='jiangxi_power', index=False, index_label=False, chunksize=10000)
+    engine_link = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8",
+                                max_overflow=5)
+    pd.io.sql.to_sql(result, name='StationLink', con=engine_link, if_exists='append', schema='jiangxi_power',
+                     index=False, index_label=False, chunksize=10000)
 finally:
     print('station_link insert successfully!')
 
@@ -742,7 +758,7 @@ finally:
 position = {}
 for node in G.nodes():
     cur4 = conn.cursor()
-    cur4.execute("select PAR_ZONE from t_spc_site where OBJ_id='"+node+"'")
+    cur4.execute("select PAR_ZONE from t_spc_site where OBJ_id='" + node + "'")
     result4 = cur4.fetchall()
     data4 = np.array(result4)
     # 江西
@@ -820,7 +836,7 @@ for node in G.nodes():
         position[node] = [0.5, 0.35]
     else:
         position[node] = [random.uniform(0.98, 1), random.uniform(0.98, 1)]
-    
+
     # 北京
     if data4[0][0] == 'FCE7529D-8F73-4677-A557-DAABB25E5ACD-00007':  # 海淀区
         position[node] = [random.uniform(450, 650), random.uniform(800, 950)]
@@ -933,15 +949,18 @@ list_provence = []
 for i in enumerate(buz_list):
     list_provence.append(province_gbk)
 
-result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)), np.array(buz_list).reshape((-1, 1)), np.array(buz_name_list).reshape((-1, 1)),
+result = pd.DataFrame(np.column_stack((np.array(list_provence).reshape((-1, 1)), np.array(buz_list).reshape((-1, 1)),
+                                       np.array(buz_name_list).reshape((-1, 1)),
                                        np.array(route_list1).reshape((-1, 1)), np.array(route_list2).reshape((-1, 1)))),
                       columns=['Province', 'buz_id', 'name', 'route', 'route_2'])
 # result.to_csv(save_path+"station_route.csv", index=False, header=True, encoding='gbk')
 
 # 将station_route写入数据库对应的表 start
 try:
-    engine_route = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8", max_overflow=5)
-    pd.io.sql.to_sql(result, name='StationRoute', con=engine_route, if_exists='append', schema='jiangxi_power', index=False, index_label=False, chunksize=10000)
+    engine_route = create_engine("mysql+pymysql://root:hadoop@172.16.135.19:3306/jiangxi_power?charset=utf8",
+                                 max_overflow=5)
+    pd.io.sql.to_sql(result, name='StationRoute', con=engine_route, if_exists='append', schema='jiangxi_power',
+                     index=False, index_label=False, chunksize=10000)
 finally:
     print('station_route insert successfully!')
 
@@ -973,9 +992,9 @@ if is_find_path:
             a = a * station_property[all_path_list[i][j]][0]
             b = b * (1 - station_property[all_path_list[i][j]][1])
             if j < len(all_path_list[i]) - 1:
-                c = c * (1 - G.edge[all_path_list[i][j]][all_path_list[i][j+1]]['occ'])
-                d = d * G.edge[all_path_list[i][j]][all_path_list[i][j+1]]['fiber_good']
-                e = e + G.edge[all_path_list[i][j]][all_path_list[i][j+1]]['weight']
+                c = c * (1 - G.edge[all_path_list[i][j]][all_path_list[i][j + 1]]['occ'])
+                d = d * G.edge[all_path_list[i][j]][all_path_list[i][j + 1]]['fiber_good']
+                e = e + G.edge[all_path_list[i][j]][all_path_list[i][j + 1]]['weight']
         print("第", i, "条路径dis长度为", e)
 
         f = 0.7 * a * d + 0.1 * b + 0.1 * c
@@ -989,7 +1008,6 @@ if is_find_path:
     print("第一条路径", shortNodeList)
     print("第二条路径", shortNodeList1)
 
-
 # 设置边的宽度
 edge_width = []
 for edge in G.edges():
@@ -997,12 +1015,15 @@ for edge in G.edges():
     flag1 = True
     if is_find_path:
         for i in range(len(shortNodeList)):
-            if i < len(shortNodeList)-1 and ((shortNodeList[i] == edge[0] and shortNodeList[i+1] == edge[1]) or (shortNodeList[i] == edge[1] and shortNodeList[i+1] == edge[0])):
+            if i < len(shortNodeList) - 1 and ((shortNodeList[i] == edge[0] and shortNodeList[i + 1] == edge[1]) or (
+                    shortNodeList[i] == edge[1] and shortNodeList[i + 1] == edge[0])):
                 edge_width.append(2)
                 flag = False
                 break
         for j in range(len(shortNodeList1)):
-            if flag and j < len(shortNodeList1)-1 and ((shortNodeList1[j] == edge[0] and shortNodeList1[j+1] == edge[1]) or (shortNodeList1[j] == edge[1] and shortNodeList1[j+1] == edge[0])):
+            if flag and j < len(shortNodeList1) - 1 and (
+                (shortNodeList1[j] == edge[0] and shortNodeList1[j + 1] == edge[1]) or (
+                    shortNodeList1[j] == edge[1] and shortNodeList1[j + 1] == edge[0])):
                 edge_width.append(1)
                 flag1 = False
                 break
@@ -1011,19 +1032,19 @@ for edge in G.edges():
         if is_find_path:
             edge_width.append(0)
         else:
-            #if G.edge[edge[0]][edge[1]]['occ'] > 0.8:
-               # edge_width.append(2)
-            #else:
-                #edge_width.append(0.2)
+            # if G.edge[edge[0]][edge[1]]['occ'] > 0.8:
+            # edge_width.append(2)
+            # else:
+            # edge_width.append(0.2)
             edge_width.append(0.5)
 # 设置顶点说明
 dicNew = {}
 if is_find_path:
 
-    #path_list = shortNodeList + shortNodeList1
+    # path_list = shortNodeList + shortNodeList1
     for node in G.nodes():
-        #if node in dic2 and node in path_list and not dicNew.__contains__(node):
-            #dicNew[node] = dic2[node] + "(" + str(buznumdic[node]) + ")"
+        # if node in dic2 and node in path_list and not dicNew.__contains__(node):
+        # dicNew[node] = dic2[node] + "(" + str(buznumdic[node]) + ")"
         if node == source_node:
             dicNew[node] = '起点'
         elif node == target_node:
@@ -1038,10 +1059,10 @@ for node in G.nodes():
         else:
             node_size.append(0.5)
     else:
-        #if node_color_dic[node] > 0.5:
-            #node_size.append(4)
-        #else:
-            #node_size.append(1)
+        # if node_color_dic[node] > 0.5:
+        # node_size.append(4)
+        # else:
+        # node_size.append(1)
         node_size.append(2)
 print(G.adj)
 
@@ -1058,10 +1079,13 @@ vmax = 0.8
 
 print(node_color)
 nodecmap = cm.jet
-nx.draw_networkx(G, position, nodelist=G.nodes(), node_size=node_size, labels=dicNew, style='solid', width=edge_width, cmap=nodecmap, vmin=vmin, vmax=vmax, edge_cmap=nodecmap,edge_vmin=vmin,edge_vmax=vmax,with_labels=is_find_path,font_color='R',font_size=8,node_color=node_color,edge_color=occ,label_pos=0.5)
+nx.draw_networkx(G, position, nodelist=G.nodes(), node_size=node_size, labels=dicNew, style='solid', width=edge_width,
+                 cmap=nodecmap, vmin=vmin, vmax=vmax, edge_cmap=nodecmap, edge_vmin=vmin, edge_vmax=vmax,
+                 with_labels=is_find_path, font_color='R', font_size=8, node_color=node_color, edge_color=occ,
+                 label_pos=0.5)
 Z = [[0, 0], [0, 0]]
 # levels = range(nodevmin,nodevmax+1,1)
-levels = np.arange(vmin, vmax+0.1, 0.1)
+levels = np.arange(vmin, vmax + 0.1, 0.1)
 bar = plt.contourf(Z, levels, cmap=nodecmap, fontcolor='w')
 # plt.colorbar(bar)
 
